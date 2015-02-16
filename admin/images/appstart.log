@@ -1,0 +1,328 @@
+﻿3/19/2010 4:18:39 PM: Starting InterpriseSuiteEcommerce...
+
+3/19/2010 4:18:39 PM: AppLogic.InterpriseSuiteEcommerce...
+
+3/19/2010 4:18:39 PM: Testing DBConn...
+
+3/19/2010 4:18:39 PM: DBConn OK.
+
+3/19/2010 4:18:39 PM: Testing WebsiteCode...
+
+3/19/2010 4:18:39 PM: Testing WebsiteCode...OK
+
+3/19/2010 4:18:39 PM: Testing WebsiteCode2...
+
+3/19/2010 4:18:39 PM: Testing WebsiteCode2...OK
+
+3/19/2010 4:18:39 PM: Determine Trust Level...
+
+3/19/2010 4:18:39 PM: Determine Trust Level OK.
+
+3/19/2010 4:18:39 PM: Application.Clear...
+
+3/19/2010 4:18:39 PM: Application.Clear OK.
+
+3/19/2010 4:18:39 PM: Application.RemoveAll...
+
+3/19/2010 4:18:39 PM: Application.RemoveAll OK.
+
+3/19/2010 4:18:39 PM: ComponentArt License...
+
+3/19/2010 4:18:39 PM: ComponentArt License OK.
+
+3/19/2010 4:18:39 PM: AppConfig Load...
+
+3/19/2010 4:18:39 PM: AppConfig Load OK.
+
+3/19/2010 4:18:39 PM: Load StringResources...
+
+3/19/2010 4:18:39 PM: Load StringResources OK.
+
+3/19/2010 4:18:39 PM: Load EntityHelpers...
+
+3/19/2010 4:18:39 PM: Load EntityHelpers OK.
+
+3/19/2010 4:18:39 PM: Setup 49...
+
+3/19/2010 4:18:39 PM: CC Check
+
+3/19/2010 4:18:39 PM: CC OK..
+
+3/19/2010 4:18:39 PM: Clear Customer Session...
+
+3/19/2010 4:18:39 PM: Clear Customer Session Ok
+
+3/19/2010 4:18:39 PM: Custom AppLogic Start Logic...
+
+3/19/2010 4:18:39 PM: Custom AppLogic Start Logic OK.
+
+3/19/2010 4:18:39 PM: AppLogic.ApplicationStart OK.
+
+3/19/2010 4:18:39 PM: InterpriseSuiteEcommerce Started OK.
+
+3/22/2010 11:44:21 AM: Determine Trust Level...
+
+3/22/2010 11:44:21 AM: Determine Trust Level OK.
+
+3/22/2010 11:44:21 AM: Application.Clear...
+
+3/22/2010 11:44:21 AM: Application.Clear OK.
+
+3/22/2010 11:44:21 AM: Application.RemoveAll...
+
+3/22/2010 11:44:21 AM: Application.RemoveAll OK.
+
+3/22/2010 11:44:21 AM: ComponentArt License...
+
+3/22/2010 11:44:21 AM: ComponentArt License OK.
+
+3/22/2010 11:44:21 AM: AppConfig Load...
+
+3/22/2010 11:44:21 AM: AppConfig Load OK.
+
+3/22/2010 11:44:21 AM: Load StringResources...
+
+3/22/2010 11:44:21 AM: Load StringResources OK.
+
+3/22/2010 11:44:21 AM: Load EntityHelpers...
+
+3/22/2010 11:44:21 AM: Load EntityHelpers OK.
+
+3/22/2010 11:44:21 AM: Setup 49...
+
+3/22/2010 11:44:21 AM: CC Check
+
+3/22/2010 11:44:21 AM: CC OK..
+
+3/22/2010 11:44:21 AM: Clear Customer Session...
+
+3/22/2010 11:44:21 AM: Clear Customer Session Ok
+
+3/22/2010 11:51:40 AM: Determine Trust Level...
+
+3/22/2010 11:51:40 AM: Determine Trust Level OK.
+
+3/22/2010 11:51:40 AM: Application.Clear...
+
+3/22/2010 11:51:40 AM: Application.Clear OK.
+
+3/22/2010 11:51:40 AM: Application.RemoveAll...
+
+3/22/2010 11:51:40 AM: Application.RemoveAll OK.
+
+3/22/2010 11:51:40 AM: ComponentArt License...
+
+3/22/2010 11:51:40 AM: ComponentArt License OK.
+
+3/22/2010 11:51:40 AM: AppConfig Load...
+
+3/22/2010 11:51:40 AM: AppConfig Load OK.
+
+3/22/2010 11:51:40 AM: Load StringResources...
+
+3/22/2010 11:51:40 AM: Load StringResources OK.
+
+3/22/2010 11:51:40 AM: Load EntityHelpers...
+
+3/22/2010 11:51:40 AM: Load EntityHelpers OK.
+
+3/22/2010 11:51:40 AM: Setup 49...
+
+3/22/2010 11:51:40 AM: CC Check
+
+3/22/2010 11:51:40 AM: CC OK..
+
+3/22/2010 11:51:40 AM: Clear Customer Session...
+
+3/22/2010 11:51:40 AM: Clear Customer Session Ok
+
+3/22/2010 11:51:41 AM: Determine Trust Level...
+
+3/22/2010 11:51:41 AM: Determine Trust Level OK.
+
+3/22/2010 11:51:41 AM: Application.Clear...
+
+3/22/2010 11:51:41 AM: Application.Clear OK.
+
+3/22/2010 11:51:41 AM: Application.RemoveAll...
+
+3/22/2010 11:51:41 AM: Application.RemoveAll OK.
+
+3/22/2010 11:51:41 AM: ComponentArt License...
+
+3/22/2010 11:51:41 AM: ComponentArt License OK.
+
+3/22/2010 11:51:41 AM: AppConfig Load...
+
+3/22/2010 11:51:41 AM: AppConfig Load OK.
+
+3/22/2010 11:51:41 AM: Load StringResources...
+
+3/22/2010 11:51:41 AM: Load StringResources OK.
+
+3/22/2010 11:51:41 AM: Load EntityHelpers...
+
+3/22/2010 11:51:41 AM: Load EntityHelpers OK.
+
+3/22/2010 11:51:41 AM: Setup 49...
+
+3/22/2010 11:51:41 AM: CC Check
+
+3/22/2010 11:51:41 AM: CC OK..
+
+3/22/2010 11:51:41 AM: Clear Customer Session...
+
+3/22/2010 11:51:41 AM: Clear Customer Session Ok
+
+3/31/2010 11:35:40 AM: Determine Trust Level...
+
+3/31/2010 11:35:40 AM: Determine Trust Level OK.
+
+3/31/2010 11:35:40 AM: Application.Clear...
+
+3/31/2010 11:35:40 AM: Application.Clear OK.
+
+3/31/2010 11:35:40 AM: Application.RemoveAll...
+
+3/31/2010 11:35:40 AM: Application.RemoveAll OK.
+
+3/31/2010 11:35:40 AM: ComponentArt License...
+
+3/31/2010 11:35:40 AM: ComponentArt License OK.
+
+3/31/2010 11:35:40 AM: AppConfig Load...
+
+3/31/2010 11:35:40 AM: AppConfig Load OK.
+
+3/31/2010 11:35:40 AM: Load StringResources...
+
+3/31/2010 11:35:40 AM: Load StringResources OK.
+
+3/31/2010 11:35:40 AM: Load EntityHelpers...
+
+3/31/2010 11:35:40 AM: Load EntityHelpers OK.
+
+3/31/2010 11:35:40 AM: Setup 49...
+
+3/31/2010 11:35:40 AM: CC Check
+
+3/31/2010 11:35:40 AM: CC OK..
+
+3/31/2010 11:35:40 AM: Clear Customer Session...
+
+3/31/2010 11:35:40 AM: Clear Customer Session Ok
+
+3/31/2010 11:35:41 AM: Determine Trust Level...
+
+3/31/2010 11:35:41 AM: Determine Trust Level OK.
+
+3/31/2010 11:35:41 AM: Application.Clear...
+
+3/31/2010 11:35:41 AM: Application.Clear OK.
+
+3/31/2010 11:35:41 AM: Application.RemoveAll...
+
+3/31/2010 11:35:41 AM: Application.RemoveAll OK.
+
+3/31/2010 11:35:41 AM: ComponentArt License...
+
+3/31/2010 11:35:41 AM: ComponentArt License OK.
+
+3/31/2010 11:35:41 AM: AppConfig Load...
+
+3/31/2010 11:35:41 AM: AppConfig Load OK.
+
+3/31/2010 11:35:41 AM: Load StringResources...
+
+3/31/2010 11:35:41 AM: Load StringResources OK.
+
+3/31/2010 11:35:41 AM: Load EntityHelpers...
+
+3/31/2010 11:35:41 AM: Load EntityHelpers OK.
+
+3/31/2010 11:35:41 AM: Setup 49...
+
+3/31/2010 11:35:41 AM: CC Check
+
+3/31/2010 11:35:41 AM: CC OK..
+
+3/31/2010 11:35:41 AM: Clear Customer Session...
+
+3/31/2010 11:35:41 AM: Clear Customer Session Ok
+
+3/31/2010 1:26:27 PM: Determine Trust Level...
+
+3/31/2010 1:26:27 PM: Determine Trust Level OK.
+
+3/31/2010 1:26:27 PM: Application.Clear...
+
+3/31/2010 1:26:27 PM: Application.Clear OK.
+
+3/31/2010 1:26:27 PM: Application.RemoveAll...
+
+3/31/2010 1:26:27 PM: Application.RemoveAll OK.
+
+3/31/2010 1:26:27 PM: ComponentArt License...
+
+3/31/2010 1:26:27 PM: ComponentArt License OK.
+
+3/31/2010 1:26:27 PM: AppConfig Load...
+
+3/31/2010 1:26:27 PM: AppConfig Load OK.
+
+3/31/2010 1:26:27 PM: Load StringResources...
+
+3/31/2010 1:26:27 PM: Load StringResources OK.
+
+3/31/2010 1:26:27 PM: Load EntityHelpers...
+
+3/31/2010 1:26:27 PM: Load EntityHelpers OK.
+
+3/31/2010 1:26:27 PM: Setup 49...
+
+3/31/2010 1:26:27 PM: CC Check
+
+3/31/2010 1:26:27 PM: CC OK..
+
+3/31/2010 1:26:27 PM: Clear Customer Session...
+
+3/31/2010 1:26:27 PM: Clear Customer Session Ok
+
+4/7/2010 4:40:19 PM: Determine Trust Level...
+
+4/7/2010 4:40:19 PM: Determine Trust Level OK.
+
+4/7/2010 4:40:19 PM: Application.Clear...
+
+4/7/2010 4:40:19 PM: Application.Clear OK.
+
+4/7/2010 4:40:19 PM: Application.RemoveAll...
+
+4/7/2010 4:40:19 PM: Application.RemoveAll OK.
+
+4/7/2010 4:40:19 PM: ComponentArt License...
+
+4/7/2010 4:40:19 PM: ComponentArt License OK.
+
+4/7/2010 4:40:19 PM: AppConfig Load...
+
+4/7/2010 4:40:19 PM: AppConfig Load OK.
+
+4/7/2010 4:40:19 PM: Load StringResources...
+
+4/7/2010 4:40:19 PM: Load StringResources OK.
+
+4/7/2010 4:40:19 PM: Load EntityHelpers...
+
+4/7/2010 4:40:19 PM: Load EntityHelpers OK.
+
+4/7/2010 4:40:19 PM: Setup 49...
+
+4/7/2010 4:40:19 PM: CC Check
+
+4/7/2010 4:40:20 PM: CC OK..
+
+4/7/2010 4:40:20 PM: Clear Customer Session...
+
+4/7/2010 4:40:20 PM: Clear Customer Session Ok
+

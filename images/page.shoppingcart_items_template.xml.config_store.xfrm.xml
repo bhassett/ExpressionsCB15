@@ -1,0 +1,78 @@
+<div class="section-header section-header-top" style="text-align:left;"><span>This shipping option is not supported in your destination address</span></div>
+<div class="cart-items-wrapper ">
+  <table class="cart-item">
+    <tr>
+      <td class="cart-col-header content" data-contentKey="shoppingcart.cs.1" data-contentValue="Product" data-contentType="string resource">Product</td>
+      <td class="cart-col-header"></td>
+      <td class="cart-col-header">Price</td>
+      <td class="cart-col-header cart-quantity-expander content" data-contentKey="shoppingcart.cs.2" data-contentValue="Quantity" data-contentType="string resource">Quantity</td>
+      <td class="cart-col-header cart-subtotal-expander gotextright-basic content" data-contentKey="shoppingcart.cs.70" data-contentValue="Sub Total" data-contentType="string resource">Sub Total</td>
+      <td class="cart-col-header"></td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <hr class="cart-item-divider">
+      </td>
+    </tr>
+    <tr>
+      <td class="cart_picture_layout"><a href="p-4947-set-of-4-paper-coil-word-love-.aspx"><img class="mobileimagesize" title="" alt="" src="skins/skin_99//images/nopictureicon.gif"></a></td>
+      <td class="cart-col kit_container"><a href="p-4947-set-of-4-paper-coil-word-love-.aspx"><b>Set of 4 Paper Coil Word &quot;LOVE&quot;</b></a></td>
+      <td class="cart-col">$ 49.99</td>
+      <td class="cart-col"><input type="text" class="inputQuantityLimit addSpace" id="Quantity_12" name="Quantity_12" value="1"><input type="hidden" name="MinOrderQuantity_12" id="MinOrderQuantity_12" value="0.00"><input type="hidden" name="Base_MinOrderQuantity_12" id="Base_MinOrderQuantity_12" value="0.00"></td>
+      <td class="cart-col gotextright-basic">
+        <div class="cart_price"><span class="showproduct_Price addSpace">$ 49.99</span></div>
+      </td>
+      <td class="cart-col cart-col-delete-icon"><input type="submit" class="cart-delete-custom content" name="bt_Delete" onclick="this.form.Quantity_12.value=0;" value=""></td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <hr class="cart-item-divider">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="cart-col"></td>
+      <td class="cart-col" colspan="5">
+        <div class="summary"><span class="summary-captions">Sub Total:</span><span class="summary-values">$ 49.99</span><div class="checkout-summary-clr"></div><span class="summary-captions"> + Shipping</span><span class="summary-values">Calculated During Checkout</span><br><span class="summary-captions"> + Tax</span><span class="summary-values">Calculated During Checkout</span><div class="checkout-summary-clr checkout-summary-clr-with-border hide-on-tax-breakdown-display"></div><span class="summary-captions summary-captions-bold">Total:</span><span class="summary-values summary-values-bold">$ 49.99</span></div>
+      </td>
+    </tr>
+  </table>
+</div><script>
+          $(document).ready(function(){
+
+          setMinQuantityByUnitMeasure = function (selection) {
+            var $this = selection.find(":selected");
+            var minOrderQtyID = $this.attr("minorderquantityid");
+            var umQty = $this.attr("unitmeasurequantity");
+
+            if (minOrderQtyID==undefined){return;}
+            if (minOrderQtyID.toString().length == 0){return;}
+            var $baseMinOrderQtyHolder = $("#"+ "Base_" + minOrderQtyID );
+
+            if ($baseMinOrderQtyHolder == undefined){return;}
+            var baseMinOrderQty =$baseMinOrderQtyHolder.val();
+
+            if(umQty==undefined){return;}
+            if (baseMinOrderQty==undefined){return;}
+
+            umQty = Number(umQty);
+            baseMinOrderQty = Number(baseMinOrderQty);
+
+            if (baseMinOrderQty == 0){return;}
+
+            // DOZEN to EACH Vv
+            // check if allow fractional before using Math.ceil
+            
+                umQty=  Math.round((baseMinOrderQty/umQty)*100)/100;
+              
+          var $minQuantityHolder = $("#"+ minOrderQtyID);
+          if ($minQuantityHolder != undefined){$minQuantityHolder.val(Number(umQty)); }
+          }
+
+          $(".showproduct_limitunitmeasure").change(function(){
+            var $this = $(this);
+            setMinQuantityByUnitMeasure($this);
+          });
+
+
+          });
+        </script>

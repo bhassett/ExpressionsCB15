@@ -1,0 +1,594 @@
+﻿<script id="requestProgressTextTemplate" type="x-jquery-tmpl">
+    <div>
+        <div style='float:right' class='OPCLoadStep'>
+            <div style='float:left;width:12px;'><i class="icon icon-spin icon-spinner progress-indicator"></i></div>
+            <div id='loader-container'>${msg.value}</div>
+        </div>
+        <div class='clear-both'></div>
+    </div>
+</script>
+
+<script id="singleAddressMatchDialogNoShippingAddressTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-billing" name="billing-address" data-streetaddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    {{each billingMatch}}
+
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-billing" checked name="billing-address" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}" />
+                        <span id="litUseSuggestedBilling" style="position: relative; top: 4px;">${stringResource.selectMatchingBillingAddress}</span>
+                    </li>
+
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="n-billing-address">${$value.Address}</li>
+                    <li style="padding-left:21px;" id="n-billing-city-state-postal">${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}</li>
+                    {{/each}}
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<script id="multipleAddressMatchDialogNoShippingAddressTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style" style="height:209px;">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-billing" name="billing-address" data-streetaddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-billing" checked name="billing-address" data-streetaddress="" data-city="" data-state="" data-postalcode="" />
+                        <span id="litUseSuggestedBilling" style="position: relative; top: 4px;">${stringResource.selectMatchingBillingAddress}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li id="n-billing-address">
+                        <div class="divSuggestedAddressHeader">Click row to select your address</div>
+                        <div id="divSuggestedBillingAddress">
+                            {{each billingMatch}}
+                            <div class="divSuggestedAddressRow is-div-suggested-row-active" data-updateoptionid="use-suggested-billing" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}">
+                                ${$value.Address}<br />
+                                ${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+
+
+<script id="singleAddressMatchDialogTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+            
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-billing" name="billing-address" data-streetAddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" name="shipping-address" data-streetAddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    {{each billingMatch}}
+
+                        <li style="font-weight:bold">
+                            <input type="radio" id="use-suggested-billing" checked name="billing-address" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}" />
+                            <span id="litUseSuggestedBilling" style="position: relative; top: 4px;">${stringResource.selectMatchingBillingAddress}</span>
+                        </li>
+                   
+                        <li><div class="clear-both height-5"></div></li>
+                        <li style="padding-left:21px;" id="n-billing-address">${$value.Address} </li>
+                        <li style="padding-left:21px;" id="n-billing-city-state-postal">${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}</li>
+                    {{/each}}
+                </ul>
+
+                <ul class="ul-list-no-style">
+                    {{each shippingMatch}}
+
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-shipping" checked name="shipping-address" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}" />
+                        <span id="litUseSuggestedShipping" style="position: relative; top: 4px;">${stringResource.selectMatchingShippingAddress}</span>
+                    </li>
+                   
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="n-billing-address"> ${$value.Address} </li>
+                    <li style="padding-left:21px;" id="n-billing-city-state-postal">${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}</li>
+                    {{/each}}
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<script id="multipleAddressMatchDialogTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style" style="height:209px;">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-billing" name="billing-address" data-streetaddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" name="shipping-address" data-streetaddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-billing" checked name="billing-address" data-streetaddress="" data-city="" data-state="" data-postalcode="" />
+                        <span id="litUseSuggestedBilling" style="position: relative; top: 4px;">${stringResource.selectMatchingBillingAddress}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li  id="n-billing-address">
+                        <div class="divSuggestedAddressHeader">Click row to select your address</div>
+                        <div id="divSuggestedBillingAddress">
+                            {{each billingMatch}}
+                            <div class="divSuggestedAddressRow is-div-suggested-row-active" data-updateoptionid="use-suggested-billing" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}">
+                                ${$value.Address}<br />
+                                ${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-shipping" checked name="shipping-address" data-streetaddress="" data-city="" data-state="" data-postalcode="" />
+                        <span id="litUseSuggestedShipping" style="position: relative; top: 4px;">${stringResource.selectMatchingShippingAddress}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li id="n-shipping-address">
+                        <div class="divSuggestedAddressHeader">Click row to select your address</div>
+                        <div id="divSuggestedShippingAddress">
+                            {{each shippingMatch}}
+                            <div class="divSuggestedAddressRow is-div-suggested-row-active" data-updateoptionid="use-suggested-shipping" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}">
+                                ${$value.Address}<br />
+                                ${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<script id="defaultAddressSelectedTemplate" type="x-jquery-tmpl">
+    <div>
+        <i class='pull-right icon icon-check'></i>
+        <i class='pull-left' style="width:250px;">{{html content.value}}</i>
+        <div class='clear-both'></div>
+    </div>
+</script>
+
+
+<script id="singleShippingAddressMatchDialogTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" name="shipping-address" data-streetaddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    {{each shippingMatch}}
+
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-shipping" checked name="shipping-address" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}" />
+                        <span id="litUseSuggestedShipping" style="position: relative; top: 4px;">${stringResource.selectMatchingShippingAddress}</span>
+                    </li>
+
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="n-billing-address"> ${$value.Address} </li>
+                    <li style="padding-left:21px;" id="n-billing-city-state-postal">${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}</li>
+                    {{/each}}
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+
+<script id="multipleShippingAddressMatchDialogTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" name="shipping-address" data-streetaddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-suggested-shipping" checked name="shipping-address" data-streetaddress="" data-city="" data-state="" data-postalcode="" />
+                        <span id="litUseSuggestedShipping" style="position: relative; top: 4px;">${stringResource.selectMatchingShippingAddress}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li id="n-shipping-address">
+                        <div class="divSuggestedAddressHeader">Click row to select your address</div>
+                        <div id="divSuggestedShippingAddress">
+                            {{each shippingMatch}}
+                            <div class="divSuggestedAddressRow is-div-suggested-row-active" data-updateoptionid="use-suggested-shipping" data-streetaddress="${$value.Address}" data-city="${$value.City}" data-state="${$value.State}" data-postalcode="${$value.PostalCode}">
+                                ${$value.Address}<br />
+                                ${$value.City},&nbsp;${$value.State}&nbsp;${$value.PostalCode}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<!--Templates for returned address with gateway error /starts here -->
+<script id="singleAddressMatchDialogTemplate_GatewayErrorTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-billing" checked name="billing-address" data-streetaddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" checked name="shipping-address" data-streetaddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="color:red;">
+                        ${stringResource.gatewayErrorText}
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<script id="singleAddressMatchDialogNoShippingAddress_GatewayErrorTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" checked id="use-my-billing" name="billing-address" data-streetaddress="${enteredBilling.StreetAddress}" data-city="${enteredBilling.City}" data-state="${enteredBilling.State}" data-postalcode="${enteredBilling.PostalCode}" />
+                        <span id="litUseBillingIProvided" style="position: relative; top: 4px;">${stringResource.useBillingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-billing-address">${enteredBilling.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-billing-city-state-postal">${enteredBilling.City},&nbsp;${enteredBilling.State}&nbsp;${enteredBilling.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="color:red;">
+                        ${stringResource.gatewayErrorText}
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+
+<!--Templates for returned address with gateway error /starts here -->
+<script id="singleShippingAddressMatchDialogTemplate_GatewayErrorTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class='address-verification-dialog-wrapper'>
+            <div class="clear-both height-5"></div>
+            <span id="litAddressVerificationDialogText">${stringResource.unableToVerifyAddress}</span>
+            <div class="clear-both height-5"></div>
+
+            <span id="litAddressVerificationDialogSubText">${stringResource.confirmCorrectAddress}</span>
+            <div class="clear-both height-12"></div>
+
+            <!--user entered address section-->
+            <div id="divEnteredAddress">
+                <ul class="ul-list-no-style">
+                    <li style="font-weight:bold">
+                        <input type="radio" id="use-my-shipping" checked name="shipping-address" data-streetaddress="${enteredShipping.StreetAddress}" data-city="${enteredShipping.City}" data-state="${enteredShipping.State}" data-postalcode="${enteredShipping.PostalCode}" />
+                        <span id="litUseShippingIProvided" style="position: relative; top: 4px;">${stringResource.useShippingAddressProvided}</span>
+                    </li>
+                    <li><div class="clear-both height-5"></div></li>
+                    <li style="padding-left:21px;" id="c-shipping-address">${enteredShipping.StreetAddress}</li>
+                    <li style="padding-left:21px;" id="c-shipping-city-state-postal">${enteredShipping.City},&nbsp;${enteredShipping.State}&nbsp;${enteredShipping.PostalCode}</li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--user entered address section /ends here-->
+            <!--gateway suggested address section-->
+            <div id="divSuggestedAddress">
+                <ul class="ul-list-no-style">
+                    <li style="color:red;">
+                        ${stringResource.gatewayErrorText}
+                    </li>
+                </ul>
+                <div class="clear-both height-12"></div>
+            </div>
+            <!--gateway suggested address section /ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+
+        <!--button section -->
+        <div id="submit-suggested-button-place-holder">
+            <div id="saving-button-place-holder" class='float-right' style="padding-right:4px">
+                <input type="button" class="btn btn-primary" id="submit-suggested-address" value="Continue" />
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <!--button section /ends here -->
+    </div>
+</script>
+<!--Templates for returned address with gateway error /ends here -->
+

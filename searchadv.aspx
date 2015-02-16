@@ -1,0 +1,1 @@
+<%@ Page language="c#" Inherits="InterpriseSuiteEcommerce.searchadv" CodeFile="searchadv.aspx.cs" %>

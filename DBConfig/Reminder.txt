@@ -1,0 +1,6 @@
+﻿Reminder when using the db.xml.config
+
+1. All xml config will be loaded automatically during application startup.
+2. If creation of multiple db.xml.config is intended. Make sure that there is no duplicate config values in all configurations.
+3. If creation of config file is intended. Copy path the file and change the .config extension to any extension.
+   Ex. db.xml.bak, db.xml.config.bak, etc..

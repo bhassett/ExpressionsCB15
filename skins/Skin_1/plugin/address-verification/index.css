@@ -1,0 +1,7 @@
+﻿#divSuggestedBillingAddress{background: #cccccc; height: 150px; overflow: auto;}
+#divSuggestedShippingAddress{background: #cccccc; height: 150px; overflow: auto;}
+#n-billing-address, #n-shipping-address{padding-left:21px;}
+.divSuggestedAddressHeader{background: #2C2C2C; color: #FFFFFF; padding: 5px;}
+.divSuggestedAddressRow{cursor:pointer;padding: 5px;border-bottom: 1px solid #CCCCCC;background: #fff;border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;}
+.use-suggested-address{background:#136DB1;color:#fff;}
+

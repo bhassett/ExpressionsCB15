@@ -1,0 +1,87 @@
+﻿table#storeListTableContainerId {  border-collapse: collapse; border-spacing: 0;  }
+.ui-widget { font-size: 11pt; }
+
+#storeDialogContainerId { overflow-y: hidden; display:none; height:680px !important; }
+.store-dialog-body { width:100%; float:left; }
+.store-dialog-body-wrapper { padding: 5px; float:left; }
+.store-menu-body { padding:10px 20px 0px 20px; height:470px; }
+
+.content-curv { border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; -moz-border-radius: 5px 5px 0 0; }
+.content-header { background-color: #efefef; }
+
+#storePickupSideMenuId { width:30%; float:left; display: table; margin-right:10px; border:solid 1px #ccc; }
+#storePickupSideMenuId .header, #storeListContainerId .header  { height:40px; }
+#storeListContainerId, #storeMapContainerId { float:left; width:100% }
+#storeMapContainerId { height: 521px; position:relative; }
+
+.storeMapCloseContainerClass { position: absolute; top:0; left:0; z-index:100000; }
+.storeMapCloseContainerClass i { color:brown; font-weight:bold; }
+.storeMapCloseContainerClass a:hover, .storeMapCloseContainerClass a:visited, .storeMapCloseContainerClass a:focus { text-decoration:none; }
+
+#storeMapId { width: 100%; height:100%; position: relative; float:left }
+.store-list-empty { padding: 20px; color:#888; }
+
+#storePickupMapContainerWrapperId { width:640px; float:left; position: relative; z-index: 1; border:solid 1px #ccc; }
+/*#storePickupSideMenuWrapperId { width:300px; float:left; }*/
+#storePickupMapContainer { width: 100%; height: 100%; z-index: 0; }
+#storeListContainerScrollerId { float: left; height: 479px; overflow-y: scroll; width: 100%; }
+
+.header-format { font-weight:bold; }
+.header-format span { line-height: 38px; margin-left: 20px; }
+#storeListTableContainerId { width:100%; }
+.store-item-header, .store-item-wrapper { font-size: 9pt; border-bottom: solid 1px #ccc; }
+.store-item-header { padding: 10px 0px 10px 5px; font-weight:bold; color:#888; text-transform:uppercase; }
+.store-item-wrapper { line-height:16px; transition: background 0.2s linear 0s, box-shadow 0.2s linear 0.1s; 
+                      -webkit-transition: background 0.2s linear 0s, box-shadow 0.2s linear 0.1s;
+}
+.store-item-wrapper a { color: #0088CC; text-decoration:none; }
+.store-item-wrapper a:hover, .store-item-wrapper i:hover { text-decoration:underline; font-weight:normal; }
+.store-item-wrapper span i:hover { text-decoration:none; }
+.store-item-wrapper i.icon-ok-sign { color: green; }
+#storeWhereMenuWrapperId { overflow: hidden; }
+
+tr.store-item-wrapper:hover { background-color:#eee; }
+.store-item { padding: 5px; }
+.store-item-info { width: 40%; }
+.store-item-availability { width: 22%; }
+.store-item-stock { width: 8%; }
+.store-item-distance { width: 15%; text-align:center; cursor:pointer; 
+                                             transition: color 0.2s ease-out 0s, box-shadow 0.2s linear 0.1s; 
+                                             -webkit-transition: color 0.2s ease-out 0s, box-shadow 0.2s linear 0.1s; }
+.store-item-input { width: 15%; text-align:center;  }
+	
+#storeListContainerId .store-item-distance:hover { color:#555;  }
+#storeListContainerId .store-item-distance i.icon-spinner { color: #584c4c }
+#storeListContainerId .store-item-distance i:hover { text-decoration:none; }
+#storeListContainerId .store-item-distance i.icon-sort { padding-left: 3px;  }
+	
+.store-item-input { width: 15%; text-align:center; }
+.store-address-description, .store-name { color: #555; }
+.store-name { font-weight:bold; }
+
+.ui-widget img { max-width: none; }
+.ui-widget .box { padding: 0px; }
+.field-item { padding-top: 10px; }
+.field-item input[type="text"], .field-item select { width: 100%; }
+.store-country-limit { width: 205px; height:30px !important; }
+.how-sample-address-text { color: #888; font-size:8pt; }
+
+.storeMapDirectionWrapperClass { border: solid 1px #ccc; float:left; margin-top: -280px; width:100% }
+#storeMapDirectionContainerId {  float: left; height: 227px; overflow-y: scroll; width: 100%; }
+
+.ui-dialog .header-col-c { padding: 10px 5px 5px 10px; }
+.ui-dialog .header-col-b { width: 150px; height:88px; border-right:solid 1px #efefef; vertical-align:middle; }
+.ui-dialog .header-row { height:140px; }
+.ui-dialog .header-col-c span { font-size: 9pt; color: #555; width:695px; }
+.ui-dialog .store-info { vertical-align: top; width: 185px; height:120px; float:left; overflow-y:scroll; }
+
+.ui-dialog .store-hours, .ui-dialog .store-holidays { display: table-cell; vertical-align: top; height:120px; float:left }
+.ui-dialog .store-hours { width: 190px; padding-left:10px; border-left: dashed 1px #ccc; }
+.ui-dialog .store-holidays { width: 250px; overflow-y:scroll; padding-left:10px; border-left: dashed 1px #ccc; }
+
+
+.ui-dialog span.store-title-format { font-weight:bold; border-bottom:solid 1px #ccc; }
+.ui-dialog .titleBox { margin-top: 0px; }
+
+.map-link i { margin-right: 2px; text-decoration:none; }
+#storeDialogContainerId img { max-width: none; }

@@ -1,0 +1,29 @@
+﻿<script id="matrixOptionsDefaultUnitMeasureTemplate" type="x-jquery-tmpl">
+<div id='divUnitMeasureContainer'>
+    <input type="text" id='unitMeasureOptions' readonly value='${unitMeasure.value}' style='width:50px;height:30px !important;'/>
+</div>
+</script>
+
+<script id="matrixOptionsDropdownUnitMeasureTemplate" type="x-jquery-tmpl">
+<div id='divUnitMeasureContainer'>
+<select id='unitMeasureOptions'>
+    {{each unitMeasures}}
+    <option value='${$value.code}' data-priceFormatted='${$value.price}' data-itemCode="${$value.itemCode}">${$value.description}</option>
+    {{/each}}
+</select>
+</div>
+</script>
+
+<script id="errorSummaryBoardTemplate" type="x-jquery-tmpl">
+<div>
+    <div class="error float-left normal-font-style" id="errorSummary" style="display: block;">
+        <div id="errorSummary_Board">
+            <ul id="errorSummary_Board_Errors">
+                {{each messages}}
+                    <li>${$value.description}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+</script>

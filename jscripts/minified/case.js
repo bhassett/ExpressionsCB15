@@ -1,0 +1,33 @@
+﻿$(document).ready(function () { InitControls(); EventsListener() }); function EventsListener() { $("#submit-case").click(function () { if ($(this).hasClass("editable-content")) return !1; SubmitCaseForm() }); $("#captcha-refresh-button").click(function () { captchaCounter++; $("#captcha").attr("src", "Captcha.ashx?id=" + captchaCounter) }) }
+function SubmitCaseForm() {
+    $("#ise-message-tips").fadeOut("slow"); var c = 0, d = !1, a = !1; $(".requires-validation").each(function () {
+        var b = trimString($(this).val()); if ("" == b) {
+            a = !1; var f = "#" + $(this).attr("id"), e = $(".zip-city-other-place-holder").css("display"); "#AddressControl_txtCity" == f && ("none" == e ? a = !0 : (a = !0, "" == b && (a = !1))); "#AddressControl_txtState" == f && (f = IsCountryWithStates("#AddressControl_drpCountry"), "none" == e || "false" == f ? a = !0 : (a = !0, "" == b && (a = !1))); IsInArray(["BillingAddressControl_txtPostal", "ShippingAddressControl_txtPostal",
+            "AddressControl_txtPostal"], $(this).attr("id")) && $(this).hasClass("is-postal-optional") && (a = !0); !1 == a && ($(this).removeClass("current-object-on-focus"), $(this).addClass("required-input"), 0 == c && ($(this).attr("id"), $(this).addClass("current-object-on-focus"), $(this).focus()), d = !0, c++)
+        }
+    }); if (d) return $("").focus(), !1; var b = $("#txtEmail"); if (b.hasClass("invalid-email") || b.hasClass("email-duplicates")) return b.focus(), !1; if ("undefined" == typeof $("#city-states").val()) {
+        var b = $("#AddressControl_txtPostal").offset().left,
+        e = $("#AddressControl_txtPostal").offset().top; $("#ise-message-tips").css("top", e - 47); $("#ise-message-tips").css("left", b - 17); $("#ise-message").html(ise.StringResource.getString("selectaddress.aspx.11")); $("#ise-message-tips").fadeIn("slow"); return !1
+    } $("#AddressControl_txtPostal").removeClass("invalid-postal-zero"); $("#ise-message-tips").fadeOut("slow"); VerifyAddress_v2()
+}
+function InitControls() {
+    $("#AddressControl_txtPostal").ISEAddressFinder({ "country-id": "#AddressControl_drpCountry", "postal-id": "#AddressControl_txtPostal", "city-id": "#AddressControl_txtCity", "state-id": "#AddressControl_txtState", "city-state-place-holder": ".zip-city-other-place-holder", "enter-postal-label-place-holder": "#enter-postal-label-place-holder", "city-states-id": "city-states" }); $("#AddressControl_txtStreet").ISEBubbleMessage({ "input-id": "AddressControl_txtStreet", "label-id": "AddressControl_lblStreet" });
+    $("#AddressControl_txtPostal").ISEBubbleMessage({ "input-id": "AddressControl_txtPostal", "label-id": "AddressControl_lblPostal", "input-mode": "postal" }); $("#AddressControl_txtCity").ISEBubbleMessage({ "input-id": "AddressControl_txtCity", "label-id": "AddressControl_lblCity" }); $("#AddressControl_txtState").ISEBubbleMessage({ "input-id": "AddressControl_txtState", "label-id": "AddressControl_lblState", "input-mode": "state" }); $("#AddressControl_txtCounty").ISEBubbleMessage({
+        "input-id": "AddressControl_txtCounty",
+        "label-id": "AddressControl_lblCounty", optional: !0
+    }); $("#txtContactName").ISEBubbleMessage({ "input-id": "txtContactName", "label-id": "lblContactName" }); $("#txtEmail").ISEBubbleMessage({ "input-id": "txtEmail", "label-id": "lblEmail", "input-mode": "email" }); $("#txtContactNumber").ISEBubbleMessage({ "input-id": "txtContactNumber", "label-id": "lblContactNumber" }); $("#txtCaseDetails").ISEBubbleMessage({ "input-id": "txtCaseDetails", "label-id": "lblCaseDetails" }); $("#txtSubject").ISEBubbleMessage({
+        "input-id": "txtSubject",
+        "label-id": "lblSubject"
+    }); $("#txtCaptcha").ISEBubbleMessage({ "input-id": "txtCaptcha", "label-id": "lblCaptcha" }); GetStringResources("customer-support", !0); "" != $.trim($("#AddressControl_txtPostal").val()) && ($(".zip-city-other-place-holder").fadeIn("Slow"), $("#enter-postal-label-place-holder").html("<input type='hidden' value='other' id='city-states'>"), $("#onload-process-place-holder").removeClass("error-message").html(""), HideStateInputBoxForCountryWithState("AddressControl"))
+}
+var constantErrorTags = { POSTAL_NOT_FOUND: "invalid-postal-zero", INVALID_EMAIL: "invalid-email", INVALID_POSTAL: "invalid-postal", STATE_NOT_FOUND: "state-not-found", REQUIRED_INPUT: "required-input", PASSWORD_NOT_MATCH: " password-not-match", PASSWORD_NOT_STRONG: "password-not-strong", PASSWORD_LENGTH_INVALID: "password-length-invalid" }, addressConstantID = {
+    DRP_COUNTRY: "AddressControl_drpCountry", HIDDEN_CITYSTATE: "city-states", LABEL_STREET: "AddressControl_lblStreet", LABEL_POSTAL: "AddressControl_lblPostal", LABEL_CITY: "AddressControl_lblCity",
+    LABEL_STATE: "AddressControl_lblState", LABEL_COUNTY: "AddressControl_lblCounty", INPUT_STREET: "AddressControl_txtStreet", INPUT_POSTAL: "AddressControl_txtPostal", INPUT_CITY: "AddressControl_txtCity", INPUT_STATE: "AddressControl_txtState", INPUT_COUNTY: "AddressControl_txtCounty"
+}, constants = {
+    CONTROL_DISABLED: "control-disabled", DISPLAY_NONE: "display-none", WIDTH_NO_STATE: "city-width-if-no-state", WIDTH_ENTER_POSTAL: "enter-postal-message-width", EMPTY: "", SEP_SPACE: " ", SEP_POUND: "#", SET_DOT: ".", TYPE_WHOLESALE: "wholesale",
+    TYPE_SIGNUP: "signup", TYPE_PROFILE: "profile", TYPE_ADDRESS: "address", TYPE_UNDEFINED: "undefined", TYPE_OTHER: "other", ON_FOCUS: "current-object-on-focus"
+};
+function VerifyAddress_v2() {
+    var c = GetObjectControl(addressConstantID.INPUT_POSTAL), d = GetInputValue(addressConstantID.DRP_COUNTRY), a = GetInputValue(addressConstantID.INPUT_POSTAL), b = !0, e = !0 == c.hasClass("is-postal-optional") && "" == a; IsSearchable(addressConstantID.DRP_COUNTRY) && !1 == e && IsPostalFormatInvalid(d, a) && (c.addClass(constantErrorTags.INVALID_POSTAL), "none" == ConvertStringToLower($(".zip-city-other-place-holder").css("display")) && $(constantID.DIV_ENTER_POSTAL).html(ise.StringResource.getString("customersupport.aspx.40")),
+    b = !1); if (!1 == b) return !1; c = $("#txtCityStates"); d = GetInputValue(addressConstantID.HIDDEN_CITYSTATE); c.val(d); d == constants.TYPE_OTHER && (d = GetInputValue(addressConstantID.INPUT_STATE) + ", " + GetInputValue(addressConstantID.INPUT_CITY), $("#txtCityStates").val(d)); ShowProcessMessage(ise.StringResource.getString("customersupport.aspx.25"), "error-summary", "save-case-loader", "save-case-button-place-holder"); $("#btnSendCaseForm").trigger("click")
+} function GetObjectControl(c) { return $(constants.SEP_POUND + c) };

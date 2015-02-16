@@ -1,0 +1,151 @@
+﻿<script id="matrixItemsTemplate" type="text/x-jquery-tmpl">
+    <div class="matrix-items-row-wrapper">
+        <!--matrix items listing left contents starts here(this is where the matrix photo is placed)-->
+        <div class='clear-both height-22'></div>
+        <div class="matrix-row-left-wrapper float-left">
+            {{html htmlMatrixItemDefaultPhoto}}
+            {{html htmlMultipleImagesLink}}  <!--navigation link (number or micro image) for items with multipple images-->
+        </div>
+        <!--matrix items listing left contents starts here-->
+        <!--matrix items listing right contents starts here-->
+        <div class="matrix-row-right-wrapper float-right">
+
+            <div class="matrix-row-item-name float-left">${MatrixItemName}</div>
+            {{if HidePriceUntilCart == false}}
+            <div class="matrix-row-item-price float-left" id="divMatrixItemPrice${MatrixItemCode}">${MatrixItemPrice}</div>
+            {{/if}}
+            <div class="matrix-row-spare float-left"></div>
+            <div class="matrix-row-item-stock float-right">{{html htmlMatrixItemStock}}</div>
+
+            <div class="clear-both height-12"></div>
+            <div id="pnlLoyaltyPoints_{$MatrixItemCounter}" style="display:none;" class="loyalty-points">
+                <i class="icon-gift"></i>
+                    ${stringResource.unitMeasure}
+                <span class="points"></span>
+                    ${stringResource.addToWishList}
+            </div>
+            <div class="clear-both height-12"></div>
+
+            <p>{{html MatrixItemDescription}}</p>
+
+            <div class="clear-both height-12"></div>
+            <div class="matrix-row-line clear-both height-5"></div> <!--this a dashed horisontal line at the end of each item description-->
+            <!--quantity, unit measure, and add to cart button place holder starts here-->
+           
+            
+             <div class="matrix-add-to-cart-wrapper">
+                <div class="clear-both height-12"></div>
+
+                 {{if IsCallToOrder == false}}
+                    <div class="matrix-row-item-qty float-left">
+                        <span class="matrix-item-qty-caption">
+                            ${stringResource.quantity}
+                        </span>
+                        <span>
+                            <input onkeypress="removeInvalidQuantityMessage('${MatrixItemCode}')" class="light-style-input item-qty matrix-listing-quantity" type="text" maxlength="4" size="2" value="1" id="qty-${MatrixItemCode}" />
+                        </span>
+                    </div>
+                    <div class="matrix-row-item-uom float-left">
+                            {{html htmlUnitOfMeasurement}}
+                    </div>
+                    {{if IsShowButton}}
+                    <div class="matrix-row-item-button float-left" id="{$MatrixItemCounter}-{$MatrixItemCode}-button-place-holder">
+                        <input type="button" data-itemcounter="${MatrixItemCounter}" data-itemcode="${MatrixItemCode}" value="${stringResource.addToCart}" class="site-button content btn btn-info matrix-item-listing-add-to-cart" data-contentkey="showproduct.aspx.58" data-contentvalue="${stringResource.addToCart}" data-contenttype="string resource" />
+                    </div>
+                    {{/if}}
+                 {{/if}}
+                 {{if IsCallToOrder}}
+                    ${stringResource.callToOrder}
+                 {{/if}}
+
+                <div class="clear-both height-12"></div>
+            </div>
+            
+            {{html htmlAddToCartReturnMessagePlaceHolder}}
+            <!--quantity, unit measure, and add to cart button place holder ends here-->
+
+            <div class="clear-both height-5"></div>
+        </div>
+        <!--matrix items listing right contents ends here-->
+    </div>
+
+    <div class="clear-both height-22"></div>
+    <div class="matrix-row-border-bottom"></div>
+    <!--this a dashed horisontal line at the end of each row-->
+</script>
+
+<script id="itemPhotoTemplate" type="x-jquery-tmpl">
+    <div id='item-photo-${itemCounter}-wrapper' style='margin:auto'>
+        <a id='item-photo-${itemCounter}' data-zoomoption='${zoomOption}' class='cloud-zoom' title='${itemName}' href='images/product/large/${largeImage}'>
+            <img data-contentkey='${itemCode}' data-contenttype='image' id='image-${itemCode}' class='matrix-images content' src='${source}' />
+        </a>
+    </div>
+</script>
+
+<script id="unitMeasureTemplate" type="x-jquery-tmpl">
+    <div id='divUnitMeasureContainer'>
+        <span>${unitMeasureText}</span>
+        <span>
+            <select id='uom-${itemCode}' class='light-style-input matrix-item-unitmeasure-selector' data-itemcode="${itemCode}" style='width:100px;'>
+                {{each unitMeasures}}
+                <option value='${$value.code}' data-priceformatted='${$value.priceFormatted}' data-promotionalpriceformatted='${$value.promotionalPriceFormatted}'>${$value.description}</option>
+                {{/each}}
+            </select>
+        </span>
+    </div>
+</script>
+
+<script id="requestMatrixItemIndicatorTemplate" type="x-jquery-tmpl">
+    <div id='message-loader' style='padding-left:30px;'>
+        <div class='clear-both height-12'></div>
+        <div style='float:left; padding-right:12px;'>
+            <img src='images/ajax-loader.gif'>
+        </div>
+        <div style='float:left;font-size:14px;font-weight:bold;position:relative;top:7px;'>${message}</div>
+    </div>
+</script>
+
+<script id="displayItemCounterIndicatorTemplate" type="x-jquery-tmpl">
+    <div>
+        Showing ${itemsOnDisplay} of ${totalItems}
+    </div>
+</script>
+
+<script id="itemsAddedIndicatorTemplate" type="x-jquery-tmpl">
+    <div>
+        <div class="float-right">
+            <div style="padding-right:5px;" class="float-right">
+                <img src="images/check-box.png" id="item-added-check-image">
+            </div>
+            <div id="item-added-message" class="float-left"><a href="shoppingcart.aspx">${message}</a></div>
+        </div>
+    </div>
+</script>
+
+<script id="aImageNavitionLinkTemplate" type="x-jquery-tmpl">
+    <div>
+        {{if IsChangeImageSourceOnRollOver_ImageLink}}
+            <a href="javascript:void(1);" data-counter="${counter}" data-itemCounter="${itemCounter}" data-itemCode="${itemCode}" data-imageSource="${imageSource}" style="background-image: url(images/product/micro/${source})" id="img-${itemCode}-nav-${counter}" class="multiple-image-nav ${selected} matrix-micro-image image-source-change-on-mouse-over"></a>
+        {{/if}}
+
+        {{if IsChangeImageSourceOnClick_ImageLink}}
+            <a href="javascript:void(1);" data-counter="${counter}" data-itemcounter="${itemCounter}" data-itemcode="${itemCode}" data-imagesource="${imageSource} " style="background-image:url(images/product/micro/${source})" id="img-${itemCode}-nav-${counter}" class="multiple-image-nav ${selected} matrix-micro-image image-source-change-on-click"></a>
+        {{/if}}
+
+        {{if IsChangeImageSourceOnRollOver_NumberLink}}
+            <a href="javascript:void(1);" data-counter="${counter}" data-itemcounter="${itemCounter}" data-itemcode="${itemCode}" data-imagesource="${imageSource }" id="img-${itemCode}-nav-${counter}" class="multiple-image-nav ${selected} image-source-change-on-mouse-over">${counter}</a>
+        {{/if}}
+
+        {{if IsChangeImageSourceOnClick_NumberLink}}
+            <a href="javascript:void(1);" data-counter="${counter}" data-itemcounter="${itemCounter}" data-itemcode="${itemCode}" data-imagesource="${imageSource }" id="img-${itemCode}-nav-${counter}" class="multiple-image-nav ${selected} image-source-change-on-click">${counter}</a>
+        {{/if}}
+    </div>
+</script>
+
+<script id="multipleImagesNavigationWrapper" type="x-jquery-tmpl">
+    <div>
+        <div id="multiple-images-nav-place-holder">
+           {{html links}}
+        </div>
+    </div>
+</script>

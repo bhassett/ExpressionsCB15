@@ -1,0 +1,15 @@
+﻿<script id="openInvoicesTemplate" type="x-jquery-tmpl">
+    <div><div id="pagingHeader"></div><div class="clear-both"></div><div id="content"><table id="tblOpenInvoices" cellpadding="0" cellspacing="0"><thead><tr><th class="invoice-row"></th><th class="invoice-code">${stringResource.invoiceCode}</th><th class="invoice-date">${stringResource.invoiceDate}</th><th class="invoice-due-date">${stringResource.invoiceDueDate}</th><th class="invoice-due-total">${stringResource.invoiceDueTotal}</th><th class="invoice-payments">${stringResource.invoicePayments}</th><th class="invoice-balance">${stringResource.invoiceBalance}</th><th class="invoice-action">${stringResource.actionText}</th></tr></thead><tbody id="openInvoicesContent"></tbody></table><div id="openInvoicesDisplayRange"></div></div><div id="invoice-pager"></div></div>
+</script>
+<script id="openInvoicesPaginationTemplate" type="x-jquery-tmpl">
+    <div><ul class="open-invoice-pagination">{{each paging}}<li class="open-invoice-page-number" data-pagenumber="${$value.current}" data-allpages="${allPages}"><a href="javascript:void(0);">${$value.current}</a> &nbsp;</li>{{/each}}</ul></div>
+</script>
+<script id="openInvoicesContentTemplate" type="x-jquery-tmpl">
+    <table>{{each invoice}}<tr><td class="rownumber"> ${$value.Row}</td><td><a href="receipt.aspx?OrderNumber=${$value.InvoiceCode}" target="_blank">${$value.InvoiceCode}</a></td><td> ${$value.InvoiceDate}</td><td> ${$value.InvoiceDueDate}</td><td> ${$value.DueTotal}</td><td> ${$value.Payments}</td><td> ${$value.Balance}</td><td><a href="payment.aspx?invoicecode=${$value.InvoiceCode}" class="site-button content btn btn-info" style="color: #fff;height: 30px;padding-top: 5px !important;">${stringResource.payOnlineButtonText}</a></td></tr>{{/each}}</table>
+</script>
+<script id="openInvoicesRangeTemplate" type="x-jquery-tmpl">
+    <div> ${stringResource.viewing}&#xa0;${start}&#xa0;-&#xa0;${end}&#xa0;${stringResource.ofText}&#xa0;${rows}</div>
+</script>
+<script id="openInvoicesPager" type="x-jquery-tmpl">
+    <div><div class="open-invoice-pager"><span>${stringResource.display}</span> &#xa0;<input id="txtOpenInvoicesPages" type="text" size="5" maxlength="4" value="${count}" name="Pages" style="text-align: right" /> &#xa0;<a id="reset-invoice-listing" href="javascript:void(0);">${stringResource.reset}</a></div></div>
+</script>

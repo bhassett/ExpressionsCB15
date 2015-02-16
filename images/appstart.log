@@ -1,0 +1,276 @@
+﻿7/29/2014 10:39:16 AM: AppLogic.InterpriseSuiteEcommerce...
+
+7/29/2014 10:39:16 AM: Determine Trust Level...
+
+7/29/2014 10:39:16 AM: Determine Trust Level OK.
+
+7/29/2014 10:39:16 AM: Application.Clear...
+
+7/29/2014 10:39:16 AM: Application.Clear OK.
+
+7/29/2014 10:39:16 AM: Application.RemoveAll...
+
+7/29/2014 10:39:16 AM: Application.RemoveAll OK.
+
+7/29/2014 10:39:16 AM: Testing WebsiteCode...
+
+7/29/2014 10:39:16 AM: Testing WebsiteCode...OK
+
+7/29/2014 10:39:16 AM: Try Load Sql Scripts from XML
+
+7/29/2014 10:39:16 AM: Testing Sql Scripts from XML OK
+
+7/29/2014 10:39:16 AM: AppConfig Load...
+
+7/29/2014 10:39:16 AM: AppConfig Load OK.
+
+7/29/2014 10:39:16 AM: Load StringResources...
+
+7/29/2014 10:39:16 AM: Load StringResources OK.
+
+7/29/2014 10:39:16 AM: Load RedirectURLs
+
+7/29/2014 10:39:16 AM: Load RedirectURLs OK.
+
+7/29/2014 10:39:16 AM: Load Cached Settings...
+
+7/29/2014 10:39:16 AM: Load Cached Settings OK.
+
+7/29/2014 10:39:16 AM: Setup 49...
+
+7/29/2014 10:39:16 AM: Clear Customer Session...
+
+7/29/2014 10:39:16 AM: Clear Customer Session Ok
+
+7/29/2014 10:39:16 AM: Testing DBConn...
+
+7/29/2014 10:39:16 AM: DBConn OK.
+
+7/29/2014 10:39:16 AM: Testing Website Count...
+
+7/29/2014 10:39:16 AM: Testing Website Count...OK
+
+7/29/2014 10:39:16 AM: AppLogic.ApplicationStart OK.
+
+7/29/2014 10:39:16 AM: InterpriseSuiteEcommerce Started OK.
+
+7/29/2014 10:39:16 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:42 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:45 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:46 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:46 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:46 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:47 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:49 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:51 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:51 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:51 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:53 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:55 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:55 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:55 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:55 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:39:55 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:41 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:42 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:42 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:42 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:45 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:45 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:45 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:45 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:47 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:47 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:47 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:40:47 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:56 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:57 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:57 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:58 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:58 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:58 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:41:58 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:10 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:10 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:13 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:13 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:13 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:14 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:30 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:30 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:30 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:42:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:05 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:05 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:06 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:06 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:06 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:09 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:10 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:10 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:10 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:14 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:14 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:14 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:46:16 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:02 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:03 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:03 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:04 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:20 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:20 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:20 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:58:20 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:59:37 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:59:37 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:59:37 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:59:37 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 10:59:37 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:24 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:25 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:25 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:25 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:25 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:30 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:31 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:01:32 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:48 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:48 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:48 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:49 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:49 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:49 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:49 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+
+7/29/2014 11:04:50 AM: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/36.0.1985.125 safari/537.36
+

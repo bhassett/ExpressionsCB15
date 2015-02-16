@@ -1,0 +1,26 @@
+﻿#tblOpenInvoices { width: 100%; padding: 5; border-spacing: 0; border: solid 1px #cccccc; }
+#tblOpenInvoices thead {  background: url(images/header_background.jpg); text-align:center; } 
+#tblOpenInvoices thead tr th { border-right:solid 1px #D1D1D1; border-bottom:solid 1px #D1D1D1; padding: 5px; } 
+#tblOpenInvoices th.invoice-row { width:2%; }
+#tblOpenInvoices th.invoice-code { width:15%; }
+#tblOpenInvoices th.invoice-date{ width:10%; }
+#tblOpenInvoices th.invoice-due-date { width:10%; }
+#tblOpenInvoices th.invoice-due-total { width:15%; }
+#tblOpenInvoices th.invoice-payments { width:15%; }
+#tblOpenInvoices th.invoice-balance { width:15%; }
+#tblOpenInvoices th.invoice-action {width:15%;}
+#tblOpenInvoices tbody tr td { border-bottom:solid 1px #D1D1D1; border-right:solid 1px #D1D1D1; text-align: center; vertical-align: middle; padding: 6px; }
+#tblOpenInvoices td.rownumber { background-color:#eeeeee; border-right:solid 1px #D1D1D1; border-bottom:solid 1px #D1D1D1; vertical-align: middle; font-weight: bold; }
+#content div { margin-top: 3px; }
+.open-invoice-pager input[type=text] { width: 50px; }
+.open-invoice-pagination { float: right; margin: 0; }
+.open-invoice-page-number { display: inline; }
+
+
+
+
+
+
+
+
+
