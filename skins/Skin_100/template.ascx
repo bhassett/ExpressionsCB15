@@ -1,21 +1,22 @@
 ﻿<!DOCTYPE html>
 <%@ Control Language="c#" AutoEventWireup="false" Inherits="InterpriseSuiteEcommerce.TemplateBase" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
+
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
     <head>
+        <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>(!METATITLE!)</title>
         <meta name="description" content="(!METADESCRIPTION!)" />
         <meta name="keywords" content="(!METAKEYWORDS!)" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/bootstrap/css/bootstrap.min.css" media="screen" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/font-awesome/css/font-awesome.min.css" type="text/css" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/ui-lightness/ui.custom.min.css" type="text/css" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/style.css" type="text/css" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/custom.css" type="text/css" />
+
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/stylesheets/app.css" />
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/stylesheets/foundation-icons.css" />
+        <script src="skins/Skin_(!SKINID!)/bower_components/modernizr/modernizr.js"></script>
         <script type="text/javascript" src="jscripts/jquery/jquery.min.v1.7.2.js"></script>
         <script type="text/javascript" src="jscripts/jquery/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="jscripts/jquery/jquery.tmpl.min.js"></script>
@@ -24,8 +25,9 @@
         <script type="text/javascript" src="jscripts/minified/attribute.selectors.js"></script>
         <script type="text/javascript" src="jscripts/minified/jquery.format.1.05.js"></script>
         <script type="text/javascript" src="jscripts/minified/address.dialog.js"></script>
-        <script type="text/javascript" src="jscripts/minified/bubble.message.js"></script>
+        <!-- // <script type="text/javascript" src="jscripts/minified/bubble.message.js"></script> -->
         <script type="text/javascript" src="jscripts/minified/jquery.loader.js"></script>
+
         <!-- Google Analytics -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -47,18 +49,12 @@
                     _gaq.push(['_trackPageview']); // request page tracking
                 }
             });
-         </script>
-        <!-- Global Loader -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("body").globalLoader({autoHide: false,image: 'images/ajax-loader.gif',opacity: 0.3,text: 'loading...'});
-                //sample implementation to display the loader
-                //$("body").data("globalLoader").show();
-            });
         </script>
+        
         (!JAVASCRIPT_INCLUDES!)
     </head>
-<body>
+    
+    <body>
     <asp:Panel ID="pnlForm" runat="server" Visible="false" />
     <!-- PAGE INVOCATION: '(!INVOCATION!)' -->
     <!-- PAGE REFERRER: '(!REFERRER!)' -->
@@ -66,146 +62,231 @@
     <!-- CUSTOMER LOCALE: '(!CUSTOMERLOCALE!)' -->
     <!-- STORE VERSION: '(!STORE_VERSION!)' -->
     <!-- CACHE MENUS: '(!AppConfig name="CacheMenus"!)' -->
-    <!-- HEADER -->
-    <div class="headnav">
-    <div id="header" class="row">
-        <div class="large-5 columns"><a href="default.aspx" class="logo"><img src="skins/Skin_(!SKINID!)/images/celcom-logo.png" alt="CelCom Inc"></a></div>
-        <div class="large-7 columns">
-            <div id="accountMenu">
-                <span>(!USERNAME!)</span>
-                <span><a href="(!SIGNINOUT_LINK!)" id="signInOutLink"><i class="icon-key"></i>(!SIGNINOUT_TEXT!)</a></span>
-                <%--<span><a href="account.aspx"><i class="icon-user"></i>My Account</a></span>--%>
-                <span><a id="shopping-cart" href="javascript:void(0)"><i class="icon-shopping-cart"></i>(!CARTPROMPT!)((!NUM_CART_ITEMS!))</a></span>
-                <!-- MiniCart -->
-                <div id="mini-cart"></div>
-            </div>
-            <div id="storeMenu">
-                <span id="storeVAT">VAT Mode: (!VATSELECTLIST!)</span>
-                <span id="storeLanguage">Language: (!COUNTRYSELECTLIST!)</span>
-            </div>
-        </div>
-    </div>
-    <!-- END OF HEADER -->
-    <!-- NAV -->
-    <div id="navbar" class="row">
-        <div class="navbar-inner">
-            <div class="large-8 columns"><div id="menu_container" runat="server"></div></div>
-            <div class="large-4 columns text-right">(!XmlPackage Name="rev.search"!)</div>
-        </div>
-    </div>
-    <!-- END OF NAV -->
-</div>
-    <!-- SUBNAV -->
-    <div id="subNav" class="row">
-        <div class="large-10 columns">
-            <ul>
-                <li><a href="bestsellers.aspx"><i class="icon-tags"></i> Bestsellers</a></li>
-                <li><a href="recentadditions.aspx"><i class="icon-plus-sign"></i> Recent Addition</a></li>
-                <span runat="server">
-                    <% if (InterpriseSuiteEcommerceCommon.AppLogic.AppConfigBool("GiftRegistry.Enabled"))
-                       { %>
-                            <li><a href="giftregistry.aspx"><i class="icon-gift"></i>Gift Registry</a></li>
-                    <% } %>
-                </span>
-                <li><a href="storelocator.aspx"><i class="icon-map-marker"></i> Store Locator</a></li>
-                <li><a href="wishlist.aspx"><i class="icon-star"></i> Wishlist</a></li>
-            </ul>
-        </div>
-        <div class="large-2 columns text-right">
-            (!LIVECHAT!)
-            <img src="skins/Skin_(!SKINID!)/images/online.gif" />
-        </div>
-    </div>
-    <!-- END OF SUBNAV -->
-    <!-- CONTENT -->
-    <div class="row" id="content">
-        <div class="large-3 columns sidedish" style="width: 210px;">
-            (!XmlPackage Name="rev.attributes" IsForAttributes="true"!)
-            <div class="sidebar box"><h4>Browse Products</h4>(!XmlPackage Name="rev.categories"!)</div>
-            <div class="sidebar box"> <a href="c-6-fashion-sneakers.aspx" class="adsimg"><img src="skins/Skin_(!SKINID!)/images/ads1.png" width="195" height="250"></a></div>
-            <div class="sidebar box"> <a href="c-5-loafers.aspx" class="adsimg"><img src="skins/Skin_(!SKINID!)/images/ads2.png" width="195" height="250"></a></div>
-            <div class="sidebar box"> <a href="c-10-wool-boots.aspx" class="adsimg"><img src="skins/Skin_(!SKINID!)/images/ads3.png" width="195" height="250"></a> 
-            </div>
-            (!POLL!)
-            (!SOCIALMEDIA_FEEDBOX!)
-        </div>
-        <div class="large-9 columns" style="width: 790px;">
-            <!-- MAIN CONTENT -->
-            <div class="main-content box">
-                <div class="page-breadcrumb">Now In: (!SECTION_TITLE!)</div>
-                <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
-                <div class="clear-both"></div>
-            </div>
-            <!-- END OF MAIN CONTENT -->
-        </div>
-    </div>
-    <!-- END OF CONTENT -->
-<div class="footbg">
-    <!-- FOOTER -->
-    <div id="footer" class="row">
-        <div class="banner"> 
-            <div class="large-4 columns"><a href="t-shipping.aspx" class="btn btn-block btn-large btn-info"><i class="icon-plane"></i> Shipping Policy <br /><span class="tiny">Free Delivery on Certain Areas</span></a></div>    
-            <div class="large-4 columns"><a href="news.aspx" class="btn btn-block btn-large btn-info"><i class="icon-rss-sign"></i> Latest News<br /><span class="tiny">Get a regular feed of news and events</span></a></div>    
-            <div class="large-4 columns"><a href="casehistory.aspx" class="btn btn-block btn-large btn-info"><i class="icon-phone"></i> Our Support <br /><span class="tiny">Call us: 1800-000-555</span></a></div>    
-        </div>
-        <div class="foot-links">
-            <div class="large-3 columns">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="default.aspx">Home</a></li>
-                    <li><a href="contactus.aspx">Contact Us</a></li>
-                    <li><a href="casehistory.aspx">Customer Support</a></li>
-                    <li><a href="sitemap2.aspx">Sitemap</a></li>
-                </ul>
-            </div>
-            <div class="large-3 columns">
-                <h3>Information</h3>
-                <ul>
-                    <li><a href="t-faq.aspx">FAQs</a></li>
-                    <li><a href="t-returns.aspx">Return Policy</a></li>
-                    <li><a href="t-privacy.aspx">Privacy Policy</a></li>
-                    <li><a href="t-security.aspx">Security Policy</a></li>
-                    <li><a href="t-shipping.aspx">Shipping Info</a></li>
-                </ul>
-            </div>
-            <div class="large-3 columns">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="storelocator.aspx">Store Locator</a></li>
+
+    <!-- mobile menu wrap -->
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar show-for-small-only">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title">Expressions</h1>
+          </section>
+
+          <section class="right-small tab-bar-section">
+            <a href="shopping-cart.shtml"><i class="fi-shopping-bag"></i></a>
+          </section>
+        </nav>
+
+        <form>
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>(!USERNAME!)</label></li>
+            <li><a href="(!SIGNINOUT_LINK!)"><small>(!SIGNINOUT_TEXT!)</small></a></li>
+            <li><label>Customer Service</label></li>
+            <li><a href="account.aspx">My Account<br><small>Address Book, Order History</small></a></li>
+            <span runat="server">
+                <% if (InterpriseSuiteEcommerceCommon.AppLogic.AppConfigBool("GiftRegistry.Enabled"))
+                   { %>
+                        <li><a href="giftregistry.aspx">Gift Registry</a></li>
+                <% } %>
+            </span>
+            <li><a href="wishlist.aspx">Wishlist</a></li>
+            <li><a href="account.aspx">Order Status<br><small>Check your order status</small></a></li>
+            <li><a href="t-shipping.aspx">Shipping Info<br><small>Estimates delivery times</small></a></li>
+            <li><a href="t-returns.aspx">Returns &amp; Exchanges<br><small>How to return items</small></a></li>
+            <li><a href="t-contact.aspx">Contact Us <i class="fi-telephone"></i></a></li>
+          </ul>
+        </aside>
+        </form>
+
+        <!-- page content -->
+        <section class="main-section">
+          
+          <!-- Header -->
+          <div class="row show-for-medium-up">
+            <div class="medium-12 columns text-center"><a href="/Staging/"><img src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
+          </div>
+
+          <form>
+          <div class="grey-wrapper">
+            <div class="row collapse toppanel">
+              <div class="medium-3 columns show-for-medium-up account-info">
+                <h5><small><a class="username" href="account.aspx">(!USERNAME!)</a><br><a href="(!SIGNINOUT_LINK!)">(!SIGNINOUT_TEXT!)</a> | <a href="account.aspx">My Account</a></small></h5>
+              </div>
+              <div class="small-12 medium-6 columns">
+                (!XmlPackage Name="rev.search"!)
+                <!-- <div class="row collapse">
+                  <div class="small-10 columns">
+                    <input type="text" placeholder="Search">
+                  </div>
+                  <div class="small-2 columns">
+                    <a href="search-results.shtml" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+                  </div>
+                </div> -->
+              </div>
+              <div class="medium-2 columns show-for-medium-up text-center">
+                <div class="customer-service-icon">
+                  <a data-dropdown="drop1" data-options="align:bottom"><i class="fi-torsos"></i><label>Customer Service</label></a>
+                  <ul id="drop1" class="medium f-dropdown" data-dropdown-content>
+                    <li><a href="account.aspx">My Account<br><small>Address Book, Order History</small></a></li>
                     <span runat="server">
                         <% if (InterpriseSuiteEcommerceCommon.AppLogic.AppConfigBool("GiftRegistry.Enabled"))
                            { %>
-                            <li><a href="giftregistry.aspx">Gift Registry</a></li>
+                                <li><a href="giftregistry.aspx">Gift Registry</a></li>
                         <% } %>
                     </span>
                     <li><a href="wishlist.aspx">Wishlist</a></li>
-                    <li><a href="leadform.aspx">Lead Form</a></li>
-                </ul>
-            </div>
-            <div class="large-3 columns">
-                <h3>Follow Us</h3>
-                <div class="social-media">
-                    (!Topic Name="SocialMediaSubscribeBox"!)
+                    <li><a href="account.aspx">Order Status<br><small>Check your order status</small></a></li>
+                    <li><a href="t-shipping.aspx">Shipping Info<br><small>Estimates delivery times</small></a></li>
+                    <li><a href="t-returns.aspx">Returns &amp; Exchanges<br><small>How to return items</small></a></li>
+                    <li><a href="t-contact.aspx">Contact Us <i class="fi-telephone"></i></a></li>
+                  </ul>
                 </div>
-                    <!-- CUSTOMER SUPPORT -->
-                <div class="clr height-12"></div>
-                <div class="customer-support" style="padding:8px;">
-                    <div id="request-container">
-                        <span>(!stringresource name="main.content.1"!)</span>
-                        <span class="request-generator-content request-code" >---------------</span>
-                        <span title="Refresh"><a href="javascript:void(0)" class="generate-link"><i class="icon-refresh"></i></a></span>
-                        <span title="Copy to Clipboard"><a href="javascript:void(0)" class="copy-link"><i class="icon-copy"></i></a></span>
-                    </div>
+              </div>
+              <div class="medium-1 columns show-for-medium-up text-right">
+                <div class="shopping-cart-icon">
+                  <a href="shoppingcart.aspx"><i class="fi-shopping-cart"></i>
+                  <div class="shopping-cart-number">(!NUM_CART_ITEMS!)</div></a>
                 </div>
-                <!-- END OF CUSTOMER SUPPORT -->
+              </div>
             </div>
-        </div>
+          </div>
+          </form> 
+
+          <!-- Navigation -->
+          <div class="contain-to-grid">
+            <nav class="top-bar" data-topbar role="navigation">
+              <ul class="title-area">
+                <li class="name"></li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Browse</span></a></li>
+              </ul>
+
+              <section class="top-bar-section">
+                (!XmlPackage Name="rev.categories"!)
+                <!-- <ul class="left">
+                  <li><a href="/Staging/">Home</a></li>
+                  <li class="has-dropdown">
+                    <a href="category.shtml">Accessories</a>
+                    <ul class="dropdown">
+                      <li><a href="category-results.shtml">Decorative Accents</a></li>
+                      <li><a href="category-results.shtml">Candleholders</a></li>
+                      <li><a href="category-results.shtml">Baskets &amp; Boxes</a></li>
+                      <li><a href="category-results.shtml">Picture Frames</a></li>
+                      <li><a href="category-results.shtml">Clocks</a></li>
+                      <li><a href="category-results.shtml">Urns &amp; Jars</a></li>
+                      <li><a href="category-results.shtml">Decorative Bowls</a></li>
+                      <li><a href="category-results.shtml">Plates &amp; Chargers</a></li>
+                      <li><a href="category-results.shtml">Vases</a></li>
+                      <li><a href="category-results.shtml">Trays</a></li>
+                      <li><a href="category-results.shtml">Planters</a></li>
+                      <li><a href="category-results.shtml">Sculpture</a></li>
+                      <li><a href="category-results.shtml">Floral</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-dropdown">
+                    <a href="#">Wall Decor</a>
+                    <ul class="dropdown">
+                      <li><a href="c-20-racks-shelving.aspx">Racks &amp; Shelving</a></li>
+                      <li><a href="c-21-sconces.aspx">Sconces</a></li>
+                      <li><a href="c-22-wall-clocks.aspx">Wall Clocks</a></li>
+                      <li><a href="c-23-wall-art.aspx">Wall Art</a></li>
+                      <li><a href="c-26-mirrors.aspx">Mirrors</a></li>
+                      <li><a href="c-28-hanging-picture-frames.aspx">Hanging Frames</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-dropdown">
+                    <a href="#">Lighting</a>
+                    <ul class="dropdown">
+                      <li><a href="c-24-floor-lamps.aspx">Floor Lamps</a></li>
+                      <li><a href="c-25-table-lamps.aspx">Table Lamps</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-dropdown">
+                    <a href="#">Accent Furniture</a>
+                    <ul class="dropdown">
+                      <li><a href="c-34-chairs.aspx">Chairs</a></li>
+                      <li><a href="c-35-benches-ottomans.aspx">Benches &amp; Ottomans</a></li>
+                      <li><a href="c-40-tables-desks.aspx">Tables &amp; Desks</a></li>
+                      <li><a href="c-41-chests-cabinets.aspx">Chests &amp; Cabinets</a></li>
+                      <li><a href="c-44-accent-furniture.aspx">Other Accent Furniture</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Exclusive</a></li>
+                </ul> -->
+              </section>
+            </nav>
+          </div>
+
+          <div class="row">
+            <div class="small-12 columns">
+              <ul class="breadcrumbs">
+                <!-- <li><a href="index.shtml">Home</a></li>
+                <li><a href="category.shtml">Category</a></li>
+                <li><a href="category-results.shtml">Subcategory</a></li>
+                <li class="current"><a href="#">Product</a></li> -->
+                <li class="current">(!SECTION_TITLE!)</li>
+              </ul>
+            </div>
+          </div>
+
+    <!-- CONTENT -->
+    <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
+    <!-- END OF CONTENT -->
+
+    <!-- FOOTER -->
+
+              <div class="grey-wrapper content-bottom">
+            <div class="row pagefooterbar">
+              <div class="small-12 columns text-center"><h4><small>We Accept <img src="skins/Skin_(!SKINID!)/images/global/billmethod-icons.png" /></small></h4></div>
+            </div>
+          </div>
+
+          <div class="black-wrapper">
+            <div class="row pagefooter">
+              <div class="small-12 medium-6 medium-push-6 columns small-text-center medium-text-right paddingbottom">
+                
+                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="sitemap2.aspx">Site Map</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>
+
+                <!-- AddThis Follow BEGIN -->
+                <div class="addthis_toolbox addthis_32x32_style addthis_default_style small-text-center medium-text-right">
+                <a addthis:userid="expressionsdecor"><i class="fi-social-facebook"></i></a>
+                <a addthis:userid="ExpressionsDeco"><i class="fi-social-twitter"></i></a>
+                <a addthis:userid="expressionsdeco"><i class="fi-social-pinterest"></i></a>
+                <a addthis:userid="expressionsdecor"><i class="fi-social-instagram"></i></a>
+                <a addthis:userid="117223946102304177432"><i class="fi-social-google-plus"></i></a>
+                <a addthis:userid="117223946102304177432" addthis:usertype="company"><i class="fi-social-linkedin"></i></a>
+                </div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50dc8ab51b6823ca"></script>
+                <!-- AddThis Follow END -->
+                
+              </div>
+              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small>&#169; 2015 Expressions by Décor &#38; More, Inc. All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
+            </div>
+          </div>
+
+        </section>
+
+      <a class="exit-off-canvas"></a>
+
+      </div>
     </div>
-    <div id="footerExt" class="row"><div class="large-12 columns copyrighter"><span>Copyright &copy; 2014. All Rights Reserved.</span></div><div class="clr large-12" id="divMobileSwitcher">(!MOBILE_FULLMODE_SWITCHER!)</div></div>
+
+            <!-- CUSTOMER SUPPORT -->
+            <!-- <div class="customer-support" style="padding:8px;">
+                <div id="request-container">
+                    <span>(!stringresource name="main.content.1"!)</span>
+                    <span class="request-generator-content request-code" >---------------</span>
+                    <span title="Refresh"><a href="javascript:void(0)" class="generate-link"><i class="icon-refresh"></i></a></span>
+                    <span title="Copy to Clipboard"><a href="javascript:void(0)" class="copy-link"><i class="icon-copy"></i></a></span>
+                </div>
+            </div> -->
+            <!-- END OF CUSTOMER SUPPORT -->
+
     <!-- END OF FOOTER -->
-</div>
-    <!-- BUBBLE MESSAGE -->
-    <div id="ise-message-tips"><span id="ise-message" class="custom-font-style"></span><span id="message-pointer"></span></div>
+
      <!-- ADDRESS VERIFICATION -->
     (!ADDRESS_VERIFICATION_DIALOG_LISTING!)
 
@@ -257,7 +338,48 @@
             if (showVat) { vatContainer.show(); }
         }
     </script>
-    <!-- BUY SAFE SEAL -->
-    (!BUY_SAFE_SEAL!)
+
+    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="skins/Skin_(!SKINID!)/bower_components/foundation/js/foundation.min.js"></script>
+    <script src="skins/Skin_(!SKINID!)/js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: 'fade',
+                controlsContainer: '.flexslider'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setupControls();
+        });
+        function setupControls() {
+            //buttons
+            $('.site-button').addClass('btn btn-info');
+            $('#btnCheckOutNowTop').removeClass('btn-info');
+            $('#btnCheckOutNowTop').addClass('btn-success');
+            $('#btnCheckOutNowBottom').removeClass('btn-info');
+            $('#btnCheckOutNowBottom').addClass ('btn-success');
+            $('#btnUpateWishList1').removeClass('btn-info');
+            $('#btnUpdateWishList1').addClass('btn-success');
+            $('#btnUpateWishList2').removeClass('btn-info');
+            $('#btnUpateWishList2').addClass('btn-success');
+            $('input.addto').addClass('btn btn-info');
+            //store language
+            var showLanguage = false;
+            var languageVisibility = '(!COUNTRYDIVVISIBILITY!)';
+            var languageContainer = $('#storeLanguage');
+            if (languageVisibility == 'visible') { showLanguage = true; }
+            if (showLanguage) { languageContainer.show(); }
+            //store vat
+            var showVat = false;
+            var vatVisibility = '(!VATDIVVISIBILITY!)';
+            var vatContainer = $('#storeVAT');
+            if (vatVisibility == 'visible') { showVat = true; }
+            if (showVat) { vatContainer.show(); }
+        }
+    </script>
+
 </body>
 </html>

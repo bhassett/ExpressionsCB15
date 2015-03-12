@@ -9052,16 +9052,12 @@ th.hide-for-touch {
 .grey-band-wrapper {
   background: #f5f5f5;
   border-bottom: 1px solid #dce0e0;
+  padding-bottom: 2.5rem;
 }
 
 /* line 47, ../scss/app.scss */
 .black-wrapper {
   background: #000;
-}
-
-/* line 49, ../scss/app.scss */
-.content-bottom {
-  margin-top: 1.5rem;
 }
 
 /* line 50, ../scss/app.scss */
@@ -9070,76 +9066,132 @@ th.hide-for-touch {
 }
 
 /* line 53, ../scss/app.scss */
+#itempopup-mask {
+  position: absolute;
+  z-index: 90000;
+  background-color: #fff;
+  display: none;
+}
+
+/* line 54, ../scss/app.scss */
+#itempopup-container {
+  position: fixed;
+  width: 900px;
+  height: 600px;
+  display: none;
+  z-index: 99999;
+  padding: 0px;
+}
+
+/* line 55, ../scss/app.scss */
+#itempopup-container .close {
+  width: 11px;
+  height: 11px;
+  margin: 7px 7px 0px 0px;
+  background: url(images/close.png) no-repeat;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  opacity: 1.0 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+/* line 56, ../scss/app.scss */
+#itempopup-container .close:hover {
+  background-position: -11px;
+}
+
+/* line 57, ../scss/app.scss */
+#itempopup-loader {
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  position: absolute;
+  display: none;
+  z-index: 999999;
+  padding: 0px;
+  font-size: 12pt;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  padding: 10px;
+  border: solid 1px #ccc;
+}
+
+/* line 60, ../scss/app.scss */
 .toppanel {
   color: #ccc;
   padding: 1rem 1.5rem;
 }
 
-/* line 54, ../scss/app.scss */
+/* line 61, ../scss/app.scss */
 .toppanel a, .tab-bar a {
   color: white;
 }
 
-/* line 55, ../scss/app.scss */
+/* line 62, ../scss/app.scss */
 .toppanel .account-info a:hover, .tab-bar a:hover {
   color: #DEDEDE;
 }
 
-/* line 56, ../scss/app.scss */
+/* line 63, ../scss/app.scss */
 .toppanel h5 small {
   color: #A8A8A8;
 }
 
-/* line 57, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 .toppanel input, .toppanel a.button {
   margin: 1rem 0 1rem 0;
 }
 
-/* line 58, ../scss/app.scss */
+/* line 65, ../scss/app.scss */
 .toppanel i {
   font-size: 1.5rem;
 }
 
-/* line 59, ../scss/app.scss */
+/* line 66, ../scss/app.scss */
 .top-bar-section ul li:hover:not(.has-form) > a {
   background: #222;
   color: #FFFFFF;
 }
 
-/* line 60, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 .top-bar-section .dropdown li.parent-link a {
   color: #FFFFFF;
   background: #444;
   text-transform: uppercase;
 }
 
-/* line 65, ../scss/app.scss */
+/* line 72, ../scss/app.scss */
 .top-bar-section .dropdown li.parent-link a:hover {
   background: #222;
 }
 
-/* line 66, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 .top-bar-section .dropdown li a {
   border-bottom: #2d2d2d 1px solid;
 }
 
-/* line 67, ../scss/app.scss */
+/* line 74, ../scss/app.scss */
 .f-dropdown li a {
   text-align: left;
 }
 
-/* line 70, ../scss/app.scss */
+/* line 77, ../scss/app.scss */
 .shopping-cart-icon {
   padding-top: .5rem;
   padding-right: .5rem;
 }
 
-/* line 71, ../scss/app.scss */
+/* line 78, ../scss/app.scss */
 .shopping-cart-icon i {
   font-size: 2rem;
 }
 
-/* line 72, ../scss/app.scss */
+/* line 79, ../scss/app.scss */
 .shopping-cart-number {
   position: absolute;
   right: 0px;
@@ -9154,7 +9206,7 @@ th.hide-for-touch {
   background: #C50000;
 }
 
-/* line 87, ../scss/app.scss */
+/* line 94, ../scss/app.scss */
 .customer-service-icon {
   padding-top: .35rem;
   width: 75px;
@@ -9162,17 +9214,17 @@ th.hide-for-touch {
   margin-right: auto;
 }
 
-/* line 93, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 .customer-service-icon a {
   display: block;
 }
 
-/* line 94, ../scss/app.scss */
+/* line 101, ../scss/app.scss */
 .customer-service-icon > * i + label {
   margin-top: .0625rem;
 }
 
-/* line 95, ../scss/app.scss */
+/* line 102, ../scss/app.scss */
 .customer-service-icon label {
   font-size: 0.4rem;
   color: #fff;
@@ -9183,43 +9235,43 @@ th.hide-for-touch {
   margin-bottom: 0;
 }
 
-/* line 106, ../scss/app.scss */
+/* line 113, ../scss/app.scss */
 .pagefooterbar {
   color: #ccc;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-/* line 111, ../scss/app.scss */
+/* line 118, ../scss/app.scss */
 .pagefooter {
   color: #ccc;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-/* line 116, ../scss/app.scss */
+/* line 123, ../scss/app.scss */
 .pagefooter a {
   font-size: 2rem;
   color: #999;
 }
 
-/* line 117, ../scss/app.scss */
+/* line 124, ../scss/app.scss */
 .pagefooter a:hover {
   color: #ccc;
 }
 
-/* line 118, ../scss/app.scss */
+/* line 125, ../scss/app.scss */
 .pagefooter h6 a {
   font-size: inherit;
 }
 
-/* line 119, ../scss/app.scss */
+/* line 126, ../scss/app.scss */
 .pagefooter span {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-/* line 122, ../scss/app.scss */
+/* line 129, ../scss/app.scss */
 .flex-container a:active,
 .flexslider a:active,
 .flex-container a:focus,
@@ -9227,7 +9279,7 @@ th.hide-for-touch {
   outline: none;
 }
 
-/* line 126, ../scss/app.scss */
+/* line 133, ../scss/app.scss */
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
@@ -9236,37 +9288,37 @@ th.hide-for-touch {
   list-style: none;
 }
 
-/* line 133, ../scss/app.scss */
+/* line 140, ../scss/app.scss */
 .flex-direction-nav {
   display: none;
 }
 
-/* line 134, ../scss/app.scss */
+/* line 141, ../scss/app.scss */
 .flexslider a img {
   outline: none;
   border: none;
 }
 
-/* line 135, ../scss/app.scss */
+/* line 142, ../scss/app.scss */
 .flexslider {
   margin: 0;
   padding: 0;
 }
 
-/* line 136, ../scss/app.scss */
+/* line 143, ../scss/app.scss */
 .flexslider .slides > li {
   display: none;
   -webkit-backface-visibility: hidden;
   margin-bottom: 0;
 }
 
-/* line 141, ../scss/app.scss */
+/* line 148, ../scss/app.scss */
 .flexslider .slides img {
   width: 100%;
   display: block;
 }
 
-/* line 142, ../scss/app.scss */
+/* line 149, ../scss/app.scss */
 .slides:after {
   content: ".";
   display: block;
@@ -9276,35 +9328,35 @@ th.hide-for-touch {
   height: 0;
 }
 
-/* line 150, ../scss/app.scss */
+/* line 157, ../scss/app.scss */
 html[xmlns] .slides {
   display: block;
 }
 
-/* line 151, ../scss/app.scss */
+/* line 158, ../scss/app.scss */
 * html .slides {
   height: 1%;
 }
 
-/* line 152, ../scss/app.scss */
+/* line 159, ../scss/app.scss */
 .flexslider {
   position: relative;
   zoom: 1;
   background: #ffffff;
 }
 
-/* line 157, ../scss/app.scss */
+/* line 164, ../scss/app.scss */
 .flex-container {
   min-width: 150px;
   max-width: 960px;
 }
 
-/* line 158, ../scss/app.scss */
+/* line 165, ../scss/app.scss */
 .flexslider .slides {
   zoom: 1;
 }
 
-/* line 159, ../scss/app.scss */
+/* line 166, ../scss/app.scss */
 .flex-direction-nav a {
   display: block;
   position: absolute;
@@ -9323,7 +9375,7 @@ html[xmlns] .slides {
   background-image: linear-gradient(to bottom, #6699cc, #3f88bd);
 }
 
-/* line 176, ../scss/app.scss */
+/* line 183, ../scss/app.scss */
 .flex-direction-nav a:before {
   display: block;
   position: absolute;
@@ -9335,7 +9387,7 @@ html[xmlns] .slides {
   background: url(images/arrows.png) no-repeat;
 }
 
-/* line 186, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 .flex-direction-nav a:after {
   display: block;
   position: absolute;
@@ -9345,7 +9397,7 @@ html[xmlns] .slides {
   top: 35px;
 }
 
-/* line 194, ../scss/app.scss */
+/* line 201, ../scss/app.scss */
 .flex-direction-nav .flex-next {
   right: -5px;
   -webkit-border-radius: 3px 0 0 3px;
@@ -9353,7 +9405,7 @@ html[xmlns] .slides {
   border-radius: 3px 0 0 3px;
 }
 
-/* line 200, ../scss/app.scss */
+/* line 207, ../scss/app.scss */
 .flex-direction-nav .flex-prev {
   left: -5px;
   -webkit-border-radius: 0 3px 3px 0;
@@ -9361,32 +9413,32 @@ html[xmlns] .slides {
   border-radius: 0 3px 3px 0;
 }
 
-/* line 206, ../scss/app.scss */
+/* line 213, ../scss/app.scss */
 .flex-direction-nav .flex-next:before {
   background-position: -9px 0;
   left: 15px;
 }
 
-/* line 207, ../scss/app.scss */
+/* line 214, ../scss/app.scss */
 .flex-direction-nav .flex-prev:before {
   background-position: 0 0;
 }
 
-/* line 208, ../scss/app.scss */
+/* line 215, ../scss/app.scss */
 .flex-direction-nav .flex-next:after {
   right: 0;
   border-bottom: 5px solid transparent;
   border-left: 5px solid #31611e;
 }
 
-/* line 213, ../scss/app.scss */
+/* line 220, ../scss/app.scss */
 .flex-direction-nav .flex-prev:after {
   left: 0;
   border-bottom: 5px solid transparent;
   border-right: 5px solid #31611e;
 }
 
-/* line 218, ../scss/app.scss */
+/* line 225, ../scss/app.scss */
 .flexslider .flex-control-nav {
   position: absolute;
   width: 100%;
@@ -9396,13 +9448,13 @@ html[xmlns] .slides {
   z-index: 887;
 }
 
-/* line 226, ../scss/app.scss */
+/* line 233, ../scss/app.scss */
 .flex-control-nav li {
   display: inline-block;
   zoom: 1;
 }
 
-/* line 227, ../scss/app.scss */
+/* line 234, ../scss/app.scss */
 .flex-control-paging li a {
   display: block;
   cursor: pointer;
@@ -9419,7 +9471,7 @@ html[xmlns] .slides {
   box-shadow: inset 0 0 0 2px #676767;
 }
 
-/* line 242, ../scss/app.scss */
+/* line 249, ../scss/app.scss */
 .flex-control-paging li a.flex-active {
   background-color: #6699cc;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#6699cc), to(#3f88bd));
@@ -9432,7 +9484,7 @@ html[xmlns] .slides {
   box-shadow: none;
 }
 
-/* line 253, ../scss/app.scss */
+/* line 260, ../scss/app.scss */
 .flexslider .slides p {
   display: block;
   position: absolute;
@@ -9453,104 +9505,108 @@ html[xmlns] .slides {
   border-radius: 2px;
 }
 
-/* line 274, ../scss/app.scss */
-.category-blockgrid {
-  background: #fff;
-}
-
-/* line 275, ../scss/app.scss */
+/* line 281, ../scss/app.scss */
 .category-blockgrid li {
   border: 1px solid #ccc;
+  background: #fff;
   margin: 0 -1px -1px 0;
+  font-size: .75rem;
+  height: 15rem;
 }
 
-/* line 276, ../scss/app.scss */
+/* line 288, ../scss/app.scss */
 .row .category-results {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-/* line 277, ../scss/app.scss */
+/* line 289, ../scss/app.scss */
 .category-results .pagination, .category-results label, .category-results select {
   margin-top: .25rem;
   margin-bottom: 0;
 }
 
-/* line 278, ../scss/app.scss */
+/* line 290, ../scss/app.scss */
 .category-results .pagination {
   padding-top: .75rem;
 }
 
-/* line 279, ../scss/app.scss */
+/* line 291, ../scss/app.scss */
 .category-results label {
   line-height: 2.5rem;
 }
 
-/* line 282, ../scss/app.scss */
+/* line 292, ../scss/app.scss */
+.entity-header h1, .category-header br {
+  display: none;
+}
+
+/* line 295, ../scss/app.scss */
 .product-image {
   margin-bottom: 1rem;
 }
 
-/* line 283, ../scss/app.scss */
+/* line 296, ../scss/app.scss */
 .product-image .th {
   margin-top: 10px;
+  margin-left: 5px;
 }
 
-/* line 284, ../scss/app.scss */
+/* line 297, ../scss/app.scss */
 .product-buy {
   margin-top: 6rem;
   margin-bottom: 6rem;
 }
 
-/* line 285, ../scss/app.scss */
+/* line 298, ../scss/app.scss */
 .tabs dd > a, .tabs .tab-title > a {
   padding: 1rem 0;
 }
 
-/* line 288, ../scss/app.scss */
+/* line 301, ../scss/app.scss */
 .cart-line-item {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border: solid 1px #DEDEDE;
 }
 
-/* line 293, ../scss/app.scss */
+/* line 306, ../scss/app.scss */
 .cart-line-item:last-child {
   border-bottom: solid 5px #DEDEDE;
 }
 
-/* line 294, ../scss/app.scss */
+/* line 307, ../scss/app.scss */
 .cart-line-item h5 {
   margin: 0 0 0.5rem;
 }
 
-/* line 295, ../scss/app.scss */
+/* line 308, ../scss/app.scss */
 .cart-line-item input {
   display: inline;
   width: 2rem;
 }
 
-/* line 296, ../scss/app.scss */
+/* line 309, ../scss/app.scss */
 .cart-line-item label.inline {
   display: inline;
 }
 
-/* line 297, ../scss/app.scss */
+/* line 310, ../scss/app.scss */
 .cart-line-item label.inline:first-child {
   padding-right: 0.5rem;
 }
 
-/* line 298, ../scss/app.scss */
+/* line 311, ../scss/app.scss */
 .cart-line-item label.inline:last-child {
   padding-left: 0.5rem;
 }
 
-/* line 299, ../scss/app.scss */
+/* line 312, ../scss/app.scss */
 .cart-line-item .line-item-price {
   padding-top: 0.5rem;
 }
 
-/* line 300, ../scss/app.scss */
+/* line 313, ../scss/app.scss */
 .cart-summary {
   border: solid 5px #DEDEDE;
   border-top: 0px;
@@ -9558,13 +9614,13 @@ html[xmlns] .slides {
   margin-bottom: 1rem;
 }
 
-/* line 306, ../scss/app.scss */
+/* line 319, ../scss/app.scss */
 .cart-summary > .row.collapse {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* line 307, ../scss/app.scss */
+/* line 320, ../scss/app.scss */
 .cart-summary hr {
   margin: 0.25rem 0 0.25rem;
 }
