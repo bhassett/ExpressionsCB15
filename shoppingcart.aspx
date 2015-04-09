@@ -16,122 +16,106 @@
     <asp:Literal ID="ValidationScript" runat="server"></asp:Literal>
     <asp:Literal ID="JSPopupRoutines" runat="server"></asp:Literal>
     <form id="CartForm" onsubmit="return Cart_Validator(this)" runat="server">
-    <b>
-    <asp:Literal ID="RedirectToSignInPageLiteral" runat="server"></asp:Literal></b>
+    <b><asp:Literal ID="RedirectToSignInPageLiteral" runat="server"></asp:Literal></b>
     <asp:Panel ID="BodyPanel" runat="server">
-        <div style="width: 100%; height: 100%">
+        <div class="row">
             <ise:Topic runat="server" ID="HeaderMsg" TopicName="CartPageHeader" />
             <asp:Literal ID="XmlPackage_ShoppingCartPageHeader" runat="server"></asp:Literal>
-            <table cellspacing="3" cellpadding="0" border="0" style="width: 100%">
-                <tr>
-                    <td>
-                        <asp:Panel ID="ShippingInformation" runat="server">
-                            <asp:Image ID="redarrow1" AlternateText="" runat="server" />&#0160;<a onclick="popuptopicwh('Shipping+Information','shipping',650,550,'yes')"
-                                href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx8" runat="server"></asp:Literal></a><br />
-                        </asp:Panel>
-                        <asp:Image ID="redarrow2" AlternateText="" runat="server" />&#0160;<a onclick="popuptopicwh('Return+Policy+Information','returns',650,550,'yes')"
-                            href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx9" Text="(!shoppingcart.aspx.7!)"
-                                runat="server"></asp:Literal></a><br />
-                        <asp:Image ID="redarrow3" AlternateText="" runat="server" />&#0160;<a onclick="popuptopicwh('Privacy+Information','privacy',650,550,'yes')"
-                            href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx10" Text="(!shoppingcart.aspx.8!)"
-                                runat="server"></asp:Literal></a><br />
-                        <asp:Panel ID="AddresBookLlink" runat="server">
-                            <asp:Image ID="redarrow4" AlternateText="" runat="server" />&#0160;<a href="selectaddress.aspx?returnurl=shoppingcart.aspx&AddressType=Shipping"><asp:Literal
-                                ID="shoppingcartaspx11" Text="(!shoppingcart.aspx.9!)" runat="server"></asp:Literal></a><br />
-                        </asp:Panel>
-                        &#160;<br />
-                    </td>
-                    <td valign="middle" align="right">
-                        <asp:Button ID="btnContinueShoppingTop" Text="(!shoppingcart.cs.12!)" CssClass="site-button content" runat="server" />
-                        <asp:Button ID="btnCheckOutNowTop" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="site-button CheckoutNowButton content" /><br />
-                    </td>
-                </tr>
-                <tr runat="server" id="AlternativeCheckoutsTop">
-                    <td colspan="2" align="right">
-                        <table border="0">
-                            <tr>
-                                <td align="right" colspan="2">
-                                    <asp:Label ID="Label3" runat="server" Text="(!shoppingcart.aspx.14!)" Style="margin-right: 7px;"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <span runat="server" id="PayPalExpressSpanTop" visible="false">
-                                        <asp:ImageButton ID="btnPayPalExpressCheckoutTop" cms-3rdparty-attr runat="server" OnClick="btnPayPalExpressCheckout_Click" />
-                                    </span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+            
+            <div class="small-12 medium-5 columns paddingbottom">
+                <div class="panel">
+                    <asp:Panel ID="ShippingInformation" runat="server">
+                        <asp:Image ID="redarrow1" AlternateText="" runat="server" visible="false" /><a onclick="popuptopicwh('Shipping+Information','shipping',650,550,'yes')"
+                            href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx8" runat="server"></asp:Literal></a><br />
+                    </asp:Panel>
+
+                    <asp:Image ID="redarrow2" AlternateText="" runat="server" visible="false" /><a onclick="popuptopicwh('Return+Policy+Information','returns',650,550,'yes')"
+                        href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx9" Text="(!shoppingcart.aspx.7!)"
+                            runat="server"></asp:Literal></a><br />
+
+                    <asp:Image ID="redarrow3" AlternateText="" runat="server" visible="false" /><a onclick="popuptopicwh('Privacy+Information','privacy',650,550,'yes')"
+                        href="javascript:void(0);"><asp:Literal ID="shoppingcartaspx10" Text="(!shoppingcart.aspx.8!)"
+                            runat="server"></asp:Literal></a><br />
+
+                    <asp:Panel ID="AddresBookLlink" runat="server">
+                        <asp:Image ID="redarrow4" AlternateText="" runat="server" visible="false" /><a href="selectaddress.aspx?returnurl=shoppingcart.aspx&AddressType=Shipping"><asp:Literal
+                            ID="shoppingcartaspx11" Text="(!shoppingcart.aspx.9!)" runat="server"></asp:Literal></a>
+                    </asp:Panel>
+                </div>
+            </div>
+
+            <div class="small-12 medium-7 columns small-only-text-center text-right">
+                <ul class="button-group">
+                    <li><asp:Button ID="btnContinueShoppingTop" Text="(!shoppingcart.cs.12!)" CssClass="button small secondary" runat="server" /></li>
+                    <li><asp:Button ID="btnCheckOutNowTop" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="button small" /></li>
+                </ul>
+            </div>
+
+            <div class="small-12 columns small-only-text-center text-right" runat="server" id="AlternativeCheckoutsTop">
+                <h5><asp:Label ID="Label3" runat="server" Text="(!shoppingcart.aspx.14!)"></asp:Label></h5>
+                <span runat="server" id="PayPalExpressSpanTop" visible="false">
+                    <asp:ImageButton ID="btnPayPalExpressCheckoutTop" cms-3rdparty-attr runat="server" OnClick="btnPayPalExpressCheckout_Click" />
+                </span>
+            </div>
+            
+            <div class="small-12 columns">
             <asp:Panel ID="pnlCouponError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="CouponError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="CouponError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlErrorMsg" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="ErrorMsgLabel" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="ErrorMsgLabel" CssClass="errorLg" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlRemovePhasedOutItemWithNoStockError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="RemovePhasedOutItemWithNoStockError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="RemovePhasedOutItemWithNoStockError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlInventoryTrimmedError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="InventoryTrimmedError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="InventoryTrimmedError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlMinimumQuantitiesUpdatedError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="MinimumQuantitiesUpdatedError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="MinimumQuantitiesUpdatedError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlMeetsMinimumOrderAmountError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="MeetsMinimumOrderAmountError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="MeetsMinimumOrderAmountError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlMeetsMinimumOrderWeightError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="MeetsMinimumOrderWeightError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="MeetsMinimumOrderWeightError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlMeetsMinimumOrderQuantityError" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="MeetsMinimumOrderQuantityError" CssClass="errorLg" runat="Server"></asp:Label></p>
+                  <asp:Label ID="MeetsMinimumOrderQuantityError" CssClass="alert-box alert" runat="Server"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlOversizedShippingMethodNotValid" runat="Server" Visible="false">
-                <p>
-                    <asp:Label ID="litOversizedShippingMethodNotValid" runat="Server" CssClass="errorLg" Text="(!shoppingcart.aspx.62!)"></asp:Label>
-                </p>
+                  <asp:Label ID="litOversizedShippingMethodNotValid" runat="Server" CssClass="alert-box alert" Text="(!shoppingcart.aspx.62!)"></asp:Label>
             </asp:Panel>
             <asp:Panel ID="pnlMicropay_EnabledError" runat="Server" Visible="false">
-                <asp:Literal ID="Micropay_EnabledError" runat="Server"></asp:Literal></asp:Panel>
-            <div style="clear: both">
+                <asp:Literal ID="Micropay_EnabledError" runat="Server"></asp:Literal>
+            </asp:Panel>
             </div>
+            <div style="clear: both"></div>
             <div class="hidden errorLg" id="required-error">
                 <asp:Literal ID="lRequiredError" runat="server" Visible="True" Text="(!leadform.aspx.16!)"></asp:Literal>
             </div>
-            <br />
 
             <div class="sections-place-holder no-padding">
                 <div id="divCartSummaryContentWrapper" class="section-content-wrapper">
                     <asp:Panel ID="pnlCartSummary" runat="server" HorizontalAlign="right" DefaultButton="btnUpdateCart1">
                         <asp:Literal ID="CartItems" runat="server"></asp:Literal>
-                        <br />
                         <asp:Panel ID="pnlCartSummarySubTotals" runat="server">
                             <asp:Literal ID="CartSubTotal" runat="server"></asp:Literal>
                         </asp:Panel>
-                        <div class="update-cart-layout">
-                            <asp:Button ID="btnUpdateCart1" CssClass="btn btn-info site-button content" Text="(!shoppingcart.cs.33!)" runat="server" />
+                        <div class="row">
+                            <div class="small-11 columns text-right">
+                                <asp:Button ID="btnUpdateCart1" CssClass="button small" Text="(!shoppingcart.cs.33!)" runat="server" />
+                            </div>
                         </div>
                     </asp:Panel>
                 </div>
             </div>
 
-            <br />
-            <div class="clr">
-            </div>
+        </div>
+
            <div id="divInlineSectionsWrapper">
            <%-- Shopping Cart Calculator Section --%>
-            <div class="div-inline-sections" data-panelId="pnlShippingCalculator" id="divShippingCalculator" data-titleHideTips="<%= AppLogic.GetString("shoppingcart.aspx.59")%>" data-titleShowTips="<%= AppLogic.GetString("shoppingcart.aspx.60")%>">
+            <!-- <div class="div-inline-sections" data-panelId="pnlShippingCalculator" id="divShippingCalculator" data-titleHideTips="<%= AppLogic.GetString("shoppingcart.aspx.59")%>" data-titleShowTips="<%= AppLogic.GetString("shoppingcart.aspx.60")%>">
                 <div  class="div-section-content-wrapper">
                         <div style="text-align:left;" class="section-header section-header-top">
                             <span><%= AppLogic.GetString("shoppingcart.aspx.20")%></span>
@@ -152,45 +136,51 @@
                                 <div class="clr"></div>
                         </asp:Panel>
                       <div class="div-section-content-footer">
-                           <a href="javascript:void(1);" style="color:#fff;" class="btn btn-info site-button content" id="btnCalcShip"><%= AppLogic.GetString("shoppingcart.aspx.26")%></a>
+                           <a href="javascript:void(1);" style="color:#fff;" class="button small" id="btnCalcShip"><%= AppLogic.GetString("shoppingcart.aspx.26")%></a>
                       </div>
                 </div>
-            </div>
+            </div> -->
+
+            <div class="row">
+            <div class="small-12 medium-6 medium-push-6 columns">
+
             <!-- Coupon -->
-            <div class="div-inline-sections" data-panelId="pnlCoupon" id="divCouponWrapper">
-                <div  class="div-section-content-wrapper">
-                    <div style="text-align:left;" class="section-header section-header-top"><%= AppLogic.GetString("checkoutshipping.aspx.14")%></div>
-                    <asp:Panel ID="pnlCoupon" runat="server" Visible="false" DefaultButton="btnUpdateCart3">
-                        <div style="padding:8px;">
-                            <span><%= AppLogic.GetString("shoppingcart.cs.9")%></span>
-                            <div class="clr height-5"></div>
-                            <asp:TextBox ID="CouponCode" Columns="30" MaxLength="50" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="clr"></div>
-                    </asp:Panel>
-                    <div class="div-section-content-footer">
-                       <asp:Button ID="btnUpdateCart3" runat="server" Text="(!shoppingcart.aspx.51!)" CssClass="btn btn-info site-button content" />
+            <div class="row">
+            <div class="small-12 columns">
+                <asp:Panel ID="pnlCoupon" runat="server" Visible="false" DefaultButton="btnUpdateCart3">
+                <h5><%= AppLogic.GetString("checkoutshipping.aspx.14")%></h5>
+                <div class="row collapse">
+                    <div  class="small-9 columns">
+                        <asp:TextBox ID="CouponCode" runat="server"></asp:TextBox>
                     </div>
+                    <div class="small-3 columns">
+                       <asp:Button ID="btnUpdateCart3" runat="server" Text="(!shoppingcart.aspx.51!)" CssClass="button small postfix" />
+                    </div>
+                </div>
+                </asp:Panel>
+            </div>
+            </div>
+
+            </div>
+            <div class="small-12 medium-6 medium-pull-6 columns">
+
+            <!-- Order Notes -->
+                <div data-panelId="pnlOrderNotes" id="divOrderNotesWrapper">
+                    <asp:Panel ID="pnlOrderNotes" runat="server" Visible="false" DefaultButton="btnUpdateCart4">
+                    <h5><%= AppLogic.GetString("mobile.shoppingcart.aspx.20")%> <small>(optional)</small></h5>
+                        <asp:TextBox ID="OrderNotes" Columns="90" Rows="4" TextMode="MultiLine" placeholder="Enter any additional information you may want us to know" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnUpdateCart4" runat="server" Text="(!shoppingcart.aspx.54!)" CssClass="button small" />
+                    </asp:Panel>
                 </div>
             </div>
 
-            <!-- Order Notes -->
-            <div class="div-inline-sections"  data-panelId="pnlOrderNotes" id="divOrderNotesWrapper">
-                  <div  class="div-section-content-wrapper">
-                    <div style="text-align:left;" class="section-header section-header-top"><%= AppLogic.GetString("mobile.shoppingcart.aspx.20")%></div>
-                    <asp:Panel ID="pnlOrderNotes" runat="server" Visible="false" DefaultButton="btnUpdateCart4">
-                        <div style="padding:8px;">
-                            <span><%= AppLogic.GetString("shoppingcart.cs.13")%></span>
-                            <div class="clr height-5"></div>
-                            <asp:TextBox ID="OrderNotes" Columns="90" Rows="4" TextMode="MultiLine" Width="100%" runat="server"></asp:TextBox>
-                        </div>    
-                     <div class="clr"></div>
-                     </asp:Panel>
-                     <div class="div-section-content-footer"><asp:Button ID="btnUpdateCart4" runat="server" Text="(!shoppingcart.aspx.54!)" CssClass="btn btn-info site-button content" /></div>
-                </div>
             </div>
-         </div>
-        <div class="clr height-12"></div>
+            </div>
+
+        </div>
+        </div>
+        
+
         <!-- Checkout Options -->
         <asp:Panel ID="pnlOrderOptions" runat="server" Visible="false">
         <div class="sections-place-holder no-padding">
@@ -241,12 +231,11 @@
                         </div>
                   
     
-                    <div style="text-align: right;"><asp:Button ID="btnUpdateCart2" runat="server" Text="(!shoppingcart.cs.33!)" CssClass="btn btn-info site-button content" /></div>
-                    <div class="clr height-12"></div>
+                    <div><asp:Button ID="btnUpdateCart2" runat="server" Text="(!shoppingcart.cs.33!)" CssClass="button small" /></div>
                 </div>
             </div>
             </asp:Panel>
-            <div class="clr height-12"></div>
+
             <!-- Upsell Products -->
            <asp:Panel ID="pnlUpsellProducts" runat="server" Visible="false">
                 <asp:Literal ID="UpsellProducts" runat="server"></asp:Literal>
@@ -254,42 +243,27 @@
                     <asp:Button ID="btnUpdateCart5" runat="server" Text="(!shoppingcart.cs.33!)" CssClass="site-button content"
                         Visible="false" /></div>
             </asp:Panel>
-           <div class="clr height-12"></div>
-            <table cellspacing="3" cellpadding="0" width="100%" border="0">
-                <tr>
-                    <td>
-                        &#160;
-                    </td>
-                    <td valign="bottom" align="right">
-                        <asp:Button ID="btnContinueShoppingBottom" Text="(!shoppingcart.cs.12!)" CssClass="site-button content" runat="server" />
-                        <asp:Button ID="btnCheckOutNowBottom" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="site-button CheckoutNowButton content" />
-                        <br />
-                        <br />
-                    </td>
-                </tr>
-                <tr runat="server" id="AlternativeCheckoutsBottom">
-                    <td colspan="2" align="right" style="height: 61px">
-                        <table border="0">
-                            <tr>
-                                <td colspan="2" align="right">
-                                    <asp:Label ID="Label1" runat="server" Text="(!shoppingcart.aspx.14!)" Style="margin-right: 7px;" CssClass="errorLg" ></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <span runat="server" id="PayPalExpressSpanBottom" visible="false">
-                                        <asp:ImageButton ID="btnPayPalExpressCheckoutBottom" cms-3rdparty-attr runat="server" OnClick="btnPayPalExpressCheckout_Click" />
-                                    </span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+
+            <div class="row">
+            <div class="small-12 columns small-only-text-center text-right">
+                <ul class="button-group">
+                    <li><asp:Button ID="btnContinueShoppingBottom" Text="(!shoppingcart.cs.12!)" CssClass="button small secondary" runat="server" /></li>
+                    <li><asp:Button ID="btnCheckOutNowBottom" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="button small" /></li>
+                </ul>
+            </div>
+
+            <div class="small-12 columns small-only-text-center text-right" runat="server" id="AlternativeCheckoutsBottom">
+                <h5><asp:Label ID="Label1" runat="server" Text="(!shoppingcart.aspx.14!)" Style="margin-right: 7px;"></asp:Label></h5>
+                <span runat="server" id="PayPalExpressSpanBottom" visible="false">
+                    <asp:ImageButton ID="btnPayPalExpressCheckoutBottom" cms-3rdparty-attr runat="server" OnClick="btnPayPalExpressCheckout_Click" />
+                </span>
+            </div>
+            </div>
+
             <ise:Topic ID="CartPageFooterTopic" runat="server" TopicName="CartPageFooter" />
             <asp:Literal ID="XmlPackage_ShoppingCartPageFooter" runat="server"></asp:Literal>
             <span id=""></span>
-        </div>
+        
         <script>
         var constants = {
             CLASS_SELECTOR: ".",

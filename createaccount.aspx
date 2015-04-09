@@ -24,11 +24,10 @@
    </asp:Panel>
    <asp:Panel ID="pnlPageContentWrapper" runat="server">
    
-        <div class="sections-place-holder no-padding">
-        <div class="section-header section-header-top"><asp:Literal ID="Literal2" runat="server">(!createaccount.aspx.105!)</asp:Literal></div>
+        <div class="row collapse">
+        <div class="small-12 columns"><asp:Literal ID="Literal2" runat="server">(!createaccount.aspx.105!)</asp:Literal></div>
       
-        <div class="section-content-wrapper">
-        <div class="clr height-12"></div>
+        <div class="small-12 columns">
 
         <asp:Panel ID="pnlPageHeaderPlaceHolder" runat="server">
             <asp:Panel  id="pnlPageTitle" runat="server">
@@ -52,21 +51,21 @@
         </asp:Panel>
 
         <div id="divFormWrapper">
-        <div id="divFormContainer">
+        <div id="divFormContainer" class="row">
            <%-- create account form left content starts here --%>
-            <div id="divFormLeft" class="float-left">
+            <div id="divFormLeft" class="small-12 medium-6 columns">
                 <span class="form-section">
                     <asp:Literal ID="LitYourProfileInto" runat="server">(!createaccount.aspx.108!)</asp:Literal>
                 </span>
                <!-- Profile Info Section Starts Here -->
                <div class="clear-both height-12 profile-section-clears"></div>
-                    <uc:ProfileControl id="ProfileControl"  runat="server" />
+                  <uc:ProfileControl id="ProfileControl"  runat="server" />
                <div class="clear-both height-12 profile-section-clears"></div>
                <!-- Profile Info Section Ends Here -->
 
                <!-- Billing Info Section Starts Here -->
                <span class="form-section">
-                    <asp:Literal ID="litBillingInfo" runat="server">(!createaccount.aspx.109!)</asp:Literal>
+                  <asp:Literal ID="litBillingInfo" runat="server">(!createaccount.aspx.109!)</asp:Literal>
                </span>
                <div class="clear-both height-12"></div>
               
@@ -166,7 +165,7 @@
             <%-- case form left content ends here --%>
             <%-- case form  right content starts here --%>
 
-            <div id="divFormRight" class="float-right">
+            <div id="divFormRight" class="small-12 medium-6 columns">
                  <ise:Topic ID="CreateAccountHelpfulTips" runat="server" TopicName="CreateAccountHelpfulTips" />
             </div>
            
@@ -181,7 +180,7 @@
                 <div id="save-account-loader"></div>
                     <div id="save-account-button-place-holder">
                         <input type="button"  id="create-customer-account" 
-                        class="site-button content" 
+                        class="button small content" 
                         data-contentKey="<%= CommonLogic.IIF(CommonLogic.QueryStringBool("checkout"),  "createaccount.aspx.25",  "createaccount.aspx.24")%>" 
                         data-contentType="string resource"
                         data-contentValue="<%= CommonLogic.IIF(CommonLogic.QueryStringBool("checkout"),  AppLogic.GetString("createaccount.aspx.25", true),  
@@ -191,13 +190,13 @@
                     </div>
                </div>
          </div>
-          <div class="display-none">
+          <div class="display-none hidden">
                 <asp:Button ID="btnCreateAccount" runat="server" Text="" OnClick="btnCreateAccount_Click" />
                 <asp:TextBox ID="billingTxtCityStates" runat="server"></asp:TextBox>     
                 <asp:TextBox ID="shippingTxtCityStates" runat="server"></asp:TextBox>             
             </div>
          </div>
-         <div class="clr height-5"></div>
+
          </div>
       </div>
      </asp:Panel>
