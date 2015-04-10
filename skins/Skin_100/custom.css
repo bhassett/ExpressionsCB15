@@ -5,9 +5,34 @@
 @import url("stylesheets/app.css");
 @import url("stylesheets/foundation-icons.css");
 
+/*Global Overrides*/
+/*Header Search Bar*/
 div.row.search div {padding: 0 !important;}
+
+/*Breadcrumbs*/
+.breadcrumbs > *.current a {
+   cursor: pointer; 
+   color: #008CBA; 
+}
+
+/*Image Borders*/
 img[id^="imgEntity"] {
   border: none;
   border-radius: 0px;
 }
+
+/*Page Overrides*/
+/*Browse and Search Pages*/
+.entity-sort .caption {
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
+.entity-sort select {
+  font-size: 9pt !important;
+  width: 150px;
+  padding: .5rem !important;
+}
+
+/*Product Pages*/
 .tabs dd {padding: 0px}
