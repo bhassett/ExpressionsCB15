@@ -1,22 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <%@ Control Language="c#" AutoEventWireup="false" Inherits="InterpriseSuiteEcommerce.TemplateBase" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
-
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
     <head>
-        <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
         <title>(!METATITLE!)</title>
         <meta name="description" content="(!METADESCRIPTION!)" />
         <meta name="keywords" content="(!METAKEYWORDS!)" />
-
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/stylesheets/app.css" />
-        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/stylesheets/foundation-icons.css" />
-        <script src="skins/Skin_(!SKINID!)/bower_components/modernizr/modernizr.js"></script>
+        
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/bootstrap/css/bootstrap.min.css" media="screen" />
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/font-awesome/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/ui-lightness/ui.custom.min.css" type="text/css" />
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/style.css" type="text/css" />
+        <link rel="stylesheet" href="skins/Skin_(!SKINID!)/custom.css" type="text/css" />
         <script type="text/javascript" src="jscripts/jquery/jquery.min.v1.7.2.js"></script>
         <script type="text/javascript" src="jscripts/jquery/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="jscripts/jquery/jquery.tmpl.min.js"></script>
@@ -25,9 +25,9 @@
         <script type="text/javascript" src="jscripts/minified/attribute.selectors.js"></script>
         <script type="text/javascript" src="jscripts/minified/jquery.format.1.05.js"></script>
         <script type="text/javascript" src="jscripts/minified/address.dialog.js"></script>
-        <!-- // <script type="text/javascript" src="jscripts/minified/bubble.message.js"></script> -->
-        <!-- // <script type="text/javascript" src="jscripts/minified/jquery.loader.js"></script> -->
-
+        <script type="text/javascript" src="jscripts/minified/bubble.message.js"></script>
+        <script type="text/javascript" src="jscripts/minified/jquery.loader.js"></script>
+        
         <!-- Google Analytics -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -49,12 +49,18 @@
                     _gaq.push(['_trackPageview']); // request page tracking
                 }
             });
+         </script>
+        <!-- Global Loader -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("body").globalLoader({autoHide: false,image: 'images/ajax-loader.gif',opacity: 0.3,text: 'loading...'});
+                //sample implementation to display the loader
+                //$("body").data("globalLoader").show();
+            });
         </script>
-        
         (!JAVASCRIPT_INCLUDES!)
     </head>
-    
-    <body>
+<body>
     <asp:Panel ID="pnlForm" runat="server" Visible="false" />
     <!-- PAGE INVOCATION: '(!INVOCATION!)' -->
     <!-- PAGE REFERRER: '(!REFERRER!)' -->
@@ -112,20 +118,12 @@
 
           <form>
           <div class="grey-wrapper">
-            <div class="row collapse toppanel">
+            <div class="row small-collapse toppanel">
               <div class="medium-3 columns show-for-medium-up account-info">
                 <h5><small><a class="username" href="account.aspx">(!USERNAME!)</a><br><a href="(!SIGNINOUT_LINK!)">(!SIGNINOUT_TEXT!)</a> | <a href="account.aspx">My Account</a></small></h5>
               </div>
               <div class="small-12 medium-6 columns">
                 (!XmlPackage Name="rev.search"!)
-                <!-- <div class="row collapse">
-                  <div class="small-10 columns">
-                    <input type="text" placeholder="Search">
-                  </div>
-                  <div class="small-2 columns">
-                    <a href="search-results.shtml" class="button postfix"><i class="fi-magnifying-glass"></i></a>
-                  </div>
-                </div> -->
               </div>
               <div class="medium-2 columns show-for-medium-up text-center">
                 <div class="customer-service-icon">
@@ -165,8 +163,7 @@
               </ul>
 
               <section class="top-bar-section">
-                (!XmlPackage Name="rev.categories"!)
-                <!-- <ul class="left">
+                 <ul class="left">
                   <li><a href="/Staging/">Home</a></li>
                   <li class="has-dropdown">
                     <a href="category.shtml">Accessories</a>
@@ -215,7 +212,7 @@
                     </ul>
                   </li>
                   <li><a href="#">Exclusive</a></li>
-                </ul> -->
+                </ul> 
               </section>
             </nav>
           </div>
@@ -307,7 +304,7 @@
                 <!-- AddThis Follow END -->
                 
               </div>
-              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small>&#169; 2015 Expressions by Décor &#38; More, Inc. All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
+              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small>&#169; 2015 Expressions by Decor &#38; More, Inc. All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
             </div>
           </div>
 
@@ -318,20 +315,13 @@
       </div>
     </div>
 
-            <!-- CUSTOMER SUPPORT -->
-            <!-- <div class="customer-support" style="padding:8px;">
-                <div id="request-container">
-                    <span>(!stringresource name="main.content.1"!)</span>
-                    <span class="request-generator-content request-code" >---------------</span>
-                    <span title="Refresh"><a href="javascript:void(0)" class="generate-link"><i class="icon-refresh"></i></a></span>
-                    <span title="Copy to Clipboard"><a href="javascript:void(0)" class="copy-link"><i class="icon-copy"></i></a></span>
-                </div>
-            </div> -->
-            <!-- END OF CUSTOMER SUPPORT -->
 
     <!-- END OF FOOTER -->
 
-     <!-- ADDRESS VERIFICATION -->
+    <!-- BUBBLE MESSAGE -->
+    <div id="ise-message-tips"><span id="ise-message" class="custom-font-style"></span><span id="message-pointer"></span></div> 
+            
+    <!-- ADDRESS VERIFICATION -->
     (!ADDRESS_VERIFICATION_DIALOG_LISTING!)
 
      <!-- GOOGLE ANALYTICS -->
@@ -352,38 +342,8 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            setupControls();
-        });
-        function setupControls() {
-            //buttons
-            $('.site-button').addClass('btn btn-info');
-            $('#btnCheckOutNowTop').removeClass('btn-info');
-            $('#btnCheckOutNowTop').addClass('btn-success');
-            $('#btnCheckOutNowBottom').removeClass('btn-info');
-            $('#btnCheckOutNowBottom').addClass ('btn-success');
-            $('#btnUpateWishList1').removeClass('btn-info');
-            $('#btnUpdateWishList1').addClass('btn-success');
-            $('#btnUpateWishList2').removeClass('btn-info');
-            $('#btnUpateWishList2').addClass('btn-success');
-            $('input.addto').addClass('btn btn-info');
-            //store language
-            var showLanguage = false;
-            var languageVisibility = '(!COUNTRYDIVVISIBILITY!)';
-            var languageContainer = $('#storeLanguage');
-            if (languageVisibility == 'visible') { showLanguage = true; }
-            if (showLanguage) { languageContainer.show(); }
-            //store vat
-            var showVat = false;
-            var vatVisibility = '(!VATDIVVISIBILITY!)';
-            var vatContainer = $('#storeVAT');
-            if (vatVisibility == 'visible') { showVat = true; }
-            if (showVat) { vatContainer.show(); }
-        }
-    </script>
 
-    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>
+<!--    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>-->
     <script src="skins/Skin_(!SKINID!)/bower_components/foundation/js/foundation.min.js"></script>
     <script src="skins/Skin_(!SKINID!)/js/app.js"></script>
     <script>
