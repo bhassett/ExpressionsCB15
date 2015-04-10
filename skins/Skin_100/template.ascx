@@ -124,14 +124,6 @@
               </div>
               <div class="small-12 medium-6 columns">
                 (!XmlPackage Name="rev.search"!)
-                <!-- <div class="row collapse">
-                  <div class="small-10 columns">
-                    <input type="text" placeholder="Search">
-                  </div>
-                  <div class="small-2 columns">
-                    <a href="search-results.shtml" class="button postfix"><i class="fi-magnifying-glass"></i></a>
-                  </div>
-                </div> -->
               </div>
               <div class="medium-2 columns show-for-medium-up text-center">
                 <div class="customer-service-icon">
@@ -303,7 +295,7 @@
         });
     </script>
 
-    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>
+<!--    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>-->
     <script src="skins/Skin_(!SKINID!)/bower_components/foundation/js/foundation.min.js"></script>
     <script src="skins/Skin_(!SKINID!)/js/app.js"></script>
     <script>
