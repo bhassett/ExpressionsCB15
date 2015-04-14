@@ -11,28 +11,32 @@ div.row.search div {padding: 0 !important;}
 
 /*Breadcrumbs*/
 .breadcrumbs > *.current a {
-   cursor: pointer; 
-   color: #008CBA; 
+    cursor: pointer; 
+    color: #008CBA; 
 }
 
 /*Image Borders*/
 img[id^="imgEntity"] {
-  border: none;
-  border-radius: 0px;
+    border: none;
+    border-radius: 0px;
 }
 
 /*Page Overrides*/
 /*Browse and Search Pages*/
 .entity-sort .caption {
-  font-weight: bold;
-  margin-right: .5rem;
+    font-weight: bold;
+    margin-right: .5rem;
 }
 
 .entity-sort select {
-  font-size: 9pt !important;
-  width: 150px;
-  padding: .5rem !important;
+    font-size: 9pt !important;
+    width: 150px;
+    padding: .5rem !important;
 }
 
 /*Product Pages*/
 .tabs dd {padding: 0px}
+div.product-buy input[id^="Quantity"] {
+    display: inline-block;
+    width: auto;
+}
