@@ -9,6 +9,11 @@
 /*Header Search Bar*/
 div.row.search div {padding: 0 !important;}
 
+/*Buttons*/
+.button {
+    background-image: none;
+}
+
 /*Breadcrumbs*/
 .breadcrumbs > *.current a {
     cursor: pointer; 
@@ -39,4 +44,23 @@ img[id^="imgEntity"] {
 div.product-buy input[id^="Quantity"] {
     display: inline-block;
     width: auto;
+}
+
+div.cart-content {
+    padding-right: 0rem !important;
+}
+
+div.cart-summary {
+    padding: 1rem !important;
+    border: none; 
+}
+
+div.cart-coupon div {
+    padding: 0rem !important;
+}
+
+div.cart-coupon input.button {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    border: none;
 }

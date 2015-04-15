@@ -149,7 +149,7 @@
             <div class="small-12 columns">
                 <asp:Panel ID="pnlCoupon" runat="server" Visible="false" DefaultButton="btnUpdateCart3">
                 <h5><%= AppLogic.GetString("checkoutshipping.aspx.14")%></h5>
-                <div class="row collapse">
+                <div class="row small-collapse cart-coupon">
                     <div  class="small-9 columns">
                         <asp:TextBox ID="CouponCode" runat="server"></asp:TextBox>
                     </div>
