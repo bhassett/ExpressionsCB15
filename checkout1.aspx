@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  CodeFile="checkout1.aspx.cs" Inherits="InterpriseSuiteEcommerce.checkout1"%>
+<%@ Page Language="C#"  CodeFile="checkout1.aspx.cs" Inherits="InterpriseSuiteEcommerce.checkout1"%>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls.Validators" TagPrefix="ise" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls"TagPrefix="ise" %>
 <%@ Register TagPrefix="ise" TagName="Topic" Src="TopicControl.ascx" %>
@@ -15,20 +15,31 @@
     <style type="text/css">#errorSummary{display:none;}.CreditCardPaymentMethodPanel tbody tr td{text-align:left;padding-left:22px;}</style>
 </head>
 <body>
+
 <uc:ScriptControl ID="ctrlScript" runat="server"/>
+
 <ise:InputValidatorSummary ID="errorSummary" CssClass="error float-left normal-font-style" runat="server" Register="False" />
     <form id="OnePageCheckout" runat="server">
-    <asp:Panel ID="pnlSignIn" runat="server">
+    <div class="row">
+        <asp:Panel ID="pnlSignIn" runat="server">
         <p><asp:Literal ID="litIfYouHaveAlreadyAnAccount" runat="server">(!checkout1.aspx.88!)</asp:Literal>&nbsp;<a href="signin.aspx"><asp:Literal ID="litSignIn" runat="server">(!checkout1.aspx.89!)</asp:Literal></a></p>
         <div class="clear-both height-12"></div>
-    </asp:Panel>   
+        </asp:Panel>
+    </div>
     <!-- GIFT CARD / GIFT CERTIFICATE -->
-    <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
+    <div class="row">
+        <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
         <i class="icon-gift"></i>
         <asp:Label ID="lblNewGiftCode" runat="server"></asp:Label>
     </a>
+    </div>
+    
     <!-- OTHER PAYMENT CONTROL -->
+    <div class="row">
     <uc:OtherPaymentOptionControl ID="ctrlOtherPaymentOption" runat="server" />
+    </div>
+
+    <div class="row">
     <%--one page checkout sections starts here --%>
     <div class="sections-place-holder no-padding">
         <div class="section-header section-header-top"><asp:Literal ID="litShippingDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal></div>
@@ -105,7 +116,7 @@
                     <div class="clear-both height-12"></div>
                     <%-- shipping method control continue button starts here --%>
                     <div id="shipping-method-button-place-holder">
-                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2"" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
+                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
                        <div id="save-shipping-method-loader"></div>
                     </div>
                     <%-- shipping method control continue button ends here --%>
@@ -295,6 +306,8 @@
 
     </div>
 
+</div>
+
     <%--cart items and order summary details ends here --%>
 
     <%-- do not touch--%>
@@ -384,5 +397,6 @@
     });
   </script>
 </form>
+
 </body>
 </html>

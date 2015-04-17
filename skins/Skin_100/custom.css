@@ -46,6 +46,7 @@ div.product-buy input[id^="Quantity"] {
     width: auto;
 }
 
+/*Shopping Cart*/
 div.cart-content {
     padding-right: 0rem !important;
 }
@@ -63,4 +64,14 @@ div.cart-coupon input.button {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
     border: none;
+}
+
+/*One Page Checkout*/
+.summary-smaller {
+  float: right;
+  margin-right: 5px;
+  width: 65%;
+  line-height: 23px;
+  padding-top: 12px !important;
+  padding-bottom: 6px !important;
 }
