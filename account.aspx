@@ -1,4 +1,4 @@
-﻿<%@ Page language="c#" Inherits="InterpriseSuiteEcommerce.account" CodeFile="account.aspx.cs" %>
+<%@ Page language="c#" Inherits="InterpriseSuiteEcommerce.account" CodeFile="account.aspx.cs" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls.Validators" TagPrefix="cc1" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls" TagPrefix="ise" %>
 <%@ Register TagPrefix="uc" TagName="ProfileControl" Src="~/UserControls/ProfileControl.ascx" %>
@@ -59,13 +59,28 @@
         </asp:ImageMap>
     </asp:Panel>
     
+<div class="row">
+<div class="small-12 columns">
+    
     <asp:Label ID="unknownerrormsg" runat="server" style="color:#FF0000;"></asp:Label>
     <asp:Label ID="ErrorMsgLabel" runat="server" style="color:#FF0000;"></asp:Label>
     
+</div>
+</div>
+    
+<div class="row">
+<div class="small-12 columns">
     <asp:Panel ID="pnlAccountUpdated" runat="server" HorizontalAlign="left">
-        <asp:Label ID="lblAcctUpdateMsg" runat="server" style="font-weight:bold;color:#FF0000;"></asp:Label><br/><br/>
+        <asp:Label ID="lblAcctUpdateMsg" runat="server" style="font-weight:bold;color:#FF0000;"></asp:Label>
+        <br/><br/>
     </asp:Panel>
 
+</div>
+</div>
+    
+<div class="row">
+<div class="small-12 columns">
+    
     <div id="profile-error-place-holder" class="error float-left display-none"></div> 
     <div class="clear-both height-5"></div>
 
@@ -80,8 +95,13 @@
     
     <div class="error"><cc1:InputValidatorSummary ID="errorSummary" runat="server" Register="false"></cc1:InputValidatorSummary></div>  
 
+</div>
+</div>   
+
     <form id="AccountForm" runat="server">
      <asp:Panel ID="pnlPageContentWrapper" runat="server">
+         <div class="row">
+<div class="small-12 columns"> 
           <div class="clear-both height-12"></div>
            
            <!-- profile section starts here !-->
@@ -192,10 +212,15 @@
             <div class="clear-both"></div>
           </div>
             </div>
+                
+                </div>
+             </div>
        </asp:Panel>
         
        <!-- profile section ends here !-->
 
+    <div class="row">
+<div class="small-12 columns"> 
        <div class="clear-both height-5"></div>
 
        <%-- div section for address book starts here --%>
@@ -366,10 +391,16 @@
            </div>
 
         </div>
+           
+           </div>
+           </div>
 
      <!-- do not remove --><input type="hidden" id="load-at-page" value="edit-profile" /><!-- do not remove -->
 
     </form>
+
+</div>
+</div>
     
 </body>
 </html>

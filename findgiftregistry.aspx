@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="findgiftregistry.aspx.cs"
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="findgiftregistry.aspx.cs"
     Inherits="InterpriseSuiteEcommerce.findgiftregistry" %>
 
 <%@ OutputCache Location="None" %>
@@ -11,6 +11,8 @@
 <body>
     <form id="form1" runat="server">
     <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
+    <DIV class=row>
+    <DIV class="small-12 columns">
         
         <!-- Find Gift Registry Form -->
         <div class="sections-place-holder">
@@ -338,6 +340,7 @@
             }
 
         </script>
-    </asp:Panel>
+        </DIV></DIV>
+        </asp:Panel>
     </form>
 </body>

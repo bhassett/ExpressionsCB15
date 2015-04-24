@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" CodeFile="editgiftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.editgiftregistry"
+<%@ Page Language="C#" CodeFile="editgiftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.editgiftregistry"
     ValidateRequest="false" EnableEventValidation="true" %>
 
 <%@ OutputCache Location="None" %>
@@ -15,6 +15,8 @@
     <form id="form1" runat="server">
     <script type="text/javascript" src="jscripts/imagezoom.js"></script>
     <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
+    <DIV class=row>
+      <DIV class="small-12 columns">
 
         <!-- Registry Form -->
         <div class="sections-place-holder">
@@ -35,10 +37,14 @@
                 </div>
             </div>
         </div>
-
+    
+    </div>
+    </DIV>
     </asp:Panel>
 
     <asp:Panel ID="pnlSubMain" runat="server" CssClass="pnlmain">
+    <DIV class=row>
+    <DIV class="small-12 columns">
         
         <!-- Registry Items -->
         <div class="gift-registry-form" runat="server" id="pnlRegItems" visible="false">
@@ -137,7 +143,9 @@
     
         </script>
 
-    </asp:Panel>
+        </div>
+        </div>
+        </asp:Panel>
     </form>
 </body>
 </html>

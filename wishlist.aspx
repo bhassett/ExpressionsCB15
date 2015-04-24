@@ -5,6 +5,8 @@
 </head>
 <body>
     <form runat="server" onsubmit="return FormValidator(this)">
+    <DIV class=row>
+    <DIV class="small-12 columns">
         <b><asp:Literal ID="RedirectToSignInPageLiteral" runat="server"></asp:Literal></b>
         <ise:Topic runat="server" ID="TopicWishListPageHeader" TopicName="WishListPageHeader" />
         &nbsp;
@@ -95,6 +97,8 @@
                  });
              });
          </script>
+    </DIV>
+    </DIV>
     </form>
 </body>
 </html>

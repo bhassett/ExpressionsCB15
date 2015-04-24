@@ -21,25 +21,32 @@
 <ise:InputValidatorSummary ID="errorSummary" CssClass="error float-left normal-font-style" runat="server" Register="False" />
     <form id="OnePageCheckout" runat="server">
     <div class="row">
+    <div class="small-12 columns">
         <asp:Panel ID="pnlSignIn" runat="server">
         <p><asp:Literal ID="litIfYouHaveAlreadyAnAccount" runat="server">(!checkout1.aspx.88!)</asp:Literal>&nbsp;<a href="signin.aspx"><asp:Literal ID="litSignIn" runat="server">(!checkout1.aspx.89!)</asp:Literal></a></p>
         <div class="clear-both height-12"></div>
         </asp:Panel>
     </div>
+    </div>
     <!-- GIFT CARD / GIFT CERTIFICATE -->
     <div class="row">
+    <div class="small-12 columns">
         <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
         <i class="icon-gift"></i>
         <asp:Label ID="lblNewGiftCode" runat="server"></asp:Label>
     </a>
     </div>
+    </div>
     
     <!-- OTHER PAYMENT CONTROL -->
     <div class="row">
+    <div class="small-12 columns">
     <uc:OtherPaymentOptionControl ID="ctrlOtherPaymentOption" runat="server" />
+    </div>
     </div>
 
     <div class="row">
+    <div class="small-12 columns">
     <%--one page checkout sections starts here --%>
     <div class="sections-place-holder no-padding">
         <div class="section-header section-header-top"><asp:Literal ID="litShippingDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal></div>
@@ -306,6 +313,7 @@
 
     </div>
 
+</div>
 </div>
 
     <%--cart items and order summary details ends here --%>

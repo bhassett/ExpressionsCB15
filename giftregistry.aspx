@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" CodeFile="giftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.giftregistry" %>
+<%@ Page Language="C#" CodeFile="giftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.giftregistry" %>
 
 <%@ Register Src="UserControls/GiftRegistry/GiftRegistryList.ascx" TagName="GiftRegistryList"
     TagPrefix="ctrl" %>
@@ -7,7 +7,10 @@
     <title></title>
 </head>
 <body>
+    
     <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
+    <DIV class=row>
+    <DIV class="small-12 columns">
 
         <div class="sections-place-holder">
             <div class="page-sections-head"><asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal></div>
@@ -32,6 +35,9 @@
             </a>
         </div>
         
+    </DIV>
+    </DIV>
     </asp:Panel>
+    
 </body>
 </html>

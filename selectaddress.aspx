@@ -12,6 +12,8 @@
 </head>
 <body>
     <form id="frmAddAddress" runat="server">
+        <div class="row">
+<div class="small-12 columns"> 
         <asp:Panel ID="pnlCheckoutImage" runat="server" HorizontalAlign="Center" Visible="false">
             <asp:ImageMap ID="CheckoutImage" HotSpotMode="Navigate" runat="server">
                 <asp:RectangleHotSpot AlternateText="Back To Step 1: Shopping Cart" Top="0" Left="0" Right="87" Bottom="54" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx?resetlinkback=1" />
@@ -179,6 +181,8 @@
         });
     });
     </script>
+</div>
+</div>
 </form>
 </body>
 </html>
