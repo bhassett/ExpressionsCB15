@@ -116,7 +116,6 @@
             <div class="medium-12 columns text-center"><a href="/Staging/"><img src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
           </div>
 
-          <form>
           <div class="grey-wrapper">
             <div class="row small-collapse toppanel">
               <div class="medium-3 columns show-for-medium-up account-info">
@@ -152,7 +151,6 @@
               </div>
             </div>
           </div>
-          </form> 
 
           <!-- Navigation -->
           <div class="contain-to-grid">
