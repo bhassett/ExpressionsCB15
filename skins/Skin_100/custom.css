@@ -26,6 +26,10 @@ img[id^="imgEntity"] {
     border-radius: 0px;
 }
 
+.content-bottom {
+    margin-top: 3rem;
+}
+
 /*Page Overrides*/
 /*Browse and Search Pages*/
 .entity-sort .caption {
