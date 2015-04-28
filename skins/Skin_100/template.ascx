@@ -224,7 +224,11 @@
           </div>
 
     <!-- CONTENT -->
+    <div class="row">
+    <div class="small-12 columns">
     <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
+    </div>
+    </div>
     <!-- END OF CONTENT -->
 
     <!-- FOOTER -->
