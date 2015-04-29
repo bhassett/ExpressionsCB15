@@ -13,6 +13,9 @@ div.row.search div {padding: 0 !important;}
 .button {
     background-image: none;
 }
+.button:hover {
+    text-decoration: none;
+}
 
 /*Breadcrumbs*/
 .breadcrumbs > *.current a {
