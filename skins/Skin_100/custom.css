@@ -53,6 +53,11 @@ div.product-buy input[id^="Quantity"] {
     width: auto;
 }
 
+select.matrix-selector {
+  width: 8.75rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.3rem;
+}
+
 /*Shopping Cart*/
 div.cart-content {
     padding-right: 0rem !important;
