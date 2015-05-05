@@ -82,7 +82,7 @@
           </section>
 
           <section class="right-small tab-bar-section">
-            <a href="shopping-cart.shtml"><i class="fi-shopping-bag"></i></a>
+            <a href="shoppingcart.aspx"><i class="fi-shopping-bag"></i></a>
           </section>
         </nav>
 
