@@ -46,6 +46,15 @@ img[id^="imgEntity"] {
     padding: .5rem !important;
 }
 
+.searchpage div {
+    padding: 0px !important;
+}
+
+.searchpage .site-button {
+    width:100%;
+    margin:0;
+}
+
 /*Product Pages*/
 .tabs dd {padding: 0px}
 div.product-buy input[id^="Quantity"] {
