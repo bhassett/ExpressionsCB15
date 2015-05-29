@@ -4,6 +4,13 @@
 
 @import url("stylesheets/app.css");
 @import url("stylesheets/foundation-icons.css");
+/*Color Overrides*/
+.toppanel i {
+  color: #ffffff;
+}
+.toppanel .button {
+    background-color: #333333;   
+}
 
 /*Global Overrides*/
 /*Header Search Bar*/
@@ -20,7 +27,7 @@ div.row.search div {padding: 0 !important;}
 /*Breadcrumbs*/
 .breadcrumbs > *.current a {
     cursor: pointer; 
-    color: #008CBA; 
+    color: #39A0ED; 
 }
 
 /*Image Borders*/
@@ -62,6 +69,33 @@ div.product-buy input[id^="Quantity"] {
     width: auto;
 }
 
+.tab-container {
+    border: 1px solid #BBBBBB;
+}
+
+
+.tabs dd.active a, .tabs .tab-title.active a {
+  background-color: #FFFFFF;
+  color: #1B78BE;
+  border-bottom: 5px solid;
+}
+
+.tabs dd > a, .tabs .tab-title > a {
+  background-color: #FFFFFF;
+}
+
+.tabs dd > a:hover, .tabs .tab-title > a:hover {
+  background-color: #FFFFFF;
+}
+
+div.tabs-content.panel {
+  background: #FFFFFF;
+}
+
+.ProductNameText {
+  color: #666666;
+}
+
 select.matrix-selector {
   width: 8.75rem;
   padding: 0.5rem 1.5rem 0.5rem 0.3rem;
@@ -69,6 +103,10 @@ select.matrix-selector {
 
 .bxslider a {
     font-size: .75rem;
+}
+
+.fancybox-title-inside {
+    font-size: .75rem !important;
 }
 
 /*Shopping Cart*/
