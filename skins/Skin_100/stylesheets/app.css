@@ -6546,7 +6546,8 @@ meta.foundation-mq-topbar {
 /* line 118, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .contain-to-grid {
   width: 100%;
-  background: #333333;
+  background: #EFEFEF;
+  border-bottom: 1px solid #DEDEDE
 }
 /* line 122, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .contain-to-grid .top-bar {
@@ -6746,7 +6747,7 @@ meta.foundation-mq-topbar {
 .top-bar-section ul li > a {
   display: block;
   width: 100%;
-  color: #FFFFFF;
+  color: #444444;
   padding: 12px 0 12px 0;
   padding-left: 1.25rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -7027,7 +7028,7 @@ meta.foundation-mq-topbar {
 @media only screen and (min-width: 40.063em) {
   /* line 455, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar {
-    background: #333333;
+    background: #EFEFEF;
     overflow: visible;
   }
   /* line 172, ../bower_components/foundation/scss/foundation/components/_global.scss */
@@ -7101,7 +7102,7 @@ meta.foundation-mq-topbar {
   .top-bar-section li:not(.has-form) a:not(.button) {
     padding: 0 1.25rem;
     line-height: 2.5rem;
-    background: #333333;
+    background: #EFEFEF;
   }
   /* line 513, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li:not(.has-form) a:not(.button):hover {
@@ -9059,7 +9060,7 @@ th.hide-for-touch {
 
 /* line 47, ../scss/app.scss */
 .black-wrapper {
-  background: #000;
+  background: #232323;
 }
 
 /* line 50, ../scss/app.scss */
