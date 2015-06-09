@@ -112,8 +112,10 @@
         <section class="main-section">
           
           <!-- Header -->
+          <div class="black-wrapper">
           <div class="row show-for-medium-up">
-            <div class="medium-12 columns text-center"><a href="/Staging/"><img src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
+            <div class="medium-12 columns text-center"><a href="/Staging/"><img class="header-logo" src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
+          </div>
           </div>
 
           <div class="grey-wrapper">
