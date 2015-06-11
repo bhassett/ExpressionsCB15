@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProfileControl.ascx.cs" Inherits="UserControls_ProfileControl" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProfileControl.ascx.cs" Inherits="UserControls_ProfileControl" %>
 <div id="profile-section-wrapper">
     
     <% if (!IsUseFullnameTextbox)
@@ -13,17 +13,21 @@
             <% } %>
 
             <span class="form-controls-span">
+<!--
                 <label id="lblFirstName" class="form-field-label">
                     <asp:Literal ID="litFirstName" runat="server"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtFirstName"  CssClass="light-style-input" runat="server" MaxLength="50"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtFirstName"  CssClass="light-style-input" placeholder="First Name" runat="server" MaxLength="50"></asp:TextBox>
             </span>
         
             <span class="form-controls-span">
+<!--
                 <label id="lblLastName" class="form-field-label">
                     <asp:Literal ID="litLastName" runat="server"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtLastName" CssClass="light-style-input" runat="server" MaxLength="50"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtLastName" CssClass="light-style-input" placeholder="Last Name" runat="server" MaxLength="50"></asp:TextBox>
             </span>
         </div>
         <div class="clear-both height-5"></div>
@@ -31,22 +35,28 @@
         <div class="form-controls-place-holder">
 
             <span class="form-controls-span">
+<!--
                 <label  id="lblContactNumber" class="form-field-label">
                 <asp:Literal ID="litContactNumber" runat="server"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtContactNumber" CssClass="light-style-input" Maxlength="50" runat="server"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtContactNumber" CssClass="light-style-input" placeholder="Phone" Maxlength="50" runat="server"></asp:TextBox>
             </span>
 
             <span class="form-controls-span" data-accountType="<%=AccountType%>">
+<!--
                 <label  id="lblMobile" class="form-field-label">
                     <asp:Literal ID="litMobile" runat="server"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtMobile" CssClass="light-style-input" Maxlength="50" runat="server"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtMobile" CssClass="light-style-input" placeholder="Mobile optional" Maxlength="50" runat="server"></asp:TextBox>
 
+<!--
                 <label id="lblAnonymousEmail" class="form-field-label">
                     <asp:Literal ID="litAnonymousEmail" runat="server" Visible="false"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtAnonymousEmail" CssClass="light-style-input" MaxLength="50" runat="server"  Visible="false"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtAnonymousEmail" CssClass="light-style-input" placeholder="Email" MaxLength="50" runat="server"  Visible="false"></asp:TextBox>
             </span>
 
 
@@ -57,17 +67,21 @@
 
     <div class="form-controls-place-holder">
         <span class="form-controls-span">
+<!--
             <label id="lblShippingContactName" class="form-field-label">
                 <asp:Literal ID="litShippingContactName" runat="server"></asp:Literal>
             </label>
-            <asp:TextBox ID="txtShippingContactName" CssClass="light-style-input" runat="server" MaxLength="100"></asp:TextBox>
+-->
+            <asp:TextBox ID="txtShippingContactName" CssClass="light-style-input" placeholder="Contact Name" runat="server" MaxLength="100"></asp:TextBox>
         </span>
 
        <span class="form-controls-span">
+<!--
                 <label  id="lblShippingContactNumber" class="form-field-label">
                 <asp:Literal ID="litShippingContactNumber" runat="server"></asp:Literal>
                 </label>
-                <asp:TextBox ID="txtShippingContactNumber" MaxLength="50" CssClass="light-style-input" runat="server"></asp:TextBox>
+-->
+                <asp:TextBox ID="txtShippingContactNumber" MaxLength="50" placeholder="Contact Phone" CssClass="light-style-input" runat="server"></asp:TextBox>
        </span>
 
 
@@ -76,10 +90,12 @@
 
      <div class="form-controls-place-holder">
          <span class="form-controls-span" id="spanShippingSectionEmail" data-accountType="<%=AccountType%>">
+<!--
             <label  id="lblShippingEmail" class="form-field-label">
                 <asp:Literal ID="litShippingEmail" runat="server"></asp:Literal>
             </label>
-            <asp:TextBox ID="txtShippingEmail" CssClass="light-style-input" runat="server" Maxlength="50"></asp:TextBox>
+-->
+            <asp:TextBox ID="txtShippingEmail" CssClass="light-style-input" placeholder="Contact Email" runat="server" Maxlength="50"></asp:TextBox>
         </span>
     </div>
                  

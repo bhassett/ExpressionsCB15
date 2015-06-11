@@ -101,7 +101,7 @@
     <form id="AccountForm" runat="server">
      <asp:Panel ID="pnlPageContentWrapper" runat="server">
          <div class="row">
-<div class="small-12 columns"> 
+         <div class="small-12 columns"> 
           <div class="clear-both height-12"></div>
            
            <!-- profile section starts here !-->
@@ -116,7 +116,7 @@
                     <div class="clear-both"></div>
                     <div id="profile-info-wrapper" style="padding:12px;">
                                             
-                        <div id="profile-account-info-place-holder" class="float-left">
+                        <d  iv id="profile-account-info-place-holder" class="float-left">
                             <span class="form-section">
                                 <asp:Literal ID="litProfileInfo" runat="server">(!account.aspx.63!)</asp:Literal>
                             </span>
