@@ -235,14 +235,14 @@
             <DIV class="small-12 columns">
             <H2 class=text-center>Popular Picks</H2>
             <UL class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center">
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218&amp;text=Product Image"><BR>Sample Product</LI></UL></DIV></DIV>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
+            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI></UL></DIV></DIV>
             
             <DIV class=row>
             <DIV class="small-12 large-8 columns">
