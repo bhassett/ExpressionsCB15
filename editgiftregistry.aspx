@@ -1,4 +1,4 @@
-<%@ Page Language="C#" CodeFile="editgiftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.editgiftregistry"
+﻿<%@ Page Language="C#" CodeFile="editgiftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.editgiftregistry"
     ValidateRequest="false" EnableEventValidation="true" %>
 
 <%@ OutputCache Location="None" %>

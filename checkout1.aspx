@@ -1,4 +1,4 @@
-<%@ Page Language="C#"  CodeFile="checkout1.aspx.cs" Inherits="InterpriseSuiteEcommerce.checkout1"%>
+﻿<%@ Page Language="C#"  CodeFile="checkout1.aspx.cs" Inherits="InterpriseSuiteEcommerce.checkout1"%>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls.Validators" TagPrefix="ise" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls"TagPrefix="ise" %>
 <%@ Register TagPrefix="ise" TagName="Topic" Src="TopicControl.ascx" %>

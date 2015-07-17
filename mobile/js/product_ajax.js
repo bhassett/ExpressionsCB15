@@ -64,7 +64,7 @@ ise.Products.ImagePreLoader.prototype = {
             var recurse = function () { if (lambda) { lambda(lambda) }; }
             var current = this.images.pop();
             if (current && current.src) {
-                alert(current.src);
+               
                 var req = new Ajax.Request(current.src,
                     {
                         method: 'get',

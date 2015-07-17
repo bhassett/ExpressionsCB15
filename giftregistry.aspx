@@ -1,4 +1,4 @@
-<%@ Page Language="C#" CodeFile="giftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.giftregistry" %>
+﻿<%@ Page Language="C#" CodeFile="giftregistry.aspx.cs" Inherits="InterpriseSuiteEcommerce.giftregistry" %>
 
 <%@ Register Src="UserControls/GiftRegistry/GiftRegistryList.ascx" TagName="GiftRegistryList"
     TagPrefix="ctrl" %>
