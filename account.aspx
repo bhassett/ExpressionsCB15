@@ -1,4 +1,4 @@
-<%@ Page language="c#" Inherits="InterpriseSuiteEcommerce.account" CodeFile="account.aspx.cs" %>
+﻿<%@ Page language="c#" Inherits="InterpriseSuiteEcommerce.account" CodeFile="account.aspx.cs" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls.Validators" TagPrefix="cc1" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls" TagPrefix="ise" %>
 <%@ Register TagPrefix="uc" TagName="ProfileControl" Src="~/UserControls/ProfileControl.ascx" %>
@@ -116,7 +116,7 @@
                     <div class="clear-both"></div>
                     <div id="profile-info-wrapper" style="padding:12px;">
                                             
-                        <d  iv id="profile-account-info-place-holder" class="float-left">
+                        <div id="profile-account-info-place-holder" class="float-left">
                             <span class="form-section">
                                 <asp:Literal ID="litProfileInfo" runat="server">(!account.aspx.63!)</asp:Literal>
                             </span>

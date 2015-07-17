@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProfileControl.ascx.cs" Inherits="UserControls_ProfileControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProfileControl.ascx.cs" Inherits="UserControls_ProfileControl" %>
 <div id="profile-section-wrapper">
     
     <% if (!IsUseFullnameTextbox)

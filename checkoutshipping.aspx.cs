@@ -311,10 +311,10 @@ namespace InterpriseSuiteEcommerce
         {
             decimal threshHold = AppLogic.AppConfigUSDecimal("FreeShippingThreshold");
             string currencyCode = _cart.ThisCustomer.CurrencyCode;
-            decimal subTotal = _cart.GetCartSubTotalExcludeOversized();
+            decimal subTotal = _cart.GetCartDiscountedSubTotalExcludeOversized();
             string shippingMethods = AppLogic.AppConfig("ShippingMethodCodeIfFreeShippingIsOn");
 
-            if (threshHold > Decimal.Zero && threshHold > subTotal)
+            if (threshHold > Decimal.Zero && subTotal >= threshHold)
             {
                 pnlGetFreeShippingMsg.Visible = true;
                 GetFreeShippingMsg.Text = _stringResourceService.GetString("checkoutshipping.aspx.2").FormatWith(threshHold.ToCustomerCurrency(), shippingMethods);

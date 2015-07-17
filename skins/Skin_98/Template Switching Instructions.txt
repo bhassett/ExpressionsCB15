@@ -1,0 +1,12 @@
+To use a different template for the homepage, follow these instructions:
+1. Open Connected Business 15
+2. Go to eCommerce >> Setup >> Application Configuration
+3. Search for "hometemplate" 
+4. Double click "HomeTemplate" and type in homepagetemplate.ascx in the Config Value field
+5. Click Save then Reset Web Cache
+
+
+for itempopup on featureditem on homepage
+1. copy page.itempopup.xml from xmlpackages (from this skin)
+2. paste it to C:\Program Files (x86)\Connected Business 15\CBE\Web\XmlPackages
+
