@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="createaccount.aspx.cs" Inherits="InterpriseSuiteEcommerce.createaccount" %>
+<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="createaccount.aspx.cs" Inherits="InterpriseSuiteEcommerce.createaccount" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls.Validators" TagPrefix="ise" %>
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls" TagPrefix="ise" %>
 <%@ Register TagPrefix="ise" TagName="Topic" Src="TopicControl.ascx" %>
@@ -24,7 +24,7 @@
    </asp:Panel>
    <asp:Panel ID="pnlPageContentWrapper" runat="server">
    
-        <div class="row collapse">
+        <div class="row small-collapse">
         <div class="small-12 columns"><asp:Literal ID="Literal2" runat="server">(!createaccount.aspx.105!)</asp:Literal></div>
       
         <div class="small-12 columns">
