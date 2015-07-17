@@ -86,7 +86,7 @@
 
                      <span class="form-controls-span">
                         <label  id="lblBillingContactNumber" class="form-field-label">
-                            <asp:Literal ID="litContactNumber" runat="server" >(!checkoutpayment.aspx.27!)</asp:Literal>
+                            <asp:Literal ID="litContactNumber" runat="server" >(!checkout1.aspx.66!)</asp:Literal>
                         </label>
                         <asp:TextBox ID="txtBillingContactNumber" runat="server" CssClass="light-style-input" MaxLength="50"></asp:TextBox>
                      </span>

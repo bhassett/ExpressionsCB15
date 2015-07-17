@@ -81,7 +81,8 @@ namespace InterpriseSuiteEcommerce
             // WRITE OUT ANY HEADER CHECKOUT SEQUENCE GRAPHIC:
             // ----------------------------------------------------------------------------------------
             writer.Write("<div align=\"center\">");
-            writer.Write("<img id=\"checkoutheadergraphic\" src=\"" + AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_6.gif") + "\" width=\"550\" height=\"54\" border=\"0\" >\n");
+            //writer.Write("<img id=\"checkoutheadergraphic\" src=\"" + AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_6.gif") + "\" width=\"550\" height=\"54\" border=\"0\" >\n");
+			writer.Write("<img id=\"checkoutheadergraphic\" src=\"" + AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_6.gif") + "\" border=\"0\" >\n");
             writer.Write("</div>");
 
             if (CustomerID != String.Empty && OrderNumber != String.Empty)

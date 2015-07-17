@@ -10,6 +10,7 @@ using InterpriseSuiteEcommerceCommon;
 using InterpriseSuiteEcommerceCommon.Extensions;
 using InterpriseSuiteEcommerceControls.Validators;
 using InterpriseSuiteEcommerceCommon.Domain.Infrastructure;
+using System.Linq;
 
 namespace InterpriseSuiteEcommerce
 {
@@ -41,7 +42,7 @@ namespace InterpriseSuiteEcommerce
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            
+            SignInFromCB(this.Context);
             if (ThisCustomer.IsRegistered)
             {
                 _navigationService.NavigateToAccountPage();
@@ -123,104 +124,7 @@ namespace InterpriseSuiteEcommerce
         {
             string emailField = EMail.Text.ToLower();
             string passwordField = Password.Text;
-
-            if (AppLogic.AppConfigBool("SecurityCodeRequiredOnStoreLogin"))
-            {
-                string errorMessage = _stringResourceService.GetString("signin.aspx.22", true)
-                                                            .FormatWith(String.Empty, String.Empty);
-
-                if (Session["SecurityCode"] != null)
-                {
-                    string sCode = Session["SecurityCode"].ToString();
-                    string fCode = SecurityCode.Text;
-                    bool codeMatch = false;
-
-                    if (AppLogic.AppConfigBool("Captcha.CaseSensitive"))
-                    {
-                        if (fCode.Equals(sCode))
-                            codeMatch = true;
-                    }
-                    else
-                    {
-                        if (fCode.Equals(sCode, StringComparison.InvariantCultureIgnoreCase))
-                            codeMatch = true;
-                    }
-
-                    if (!codeMatch)
-                    {
-                        ErrorMsgLabel.Text = errorMessage;
-                        ErrorPanel.Visible = true;
-                        SecurityCode.Text = String.Empty;
-                        SecurityImage.ImageUrl = "Captcha.ashx?id=1";
-                        return;
-                    }
-                }
-                else
-                {
-                    ErrorMsgLabel.Text = errorMessage;
-                    ErrorPanel.Visible = true;
-                    SecurityCode.Text = String.Empty;
-                    SecurityImage.ImageUrl = "Captcha.ashx?id=1";
-                    return;
-                }
-            }
-
-            if (emailField.IsNullOrEmptyTrimmed() || passwordField.IsNullOrEmptyTrimmed())
-            {
-                DisplayInvalidLogin();
-                return;
-            }
-
-            if (CheckValidEmail())
-            {
-                var status = _authenticationService.Login(EMail.Text, passwordField, PersistLogin.Checked);
-
-                if (!status.IsValid)
-                {
-                    if (status.IsAccountExpired)
-                    {
-                        DisplayExpiredAccount();
-                    }
-                    else
-                    {
-                        DisplayInvalidLogin();
-                    }
-                    return;
-                }
-
-                FormPanel.Visible = false;
-                ExecutePanel.Visible = true;
-                SignInExecuteLabel.Text = _stringResourceService.GetString("signin.aspx.2");
-
-                var customerWithValidLogin = _authenticationService.GetCurrentLoggedInCustomer();
-                string sReturnURL = _authenticationService.GetRedirectUrl(customerWithValidLogin.ContactGUID.ToString(), PersistLogin.Checked);
-                if (sReturnURL.Length == 0)
-                {
-                    sReturnURL = ReturnURL.Text;
-                }
-                if (sReturnURL.Length == 0)
-                {
-                    if (DoingCheckout.Checked)
-                    {
-                        sReturnURL = "shoppingcart.aspx";
-                    }
-                    else
-                    {
-                        sReturnURL = "default.aspx";
-                    }
-                }
-                if (sReturnURL.Contains("default.aspx"))
-                {
-                    sReturnURL = sReturnURL.Replace("default", "account");
-                }
-
-                if (sReturnURL.Contains("download.aspx"))
-                {
-                    sReturnURL = sReturnURL + "&sid=" + "sid".ToQueryString();
-                }
-
-                _navigationService.NavigateToUrl(sReturnURL.ToUrlDecode());
-            }
+            Login(emailField, passwordField);
 
         }
 
@@ -380,7 +284,130 @@ namespace InterpriseSuiteEcommerce
             CheckoutPanel.Visible = isCheckout;
             SignUpLink.NavigateUrl = "createaccount.aspx?checkout={0}".FormatWith(isCheckout.ToString());
         }
+		 private void Login(string email, string password)
+        {
+            if (AppLogic.AppConfigBool("SecurityCodeRequiredOnStoreLogin"))
+            {
+                string errorMessage = _stringResourceService.GetString("signin.aspx.22", true)
+                                                            .FormatWith(String.Empty, String.Empty);
 
+                if (Session["SecurityCode"] != null)
+                {
+                    string sCode = Session["SecurityCode"].ToString();
+                    string fCode = SecurityCode.Text;
+                    bool codeMatch = false;
+
+                    if (AppLogic.AppConfigBool("Captcha.CaseSensitive"))
+                    {
+                        if (fCode.Equals(sCode))
+                            codeMatch = true;
+                    }
+                    else
+                    {
+                        if (fCode.Equals(sCode, StringComparison.InvariantCultureIgnoreCase))
+                            codeMatch = true;
+                    }
+
+                    if (!codeMatch)
+                    {
+                        ErrorMsgLabel.Text = errorMessage;
+                        ErrorPanel.Visible = true;
+                        SecurityCode.Text = String.Empty;
+                        SecurityImage.ImageUrl = "Captcha.ashx?id=1";
+                        return;
+                    }
+                }
+                else
+                {
+                    ErrorMsgLabel.Text = errorMessage;
+                    ErrorPanel.Visible = true;
+                    SecurityCode.Text = String.Empty;
+                    SecurityImage.ImageUrl = "Captcha.ashx?id=1";
+                    return;
+                }
+            }
+
+            if (email.IsNullOrEmptyTrimmed() || password.IsNullOrEmptyTrimmed())
+            {
+                DisplayInvalidLogin();
+                return;
+            }
+
+            if (CheckValidEmail())
+            {
+                var status = _authenticationService.Login(EMail.Text, password, PersistLogin.Checked);
+
+                if (!status.IsValid)
+                {
+                    if (status.IsAccountExpired)
+                    {
+                        DisplayExpiredAccount();
+                    }
+                    else
+                    {
+                        DisplayInvalidLogin();
+                    }
+                    return;
+                }
+
+                FormPanel.Visible = false;
+                ExecutePanel.Visible = true;
+                SignInExecuteLabel.Text = _stringResourceService.GetString("signin.aspx.2");
+
+                var customerWithValidLogin = _authenticationService.GetCurrentLoggedInCustomer();
+                string sReturnURL = _authenticationService.GetRedirectUrl(customerWithValidLogin.ContactGUID.ToString(), PersistLogin.Checked);
+                if (sReturnURL.Length == 0)
+                {
+                    sReturnURL = ReturnURL.Text;
+                }
+                if (sReturnURL.Length == 0)
+                {
+                    if (DoingCheckout.Checked)
+                    {
+                        sReturnURL = "shoppingcart.aspx";
+                    }
+                    else
+                    {
+                        sReturnURL = "default.aspx";
+                    }
+                }
+                //if (sReturnURL.Contains("default.aspx"))
+                //{
+                //    sReturnURL = sReturnURL.Replace("default", "account");
+                //}
+
+                if (sReturnURL.Contains("download.aspx"))
+                {
+                    sReturnURL = sReturnURL + "&sid=" + "sid".ToQueryString();
+                }
+
+                _navigationService.NavigateToUrl(sReturnURL.ToUrlDecode());
+            }
+        }
+		private void SignInFromCB(HttpContext context)
+        {
+           
+            string[] requiredQueryStringKeys = new[] { "e", "d", "v", "t" };
+            var keysFound = from keys in requiredQueryStringKeys
+                            join allKeys in context.Request.QueryString.AllKeys on keys equals allKeys
+                            select keys;
+            if (keysFound.Count() == requiredQueryStringKeys.Length)
+            {
+                string password = context.Request.QueryString["d"].Replace(" ", "+");
+                string passwordSalt = context.Request.QueryString["t"].Replace(" ", "+");
+                string passwordIV = context.Request.QueryString["v"].Replace(" ", "+");
+                string decriptedPassword = InterpriseHelper.Decryption(
+                       Convert.FromBase64String(password),
+                       Convert.FromBase64String(passwordSalt),
+                       Convert.FromBase64String(passwordIV));
+                EMail.Text = context.Request.QueryString["e"];
+                Password.Text = decriptedPassword;
+                Login(EMail.Text, Password.Text);
+            }
+
+            //   if(context.Request.QueryString.Keys.co)
+            //   websiteURL += string.Format("/signin.aspx?e={0}&d={1}&v={2}&t={3}", email1, password, passwordIV, passwordSalt);
+        }
         #endregion
     }
 }
