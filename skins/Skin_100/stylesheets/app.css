@@ -9554,6 +9554,7 @@ html[xmlns] .slides {
 /* line 298, ../scss/app.scss */
 .product-image {
   margin-bottom: 1rem;
+  z-index: 999;
 }
 
 /* line 299, ../scss/app.scss */
