@@ -19,6 +19,15 @@
     padding: 1.25rem;
 }
 
+.draw-border img {
+    border: 1px solid #DEDEDE;
+    padding: 1px;
+}
+
+.draw-border li {
+    font-size: 75%;
+}
+
 .top-bar-section .has-dropdown > a:after {
   content: "";
   display: block;

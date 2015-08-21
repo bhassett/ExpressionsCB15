@@ -222,48 +222,79 @@
 
     <!-- CONTENT -->
           <DIV class=row>
-          <DIV class="small-12 columns">
-          <DIV class=flex-container>
-          <DIV class=flexslider>
-          <UL class=slides>
-          <LI><A href="#"><IMG src="skins/Skin_(!SKINID!)/images/home/vases-slide.jpg"></A> </LI>
-          <LI><A href="#"><IMG src="skins/Skin_(!SKINID!)/images/home/mirrors-slide.jpg"></A> </LI>
-          <LI><A href="#"><IMG src="skins/Skin_(!SKINID!)/images/home/sunflower-slide.jpg"></A> </LI></UL></DIV></DIV></DIV></DIV>
+              <DIV class="small-12 columns">
+                  <ul class="small-block-grid-1">
+                      <li><IMG src="http://placehold.it/960x480&amp;text=Product Feature Image"></li>
+                  </ul>
+              </DIV>
+          </DIV>
           
           <DIV class=grey-band-wrapper>
             <DIV class=row>
             <DIV class="small-12 columns">
             <H2 class=text-center>Popular Picks</H2>
-            <UL class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center">
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI>
-            <LI><IMG src="http://placehold.it/218x218&amp;text=Product Image"><BR>Sample Product</LI></UL></DIV></DIV>
+            <UL class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center draw-border">
+                <LI><IMG src="images/product/medium/UMA71231.jpg"><BR>Turquoise Victorian Ceramic Jar</LI>
+                <LI><IMG src="images/product/medium/UMA34722.jpg"><BR>Metal Vine Wine Rack</LI>
+                <LI><IMG src="images/product/medium/UMA16156.jpg"><BR>Chrome Mosiac Orbs</LI>
+                <LI><IMG src="images/product/medium/UMA54413.jpg"><BR>Metal Bowls Wall Decor</LI>
+                <LI><IMG src="images/product/medium/UMA96181.jpg"><BR>Wood Cabinet With Wicker Baskets</LI>
+                <LI><IMG src="images/product/medium/UMA92734.jpg"><BR>Peacock Feather Painting</LI>
+                <LI><IMG src="images/product/medium/42852.jpg"><BR>Silver Metal &amp; Glass Spice Rack</LI>
+                <LI><IMG src="images/product/medium/UMA71700.jpg"><BR>Silver Glazed Ceramic Lantern</LI>
+                <LI class="show-for-medium-only"><IMG src="images/product/medium/UMA40057.jpg"><BR>Lime Green Ceramic Table Lamp</LI>
+            </UL></DIV></DIV>
+            
+            
+            <DIV class=row>
+              <DIV class="small-12 columns">
+                  <ul class="small-block-grid-1 text-center">
+                      <LI><IMG data-interchange="[skins/Skin_(!SKINID!)/images/home/free-shipping-480.jpg, (default)], [skins/Skin_(!SKINID!)/images/home/free-shipping-960.jpg, (medium)]"></LI>
+                  </ul>
+              </DIV>
+            </DIV>
             
             <DIV class=row>
             <DIV class="small-12 large-8 columns">
             <DIV class=row>
             <DIV class="small-12 columns text-center">
             <UL class=small-block-grid-1>
-            <LI><IMG data-interchange="[http://placehold.it/312x230&amp;text=default 312x230, (default)], [http://placehold.it/640x435&amp;text=medium 640x435, (medium)]"></LI></UL>
+            <LI><IMG data-interchange="[http://placehold.it/380x220&amp;text=380x220, (default)], [http://placehold.it/640x435&amp;text=medium 640x435, (medium)]"></LI></UL>
             <UL class="small-block-grid-1 medium-block-grid-2">
-            <LI><IMG src="http://placehold.it/312x230"></LI>
-            <LI><IMG src="http://placehold.it/312x230"></LI></UL></DIV></DIV></DIV>
+            <LI><IMG src="http://placehold.it/380x220"></LI>
+            <LI><IMG src="http://placehold.it/380x220"></LI></UL></DIV></DIV></DIV>
             <DIV class="large-4 columns show-for-large-up"><IMG src="http://placehold.it/304x675"></DIV></DIV>
             
+<!--
+            <DIV class=row>
+              <DIV class="small-12 columns">
+                  <ul class="small-block-grid-1 text-center">
+                      <li><IMG src="http://placehold.it/960x90&amp;text=Popular Categories Title"></li>
+                  </ul>
+              </DIV>
+            </DIV>
+-->
+                
             <DIV class="row paddingbottom">
-            <DIV class="small-12 columns text-center">
-            <UL class="small-block-grid-1 medium-block-grid-2">
-            <LI><IMG src="http://placehold.it/456x316"></LI>
-            <LI><IMG src="http://placehold.it/456x316"></LI></UL></DIV></DIV>
+                <DIV class="small-12 columns text-center">
+                    <H2 class=text-center>Popular Categories</H2>
+                    <UL class="small-block-grid-2 medium-block-grid-4 text-center">
+                        <LI><IMG src="http://placehold.it/240x420"></LI>
+                        <LI><IMG src="http://placehold.it/240x420"></LI>
+                        <LI><IMG src="http://placehold.it/240x420"></LI>
+                        <LI><IMG src="http://placehold.it/240x420"></LI>
+                    </UL>
+                </DIV>
+            </DIV>
           
             <DIV class="row show-for-medium-up paddingbottom">
-            <DIV class="medium-4 columns"><IMG src="http://placehold.it/300x250"></DIV>
-            <DIV class="medium-8 columns"><IMG src="http://placehold.it/640x250"></DIV></DIV>
+                <DIV class="medium-12 columns">
+                    <ul class="small-block-grid-2 text-center">
+                        <li><IMG src="http://placehold.it/456x316"></li>
+                        <li><IMG src="http://placehold.it/456x316"></li>
+                    </ul>
+                </DIV>
+            </DIV>
           
             <DIV class=greybar-wrapper>
             <DIV class=row>
