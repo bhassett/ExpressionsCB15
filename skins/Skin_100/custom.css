@@ -48,7 +48,17 @@
 }
 
 /*Header Search Bar*/
-div.row.search div {padding: 0 !important;}
+div.row.search div {
+    padding: 0 !important;
+}
+
+div.row.search input#txtSearch {
+    border-radius: 3px 0 0 3px;
+}
+
+div.row.search a#btnSearch {
+    border-radius: 0 3px 3px 0;
+}
 
 /*Buttons*/
 .button {
