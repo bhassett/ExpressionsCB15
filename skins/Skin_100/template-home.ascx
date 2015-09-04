@@ -50,6 +50,24 @@
                 }
             });
          </script>
+        
+        <!-- Facebook Conversion Code for Leads -->
+        <script>(function() {
+        var _fbq = window._fbq || (window._fbq = []);
+        if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+        }
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6024881871249', {'value':'0.00','currency':'USD'}]);
+        </script>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024881871249&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+        
         <!-- Global Loader -->
         <script type="text/javascript">
             $(document).ready(function () {
@@ -251,39 +269,41 @@
                   <ul class="small-block-grid-1 text-center">
                       <LI><IMG data-interchange="[skins/Skin_(!SKINID!)/images/home/free-shipping-480.jpg, (default)], [skins/Skin_(!SKINID!)/images/home/free-shipping-960.jpg, (medium)]"></LI>
                   </ul>
+                  <hr />
               </DIV>
             </DIV>
             
-            <DIV class=row>
-            <DIV class="small-12 large-8 columns">
-            <DIV class=row>
-            <DIV class="small-12 columns text-center">
-            <UL class=small-block-grid-1>
-            <LI><IMG data-interchange="[http://placehold.it/380x220&amp;text=380x220, (default)], [http://placehold.it/640x435&amp;text=medium 640x435, (medium)]"></LI></UL>
-            <UL class="small-block-grid-1 medium-block-grid-2">
-            <LI><IMG src="http://placehold.it/380x220"></LI>
-            <LI><IMG src="http://placehold.it/380x220"></LI></UL></DIV></DIV></DIV>
-            <DIV class="large-4 columns show-for-large-up"><IMG src="http://placehold.it/304x675"></DIV></DIV>
-            
 <!--
             <DIV class=row>
-              <DIV class="small-12 columns">
-                  <ul class="small-block-grid-1 text-center">
-                      <li><IMG src="http://placehold.it/960x90&amp;text=Popular Categories Title"></li>
-                  </ul>
-              </DIV>
+                <DIV class="small-12 large-8 columns">
+                    <DIV class=row>
+                        <DIV class="small-12 columns text-center">
+                            <UL class=small-block-grid-1>
+                                <LI><IMG data-interchange="[http://placehold.it/380x220&amp;text=380x220, (default)], [http://placehold.it/640x435&amp;text=medium 640x435, (medium)]"></LI>
+                            </UL>
+                            <UL class="small-block-grid-1 medium-block-grid-2">
+                                <LI><IMG src="http://placehold.it/380x220"></LI>
+                                <LI><IMG src="http://placehold.it/380x220"></LI>
+                            </UL>
+                        </DIV>
+                    </DIV>
+                </DIV>
+                <DIV class="large-4 columns show-for-large-up">
+                    <h2>everything is blue</h2>
+                </DIV>
             </DIV>
 -->
                 
             <DIV class="row paddingbottom">
                 <DIV class="small-12 columns text-center">
-                    <H2 class=text-center>Popular Categories</H2>
+<!--                    <H2 class=text-center>Popular Categories</H2>-->
                     <UL class="small-block-grid-2 medium-block-grid-4 text-center">
-                        <LI><IMG src="http://placehold.it/240x420"></LI>
-                        <LI><IMG src="http://placehold.it/240x420"></LI>
-                        <LI><IMG src="http://placehold.it/240x420"></LI>
-                        <LI><IMG src="http://placehold.it/240x420"></LI>
+                        <LI><a href="c-12-decorative-accents.aspx"><IMG src="skins/Skin_(!SKINID!)/images/home/home-popcat-decorativeaccents.jpg"></a></LI>
+                        <LI><a href="c-23-wall-art.aspx"><IMG src="skins/Skin_(!SKINID!)/images/home/home-popcat-wallart.jpg"></a></LI>
+                        <LI><a href="c-8-vases.aspx"><IMG src="skins/Skin_(!SKINID!)/images/home/home-popcat-vases.jpg"></a></LI>
+                        <LI><a href="c-25-table-lamps.aspx"><IMG src="skins/Skin_(!SKINID!)/images/home/home-popcat-lamps.jpg"></a></LI>
                     </UL>
+                    <hr />
                 </DIV>
             </DIV>
           
@@ -297,16 +317,23 @@
             </DIV>
           
             <DIV class=greybar-wrapper>
-            <DIV class=row>
-            <DIV class="small-12 medium-4 columns">
-            <BLOCKQUOTE>
-            <H3>Gift &amp; Wedding Registry</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</BLOCKQUOTE></DIV>
-            <DIV class="small-12 medium-4 columns">
-            <BLOCKQUOTE>
-            <H3>Trade Program</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</BLOCKQUOTE></DIV>
-            <DIV class="small-12 medium-4 columns">
-            <BLOCKQUOTE>
-            <H3>Interior Design &amp; Merchandising Services</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</BLOCKQUOTE></DIV></DIV></DIV>
+                <DIV class=row>
+                    <DIV class="small-12 medium-4 columns">
+                        <BLOCKQUOTE>
+                        <H3>Gift &amp; Wedding Registry</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        </BLOCKQUOTE>
+                    </DIV>
+                    <DIV class="small-12 medium-4 columns">
+                        <BLOCKQUOTE>
+                        <H3>Trade Program</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        </BLOCKQUOTE>
+                    </DIV>
+                    <DIV class="small-12 medium-4 columns">
+                        <BLOCKQUOTE>
+                        <H3>Interior Design &amp; Merchandising Services</H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</BLOCKQUOTE>
+                    </DIV>    
+                </DIV>
+            </DIV>
           </div>
     <!-- END OF CONTENT -->
 
