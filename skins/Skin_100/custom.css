@@ -85,6 +85,11 @@ img[id^="imgEntity"] {
 }
 
 /*Page Overrides*/
+/*Category Pages*/
+.category-blockgrid img {
+    margin-top: .5rem;
+}
+
 /*Browse and Search Pages*/
 .entity-sort .caption {
     font-weight: bold;
