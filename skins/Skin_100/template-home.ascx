@@ -185,6 +185,17 @@
               <section class="top-bar-section">
                  <ul class="left">
                   <li><a href="/">Home</a></li>
+                  <li><a href="c-2-accessories.aspx">Accessories</a></li>
+                  <li><a href="c-4-wall-decor.aspx">Wall Decor</a></li>
+                  <li><a href="c-5-lighting.aspx">Lighting</a></li>
+                  <li><a href="c-6-furniture.aspx">Accent Furniture</a></li>
+                  <li><a href="c-52-exclusive.aspx">Exclusive</a></li>
+                </ul> 
+              </section>
+<!--
+              <section class="top-bar-section">
+                 <ul class="left">
+                  <li><a href="/">Home</a></li>
                   <li class="has-dropdown">
                     <a href="c-2-accessories.aspx">Accessories</a>
                     <ul class="dropdown">
@@ -234,6 +245,7 @@
                   <li><a href="c-52-exclusive.aspx">Exclusive</a></li>
                 </ul> 
               </section>
+-->
             </nav>
           </div>
 
@@ -309,10 +321,15 @@
           
             <DIV class="row show-for-medium-up paddingbottom">
                 <DIV class="medium-12 columns">
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50dc8ab51b6823ca" async="async"></script>
+                    <div class="addthis_recommended_horizontal"></div>
+
+<!--
                     <ul class="small-block-grid-2 text-center">
                         <li><IMG src="http://placehold.it/456x316"></li>
                         <li><IMG src="http://placehold.it/456x316"></li>
                     </ul>
+-->
                 </DIV>
             </DIV>
           
@@ -402,6 +419,9 @@
             }
         });
     </script>
+                
+    <!-- AddThis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50dc8ab51b6823ca" async="async"></script>
 
 <!--    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>-->
     <script src="skins/Skin_(!SKINID!)/bower_components/foundation/js/foundation.min.js"></script>

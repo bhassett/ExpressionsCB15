@@ -165,52 +165,10 @@
               <section class="top-bar-section">
                  <ul class="left">
                   <li><a href="/">Home</a></li>
-                  <li class="has-dropdown">
-                    <a href="c-2-accessories.aspx">Accessories</a>
-                    <ul class="dropdown">
-                      <li><a href="c-12-decorative-accents.aspx">Decorative Accents</a></li>
-                      <li><a href="c-14-candleholders.aspx">Candleholders</a></li>
-                      <li><a href="c-15-baskets-boxes.aspx">Baskets &amp; Boxes</a></li>
-                      <li><a href="c-10-picture-frames.aspx">Picture Frames</a></li>
-                      <li><a href="c-13-clocks.aspx">Clocks</a></li>
-                      <li><a href="c-9-urns-jars.aspx">Urns &amp; Jars</a></li>
-                      <li><a href="c-11-decorative-bowls.aspx">Decorative Bowls</a></li>
-                      <li><a href="c-48-decorative-plates-chargers.aspx">Plates &amp; Chargers</a></li>
-                      <li><a href="c-8-vases.aspx">Vases</a></li>
-                      <li><a href="c-29-trays.aspx">Trays</a></li>
-                      <li><a href="c-31-planters.aspx">Planters</a></li>
-                      <li><a href="c-32-sculpture.aspx">Sculpture</a></li>
-                      <li><a href="c-45-floral.aspx">Floral</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-dropdown">
-                    <a href="c-4-wall-decor.aspx">Wall Decor</a>
-                    <ul class="dropdown">
-                      <li><a href="c-20-racks-shelving.aspx">Racks &amp; Shelving</a></li>
-                      <li><a href="c-21-sconces.aspx">Sconces</a></li>
-                      <li><a href="c-22-wall-clocks.aspx">Wall Clocks</a></li>
-                      <li><a href="c-23-wall-art.aspx">Wall Art</a></li>
-                      <li><a href="c-26-mirrors.aspx">Mirrors</a></li>
-                      <li><a href="c-28-hanging-picture-frames.aspx">Hanging Frames</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-dropdown">
-                    <a href="c-5-lighting.aspx">Lighting</a>
-                    <ul class="dropdown">
-                      <li><a href="c-24-floor-lamps.aspx">Floor Lamps</a></li>
-                      <li><a href="c-25-table-lamps.aspx">Table Lamps</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-dropdown">
-                    <a href="c-6-furniture.aspx">Accent Furniture</a>
-                    <ul class="dropdown">
-                      <li><a href="c-34-chairs.aspx">Chairs</a></li>
-                      <li><a href="c-35-benches-ottomans.aspx">Benches &amp; Ottomans</a></li>
-                      <li><a href="c-40-tables-desks.aspx">Tables &amp; Desks</a></li>
-                      <li><a href="c-41-chests-cabinets.aspx">Chests &amp; Cabinets</a></li>
-                      <li><a href="c-44-accent-furniture.aspx">Other Accent Furniture</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="c-2-accessories.aspx">Accessories</a></li>
+                  <li><a href="c-4-wall-decor.aspx">Wall Decor</a></li>
+                  <li><a href="c-5-lighting.aspx">Lighting</a></li>
+                  <li><a href="c-6-furniture.aspx">Accent Furniture</a></li>
                   <li><a href="c-52-exclusive.aspx">Exclusive</a></li>
                 </ul> 
               </section>
@@ -298,6 +256,9 @@
             }
         });
     </script>
+                
+    <!-- AddThis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50dc8ab51b6823ca" async="async"></script>
 
 <!--    <script src="skins/Skin_(!SKINID!)/bower_components/jquery/dist/jquery.min.js"></script>-->
     <script src="skins/Skin_(!SKINID!)/bower_components/foundation/js/foundation.min.js"></script>
