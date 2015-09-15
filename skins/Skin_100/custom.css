@@ -86,6 +86,31 @@ img[id^="imgEntity"] {
 
 /*Page Overrides*/
 /*Category Pages*/
+.category-blockgrid li {
+    padding-right: 0;
+    padding-left: 0;
+    height: 16rem;
+}
+
+li.without-price {
+    background-color: #fff;   
+}
+
+li.with-price {
+    background-color: #eee;
+}
+
+.search-image {
+   background-color: #fff; 
+}
+
+.search-title {
+    padding: 0.5rem 0.625rem 0;
+}
+
+.search-price {
+    padding: 0rem 0.625rem 0.725rem;
+}
 .category-blockgrid img {
     margin-top: .5rem;
 }
