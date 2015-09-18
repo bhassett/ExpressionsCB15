@@ -15,21 +15,20 @@
         <asp:Literal ID="XmlPackage_WishListPageTopControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
         
         <asp:Panel ID="pnlTopControlLines" runat="server" Visible="false">
-            <table cellspacing="3" cellpadding="0" width="100%" border="0" id="table1">
-                <tr>
-                    <td valign="bottom" align="right">
-                        <asp:Button ID="btnContinueShopping1" runat="server" CssClass="site-button content btn btn-success" />
-                        <asp:Button ID="btnUpateWishList1" runat="server" CssClass="site-button content btn btn-success" />
-                    </td>
-                </tr>
-            </table>
+            <div class="row">
+            <div class="small-12 columns small-only-text-center text-right">
+                <ul class="button-group">
+                    <li><asp:Button ID="btnContinueShopping1" runat="server" CssClass="button small secondary" /></li>
+                    <li><asp:Button ID="btnUpateWishList1" runat="server" CssClass="button small" /></li>
+                </ul>
+            </div>
+            </div>
         </asp:Panel>       
-         <div class="clr height-12"></div>
-         <div class="sections-place-holder no-padding">
-        <div class="section-header section-header-top"><asp:Literal ID="Literal2" runat="server">Wish List</asp:Literal></div>
+
+        <div class="sections-place-holder no-padding">
+        <h2><asp:Literal ID="Literal2" runat="server">Wish List</asp:Literal></h2>
       
         <div class="section-content-wrapper">
-        <div class="clr height-12"></div>
 
         <asp:Panel ID="Panel1" runat="server" DefaultButton="btnUpateWishList1" class="wishlist-wrapper">
             <asp:Table ID="tblWishList" CellSpacing="0" CellPadding="2" Width="100%" runat="server">
@@ -47,20 +46,19 @@
             </asp:Table>
         </asp:Panel>
         </div>
-             </div>
+        </div>
 
         <asp:Literal ID="Xml_WishListPageBottomControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
         
         <asp:Panel ID="pnlBottomControlLines" runat="server">
-            <table cellspacing="3" cellpadding="0" width="100%" border="0" id="table2">
-                <tr>
-                    <td valign="bottom" align="right">
-                        <br />
-                        <asp:Button ID="btnContinueShopping2" runat="server" CssClass="site-button content btn" />
-                        <asp:Button ID="btnUpateWishList2" runat="server" CssClass="site-button content btn" />
-                    </td>
-                </tr>
-            </table>
+            <div class="row">
+            <div class="small-12 columns small-only-text-center text-right">
+                <ul class="button-group">
+                    <li><asp:Button ID="btnContinueShopping2" runat="server" CssClass="button small secondary" /></li>
+                    <li><asp:Button ID="btnUpateWishList2" runat="server" CssClass="button small" /></li>
+                </ul>
+            </div>
+            </div>
         </asp:Panel>
         <br />
         
