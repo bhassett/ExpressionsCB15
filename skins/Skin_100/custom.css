@@ -47,6 +47,22 @@
   color: #777777;
 }
 
+.f-dropdown {
+    z-index: 9999;
+}
+
+.f-dropdown li {
+    border: 1px solid #eee;
+}
+
+.f-dropdown a:hover {
+    text-decoration: none;
+}
+
+i.fi-telephone {
+    color: #ccc;
+}
+
 /*Header Search Bar*/
 div.row.search div {
     padding: 0 !important;
