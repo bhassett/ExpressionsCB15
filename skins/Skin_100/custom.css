@@ -86,12 +86,16 @@ div.row.search a#btnSearch {
     border-radius: 0 3px 3px 0;
 }
 
-/*Buttons*/
+/*Forms*/
 .button {
     background-image: none;
 }
 .button:hover {
     text-decoration: none;
+}
+
+.prefix, .postfix {
+    width: 100% !important;
 }
 
 /*Breadcrumbs*/
