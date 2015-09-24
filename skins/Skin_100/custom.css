@@ -142,7 +142,7 @@ li.with-price {
     padding: 0rem 0.625rem 0.725rem;
 }
 .category-blockgrid img {
-    margin-top: .5rem;
+    margin: .5rem 0;
 }
 
 /*Browse and Search Pages*/
