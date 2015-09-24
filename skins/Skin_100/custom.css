@@ -63,6 +63,16 @@ i.fi-telephone {
     color: #ccc;
 }
 
+.sections-place-holder {
+    clear: both;
+    min-height: 0px;
+    background-color: none;
+    border: 0 !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 /*Header Search Bar*/
 div.row.search div {
     padding: 0 !important;
