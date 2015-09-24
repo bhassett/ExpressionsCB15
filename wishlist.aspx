@@ -17,7 +17,7 @@
         <asp:Panel ID="pnlTopControlLines" runat="server" Visible="false">
             <div class="row">
             <div class="small-12 columns small-only-text-center text-right">
-                <ul class="button-group">
+                <ul class="button-group radius">
                     <li><asp:Button ID="btnContinueShopping1" runat="server" CssClass="button small secondary" /></li>
                     <li><asp:Button ID="btnUpateWishList1" runat="server" CssClass="button small" /></li>
                 </ul>
@@ -53,7 +53,7 @@
         <asp:Panel ID="pnlBottomControlLines" runat="server">
             <div class="row">
             <div class="small-12 columns small-only-text-center text-right">
-                <ul class="button-group">
+                <ul class="button-group radius">
                     <li><asp:Button ID="btnContinueShopping2" runat="server" CssClass="button small secondary" /></li>
                     <li><asp:Button ID="btnUpateWishList2" runat="server" CssClass="button small" /></li>
                 </ul>

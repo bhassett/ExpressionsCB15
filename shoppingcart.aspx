@@ -45,7 +45,7 @@
             </div>
 
             <div class="small-12 medium-7 columns small-only-text-center text-right">
-                <ul class="button-group">
+                <ul class="button-group radius">
                     <li><asp:Button ID="btnContinueShoppingTop" Text="(!shoppingcart.cs.12!)" CssClass="button small secondary" runat="server" /></li>
                     <li><asp:Button ID="btnCheckOutNowTop" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="button small" /></li>
                 </ul>
@@ -104,7 +104,7 @@
                         </asp:Panel>
                         <div class="row">
                             <div class="small-11 columns text-right">
-                                <asp:Button ID="btnUpdateCart1" CssClass="button small" Text="(!shoppingcart.cs.33!)" runat="server" />
+                                <asp:Button ID="btnUpdateCart1" CssClass="button small radius" Text="(!shoppingcart.cs.33!)" runat="server" />
                             </div>
                         </div>
                     </asp:Panel>
@@ -154,7 +154,7 @@
                         <asp:TextBox ID="CouponCode" runat="server"></asp:TextBox>
                     </div>
                     <div class="small-4 columns">
-                       <asp:Button ID="btnUpdateCart3" runat="server" Text="(!shoppingcart.aspx.51!)" CssClass="button small postfix" />
+                       <asp:Button ID="btnUpdateCart3" runat="server" Text="(!shoppingcart.aspx.51!)" CssClass="button small radius postfix" />
                     </div>
                 </div>
                 </asp:Panel>
@@ -169,7 +169,7 @@
                     <asp:Panel ID="pnlOrderNotes" runat="server" Visible="false" DefaultButton="btnUpdateCart4">
                     <h5><%= AppLogic.GetString("mobile.shoppingcart.aspx.20")%> <small>(optional)</small></h5>
                         <asp:TextBox ID="OrderNotes" Columns="90" Rows="4" TextMode="MultiLine" placeholder="Enter any additional information you may want us to know" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnUpdateCart4" runat="server" Text="(!shoppingcart.aspx.54!)" CssClass="button small" />
+                    <asp:Button ID="btnUpdateCart4" runat="server" Text="(!shoppingcart.aspx.54!)" CssClass="button small radius" />
                     </asp:Panel>
                 </div>
             </div>
@@ -246,7 +246,7 @@
 
             <div class="row">
             <div class="small-12 columns small-only-text-center text-right">
-                <ul class="button-group">
+                <ul class="button-group radius">
                     <li><asp:Button ID="btnContinueShoppingBottom" Text="(!shoppingcart.cs.12!)" CssClass="button small secondary" runat="server" /></li>
                     <li><asp:Button ID="btnCheckOutNowBottom" Text="(!shoppingcart.cs.34!)" runat="server" CssClass="button small" /></li>
                 </ul>
