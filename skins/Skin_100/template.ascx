@@ -50,6 +50,24 @@
                 }
             });
          </script>
+        
+        <!-- Facebook Conversion Code for Leads -->
+        <script>(function() {
+        var _fbq = window._fbq || (window._fbq = []);
+        if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+        }
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6024881871249', {'value':'0.00','currency':'USD'}]);
+        </script>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024881871249&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+        
         <!-- Global Loader -->
         <script type="text/javascript">
             $(document).ready(function () {
@@ -78,7 +96,7 @@
           </section>
 
           <section class="middle tab-bar-section">
-            <h1 class="title">Expressions</h1>
+            <a href="/"><h1 class="title">Expressions</h1></a>
           </section>
 
           <section class="right-small tab-bar-section">
@@ -114,7 +132,7 @@
           <!-- Header -->
           <div class="black-wrapper">
           <div class="row show-for-medium-up">
-            <div class="medium-12 columns text-center"><a href="/"><img class="header-logo" src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
+            <div class="medium-12 columns text-center"><a itemprop="brand" itemscope itemtype="http://schema.org/Brand" href="/"><img itemprop="logo" class="header-logo" src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
           </div>
           </div>
 
@@ -169,7 +187,7 @@
                   <li><a href="c-4-wall-decor.aspx">Wall Decor</a></li>
                   <li><a href="c-5-lighting.aspx">Lighting</a></li>
                   <li><a href="c-6-furniture.aspx">Accent Furniture</a></li>
-                  <li><a href="c-52-exclusive.aspx">Exclusive</a></li>
+<!--                  <li><a href="c-52-exclusive.aspx">Exclusive</a></li>-->
                 </ul> 
               </section>
             </nav>
@@ -185,9 +203,11 @@
 
     <!-- CONTENT -->
     <div class="row">
-    <div class="small-12 columns">
-    <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
-    </div>
+        <div class="small-12 columns">
+            <span itemscope itemtype="http://schema.org/Product">
+            <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
+            </span>
+        </div>
     </div>
     <!-- END OF CONTENT -->
 
@@ -203,7 +223,9 @@
             <div class="row pagefooter">
               <div class="small-12 medium-6 medium-push-6 columns small-text-center medium-text-right paddingbottom">
                 
-                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="sitemap2.aspx">Site Map</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>
+                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>
+                
+<!--                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="sitemap2.aspx">Site Map</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>-->
 
                 <!-- AddThis Follow BEGIN -->
                 <div class="addthis_toolbox addthis_32x32_style addthis_default_style small-text-center medium-text-right">
@@ -218,8 +240,38 @@
                 <!-- AddThis Follow END -->
                 
               </div>
-              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small>&#169; 2015 Expressions by Decor &#38; More, Inc. All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
+              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small itemprop="brand" itemscope itemtype="http://schema.org/Brand">&#169; 2015 <span itemprop="name">Expressions by Decor &#38; More, Inc.</span> All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
             </div>
+
+            <!-- (!LIVECHAT!) -->
+<div class="livechat">
+<script type="text/javascript" src="https://www.expressionsdecor.com:81/CuteSoft_Client/CuteChat/Support-Image-Button.js.aspx"></script>
+<script type="text/javascript" src="https://www.expressionsdecor.com:81/CuteSoft_Client/CuteChat/Support-Visitor-monitor-crossdomain.js.aspx"
+id="LiveSupportVisitorMonitorScript"></script>
+</div>
+<!-- <img src="skins/Skin_(!SKINID!)/images/online.gif" /> -->
+</div>
+</div>
+<!--
+            <div class="col-md-3 livechat">
+              (!LIVECHAT!)
+              <img src="skins/Skin_(!SKINID!)/images/online.gif" />
+            </div>
+-->
+              
+<!-- CUSTOMER SUPPORT -->
+<!--
+      <div class="customer-support">
+        <div id="request-container">
+          <span>(!stringresource name="main.content.1"!)</span><br />
+          <span class="request-generator-content request-code" >---------------</span>
+          <span title="Refresh"><a href="javascript:void(0)" class="generate-link"><i class="fa fa-refresh"></i></a></span>
+          <span title="Copy to Clipboard"><a href="javascript:void(0)" class="copy-link"><i class="fa fa-files-o"></i></a></span>
+        </div>
+      </div>
+-->
+      <!-- END OF CUSTOMER SUPPORT -->
+
           </div>
 
         </section>
@@ -238,23 +290,16 @@
     <!-- ADDRESS VERIFICATION -->
     (!ADDRESS_VERIFICATION_DIALOG_LISTING!)
 
-     <!-- GOOGLE ANALYTICS -->
-    <script type="text/javascript">
-        $(window).load(function () {
-            var pageTracking = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.PageTracking"));
-            var ecTracking = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.ConversionTracking"));
-            var gaAccount = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.TrackingCode"));
-            var orderNumber = getQueryString()["ordernumber"]; // get ordernumber query string
-            var imAtConfirmOrderPage = false;
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            if (typeof orderNumber != "undefined" && ecTracking == 'true') imAtConfirmOrderPage = true;
+      ga('create', 'UA-23764710-1', 'auto');
+      ga('send', 'pageview');
 
-            if ((pageTracking == 'true' || imAtConfirmOrderPage) && gaAccount != "GoogleAnalytics.TrackingCode") {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            }
-        });
     </script>
                 
     <!-- AddThis -->

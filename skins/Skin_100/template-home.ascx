@@ -96,7 +96,7 @@
           </section>
 
           <section class="middle tab-bar-section">
-            <h1 class="title">Expressions</h1>
+              <a href="/"><h1 class="title">Expressions</h1></a>
           </section>
 
           <section class="right-small tab-bar-section">
@@ -134,7 +134,7 @@
             
           <div class="black-wrapper">
           <div class="row show-for-medium-up">
-            <div class="medium-12 columns text-center"><a href="/"><img class="header-logo" src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
+            <div class="medium-12 columns text-center"><a itemprop="brand" itemscope itemtype="http://schema.org/Brand" href="/"><img itemprop="logo" class="header-logo" src="skins/Skin_(!SKINID!)/images/global/expressions-logo.png" /></a></div>
           </div>
           </div>
 
@@ -189,7 +189,7 @@
                   <li><a href="c-4-wall-decor.aspx">Wall Decor</a></li>
                   <li><a href="c-5-lighting.aspx">Lighting</a></li>
                   <li><a href="c-6-furniture.aspx">Accent Furniture</a></li>
-                  <li><a href="c-52-exclusive.aspx">Exclusive</a></li>
+<!--                  <li><a href="c-52-exclusive.aspx">Exclusive</a></li>-->
                 </ul> 
               </section>
 <!--
@@ -254,7 +254,7 @@
           <DIV class=row>
               <DIV class="small-12 columns">
                   <ul class="small-block-grid-1">
-                      <li><IMG src="http://placehold.it/960x480&amp;text=Product Feature Image"></li>
+                      <li><IMG src="skins/Skin_(!SKINID!)/images/categories/category-home.jpg"></li>
                   </ul>
               </DIV>
           </DIV>
@@ -264,15 +264,15 @@
             <DIV class="small-12 columns">
             <H2 class=text-center>Popular Picks</H2>
             <UL class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center draw-border">
-                <LI><IMG src="images/product/medium/UMA71231.jpg"><BR>Turquoise Victorian Ceramic Jar</LI>
-                <LI><IMG src="images/product/medium/UMA34722.jpg"><BR>Metal Vine Wine Rack</LI>
-                <LI><IMG src="images/product/medium/UMA16156.jpg"><BR>Chrome Mosiac Orbs</LI>
-                <LI><IMG src="images/product/medium/UMA54413.jpg"><BR>Metal Bowls Wall Decor</LI>
-                <LI><IMG src="images/product/medium/UMA96181.jpg"><BR>Wood Cabinet With Wicker Baskets</LI>
-                <LI><IMG src="images/product/medium/UMA92734.jpg"><BR>Peacock Feather Painting</LI>
-                <LI><IMG src="images/product/medium/42852.jpg"><BR>Silver Metal &amp; Glass Spice Rack</LI>
-                <LI><IMG src="images/product/medium/UMA71700.jpg"><BR>Silver Glazed Ceramic Lantern</LI>
-                <LI class="show-for-medium-only"><IMG src="images/product/medium/UMA40057.jpg"><BR>Lime Green Ceramic Table Lamp</LI>
+                <LI><a href="p-28579-turquoise-distress-glazed-victorian-style-ceramic-covered-jar.aspx"><IMG src="images/product/medium/UMA71231.jpg"><BR>Turquoise Victorian Ceramic Jar</a></LI>
+                <LI><a href="p-21059-34722-metal-vine-wine-rack.aspx"><IMG src="images/product/medium/UMA34722.jpg"><BR>Metal Vine Wine Rack</a></LI>
+                <LI><a href="p-29254-set-of-3-ceramic-chrome-mosiac-orbs.aspx"><IMG src="images/product/medium/UMA16156.jpg"><BR>Chrome Mosiac Orbs</a></LI>
+                <LI><a href="p-3581-multi-colored-metal-bowls-wall-decor.aspx"><IMG src="images/product/medium/UMA54413.jpg"><BR>Metal Bowls Wall Decor</a></LI>
+                <LI><a href="p-28189-blue-wood-cabinet-with-wicker-baskets.aspx"><IMG src="images/product/medium/UMA96181.jpg"><BR>Wood Cabinet With Wicker Baskets</a></LI>
+                <LI><a href="p-27587-large-peacock-feather-painting-on-canvas-wall-art.aspx"><IMG src="images/product/medium/UMA92734.jpg"><BR>Peacock Feather Painting</a></LI>
+                <LI><a href="p-4918-silver-metal-glass-spice-rack.aspx"><IMG src="images/product/medium/42852.jpg"><BR>Silver Metal &amp; Glass Spice Rack</a></LI>
+                <LI><a href="p-28566-modern-chrome-silver-glazed-ceramic-lantern-candle-holder.aspx"><IMG src="images/product/medium/UMA71700.jpg"><BR>Silver Glazed Ceramic Lantern</a></LI>
+                <LI class="show-for-medium-only"><a href="p-9176-lime-green-psychedelic-ceramic-table-lamp-19-.aspx"><IMG src="images/product/medium/UMA40057.jpg"><BR>Lime Green Ceramic Table Lamp</a></LI>
             </UL></DIV></DIV>
             
             
@@ -319,20 +319,21 @@
                 </DIV>
             </DIV>
           
+<!--
             <DIV class="row show-for-medium-up paddingbottom">
                 <DIV class="medium-12 columns">
                     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50dc8ab51b6823ca" async="async"></script>
                     <div class="addthis_recommended_horizontal"></div>
 
-<!--
                     <ul class="small-block-grid-2 text-center">
                         <li><IMG src="http://placehold.it/456x316"></li>
                         <li><IMG src="http://placehold.it/456x316"></li>
                     </ul>
--->
                 </DIV>
             </DIV>
+-->
           
+<!--
             <DIV class=greybar-wrapper>
                 <DIV class=row>
                     <DIV class="small-12 medium-4 columns">
@@ -351,6 +352,8 @@
                     </DIV>    
                 </DIV>
             </DIV>
+-->
+                            
           </div>
     <!-- END OF CONTENT -->
 
@@ -366,7 +369,9 @@
             <div class="row pagefooter">
               <div class="small-12 medium-6 medium-push-6 columns small-text-center medium-text-right paddingbottom">
                 
-                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="sitemap2.aspx">Site Map</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>
+                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>
+                
+<!--                <h6><small><a href="t-about.aspx">About Us</a> <span>|</span> <a href="sitemap2.aspx">Site Map</a> <span>|</span> <a href="t-contact.aspx">Contact Us</a></small></h6>-->
 
                 <!-- AddThis Follow BEGIN -->
                 <div class="addthis_toolbox addthis_32x32_style addthis_default_style small-text-center medium-text-right">
@@ -381,7 +386,7 @@
                 <!-- AddThis Follow END -->
                 
               </div>
-              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small>&#169; 2015 Expressions by Decor &#38; More, Inc. All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
+              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small itemprop="brand" itemscope itemtype="http://schema.org/Brand">&#169; 2015 <span itemprop="name">Expressions by Decor &#38; More, Inc.</span> All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
             </div>
           </div>
 
@@ -401,23 +406,16 @@
     <!-- ADDRESS VERIFICATION -->
     (!ADDRESS_VERIFICATION_DIALOG_LISTING!)
 
-     <!-- GOOGLE ANALYTICS -->
-    <script type="text/javascript">
-        $(window).load(function () {
-            var pageTracking = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.PageTracking"));
-            var ecTracking = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.ConversionTracking"));
-            var gaAccount = $.trim(ise.Configuration.getConfigValue("GoogleAnalytics.TrackingCode"));
-            var orderNumber = getQueryString()["ordernumber"]; // get ordernumber query string
-            var imAtConfirmOrderPage = false;
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            if (typeof orderNumber != "undefined" && ecTracking == 'true') imAtConfirmOrderPage = true;
+      ga('create', 'UA-23764710-1', 'auto');
+      ga('send', 'pageview');
 
-            if ((pageTracking == 'true' || imAtConfirmOrderPage) && gaAccount != "GoogleAnalytics.TrackingCode") {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            }
-        });
     </script>
                 
     <!-- AddThis -->
