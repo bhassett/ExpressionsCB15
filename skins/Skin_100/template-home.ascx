@@ -264,15 +264,15 @@
             <DIV class="small-12 columns">
             <H2 class=text-center>Popular Picks</H2>
             <UL class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center draw-border">
-                <LI><a href="p-28579-turquoise-distress-glazed-victorian-style-ceramic-covered-jar.aspx"><IMG src="images/product/medium/UMA71231.jpg"><BR>Turquoise Victorian Ceramic Jar</a></LI>
-                <LI><a href="p-21059-34722-metal-vine-wine-rack.aspx"><IMG src="images/product/medium/UMA34722.jpg"><BR>Metal Vine Wine Rack</a></LI>
-                <LI><a href="p-29254-set-of-3-ceramic-chrome-mosiac-orbs.aspx"><IMG src="images/product/medium/UMA16156.jpg"><BR>Chrome Mosiac Orbs</a></LI>
-                <LI><a href="p-3581-multi-colored-metal-bowls-wall-decor.aspx"><IMG src="images/product/medium/UMA54413.jpg"><BR>Metal Bowls Wall Decor</a></LI>
-                <LI><a href="p-28189-blue-wood-cabinet-with-wicker-baskets.aspx"><IMG src="images/product/medium/UMA96181.jpg"><BR>Wood Cabinet With Wicker Baskets</a></LI>
-                <LI><a href="p-27587-large-peacock-feather-painting-on-canvas-wall-art.aspx"><IMG src="images/product/medium/UMA92734.jpg"><BR>Peacock Feather Painting</a></LI>
-                <LI><a href="p-4918-silver-metal-glass-spice-rack.aspx"><IMG src="images/product/medium/42852.jpg"><BR>Silver Metal &amp; Glass Spice Rack</a></LI>
-                <LI><a href="p-28566-modern-chrome-silver-glazed-ceramic-lantern-candle-holder.aspx"><IMG src="images/product/medium/UMA71700.jpg"><BR>Silver Glazed Ceramic Lantern</a></LI>
-                <LI class="show-for-medium-only"><a href="p-9176-lime-green-psychedelic-ceramic-table-lamp-19-.aspx"><IMG src="images/product/medium/UMA40057.jpg"><BR>Lime Green Ceramic Table Lamp</a></LI>
+                <LI id="feature1"><a href="p-28579-turquoise-distress-glazed-victorian-style-ceramic-covered-jar.aspx"><IMG src="images/product/medium/UMA71231.jpg"><BR>Turquoise Victorian Ceramic Jar</a></LI>
+                <LI id="feature2"><a href="p-28561-contemporary-black-metal-wall-clock-with-decorative-circular-mirrors.aspx"><IMG src="images/product/medium/item-67103-7.gif"><BR>Metal Wall Clock with Mirrors</a></LI>
+                <LI id="feature3"><a href="p-29254-set-of-3-ceramic-chrome-mosiac-orbs.aspx"><IMG src="images/product/medium/UMA16156.jpg"><BR>Chrome Mosiac Orbs</a></LI>
+                <LI id="feature4"><a href="p-29265-colorful-horse-canvas-wall-art.aspx"><IMG src="images/product/medium/UMA38515.jpg"><BR>Horse Canvas Wall Art</a></LI>
+                <LI id="feature5"><a href="p-28189-blue-wood-cabinet-with-wicker-baskets.aspx"><IMG src="images/product/medium/UMA96181.jpg"><BR>Wood Cabinet With Wicker Baskets</a></LI>
+                <LI id="feature6"><a href="p-27587-large-peacock-feather-painting-on-canvas-wall-art.aspx"><IMG src="images/product/medium/UMA92734.jpg"><BR>Peacock Feather Painting</a></LI>
+                <LI id="feature7"><a href="p-28937-turquoise-glass-metal-contemporary-retro-style-table-lamp-30-h.aspx"><IMG src="images/product/medium/UMA40196.jpg"><BR>Turquoise Glass Retro Style Table</a></LI>
+                <LI id="feature8"><a href="p-28566-modern-chrome-silver-glazed-ceramic-lantern-candle-holder.aspx"><IMG src="images/product/medium/UMA71700.jpg"><BR>Silver Glazed Ceramic Lantern</a></LI>
+                <LI id="feature9" class="show-for-medium-only"><a href="p-9176-lime-green-psychedelic-ceramic-table-lamp-19-.aspx"><IMG src="images/product/medium/UMA40057.jpg"><BR>Lime Green Ceramic Table Lamp</a></LI>
             </UL></DIV></DIV>
             
             
