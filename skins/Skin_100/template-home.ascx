@@ -11,6 +11,7 @@
         <title>(!METATITLE!)</title>
         <meta name="description" content="(!METADESCRIPTION!)" />
         <meta name="keywords" content="(!METAKEYWORDS!)" />
+        <meta name="google-site-verification" content="wfwmP0kKubQHIicagLLVMBF2Y1nS0YgB_u-7KDoROtI" />
         
         <link rel="stylesheet" href="skins/Skin_(!SKINID!)/bootstrap/css/bootstrap.min.css" media="screen" />
         <link rel="stylesheet" href="skins/Skin_(!SKINID!)/font-awesome/css/font-awesome.min.css" type="text/css" />
