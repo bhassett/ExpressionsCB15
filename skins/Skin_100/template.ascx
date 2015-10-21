@@ -251,6 +251,7 @@ id="LiveSupportVisitorMonitorScript"></script>
 </div>
 <!-- <img src="skins/Skin_(!SKINID!)/images/online.gif" /> -->
 </div>
+    <a href="#" class="back-to-top"><img src="/skins/Skin_(!SKINID!)/images/back-to-top.png" /></a>
 </div>
 <!--
             <div class="col-md-3 livechat">
@@ -280,6 +281,26 @@ id="LiveSupportVisitorMonitorScript"></script>
 
       </div>
     </div>
+    
+    <script>            
+        jQuery(document).ready(function() {
+            var offset = 220;
+            var duration = 500;
+            jQuery(window).scroll(function() {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            jQuery('.back-to-top').click(function(event) {
+                event.preventDefault();
+                jQuery('html, body').animate({scrollTop: 0}, duration);
+                return false;
+            })
+        });
+    </script>
 
 
     <!-- END OF FOOTER -->

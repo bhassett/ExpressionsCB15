@@ -73,6 +73,22 @@ i.fi-telephone {
     box-shadow: none;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 5em;
+    right: 1em;
+    text-decoration: none;
+    color: #000000;
+    font-size: 24px;
+    padding: 1em;
+    display: none;
+}
+
+.back-to-top img {
+    opacity: 0.25;
+    filter: alpha(opacity=25); /* For IE8 and earlier */
+}
+
 /*Header Search Bar*/
 div.row.search div {
     padding: 0 !important;
