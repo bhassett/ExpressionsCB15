@@ -85,8 +85,8 @@ i.fi-telephone {
 }
 
 .back-to-top img {
-    opacity: 0.25;
-    filter: alpha(opacity=25); /* For IE8 and earlier */
+    opacity: 0.15;
+    filter: alpha(opacity=15); /* For IE8 and earlier */
 }
 
 /*Header Search Bar*/
