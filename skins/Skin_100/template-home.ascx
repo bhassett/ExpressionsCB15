@@ -12,6 +12,7 @@
         <meta name="description" content="(!METADESCRIPTION!)" />
         <meta name="keywords" content="(!METAKEYWORDS!)" />
         <meta name="google-site-verification" content="wfwmP0kKubQHIicagLLVMBF2Y1nS0YgB_u-7KDoROtI" />
+        <meta name="p:domain_verify" content="c4f97936a90b44b833477f21a85b990a"/>
         
         <link rel="stylesheet" href="skins/Skin_(!SKINID!)/bootstrap/css/bootstrap.min.css" media="screen" />
         <link rel="stylesheet" href="skins/Skin_(!SKINID!)/font-awesome/css/font-awesome.min.css" type="text/css" />
@@ -355,18 +356,54 @@
             </DIV>
 -->
                             
+            <div class="row">
+                <div class="small-10 small-offset-1 medium-6 medium-offset-3 columns end">
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup" class="center">
+                    <form action="//expressionsdecor.us12.list-manage.com/subscribe/post?u=8b087b547d0c16606c8e6893f&amp;id=1daa9b1596" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <h4>Subscribe to our mailing list</h4>
+<!--                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>-->
+                        <div id="mc_embed_signup_scroll" class="row small-collapse search">
+                            <div class="mc-field-group small-8 columns">
+<!--                                <label for="mce-EMAIL">  <span class="asterisk">*</span></label>-->
+                                <input type="email" value="" placeholder="Email Address *" name="EMAIL" class="required email" id="mce-EMAIL">
+                            </div>
+                            <div class="clear small-4 columns"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button postfix"></div>
+                            
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8b087b547d0c16606c8e6893f_1daa9b1596" tabindex="-1" value=""></div>
+                        </div>
+                    </form>
+                    </div>
+                    <!--End mc_embed_signup-->
+                </div>
+            </div>
+            
           </div>
     <!-- END OF CONTENT -->
 
     <!-- FOOTER -->
 
-              <div class="grey-wrapper content-bottom">
+          <div class="grey-wrapper content-bottom">
+            
+            
             <div class="row pagefooterbar">
-              <div class="small-12 columns text-center"><h4><small>We Accept <img src="skins/Skin_(!SKINID!)/images/global/billmethod-icons.png" /></small></h4></div>
+              <!-- (!LIVECHAT!) -->
+              <div class="livechat small-6 medium-6 columns">
+                <script type="text/javascript" src="https://support.expressionsdecor.com/CuteSoft_Client/CuteChat/Support-Image-Button.js.aspx"></script>
+                <script type="text/javascript" src="https://support.expressionsdecor.com/CuteSoft_Client/CuteChat/Support-Visitor-monitor-crossdomain.js.aspx"
+                id="LiveSupportVisitorMonitorScript"></script>
+              </div>
+                
+              <div class="small-6 medium-6 columns text-right"><img src="skins/Skin_(!SKINID!)/images/global/billmethod-icons.png" /></div>
             </div>
           </div>
 
           <div class="black-wrapper">
+            
             <div class="row pagefooter">
               <div class="small-12 medium-6 medium-push-6 columns small-text-center medium-text-right paddingbottom">
                 
@@ -389,6 +426,9 @@
               </div>
               <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small itemprop="brand" itemscope itemtype="http://schema.org/Brand">&#169; 2015 <span itemprop="name">Expressions by Decor &#38; More, Inc.</span> All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
             </div>
+              
+            <div class="row show-for-large-up"><a href="#" class="back-to-top"><img src="/skins/Skin_(!SKINID!)/images/back-to-top.png" /></a></div>
+
           </div>
 
         </section>

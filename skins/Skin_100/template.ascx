@@ -204,7 +204,6 @@
     <!-- CONTENT -->
     <div class="row">
         <div class="small-12 columns">
-            <span itemscope itemtype="http://schema.org/Product">
             <asp:PlaceHolder ID="PageContent" runat="server"></asp:PlaceHolder>
             </span>
         </div>
@@ -213,9 +212,16 @@
 
     <!-- FOOTER -->
 
-              <div class="grey-wrapper content-bottom">
+          <div class="grey-wrapper content-bottom">
             <div class="row pagefooterbar">
-              <div class="small-12 columns text-center"><h4><small>We Accept <img src="skins/Skin_(!SKINID!)/images/global/billmethod-icons.png" /></small></h4></div>
+              <!-- (!LIVECHAT!) -->
+              <div class="livechat small-6 medium-6 columns">
+                <script type="text/javascript" src="https://support.expressionsdecor.com/CuteSoft_Client/CuteChat/Support-Image-Button.js.aspx"></script>
+                <script type="text/javascript" src="https://support.expressionsdecor.com/CuteSoft_Client/CuteChat/Support-Visitor-monitor-crossdomain.js.aspx"
+                id="LiveSupportVisitorMonitorScript"></script>
+              </div>
+                
+              <div class="small-6 medium-6 columns text-right"><img src="skins/Skin_(!SKINID!)/images/global/billmethod-icons.png" /></div>
             </div>
           </div>
 
@@ -245,35 +251,7 @@
               
             <div class="row show-for-large-up"><a href="#" class="back-to-top"><img src="/skins/Skin_(!SKINID!)/images/back-to-top.png" /></a></div>
 
-            <!-- (!LIVECHAT!) -->
-<div class="livechat">
-<script type="text/javascript" src="https://www.expressionsdecor.com:81/CuteSoft_Client/CuteChat/Support-Image-Button.js.aspx"></script>
-<script type="text/javascript" src="https://www.expressionsdecor.com:81/CuteSoft_Client/CuteChat/Support-Visitor-monitor-crossdomain.js.aspx"
-id="LiveSupportVisitorMonitorScript"></script>
-</div>
-<!-- <img src="skins/Skin_(!SKINID!)/images/online.gif" /> -->
-</div>
-    
-</div>
-<!--
-            <div class="col-md-3 livechat">
-              (!LIVECHAT!)
-              <img src="skins/Skin_(!SKINID!)/images/online.gif" />
-            </div>
--->
-              
-<!-- CUSTOMER SUPPORT -->
-<!--
-      <div class="customer-support">
-        <div id="request-container">
-          <span>(!stringresource name="main.content.1"!)</span><br />
-          <span class="request-generator-content request-code" >---------------</span>
-          <span title="Refresh"><a href="javascript:void(0)" class="generate-link"><i class="fa fa-refresh"></i></a></span>
-          <span title="Copy to Clipboard"><a href="javascript:void(0)" class="copy-link"><i class="fa fa-files-o"></i></a></span>
-        </div>
-      </div>
--->
-      <!-- END OF CUSTOMER SUPPORT -->
+            
 
           </div>
 
