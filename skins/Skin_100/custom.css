@@ -98,7 +98,7 @@ div.row.search input#txtSearch {
     border-radius: 3px 0 0 3px;
 }
 
-div.row.search a#btnSearch {
+div.row.search a#btnSearch, div.row.search #mc-embedded-subscribe {
     border-radius: 0 3px 3px 0;
 }
 
@@ -114,6 +114,11 @@ div.row.search a#btnSearch {
     width: 100% !important;
 }
 
+.contactmsg input {
+    margin: 0 0 1rem 0;
+    padding: .2rem;
+}
+
 /*Breadcrumbs*/
 .breadcrumbs > *.current a {
     cursor: pointer; 
@@ -124,6 +129,11 @@ div.row.search a#btnSearch {
 img[id^="imgEntity"] {
     border: none;
     border-radius: 0px;
+}
+
+img[id^="imgMultiple"] {
+    margin-right: 5px;
+    margin-top: 5px;
 }
 
 .content-bottom {
@@ -226,8 +236,14 @@ div.tabs-content.panel {
   color: #666666;
 }
 
+div.matrix-selection {
+	margin-top: 1rem;
+    line-height: 0.5rem;
+}
+
 select.matrix-selector {
-  width: 8.75rem;
+  /* width: 8.75rem; */
+  width: 100%;
   padding: 0.5rem 1.5rem 0.5rem 0.3rem;
 }
 
