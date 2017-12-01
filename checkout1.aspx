@@ -148,7 +148,7 @@
                     <div class="clear-both height-12"></div>
                     <%-- shipping method control continue button starts here --%>
                     <div id="shipping-method-button-place-holder">
-                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2"" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
+                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
                        <div id="save-shipping-method-loader"></div>
                     </div>
                     <%-- shipping method control continue button ends here --%>
