@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CreditMemoViewList.ascx.cs" Inherits="UserControls_CreditMemoViewList" %>
 
 <div class="content" id="creditMemo">
-    <a href="javascript:void(0)" id="btnViewCreditMemos">
+    <a href="javascript:void(0)" id="btnViewCreditMemos"  class="btn btn-info btn-block">
         <%= ViewCreditsCaption %>
     </a>
     <span id="notFound" style="display:none;">

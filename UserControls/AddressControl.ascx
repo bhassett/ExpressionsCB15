@@ -1,4 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AddressControl.ascx.cs" Inherits="UserControls_AddressControl" EnableViewState="true" %>
+
+<div class="address-control-container">
+
+
+
 <% if (!IsHideStreetAddressInputBox)
  { %>
 
@@ -22,6 +27,21 @@
 
 <div class="clear-both height-5"></div>
 
+  
+
+<div class="postal-place-holder">
+    <span class="form-controls-span">
+        <label id="lblPostal" class="form-field-label" runat="server" maxlength="10">
+                <asp:Literal ID="litPostal" runat="server"></asp:Literal>
+        </label>
+        <asp:TextBox ID="txtPostal" runat="server" MaxLength = "30" class="light-style-input" type="text" ></asp:TextBox>
+    </span>
+
+    <span class="form-controls-span capitalize-text" id="<%=IdPrefix%>enter-postal-label-place-holder">
+        <asp:Literal ID="litEnterPostal" runat="server"></asp:Literal>
+    </span>
+</div>
+
 <div class="<%=IdPrefix%>zip-city-other-place-holder">               
     <span class="form-controls-span">
         <label id="lblCity"  class="form-field-label" runat="server">
@@ -36,20 +56,7 @@
         </label>
         <asp:TextBox ID="txtState" runat="server" MaxLength = "50" class="light-style-input" type="text" ></asp:TextBox>
     </span>
-</div>   
-
-<div class="postal-place-holder">
-    <span class="form-controls-span">
-        <label id="lblPostal" class="form-field-label" runat="server" maxlength="10">
-                <asp:Literal ID="litPostal" runat="server"></asp:Literal>
-        </label>
-        <asp:TextBox ID="txtPostal" runat="server" MaxLength = "30" class="light-style-input" type="text" ></asp:TextBox>
-    </span>
-
-    <span class="form-controls-span custom-font-style capitalize-text" id="<%=IdPrefix%>enter-postal-label-place-holder">
-        <asp:Literal ID="litEnterPostal" runat="server"></asp:Literal>
-    </span>
-</div>
+</div> 
 
 <asp:Panel ID="pnlCounty" runat="server" Visible="false">
 <div class="clear-both height-5"></div>
@@ -95,3 +102,6 @@
 <% } %>
 
 <div id="adjust-country-width-if-other-option-is-selected" class="display-none"><%=IsCountryWidthAdjustment%></div>
+
+
+    </div>

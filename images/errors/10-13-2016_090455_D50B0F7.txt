@@ -1,0 +1,86 @@
+
+
+----------- General -----------
+Date:                         10/13/2016 9:04:55 PM
+Url:                          http://data.connectedbusiness.com/CB/CB_WraPack/CB_WraPack01/skins/ionicons/css/driver.aspx?Topic=error404
+Referrer:                     http://data.connectedbusiness.com/CB/CB_WraPack/CB_WraPack01/
+
+----------- Exception -----------
+ErrorCode:                    D50B0F7
+Type:                         System.Web.HttpException
+Message:                      The file '/CB/CB_WraPack/CB_WraPack01/skins/ionicons/css/driver.aspx' does not exist.
+Source:                       System.Web
+TargetSite:                   System.Web.Compilation.BuildResult GetVPathBuildResultInternal(System.Web.VirtualPath, Boolean, Boolean, Boolean, Boolean, Boolean)
+StackTrace:                      at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+----------- Query String -----------
+Topic:                        error404
+
+----------- Cookies -----------
+ISEGUID:                      E26BB355624DE3F75E5DEAA652D70C9FDA62C656C6937761080C8079D539C84D28AC5F100861DD67F6ECD05C70EC87DE878ADF9E0474CA6FF879141A6E7B7A31EC8DAB8597ADE698E0552BDEC0E1BF6BEED1549903DCEB79B4CBA1F762E27EE8E018B6BBC034EC76237D35751A73F2A4A73BB1AD15D587B9FBCFBAE98539F6B4C9541B38430C63A1EAEE7609737C0AEFE04B5053FB43DF4D70D26530650BF46C375BA36C
+SkinID_WEB-000001:            1
+Referrer:                     http%3a%2f%2fdata.connectedbusiness.com%2fCB%2fST_Luxury_P2%2fCBE%2fST_Luxury_P2%2f
+CCCustomerId:                 3791d400-d5fa-4d86-effc-a6b45eecd308
+CCLSGN:                       Guest_3791d400
+ASP.NET_SessionId:            utciibgd2gbs3dblnefkzdgx
+
+----------- Form -----------
+
+----------- Server Variables -----------
+ALL_HTTP:                     HTTP_CONNECTION:Keep-Alive\r\nHTTP_ACCEPT:text/css, */*\r\nHTTP_ACCEPT_ENCODING:gzip, deflate\r\nHTTP_ACCEPT_LANGUAGE:en-US,en;q=0.5\r\nHTTP_COOKIE:ISEGUID=E26BB355624DE3F75E5DEAA652D70C9FDA62C656C6937761080C8079D539C84D28AC5F100861DD67F6ECD05C70EC87DE878ADF9E0474CA6FF879141A6E7B7A31EC8DAB8597ADE698E0552BDEC0E1BF6BEED1549903DCEB79B4CBA1F762E27EE8E018B6BBC034EC76237D35751A73F2A4A73BB1AD15D587B9FBCFBAE98539F6B4C9541B38430C63A1EAEE7609737C0AEFE04B5053FB43DF4D70D26530650BF46C375BA36C; SkinID_WEB-000001=1; Referrer=http%3a%2f%2fdata.connectedbusiness.com%2fCB%2fST_Luxury_P2%2fCBE%2fST_Luxury_P2%2f; CCCustomerId=3791d400-d5fa-4d86-effc-a6b45eecd308; CCLSGN=Guest_3791d400; ASP.NET_SessionId=utciibgd2gbs3dblnefkzdgx\r\nHTTP_HOST:data.connectedbusiness.com\r\nHTTP_REFERER:http://data.connectedbusiness.com/CB/CB_WraPack/CB_WraPack01/\r\nHTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393\r\n
+ALL_RAW:                      Connection: Keep-Alive\r\nAccept: text/css, */*\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.5\r\nCookie: ISEGUID=E26BB355624DE3F75E5DEAA652D70C9FDA62C656C6937761080C8079D539C84D28AC5F100861DD67F6ECD05C70EC87DE878ADF9E0474CA6FF879141A6E7B7A31EC8DAB8597ADE698E0552BDEC0E1BF6BEED1549903DCEB79B4CBA1F762E27EE8E018B6BBC034EC76237D35751A73F2A4A73BB1AD15D587B9FBCFBAE98539F6B4C9541B38430C63A1EAEE7609737C0AEFE04B5053FB43DF4D70D26530650BF46C375BA36C; SkinID_WEB-000001=1; Referrer=http%3a%2f%2fdata.connectedbusiness.com%2fCB%2fST_Luxury_P2%2fCBE%2fST_Luxury_P2%2f; CCCustomerId=3791d400-d5fa-4d86-effc-a6b45eecd308; CCLSGN=Guest_3791d400; ASP.NET_SessionId=utciibgd2gbs3dblnefkzdgx\r\nHost: data.connectedbusiness.com\r\nReferer: http://data.connectedbusiness.com/CB/CB_WraPack/CB_WraPack01/\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393\r\n
+APPL_MD_PATH:                 /LM/W3SVC/41/ROOT/CB/CB_WraPack/CB_WraPack01
+APPL_PHYSICAL_PATH:           D:\_cbclient\WraPack\CB_WraPack01\
+AUTH_TYPE:                    Forms
+AUTH_USER:                    38ae8ea9-9de1-4abd-8dee-e901a7a5b8ff
+AUTH_PASSWORD:                
+LOGON_USER:                   38ae8ea9-9de1-4abd-8dee-e901a7a5b8ff
+REMOTE_USER:                  38ae8ea9-9de1-4abd-8dee-e901a7a5b8ff
+CERT_COOKIE:                  
+CERT_FLAGS:                   
+CERT_ISSUER:                  
+CERT_KEYSIZE:                 
+CERT_SECRETKEYSIZE:           
+CERT_SERIALNUMBER:            
+CERT_SERVER_ISSUER:           
+CERT_SERVER_SUBJECT:          
+CERT_SUBJECT:                 
+CONTENT_LENGTH:               0
+CONTENT_TYPE:                 
+GATEWAY_INTERFACE:            CGI/1.1
+HTTPS:                        off
+HTTPS_KEYSIZE:                
+HTTPS_SECRETKEYSIZE:          
+HTTPS_SERVER_ISSUER:          
+HTTPS_SERVER_SUBJECT:         
+INSTANCE_ID:                  41
+INSTANCE_META_PATH:           /LM/W3SVC/41
+LOCAL_ADDR:                   206.125.46.145
+PATH_INFO:                    /CB/CB_WraPack/CB_WraPack01/skins/ionicons/css/driver.aspx
+PATH_TRANSLATED:              D:\_cbclient\WraPack\CB_WraPack01\skins\ionicons\css\driver.aspx
+QUERY_STRING:                 Topic=error404
+REMOTE_ADDR:                  49.149.172.215
+REMOTE_HOST:                  49.149.172.215
+REMOTE_PORT:                  65340
+REQUEST_METHOD:               GET
+SCRIPT_NAME:                  /CB/CB_WraPack/CB_WraPack01/skins/ionicons/css/driver.aspx
+SERVER_NAME:                  data.connectedbusiness.com
+SERVER_PORT:                  80
+SERVER_PORT_SECURE:           0
+SERVER_PROTOCOL:              HTTP/1.1
+SERVER_SOFTWARE:              Microsoft-IIS/7.5
+URL:                          /CB/CB_WraPack/CB_WraPack01/skins/ionicons/css/driver.aspx
+HTTP_CONNECTION:              Keep-Alive
+HTTP_ACCEPT:                  text/css, */*
+HTTP_ACCEPT_ENCODING:         gzip, deflate
+HTTP_ACCEPT_LANGUAGE:         en-US,en;q=0.5
+HTTP_COOKIE:                  ISEGUID=E26BB355624DE3F75E5DEAA652D70C9FDA62C656C6937761080C8079D539C84D28AC5F100861DD67F6ECD05C70EC87DE878ADF9E0474CA6FF879141A6E7B7A31EC8DAB8597ADE698E0552BDEC0E1BF6BEED1549903DCEB79B4CBA1F762E27EE8E018B6BBC034EC76237D35751A73F2A4A73BB1AD15D587B9FBCFBAE98539F6B4C9541B38430C63A1EAEE7609737C0AEFE04B5053FB43DF4D70D26530650BF46C375BA36C; SkinID_WEB-000001=1; Referrer=http%3a%2f%2fdata.connectedbusiness.com%2fCB%2fST_Luxury_P2%2fCBE%2fST_Luxury_P2%2f; CCCustomerId=3791d400-d5fa-4d86-effc-a6b45eecd308; CCLSGN=Guest_3791d400; ASP.NET_SessionId=utciibgd2gbs3dblnefkzdgx
+HTTP_HOST:                    data.connectedbusiness.com
+HTTP_REFERER:                 http://data.connectedbusiness.com/CB/CB_WraPack/CB_WraPack01/
+HTTP_USER_AGENT:              Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393

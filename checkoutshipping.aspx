@@ -4,52 +4,81 @@
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls" TagPrefix="ise" %>
 <%@ Import Namespace="InterpriseSuiteEcommerceCommon" %>
 <%@ Register Src="UserControls/ShippingMethodControl.ascx" TagName="ShippingMethodControl" TagPrefix="uc" %>
+<%@ Register Src="UserControls/ShipToAddressControl.ascx" TagPrefix="uc" TagName="ShipToAddressControl" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<%@ Import Namespace="InterpriseSuiteEcommerceCommon" %>
+<%--<html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
-    <title></title>
+ 
 </head>
  <body>
-        <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
-        
-        <asp:Panel ID="pnlHeaderGraphic" runat="server" HorizontalAlign="center">
-            <asp:ImageMap ID="checkoutheadergraphic" HotSpotMode="PostBack" runat="server" BorderWidth="0">
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx" Top="0" Left="0" Bottom="90" Right="111" />
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/account.aspx?checkout=true" Top="0" Left="119" Bottom="90" Right="218" />
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Inactive" NavigateUrl="~/checkoutshipping.aspx" Top="0" Left="223" Bottom="90" Right="336" />
-            </asp:ImageMap>
-        </asp:Panel>
-        
-        <form id="frmCheckOutShipping" runat="server">
+     --%>
+     <!-- Modal -->
+     <div class="modal fade" id="order-summary-items-modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <i class="fa fa-times"></i>
+                     </button>
+                     <h4 class="modal-title">
+                         <asp:Literal ID="DetailsLit" runat="server">(!itempopup.aspx.2!)</asp:Literal>
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                     <asp:Literal ID="CheckoutOrderSummaryItemsLiteral" runat="server"></asp:Literal>
+                 </div>
+                 <div class="modal-footer">
+                     <a href="shoppingcart.aspx" class="btn btn-default">
+                         <asp:Literal ID="EditCartLit" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     
+     <%--Steps--%>
+     <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
 
-        <div class="clear-both height-12"></div>
-        <asp:Panel ID="pnlGetFreeShippingMsg" CssClass="FreeShippingThresholdPrompt" Visible="false" runat="server">
-            <asp:Literal ID="GetFreeShippingMsg" runat="server" Mode="PassThrough"></asp:Literal>
-            <div class="clear-both height-12"></div>
-        </asp:Panel>
-
-        <%-- shipping method controls section starts here  --%>
-        <div class="sections-place-holder no-padding">
-            <div class="section-header section-header-top"><asp:Literal ID="litPaymentDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal></div>
-            <div class="section-content-wrapper">
-                <asp:Panel ID="pnlShippingMethod" runat="server" HorizontalAlign="Center">
-                    <asp:Label ID="lblSelectShippingMethod" Text="" runat="server" Font-Bold="true" class="content"/>
-                    <br />
-                    <uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" />
-                </asp:Panel>
-            </div>
-                <div class="clear-both height-5"></div>
-        </div>
-        <%-- shipping method controls section ends here  --%>
+     <%--Error Summary--%>
+     <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
         
-        <div class="clear-both height-12"></div>
-
-        <div class="float-right">
-            <asp:Panel ID="pnlCompletePurchase" runat="server" HorizontalAlign="Center">
-                <asp:Button ID="btnCompletePurchase" runat="server" Text="Complete Purchase" CssClass="site-button content" />
-            </asp:Panel>
-        </div>
+     <%--Checkout Shipping--%> 
+     <div id="checkout-shipping-container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <form id="frmCheckOutShipping" runat="server">
+                    
+                    <asp:Panel ID="pnlGetFreeShippingMsg" CssClass="FreeShippingThresholdPrompt" Visible="false" runat="server">
+                        <asp:Literal ID="GetFreeShippingMsg" runat="server" Mode="PassThrough"></asp:Literal>
+                        <div class="clear-both height-12"></div>
+                    </asp:Panel>
+            
+                    <div class="panel panel-default panel-checkoutshippping">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <asp:Literal ID="litPaymentDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <uc:ShipToAddressControl runat="server" ID="ctrlShipToAddressControl" />
+                            </div>
+                            <div class="text-left">
+                                <asp:Label ID="lblSelectShippingMethod" Text="" runat="server" Font-Bold="true" class="content"/>
+                            </div>
+                            <div>
+                                <uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-button-container">
+                         <asp:Button ID="btnCompletePurchase" runat="server" Text="Complete Purchase" CssClass="btn btn-primary btn-huge" />
+                    </div>
+                    
+                    
+               
            
         <!-- Counpon Section { -->
             <div class="clear-both height-5"></div>
@@ -66,7 +95,7 @@
            
         <!-- Order Summary Section { -->
 
-        <div class="sections-place-holder no-padding">
+   <%--     <div class="sections-place-holder no-padding">
             <div class="section-header section-header-top"><asp:Literal ID="litItemsToBeShipped" runat="server">(!checkout1.aspx.43!)</asp:Literal></div>
            
             <div class="section-content-wrapper">
@@ -91,10 +120,26 @@
                 </div>
             </div>
             <div class="clear-both height-12"></div>
-        </div>
+        </div>--%>
 
         <!-- Order Summary Section } -->
 
         </form>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <asp:Literal ID="OrderSummaryCardLiteral" runat="server"></asp:Literal>
+            </div>
+        </div>
+     </div>
+   
+     
+
+    
+   
+   
+     
+    
+        
+<%--        
     </body>
-</html>
+</html>--%>

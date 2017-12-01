@@ -122,6 +122,7 @@ ise.Controls.ShippingMethodControl = function (id) {
     this.selectedOption = 0;
     this.isShippingRateLoadingComplete = false;
     this.isMultipleShipping = true;
+    this.isSkipValidation = false;
 }
 ise.Controls.ShippingMethodControl.registerClass('ise.Controls.ShippingMethodControl');
 ise.Controls.ShippingMethodControl.prototype = {
@@ -164,9 +165,13 @@ ise.Controls.ShippingMethodControl.prototype = {
 
     setIfMultipleShipping: function (value) { this.isMultipleShipping = true; },
 
-    setInstoreCartItem: function (cartItem) { this.instoreCartItem = cartItem; },
+    setInstoreCartItem: function (cartItem) {
+        this.instoreCartItem = cartItem;
+    },
 
-    getInstoreCartItem: function () { return this.instoreCartItem; },
+    getInstoreCartItem: function () {
+        return this.instoreCartItem;
+    },
 
     hookUpRefreshLink: function () {
         var link = $getElement(this.id + '_Refresh');
@@ -555,6 +560,13 @@ ise.Controls.ShippingMethodControl.prototype = {
         service.ShippingMethod(this.addressValue ? this.addressValue : '', this.id, this.shippingMethodID, onCompleteDelegate);
     },
 
+    requestShippingMethod: function (addressId, itemSpecificType) {
+        if (addressId != null) { this.shippingMethodID = addressId; }
+        var onCompleteDelegate = Function.createDelegate(this, this.onLoadShippingMethodComplete);
+        var service = new ActionService();
+        service.ShippingMethod(this.addressValue ? this.addressValue : '', this.id, this.shippingMethodID, itemSpecificType ? itemSpecificType : '', onCompleteDelegate);
+    },
+
     registerShowAllRatesButton: function (buttonID) {
         var thisObject = this;
         $('#' + buttonID).unbind("click")
@@ -640,7 +652,13 @@ ise.Controls.ShippingMethodControl.prototype = {
 
     clearValidationSummary: function () { this.validationController.clear(); },
 
+    setSkipValidation: function () { this.isSkipValidation = true; },
+
     validate: function (clear) {
+        if (this.isSkipValidation) {
+            this.isSkipValidation = false;
+            return true;
+        }
         if (this.skipShipping) return true;
         return this.validationController.validate(clear);
     }

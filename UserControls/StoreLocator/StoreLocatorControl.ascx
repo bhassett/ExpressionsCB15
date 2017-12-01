@@ -10,7 +10,7 @@
 <script type="text/javascript" src="jscripts/store_locator/store-locator-plugin-template.js"></script>
 <script type="text/javascript" src="jscripts/store_locator/store-locator-plugin.js"></script>
 <asp:Panel ID="pnlMain" runat="server" CssClass="locator-main-container" Style="position: relative;">
-    <div class="map-header-text">
+    <div class="entity-header">
         <h1>
             <%= AppLogic.GetString("menu.StoreLocator")%>
         </h1>
@@ -33,82 +33,67 @@
         </div>
         <div class="clr">
         </div>
-        <div class="locator-search-detail">
-            <table>
-                <tr>
-                    <td class="form-label">
-                        <%= AppLogic.GetString("storelocator.aspx.4")%>
-                    </td>
-                    <td class="form-input">
-                        <asp:DropDownList runat="server" ID="dlStoreType" class="storeTypeClass">
-                        </asp:DropDownList>
-                    </td>
-                    <td class="form-label">
-                        <%= AppLogic.GetString("storelocator.aspx.6")%>
-                        <strong>(
-                            <%= AppLogic.GetString("storelocator.aspx.21")%>
-                            )</strong>
-                    </td>
-                    <td class="form-input">
-                        <select id="search-miles">
-                            <option value="3">3</option>
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="30">30</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="500">500</option>
-                            <option value="1000">1000</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="form-label">
-                        <%= AppLogic.GetString("storelocator.aspx.10", true)%>
-                    </td>
-                    <td class="form-input" colspan="3">
-                        <input type="text" id="txtInputAddress" class="locator-search-input" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td class="form-input" colspan="3">
-                        <span class="locator-search-note">
-                            <%= AppLogic.GetString("storelocator.aspx.11", true)%>
-                        </span>
-                    </td>
-                </tr>
-                <tr id="direction-input" class='direction-input'>
-                    <td class="form-label">
-                        <%= AppLogic.GetString("storelocator.aspx.24", true)%>
-                    </td>
-                    <td class="form-input">
-                        <input type="text" id="txtAddressDirection" class="locator-search-input" />
-                    </td>
-                    <td>
-                        <span class="locator-search-note">
-                            <%= AppLogic.GetString("storelocator.aspx.20", true)%>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td class="form-input locator-search-input-adjust-spacetop">
-                        <input type="button" class="site-button content" id="btnSearchLocator" 
+        <div class="locator-search-detail well well-sm">
+            
+<div class="row">
+<div class="col-sm-6" style="padding:0px;">
+    <label  class="col-sm-2 control-label text-right"> <%= AppLogic.GetString("storelocator.aspx.10", true)%> </label>
+    <div class="col-sm-10" style="padding:0px;">
+      <input type="text" id="txtInputAddress" class="form-control locator-search-input" />
+       <div class="form-input"><i class="fa fa-info-circle"></i> <em class="locator-search-note"> <%= AppLogic.GetString("storelocator.aspx.11", true)%> </em> </div>
+    </div>
+  </div>
+  <div class="col-sm-3" style="padding:0px;">
+    <label  class="col-sm-6 control-label text-right"> <%= AppLogic.GetString("storelocator.aspx.4")%> </label>
+    <div class="col-sm-6" style="padding:0px;">
+      <asp:DropDownList runat="server" ID="dlStoreType" class="storeTypeClass form-control"> </asp:DropDownList>
+    </div>
+    </div>
+    <div class="col-sm-3" style="padding:0px;">
+    <label  class="col-sm-8 control-label text-right"> <%= AppLogic.GetString("storelocator.aspx.6")%> <strong>( <%= AppLogic.GetString("storelocator.aspx.21")%> )</strong> </label>
+    <div class="col-sm-4" style="padding:0px;">
+      <select id="search-miles" class="form-control">
+        <option value="ALL">All</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+      </select>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-sm-8" style="padding:0px;">
+  <div class="direction-input" id="direction-input">
+    <label  class="col-sm-4 control-label text-right"> <%= AppLogic.GetString("storelocator.aspx.24", true)%> </label>
+    <div class="col-sm-8" style="padding:0px;">
+      <input type="text" id="txtAddressDirection" class="locator-search-input form-control" />
+      <div> <em class="locator-search-note"> <%= AppLogic.GetString("storelocator.aspx.20", true)%> </em> </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4" style="padding:0px;">
+    <div> </div>
+    <div class="form-input locator-search-input-adjust-spacetop">
+      <input type="button" class="btn btn-primary content" id="btnSearchLocator" 
                         data-contentKey="storelocator.aspx.9"
                         data-contentValue="<%= AppLogic.GetString("storelocator.aspx.9", true)%>"
                         data-contentType="string resource"
                         value="<%= AppLogic.GetString("storelocator.aspx.9", true)%>" />
-                    </td>
-                </tr>
-            </table>
+    </div>
+  </div>
+</div>
+
         </div>
     </div>
-    <div class="map-wrapper">
+    <div class="map-wrapper well well-sm" style="padding:0px">
         <div id="map">
         </div>
         <div id="direction-input" class='direction-input'>
@@ -124,7 +109,7 @@
         <div id="dirPanel">
         </div>
     </div>
-    <div class="selectors-wrapper">
+    <div class="selectors-wrapper well well-sm">
         <div class="header-selectors">
         </div>
         <div class="selectors-body">

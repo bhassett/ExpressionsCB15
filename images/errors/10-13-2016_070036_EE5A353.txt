@@ -1,0 +1,23 @@
+
+
+----------- General -----------
+Date:                         10/13/2016 7:00:36 PM
+
+----------- Exception -----------
+ErrorCode:                    EE5A353
+Type:                         System.Reflection.TargetInvocationException
+Message:                      Exception has been thrown by the target of an invocation.
+Source:                       InterpriseSuiteEcommerceSecurity
+TargetSite:                   Void m_Application_Start(System.Object, System.EventArgs)
+StackTrace:                      at InterpriseSuiteEcommerceSecurity.Global.m_Application_Start(Object sender, EventArgs e)
+   at InterpriseSuiteEcommerceSecurity.Global.Application_Start(Object sender, EventArgs e)
+
+----------- Inner Exception -----------
+Type:                         Interprise.Framework.Base.Exceptions.VersionIncompatibilityException
+Message:                      Your client version is incompatible with your server! (Server Version : 16.0.0.500)
+Source:                       InterpriseSuiteEcommerceCommon
+TargetSite:                   Interprise.Connectivity.Database.Configuration.Design.AppConfig.InterpriseConfiguration get_ConfigInstance()
+StackTrace:                      at InterpriseSuiteEcommerceCommon.InterpriseHelper.get_ConfigInstance()
+   at InterpriseSuiteEcommerceCommon.CommonLogic.ApplicationIS(String paramName)
+   at InterpriseSuiteEcommerceCommon.Domain.Registries.DomainRegistry.RegisterDataManagerToBecachedPerRequest()
+   at InterpriseSuiteEcommerceCommon.Domain.Registries.DomainRegistry..ctor()

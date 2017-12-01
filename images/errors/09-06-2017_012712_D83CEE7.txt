@@ -1,0 +1,86 @@
+
+
+----------- General -----------
+Date:                         9/6/2017 1:27:12 AM
+Url:                          http://173.82.126.92/ST_ExpressionsDecor01/admin/skins/Skin_2/summernote-0.8.1-dist/dist/driver.aspx?Topic=error404
+Referrer:                     http://173.82.126.92/ST_ExpressionsDecor01/admin/default.aspx
+
+----------- Exception -----------
+ErrorCode:                    D83CEE7
+Type:                         System.Web.HttpException
+Message:                      The file '/ST_ExpressionsDecor01/admin/skins/Skin_2/summernote-0.8.1-dist/dist/driver.aspx' does not exist.
+Source:                       System.Web
+TargetSite:                   Void CheckVirtualFileExists(System.Web.VirtualPath)
+StackTrace:                      at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+----------- Query String -----------
+Topic:                        error404
+
+----------- Cookies -----------
+ISEGUID:                      F94C606670351D7FF5EE22CD000A68500D8223A71BF738B6F7C7997B53277157A4D2296A843B642A131D1348A50911A2CD55E7B2B4F5D1164E6BAAA2C1AE7E79A972EDDEB01A92F1704DDD43D2F3C8A0B3B29241E527C4EC188DAFFFE8BA5CF78F5924959A1A5E361325B3AA8629829E04140A6847B6F1E309E711DDFCA7079F721F8B4E41150392BC65E25A08B7EDE16CEEA74997F380521E06A52F6145DC25FEE39DC1
+ASP.NET_SessionId:            5r4r2o10gixxolhukqpbyicm
+Referrer:                     http%3a%2f%2f173.82.126.92%2fST_ExpressionsDecor01%2f
+SkinID_WEB-000001:            98
+.ADMINAUTH:                   9FB4DD7FB626805E6EDFFED99F6B28D67A567434D5B24D2EB8FD1FE348A79434E66B92BD3B9A24AE492CBECF9C989E7A5AEFE23FA65A016C2D4BE965CD976F992EB94D0DBB70A2B74C7EA15CA71743D9EC643C780512CE19DED6A3FD9CD6B35AAE529D9CD73EE8E201D80B3C842D18E89677B338
+
+----------- Form -----------
+
+----------- Server Variables -----------
+ALL_HTTP:                     HTTP_CONNECTION:keep-alive\r\nHTTP_ACCEPT:text/css,*/*;q=0.1\r\nHTTP_ACCEPT_ENCODING:gzip, deflate\r\nHTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8\r\nHTTP_COOKIE:ISEGUID=F94C606670351D7FF5EE22CD000A68500D8223A71BF738B6F7C7997B53277157A4D2296A843B642A131D1348A50911A2CD55E7B2B4F5D1164E6BAAA2C1AE7E79A972EDDEB01A92F1704DDD43D2F3C8A0B3B29241E527C4EC188DAFFFE8BA5CF78F5924959A1A5E361325B3AA8629829E04140A6847B6F1E309E711DDFCA7079F721F8B4E41150392BC65E25A08B7EDE16CEEA74997F380521E06A52F6145DC25FEE39DC1; ASP.NET_SessionId=5r4r2o10gixxolhukqpbyicm; Referrer=http%3a%2f%2f173.82.126.92%2fST_ExpressionsDecor01%2f; SkinID_WEB-000001=98; .ADMINAUTH=9FB4DD7FB626805E6EDFFED99F6B28D67A567434D5B24D2EB8FD1FE348A79434E66B92BD3B9A24AE492CBECF9C989E7A5AEFE23FA65A016C2D4BE965CD976F992EB94D0DBB70A2B74C7EA15CA71743D9EC643C780512CE19DED6A3FD9CD6B35AAE529D9CD73EE8E201D80B3C842D18E89677B338\r\nHTTP_HOST:173.82.126.92\r\nHTTP_REFERER:http://173.82.126.92/ST_ExpressionsDecor01/admin/default.aspx\r\nHTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36\r\n
+ALL_RAW:                      Connection: keep-alive\r\nAccept: text/css,*/*;q=0.1\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.8\r\nCookie: ISEGUID=F94C606670351D7FF5EE22CD000A68500D8223A71BF738B6F7C7997B53277157A4D2296A843B642A131D1348A50911A2CD55E7B2B4F5D1164E6BAAA2C1AE7E79A972EDDEB01A92F1704DDD43D2F3C8A0B3B29241E527C4EC188DAFFFE8BA5CF78F5924959A1A5E361325B3AA8629829E04140A6847B6F1E309E711DDFCA7079F721F8B4E41150392BC65E25A08B7EDE16CEEA74997F380521E06A52F6145DC25FEE39DC1; ASP.NET_SessionId=5r4r2o10gixxolhukqpbyicm; Referrer=http%3a%2f%2f173.82.126.92%2fST_ExpressionsDecor01%2f; SkinID_WEB-000001=98; .ADMINAUTH=9FB4DD7FB626805E6EDFFED99F6B28D67A567434D5B24D2EB8FD1FE348A79434E66B92BD3B9A24AE492CBECF9C989E7A5AEFE23FA65A016C2D4BE965CD976F992EB94D0DBB70A2B74C7EA15CA71743D9EC643C780512CE19DED6A3FD9CD6B35AAE529D9CD73EE8E201D80B3C842D18E89677B338\r\nHost: 173.82.126.92\r\nReferer: http://173.82.126.92/ST_ExpressionsDecor01/admin/default.aspx\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36\r\n
+APPL_MD_PATH:                 /LM/W3SVC/4/ROOT/ST_ExpressionsDecor01
+APPL_PHYSICAL_PATH:           C:\_CB Files\ST_ExpressionsDecor\ST_ExpressionsDecor01\
+AUTH_TYPE:                    Forms
+AUTH_USER:                    12d1ca2c-08ce-413a-9262-7b6b5db2adf1
+AUTH_PASSWORD:                
+LOGON_USER:                   12d1ca2c-08ce-413a-9262-7b6b5db2adf1
+REMOTE_USER:                  12d1ca2c-08ce-413a-9262-7b6b5db2adf1
+CERT_COOKIE:                  
+CERT_FLAGS:                   
+CERT_ISSUER:                  
+CERT_KEYSIZE:                 
+CERT_SECRETKEYSIZE:           
+CERT_SERIALNUMBER:            
+CERT_SERVER_ISSUER:           
+CERT_SERVER_SUBJECT:          
+CERT_SUBJECT:                 
+CONTENT_LENGTH:               0
+CONTENT_TYPE:                 
+GATEWAY_INTERFACE:            CGI/1.1
+HTTPS:                        off
+HTTPS_KEYSIZE:                
+HTTPS_SECRETKEYSIZE:          
+HTTPS_SERVER_ISSUER:          
+HTTPS_SERVER_SUBJECT:         
+INSTANCE_ID:                  4
+INSTANCE_META_PATH:           /LM/W3SVC/4
+LOCAL_ADDR:                   173.82.126.92
+PATH_INFO:                    /ST_ExpressionsDecor01/admin/skins/Skin_2/summernote-0.8.1-dist/dist/driver.aspx
+PATH_TRANSLATED:              C:\_CB Files\ST_ExpressionsDecor\ST_ExpressionsDecor01\admin\skins\Skin_2\summernote-0.8.1-dist\dist\driver.aspx
+QUERY_STRING:                 Topic=error404
+REMOTE_ADDR:                  122.3.0.226
+REMOTE_HOST:                  122.3.0.226
+REMOTE_PORT:                  39666
+REQUEST_METHOD:               GET
+SCRIPT_NAME:                  /ST_ExpressionsDecor01/admin/skins/Skin_2/summernote-0.8.1-dist/dist/driver.aspx
+SERVER_NAME:                  173.82.126.92
+SERVER_PORT:                  80
+SERVER_PORT_SECURE:           0
+SERVER_PROTOCOL:              HTTP/1.1
+SERVER_SOFTWARE:              Microsoft-IIS/8.5
+URL:                          /ST_ExpressionsDecor01/admin/skins/Skin_2/summernote-0.8.1-dist/dist/driver.aspx
+HTTP_CONNECTION:              keep-alive
+HTTP_ACCEPT:                  text/css,*/*;q=0.1
+HTTP_ACCEPT_ENCODING:         gzip, deflate
+HTTP_ACCEPT_LANGUAGE:         en-US,en;q=0.8
+HTTP_COOKIE:                  ISEGUID=F94C606670351D7FF5EE22CD000A68500D8223A71BF738B6F7C7997B53277157A4D2296A843B642A131D1348A50911A2CD55E7B2B4F5D1164E6BAAA2C1AE7E79A972EDDEB01A92F1704DDD43D2F3C8A0B3B29241E527C4EC188DAFFFE8BA5CF78F5924959A1A5E361325B3AA8629829E04140A6847B6F1E309E711DDFCA7079F721F8B4E41150392BC65E25A08B7EDE16CEEA74997F380521E06A52F6145DC25FEE39DC1; ASP.NET_SessionId=5r4r2o10gixxolhukqpbyicm; Referrer=http%3a%2f%2f173.82.126.92%2fST_ExpressionsDecor01%2f; SkinID_WEB-000001=98; .ADMINAUTH=9FB4DD7FB626805E6EDFFED99F6B28D67A567434D5B24D2EB8FD1FE348A79434E66B92BD3B9A24AE492CBECF9C989E7A5AEFE23FA65A016C2D4BE965CD976F992EB94D0DBB70A2B74C7EA15CA71743D9EC643C780512CE19DED6A3FD9CD6B35AAE529D9CD73EE8E201D80B3C842D18E89677B338
+HTTP_HOST:                    173.82.126.92
+HTTP_REFERER:                 http://173.82.126.92/ST_ExpressionsDecor01/admin/default.aspx
+HTTP_USER_AGENT:              Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36

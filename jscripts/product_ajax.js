@@ -221,6 +221,24 @@ ise.Products.Product.prototype = {
         return Number(nFreeStock.toString().replace(/[^\d\.\-\ ]/g, '')) > 0;
     },
 
+    getExpectedShippingDate: function () {
+        var shipDate = "";
+        $.ajax({
+            type: "POST",
+            url: "ActionService.asmx/GetExpectedShippingDate",
+            data: JSON.stringify({ "itemCode": this.getItemCode().toString() }),
+            dataType: "json",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                shipDate = result.d;
+            },
+            fail: function (result) {
+            }
+        });
+        return shipDate;
+    },
+
     hasRestrictedQuantities: function () { return null != this.restrictedQuantities && this.restrictedQuantities.length > 0; },
 
     getRestrictedQuantities: function () { return this.restrictedQuantities; },
@@ -255,9 +273,31 @@ ise.Products.Product.prototype = {
         param.unitMeasureCode = this.getUnitMeasure();
         var thisObject = this;
 
+        //   alert(param.itemCode + '====' + thisObject.itemCode);
+
+        if (thisObject.itemType == "Matrix Group")
+        {
+            var isMatrixGroup = true;
+
+            for (var i = 0; i < thisObject.matrixProducts.length; i++) {
+                if (thisObject.matrixProducts[i].itemCode === param.itemCode) {
+                    isMatrixGroup = false;
+                    break;
+                }
+            }
+
+            if (isMatrixGroup === true) {
+                return;
+            }
+        }
+       
+  
+
         var lblStockHint = $getElement('lblStockHint_' + id);
         var imgStockHint = $getElement('imgStockHint_' + id);
         var pnlShippingDate = $getElement('pnlDisplayExpShipDate_' + id);
+
+        var spanStockHint = $getElement('spanStockHint_' + id);
 
         $.ajax({
             type: "POST",
@@ -296,16 +336,19 @@ ise.Products.Product.prototype = {
                     if (showActualInventory) { imgStockHint.style.visibility = 'hidden'; }
                     if (Number(nFreeStock.toString().replace(/[^\d\.\-\ ]/g, '')) > 0) {
                         if (showStockHints) {
-                            imgStockHint.src = 'images/instock.png';
-                            imgStockHint.style.visibility = 'visible';
+                            //imgStockHint.src = 'images/instock.png';
+                            //imgStockHint.style.visibility = 'visible';
+                            
+                            $(spanStockHint).html(ise.StringResource.getString('showproduct.aspx.90')).removeClass('out-of-stock').addClass("in-stock");
                             if (pnlShippingDate != undefined) {
                                 pnlShippingDate.style.visibility = 'hidden';
                             }
                         }
                     }
                     else {
-                        imgStockHint.style.visibility = 'visible';
-                        imgStockHint.src = 'images/outofstock.png';
+                        //imgStockHint.style.visibility = 'visible';
+                        //imgStockHint.src = 'images/outofstock.png';
+                        $(spanStockHint).html(ise.StringResource.getString('showproduct.aspx.91')).removeClass('in-stock').addClass("out-of-stock");
                         lblStockHint.style.display = 'none';
                         if (pnlShippingDate != undefined) {
                             pnlShippingDate.style.visibility = 'show';
@@ -313,8 +356,9 @@ ise.Products.Product.prototype = {
                     }
                 }
                 else {
-                    imgStockHint.style.visibility = 'visible';
-                    imgStockHint.src = 'images/outofstock.png';
+                    //imgStockHint.style.visibility = 'visible';
+                    //imgStockHint.src = 'images/outofstock.png';
+                    $(spanStockHint).html(ise.StringResource.getString('showproduct.aspx.91')).removeClass('in-stock').addClass("out-of-stock");
                     lblStockHint.style.display = 'none';
                     if (pnlShippingDate != undefined) {
                         pnlShippingDate.style.visibility = 'show';
@@ -322,14 +366,30 @@ ise.Products.Product.prototype = {
                 }
             },
             fail: function (result) {
-                imgStockHint.style.visibility = 'visible';
-                imgStockHint.src = 'images/outofstock.png';
+                //imgStockHint.style.visibility = 'visible';
+                //imgStockHint.src = 'images/outofstock.png';
+                $(spanStockHint).html(ise.StringResource.getString('showproduct.aspx.91')).removeClass('in-stock').addClass("out-of-stock");
                 lblStockHint.style.display = 'none';
                 if (pnlShippingDate != undefined) {
                     pnlShippingDate.style.visibility = 'show';
                 }
             }
         });
+
+
+        // expected ship date for matrix items...
+        if (this.getItemType() == "Matrix Group") {
+            var pnlShipDate = $getElement("DisplayExpectedShipDate");
+            var expShipDate = this.getExpectedShippingDate();
+            if (expShipDate != null && expShipDate != "") {
+                var txt = ise.StringResource.getString("showproduct.aspx.48");
+                pnlShipDate.innerHTML = "<div class='errorLg'>" + txt.replace("{0}", expShipDate) + "</div>";
+                pnlShipDate.style.display = 'block';
+            }
+            else {
+                pnlShipDate.style.display = 'none';
+            }
+        }
     },
 
     getImageZoomOption: function () { return this.imageZoomOption; },
@@ -748,15 +808,15 @@ ise.Products.PriceControl.prototype = {
                 pnlPrice.id = 'pnlPrice_' + this.id;
                 this.ctrl.appendChild(pnlPrice);
 
-                var lblPriceCaption = document.createElement('SPAN');
-                lblPriceCaption.id = 'lblPriceCaption_' + this.id;
+                //var lblPriceCaption = document.createElement('SPAN');
+                //lblPriceCaption.id = 'lblPriceCaption_' + this.id;
 
-                if (displayLabel == 'true') {
-                    lblPriceCaption.innerHTML = ise.StringResource.getString('showproduct.aspx.33');
-                }
-                lblPriceCaption.innerHTML = lblPriceCaption.innerHTML + '&nbsp;';
+                //if (displayLabel == 'true') {
+                //    lblPriceCaption.innerHTML = ise.StringResource.getString('showproduct.aspx.33');
+                //}
+                //lblPriceCaption.innerHTML = lblPriceCaption.innerHTML + '&nbsp;';
 
-                pnlPrice.appendChild(lblPriceCaption);
+                //pnlPrice.appendChild(lblPriceCaption);
 
                 var lblPrice = document.createElement('SPAN');
                 lblPrice.id = 'lblPrice_' + this.id;
@@ -796,7 +856,19 @@ ise.Products.PriceControl.prototype = {
                     var pnlPromotionalPrice = document.createElement('DIV');
                     pnlPromotionalPrice.id = 'pnlPromotionalPrice_' + this.id;
                     this.ctrl.appendChild(pnlPromotionalPrice);
-
+					
+					var pnlSaleBadge = document.createElement('DIV');
+                    pnlSaleBadge.id = 'pnlSaleBadge_' + this.id;
+					pnlSaleBadge.className = "SaleBadge";
+					document.getElementById('product-img-' + this.id).appendChild(pnlSaleBadge);
+					pnlSaleBadge.innerHTML = 'Sale';
+					
+					var pnlSaleBadge = document.createElement('DIV');
+                    pnlSaleBadge.id = 'pnlSaleBadge_' + this.id;
+					pnlSaleBadge.className = "SaleBadge";
+					document.getElementsByClassName('product-img2-' + this.id)[0].appendChild(pnlSaleBadge);
+					pnlSaleBadge.innerHTML = 'Sale';
+										
                     var lblPromotionalPriceCaption = document.createElement('SPAN');
                     lblPromotionalPriceCaption.id = 'lblPromotionalPriceCaption_' + this.id
                     lblPromotionalPriceCaption.innerHTML = ise.StringResource.getString('showproduct.aspx.34') + '&nbsp;';
@@ -906,14 +978,15 @@ ise.Products.UnitMeasureControl.prototype = {
         
         var unitMeasures = this.product.getUnitMeasures();
         if(unitMeasures.length > 1) {
-            var span = document.createElement('SPAN');
-            span.id = 'lblUnitMeasure_' + this.id;
-            span.innerHTML = ise.StringResource.getString('showproduct.aspx.32') + '&nbsp;';
-            this.ctrl.appendChild(span);
+            var label = document.createElement('LABEL');
+            label.id = 'lblUnitMeasure_' + this.id;
+            label.innerHTML = ise.StringResource.getString('showproduct.aspx.32') + '&nbsp;';
+            this.ctrl.appendChild(label);
             
             var select = document.createElement('SELECT');
             select.id = 'UnitMeasureCode_' + this.id;
             select.name = 'UnitMeasureCode';
+			select.className = 'form-control um-select';
             
             for(var ctr=0; ctr<unitMeasures.length; ctr++) {
                 var current = unitMeasures[ctr];
@@ -938,13 +1011,14 @@ ise.Products.UnitMeasureControl.prototype = {
             var input = document.createElement('INPUT');
             input.type = 'hidden';
             input.id = 'UnitMeasureCode_' + this.id;
-            input.name = 'UnitMeasureCode';            
+            input.name = 'UnitMeasureCode';
+			input.className = 'form-control um-input';            
             this.ctrl.appendChild(input);
             
-            var span = document.createElement('SPAN');
-            span.id = 'lblUnitMeasure_' + this.id;
-            span.innerHTML = ise.StringResource.getString('showproduct.aspx.32') + '&nbsp;' + unitMeasures[0].description;
-            this.ctrl.appendChild(span);
+            var label = document.createElement('LABEL');
+            label.id = 'lblUnitMeasure_' + this.id;
+            label.innerHTML = ise.StringResource.getString('showproduct.aspx.32') + '&nbsp;' + unitMeasures[0].description;
+            this.ctrl.appendChild(label);
         }
     },
     
@@ -1304,12 +1378,14 @@ ise.Products.MatrixAttributeGroupControl.prototype = {
     doAttributeOptionValidityCheck: function (matrix, control) {
         var options = control.ctrl.options;
         for (i = 1; i < options.length; i++) {
-            options[i].disabled = false;
+            //options[i].disabled = false;
+            options[i].style.display = "block"
             // disable option if no matching matrix found
             // note: hiding of disabled option is thru css
             var matrixMatch = this.filterMatrixByAttribute(matrix, control.attribute, options[i].value);
             if (matrixMatch.length == 0) {
-                options[i].disabled = true;
+                //options[i].disabled = true;
+                options[i].style.display = "none"
             }
         }
     },
@@ -1609,7 +1685,7 @@ ise.Products.ImageControl.prototype = {
                     // control has show function
                     control.show();
                     if (this.useMicroImages) {
-                        var micro = this.product.getMicroImage(ctr);
+                        var micro = this.product.getMediumImage(ctr);
                         control.setImage(micro.src);
                     }
                     visibleimagecount ++;
@@ -1862,7 +1938,9 @@ ise.Products.StockHintControl.prototype = {
         if (product.getId() == this.id) { this.setProduct(product); }
     },
 
-    onProductInterChanged: function () { this.arrangeDisplay(); },
+    onProductInterChanged: function () {
+        this.arrangeDisplay();
+    },
 
     arrangeDisplay: function () {
         if (this.product) {
@@ -1999,16 +2077,17 @@ ise.Products.QuantityControl.prototype = {
     buildDisplay : function() {
         this.clearDisplay();
         
-        var span = document.createElement('SPAN');
-        span.id = 'lblQuantity_' + this.id;
-        span.innerHTML = ise.StringResource.getString('showproduct.aspx.31') + '&nbsp;';
-        this.ctrl.appendChild(span);
+        var label = document.createElement('LABEL');
+        label.id = 'lblQuantity_' + this.id;
+        label.innerHTML = ise.StringResource.getString('showproduct.aspx.31') + '&nbsp;';
+        this.ctrl.appendChild(label);
             
         if(this.product.hasRestrictedQuantities()) {
             var restrictedQuantities = this.product.getRestrictedQuantities();
             var select = document.createElement('SELECT');
             select.id = 'Quantity_' + this.id;
             select.name = 'Quantity';
+			select.className = 'form-control qty-select';
             
             for(var ctr=0; ctr<restrictedQuantities.length; ctr++) {
                 var quantity = restrictedQuantities[ctr];
@@ -2024,6 +2103,7 @@ ise.Products.QuantityControl.prototype = {
             input.type = 'text';
             input.id = 'Quantity' + this.id;
             input.name = 'Quantity';
+			input.className = 'form-control qty-input';
             input.size = 3;
             input.maxLength = 14;
             input.value = this.initialQuantity;

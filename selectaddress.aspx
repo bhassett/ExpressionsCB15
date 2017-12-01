@@ -4,22 +4,55 @@
 <%@ Register TagPrefix="uc" TagName="AddressControl" Src="~/UserControls/AddressControl.ascx" %>
 <%@ Register TagPrefix="ise" TagName="Topic" src="TopicControl.ascx" %>
 <%@ Import Namespace="InterpriseSuiteEcommerceCommon" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
     <title>Untitled Page</title>
     <style>#txtContactName { width: 363px; }</style>
 </head>
-<body>
-    <form id="frmAddAddress" runat="server">
+<body>--%>
+
+      <asp:Panel ID="pnlModalOrderSummary" runat="server" HorizontalAlign="Center" Visible="false">
+            <!-- Modal -->
+     <div class="modal fade" id="order-summary-items-modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <i class="fa fa-times"></i>
+                     </button>
+                     <h4 class="modal-title">
+                         <asp:Literal ID="DetailsLit" runat="server">(!itempopup.aspx.2!)</asp:Literal>
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                     <asp:Literal ID="CheckoutOrderSummaryItemsLiteral" runat="server"></asp:Literal>
+                 </div>
+                 <div class="modal-footer">
+                     <a href="shoppingcart.aspx" class="btn btn-default">
+                         <asp:Literal ID="EditCartLit" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+      </asp:Panel>
+     
+
+      <asp:Panel ID="pnlCheckoutImage" runat="server" HorizontalAlign="Center" Visible="false">
+          <%--Steps--%>
+          <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
+      </asp:Panel>
+
+   
+
+    <div class="select-address-container">
         <div class="row">
-<div class="small-12 columns"> 
-        <asp:Panel ID="pnlCheckoutImage" runat="server" HorizontalAlign="Center" Visible="false">
-            <asp:ImageMap ID="CheckoutImage" HotSpotMode="Navigate" runat="server">
-                <asp:RectangleHotSpot AlternateText="Back To Step 1: Shopping Cart" Top="0" Left="0" Right="87" Bottom="54" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx?resetlinkback=1" />
-            </asp:ImageMap>
-            <br />
-        </asp:Panel>
+            <div class="col-lg-7">
+                <form id="frmAddAddress" runat="server">
+      
                              
                <div class="sections-place-holder no-padding">
         <div class="section-header section-header-top"> <asp:Literal ID="litEditAddress" runat="server">(!selectaddress.aspx.1!)</asp:Literal></div>
@@ -72,13 +105,17 @@
                                         <ol>
                                         <asp:Repeater ID="AddressList" runat="server">
                                             <ItemTemplate>
-                                                <li>
+                                                <li class="well">
                                                     <%#  InterpriseSuiteEcommerceCommon.CommonLogic.IIF(DataBinder.Eval(Container.DataItem, "PrimaryAddress").ToString() == "1", "<b>", "")%>
                                                         <%# InterpriseSuiteEcommerceCommon.CommonLogic.IIF(DataBinder.Eval(Container.DataItem, "Name").ToString().Trim() == "", "", DataBinder.Eval(Container.DataItem, "Name").ToString()) %>   
+                                                            
                                                             &nbsp;&nbsp;
-                                                            <asp:ImageButton ID="btnMakePrimary" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "AddressID") %>' style="vertical-align: middle;" CommandName="makeprimary" runat="server" />
+                                                         
+                                                            <asp:Button ID="btnEdit" Text="" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "AddressID") %>' CommandName="edit" runat="server"   class="btn btn-default button-xs" /> 
                                                             &nbsp;&nbsp;
-                                                            <asp:ImageButton ID="btnEdit" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "AddressID") %>' style="vertical-align: middle;" CommandName="edit" runat="server" />
+                                                         
+                                                            <asp:Button ID="btnMakePrimary" Text="" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "AddressID") %>' CommandName="makeprimary" runat="server"   class="btn btn-success button-xs" /> 
+                                                            
                                                             <br />                                                 
                                                         <%# InterpriseSuiteEcommerceCommon.CommonLogic.IIF(DataBinder.Eval(Container.DataItem, "Address").ToString().Trim() == "", "", DataBinder.Eval(Container.DataItem, "Address") + "<br />")%>                                                    
                                                         <%# InterpriseSuiteEcommerceCommon.CommonLogic.IIF(DataBinder.Eval(Container.DataItem, "CityStateZip").ToString().Trim() == "", "", DataBinder.Eval(Container.DataItem, "CityStateZip") + "<br />")%>
@@ -90,9 +127,9 @@
                                                  </li>
                                             </ItemTemplate>
                                         </asp:Repeater>                                  
-                                        <li>
+                                        <li class="well">
                                             <asp:Panel ID="liAdd" runat="server" Visible="true">
-                                                <asp:HyperLink ID="lnkAddAddress" runat="server"></asp:HyperLink>
+                                                <asp:HyperLink ID="lnkAddAddress" CssClass="btn btn-default" runat="server"></asp:HyperLink>
                                             </asp:Panel>
                                         </li>
                                         </ol>
@@ -104,12 +141,20 @@
                       <div style="padding-right:12px;" class="button-place-holder">
                        <div id="return-address-button">
                             <div id="return-address-button-place-holder">
-                                <div class="float-right">
-                                    <asp:Panel ID="pnlSaveAddress" CssClass="float-left" style="padding-right:5px;" runat="server" Visible="false">
+                                <div class="row">
+                                <div class="col-sm-6">
+                                    <asp:Panel runat="server" CssClass="btn-sep btn-block">
+                                        <asp:Button ID="btnReturn" runat="server" CssClass="content btn btn-default btn-block" />
+                                        <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="content btn btn-default btn-block" />
+                                
+                                </asp:Panel>
+                                </div>
+                                <div class="col-sm-6">
+                                    <asp:Panel ID="pnlSaveAddress" CssClass="btn-sep btn-block" style="padding-right:5px;" runat="server" Visible="false">
                                          <div id="save-address-button">
                                             <div id="save-address-loader"></div>
                                             <div id="save-address-button-place-holder">
-                                                <input type="button" class="site-button content btn btn-info" id="save-address" 
+                                                <input type="button" class="content btn btn-primary btn-block" id="save-address" 
                                                     data-contentKey="selectaddress.aspx.16"
                                                     data-contentValue="<%=AppLogic.GetString("selectaddress.aspx.16", true)%>"
                                                     data-contentType="string resource"
@@ -118,11 +163,7 @@
                                             </div>
                                          </div>
                                      </asp:Panel>
-                                    <asp:Panel runat="server" CssClass="float-left">
-                                        <asp:Button ID="btnReturn" runat="server" CssClass="site-button content btn btn-info" />
-                                        <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="site-button content btn btn-info" />
-                                
-                                </asp:Panel>
+                                     </div>
                                 </div>
                             </div>
                        </div>
@@ -142,7 +183,7 @@
             <input type="hidden" id="hidSkinID" runat="server" />
             <input type="hidden" id="hidLocale" runat="server" />      
             <input type="hidden" id="load-at-page" value="select-address" />
-            <asp:Button ID="btnNewAddress" runat="server" CssClass="site-button" OnClick="btnNewAddress_Click" />
+            <asp:Button ID="btnNewAddress" runat="server" CssClass="btn btn-default" OnClick="btnNewAddress_Click" />
             <asp:TextBox ID="txtCityStates" runat="server"></asp:TextBox>   
         </div>
         <div style="display:none;margin:auto" title="Address Verification"  id="ise-address-verification"></div>
@@ -165,9 +206,9 @@
                 config.buttonContainerId = "save-address-button-place-holder";
                 config.isWithShippingAddress = false;
                 config.isAllowShipping = false;
-                config.billingInputID = {POSTAL_CODE: "AddressControl_txtPostal",CITY: "AddressControl_txtCity",STATE: "AddressControl_txtState",COUNTRY: "AddressControl_drpCountry",STREET_ADDRESS: "AddressControl_txtStreet",CITY_STATE_SELECTOR: "city-states"};
-                config.billingLabelID = {POSTAL_CODE: "AddressControl_lblStreet",CITY: "AddressControl_lblCity",STATE: "AddressControl_lblState",STREET_ADDRESS: "AddressControl_lblPostal"};
-                config.shippingInputID = {POSTAL_CODE: "",CITY: "",STATE: "",COUNTRY: "",STREET_ADDRESS: "",RESIDENCE_TYPE: "AddressControl_drpType",CITY_STATE_SELECTOR: ""};
+                config.billingInputID = { POSTAL_CODE: "AddressControl_txtPostal", CITY: "AddressControl_txtCity", STATE: "AddressControl_txtState", COUNTRY: "AddressControl_drpCountry", STREET_ADDRESS: "AddressControl_txtStreet", CITY_STATE_SELECTOR: "city-states" };
+                config.billingLabelID = { POSTAL_CODE: "AddressControl_lblStreet", CITY: "AddressControl_lblCity", STATE: "AddressControl_lblState", STREET_ADDRESS: "AddressControl_lblPostal" };
+                config.shippingInputID = { POSTAL_CODE: "", CITY: "", STATE: "", COUNTRY: "", STREET_ADDRESS: "", RESIDENCE_TYPE: "AddressControl_drpType", CITY_STATE_SELECTOR: "" };
                 var realTimeAddressVerificationPluginStringKeys = new Object();
                 realTimeAddressVerificationPluginStringKeys.unableToVerifyAddress = "selectaddress.aspx.30";
                 realTimeAddressVerificationPluginStringKeys.confirmCorrectAddress = "selectaddress.aspx.31";
@@ -181,8 +222,19 @@
         });
     });
     </script>
-</div>
-</div>
 </form>
+
+            </div>
+            <div class="col-lg-5">
+                 <asp:Panel ID="pnlOrderSummary" runat="server" HorizontalAlign="Center" Visible="false">
+                     <asp:Literal ID="OrderSummaryCardLiteral" runat="server"></asp:Literal>
+                 </asp:Panel>
+            </div>
+        </div>
+
+    </div>
+
+ 
+<%--    
 </body>
-</html>
+</html>--%>

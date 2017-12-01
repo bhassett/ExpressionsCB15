@@ -14,7 +14,7 @@
 
         <!-- NOTIFICATION -->
         <div class="notification" style="display:none;">
-            <a href="javascript:void(0)"><i class="icon-remove"></i></a>
+            <a href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
             <span id="lblMessage"></span>
         </div>
 

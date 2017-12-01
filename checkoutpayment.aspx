@@ -23,128 +23,194 @@
     </style>
 </head>
 <body>
+    
+    
+    
+    <!-- Modal -->
+     <div class="modal fade" id="order-summary-items-modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <i class="fa fa-times"></i>
+                     </button>
+                     <h4 class="modal-title">
+                         <asp:Literal ID="DetailsLit" runat="server">(!itempopup.aspx.2!)</asp:Literal>
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                     <asp:Literal ID="CheckoutOrderSummaryItemsLiteral" runat="server"></asp:Literal>
+                 </div>
+                 <div class="modal-footer">
+                     <a href="shoppingcart.aspx" class="btn btn-default">
+                         <asp:Literal ID="EditCartLit" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+    <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
     <ise:InputValidatorSummary ID="errorSummary" CssClass="error" runat="server" Register="False" />
 
-    <asp:Panel ID="pnlHeaderGraphic" runat="server" HorizontalAlign="center">
-        <asp:ImageMap ID="checkoutheadergraphic" HotSpotMode="PostBack" runat="server" BorderWidth="0">
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx"
-                Top="0" Left="0" Bottom="90" Right="111" />
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/account.aspx?checkout=true"
-                Top="0" Left="119" Bottom="90" Right="218" />
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Inactive" NavigateUrl="~/checkoutshipping.aspx"
-                Top="0" Left="223" Bottom="90" Right="336" />
-        </asp:ImageMap>
-    </asp:Panel>
-
-    <div class="clear-both height-12"></div>
     
     <form id="frmCheckOutPayment" runat="server">
-       
-    <asp:Panel ID="pnlPageWrapper" runat="server">
+     
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <asp:Panel ID="pnlPageWrapper" runat="server">
 
-    <!-- GIFT CARD / GIFT CERTIFICATE -->
-    <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
-        <i class="icon-gift"></i>
-        <asp:Label ID="lblNewGiftCode"  runat="server"></asp:Label>
-    </a>
+                    <%--GiftCard Other Payment Method--%>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <!-- GIFT CARD / GIFT CERTIFICATE -->
+                            <div class="vertical-space">
+                                <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
+                                    <i class="fa fa-gift"></i>
+                                    <asp:Label ID="lblNewGiftCode"  runat="server"></asp:Label>
+                                </a>
+                            </div>
+        
+                            <!-- OTHER PAYMENT CONTROL -->
+                            <div>
+                                <uc:OtherPaymentOptionControl ID="ctrlOtherPaymentOption" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <%--Payment Methods--%>
+                    <div class="panel panel-default panel-checkoutpayment">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <asp:Literal ID="litPaymentDetails" runat="server">(!checkoutpayment.aspx.34!)</asp:Literal>
+                        </h3>
+                      </div>
+                      <div class="panel-body">
+                          <div id="payment-form-error-container" class="error-place-holder float-left normal-font-style font-size-12"></div>    
+                          <%--Payment--%> 
+                          <div class="checkoutpayment-payment">
+                            <div id="credit-card-details-place-holder-checkout-payment" class="custom-font-style ">
+                                <h3 class="panel-title">
+                                    <asp:Literal ID="litPaymentsMethod" runat="server">(!checkoutpayment.aspx.37!)</asp:Literal>
+                                </h3>
+                                <%--No Available Payment Message--%>
+                                 <div class="checkoutpayment-no-available-payment">
+                                     <asp:Panel runat="server" ID ="pnlNoAvailablePaymentStatus" Visible="false">
+                                         <asp:Literal ID="litTransactionStatusMessage" runat="server"></asp:Literal> <a href="contactus.aspx"><asp:Literal ID="litContactUsLink" runat="server">(!checkoutpayment.aspx.64!)</asp:Literal>.</a>
+                                     </asp:Panel>
+                                 </div>
 
-    <!-- OTHER PAYMENT CONTROL -->
-    <uc:OtherPaymentOptionControl ID="ctrlOtherPaymentOption" runat="server" />
-
-    <!-- Billing Address and Payment Control Wrapper } -->   
-      <div class="sections-place-holder no-padding">
-        <div class="section-header section-header-top"><asp:Literal ID="litPaymentDetails" runat="server">(!checkoutpayment.aspx.34!)</asp:Literal></div>
-        <!-- Wrapper Padding { -->
-        <div class="section-content-wrapper"> 
-            <!-- Billing Address Section { -->
-            <div id="payment-form-error-container" class="error-place-holder float-left normal-font-style font-size-12"></div>     
-            
-           <asp:Panel ID="pnlBillingAddressGrid" runat="server">
-               <span class="strong-font  custom-font-style">
-                   <asp:Literal ID="Literal3">&nbsp;</asp:Literal></span>
-               <div id="billing-address-grid">
-                   <asp:Literal ID="litBillingAddressGrid" runat="server"></asp:Literal>
-               </div>
-           </asp:Panel> 
-                
-           <div id="credit-card-options">
-                <asp:Literal ID="LtrCreditCardOptionsRenderer" runat="server"></asp:Literal>
-           </div>
-
-            <div  id="billing-details-place-holder" class="normal-font-style font-size-12 float-left">
-                <span class="strong-font  custom-font-style"><asp:Literal ID="litBillingContact" runat="server">(!checkoutpayment.aspx.35!)</asp:Literal></span> 
-                <div class="clear-both height-5"></div>
-
-                    <div class="form-controls-place-holder">
-
-                    <span class="form-controls-span">
-                        <label id="lblBillingContactName" class="form-field-label">
-                            <asp:Literal ID="litBillingContactName" runat="server">(!checkoutpayment.aspx.26!)</asp:Literal>
-                        </label>
-                        <asp:TextBox ID="txtBillingContactName" MaxLength="100" runat="server" CssClass="light-style-input"></asp:TextBox>
-                    </span>
-
-                     <span class="form-controls-span">
-                        <label  id="lblBillingContactNumber" class="form-field-label">
-                            <asp:Literal ID="litContactNumber" runat="server" >(!checkout1.aspx.66!)</asp:Literal>
-                        </label>
-                        <asp:TextBox ID="txtBillingContactNumber" runat="server" CssClass="light-style-input" MaxLength="50"></asp:TextBox>
-                     </span>
-
+                                <%--List Payment Options--%>
+                                <div class="checkoutpayment-payment-options">
+                                    <asp:Panel ID="pnlPaymentTerm" runat="server">
+                                        <uc:PaymentTermControl ID="ctrlPaymentTerm" runat="server"></uc:PaymentTermControl>
+                                    </asp:Panel> 
+                                </div>
+                            </div>
+                          </div>
+                          
+                          <%--Billing Address--%>
+                          <div id="billing-details-place-holder" class="checkoutpayment-billing">
+                              <hr />
+                              <div class="checkoutpayment-billing-addresses-container">
+                                  <asp:Panel ID="pnlBillingAddressGrid" runat="server">
+                                      <div id="billing-address-grid">
+                                          <%--<asp:Literal ID="litBillingAddressGrid" runat="server"></asp:Literal>--%>
+                                          <div class="list-group">
+                                          <asp:Repeater ID="rptBillingAddress" runat="server">
+                                            <ItemTemplate>
+                                                 <div class="list-group-item">
+                                                     <div class='billing-address-options-row'>
+                                                         <div class='opc-options-credit-card-code-place-holder pull-left'>
+                                                             <input type='radio'  name='multiple-billing-address'
+                                                                 id='<%# Container.ItemIndex + 1 %>' 
+                                                                 <%# ThisCustomer.PrimaryBillingAddress.AddressID == DataBinder.Eval(Container.DataItem, "AddressID").ToString() ? "checked" : string.Empty %> 
+                                                                 value = '<%# Eval("EncryptedCreditCardCode") %>' 
+                                                                 class="<%# ThisCustomer.PrimaryBillingAddress.AddressID == DataBinder.Eval(Container.DataItem, "AddressID").ToString() ? "is-primary-address" : string.Empty %>"/>
+                                                         </div>
+                                                         <address>
+                                                             <strong>
+                                                                 <div class='option-billing-account-name-place-holder pull-left'><%#DataBinder.Eval(Container.DataItem, "Name").ToString()%></div>
+                                                             </strong><br />
+                                                             <div class='option-billing-country-place-holder pull-left'><%# DataBinder.Eval(Container.DataItem, "Country").ToString() %></div><br />
+                                                             <div class='option-billing-address-place-holder pull-left'><%# DataBinder.Eval(Container.DataItem, "CityStateZip").ToString() %></div>
+                                                         </address>
+                                                     </div>
+                                                 </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                      </div>
+                                      </div>
+                                      
+                                  </asp:Panel> 
+                              </div>
+                              
+                              <div class="checkoutpayment-credit-card-options-container">
+                                  <div id="credit-card-options">
+                                      <asp:Literal ID="LtrCreditCardOptionsRenderer" runat="server"></asp:Literal>
+                                  </div>
+                              </div>
+                              
+                              <div class="checkoutpayment-selected-billing-address-container">
+                                  <div class="form-group">
+                                      <label>
+                                          <asp:Literal ID="litBillingContact" runat="server">(!checkoutpayment.aspx.35!)</asp:Literal>
+                                      </label>
+                                      <asp:TextBox ID="txtBillingContactName" MaxLength="100" runat="server" CssClass="light-style-input"></asp:TextBox>
+                                  </div>
+                                  <div class="form-group">
+                                      <asp:TextBox ID="txtBillingContactNumber" runat="server" CssClass="light-style-input" MaxLength="50"></asp:TextBox>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>
+                                          <asp:Literal ID="litBillingAddress" runat="server">(!checkoutpayment.aspx.36!)</asp:Literal>
+                                      </label>
+                                      <uc:BillingAddressControl id="BillingAddressControl" IdPrefix="billing-" runat="server" />
+                                  </div>
+                              </div>
+                          </div>
+          
+                      </div>
                     </div>
 
-                    <div class="clear-both height-12"></div>
+                    <%--Checkout Button--%>
+                    <div class="checkout-button-container">
+                          <asp:Panel ID="pnlCheckoutPaymentButtons" runat="server">
+                              <div id="billing-method-button-place-holder">
+                                  <div id="billing-method-button">
+                                      <button type="button" class="btn btn-primary btn-huge" data-toggle="modal" data-target="#order-confirmation-modal">
+                                           <asp:Literal ID="Literal4" Mode="PassThrough" runat="server" Text="(!checkoutpayment.aspx.6!)"></asp:Literal></button>
+                                  </div>
+                                  <div id="save-billing-method-loader"></div>
+                              </div>
+                          </asp:Panel>
+                    </div>
 
-                    <span class="strong-font  custom-font-style"><asp:Literal ID="litBillingAddress" runat="server">(!checkoutpayment.aspx.36!)</asp:Literal></span>
-                    <div class="clear-both height-5"></div>
-                    <uc:BillingAddressControl id="BillingAddressControl" IdPrefix="billing-" runat="server" />
-                <div class="clear-both height-12"></div>
-             </div>
-
-             <!-- Billing Address Section } -->
-              <div class="clear-both height-12"></div>
-             <div id="move-credit-card-down-if-width-less-or-1000"></div>
-
-             <!-- Payment Control { -->
-
-             <div id="credit-card-details-place-holder-checkout-payment" class="custom-font-style ">      
-               
-                <span class="strong-font  custom-font-style"><asp:Literal ID="litPaymentsMethod" runat="server">(!checkoutpayment.aspx.37!)</asp:Literal></span>
-
-                <asp:Panel runat="server" ID ="pnlNoAvailablePaymentStatus" Visible="false">
-                    <asp:Literal ID="litTransactionStatusMessage" runat="server"></asp:Literal> <a href="contactus.aspx"><asp:Literal ID="litContactUsLink" runat="server">(!checkoutpayment.aspx.64!)</asp:Literal>.</a>
-                </asp:Panel>
-                 
-                 <div class="clear-both height-12"></div>
-
-                <asp:Panel ID="pnlPaymentTerm" runat="server" HorizontalAlign="Center">
-                    <uc:PaymentTermControl ID="ctrlPaymentTerm" runat="server"></uc:PaymentTermControl>
-                </asp:Panel> 
-          
-            </div>
-            <div class="clear-both height-5"></div>
-            <div class="clear-both height-12"></div>
-               
-            <!-- Payment Control { -->
-        </div>
-        <!-- Wrapper Padding } -->
-    </div>
-    <!-- Billing Address and Payment Control Wrapper } -->
-
-    <div class="clear-both height-12"></div>
-
-    <!-- Checkout Button Section { -->
-     <asp:Panel ID="pnlCheckoutPaymentButtons" runat="server">
-        <div id="billing-method-button-place-holder">
-            <div id="billing-method-button">
-                <input type="button" value="<%=AppLogic.GetString("checkoutpayment.aspx.6", true)%>" id="checkoutpayment-submit-button" class="site-button float-right content" 
-                data-contentKey="checkoutpayment.aspx.6" data-contentType="string resource" data-contentValue="<%=AppLogic.GetString("checkoutpayment.aspx.6", true)%>"/>
-            </div>
-            <div id="save-billing-method-loader"></div>
-        </div>
-    </asp:Panel>
-
-    <!-- Checkout Button Section } -->
+                    <!-- Order Confimation Modal -->
+                    <div class="modal fade" id="order-confirmation-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                    <h4 class="modal-title">
+                                        <div class="lead">
+                                            <asp:Literal ID="Literal3" Mode="PassThrough" runat="server" Text="(!checkoutreview.aspx.1!)"></asp:Literal>
+                                        </div>
+                                        
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                      <asp:Literal ID="checkoutreviewaspx6" Mode="PassThrough" runat="server" Text="(!checkoutreview.aspx.6!)"></asp:Literal>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="button" value="<%=AppLogic.GetString("checkoutreview.aspx.7", true)%>" id="checkoutpayment-submit-button" class="btn btn-success btn-huge" data-contentKey="checkoutreview.aspx.7" data-contentType="string resource" data-contentValue="<%=AppLogic.GetString("checkoutreview.aspx.7", true)%>" data-dismiss="modal"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+         
   
     <!-- Counpon Section { -->
     <div class="clear-both height-5"></div>
@@ -161,7 +227,7 @@
     <div class="sections-place-holder no-padding">
         <!-- Order Summary Section { -->
 
-        <div class="sections-place-holder">
+        <%--<div class="sections-place-holder">
             <div class="section-header section-header-top"><asp:Literal ID="litItemsToBeShipped" runat="server">(!checkoutpayment.aspx.39!)</asp:Literal></div>
               
             <div class="section-content-wrapper">
@@ -184,7 +250,7 @@
             </div>
             <div class="clear-both" id="divCheckoutPaymentFooterClr2"></div>
             </div>
-        </div>
+        </div>--%>
 
         <!-- Order Summary Section } -->
     </div>
@@ -193,7 +259,8 @@
      <asp:HiddenField ID="hidRecentData" runat="server" EnableViewState="true" />
 
     <div class="display-none">
-         <asp:Button ID="btnDoProcessPayment" runat="server" Text="Complete Purchase" CssClass="site-button" />
+         
+        <asp:Button ID="btnDoProcessPayment" runat="server" Text="Complete Purchase" CssClass="site-button" />
         <asp:TextBox ID="txtCityStates" runat="server"></asp:TextBox>
         <asp:TextBox id="txtCode" runat="server"></asp:TextBox>
         <asp:TextBox ID="hidMaskCardNumber" runat="server"></asp:TextBox>
@@ -204,6 +271,18 @@
     </div>
     <div style="display:none;margin:auto" title="Address Verification"  id="ise-address-verification"></div>
    </asp:Panel>
+            </div>
+             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                       <asp:Literal ID="OrderSummaryCardLiteral" runat="server"></asp:Literal>
+            </div>
+
+        </div>
+       
+    
+
+
+
+
     <script type="text/javascript" src="jscripts/minified/address.control.js"></script>
     <script type="text/javascript" src="jscripts/minified/address.verification.js"></script>
     <script type="text/javascript" src="jscripts/minified/normal.checkout.js"></script>

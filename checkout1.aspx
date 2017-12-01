@@ -15,38 +15,20 @@
     <style type="text/css">#errorSummary{display:none;}.CreditCardPaymentMethodPanel tbody tr td{text-align:left;padding-left:22px;}</style>
 </head>
 <body>
-
 <uc:ScriptControl ID="ctrlScript" runat="server"/>
-
 <ise:InputValidatorSummary ID="errorSummary" CssClass="error float-left normal-font-style" runat="server" Register="False" />
     <form id="OnePageCheckout" runat="server">
-    <div class="row">
-    <div class="small-12 columns">
-        <asp:Panel ID="pnlSignIn" runat="server">
+    <asp:Panel ID="pnlSignIn" runat="server">
         <p><asp:Literal ID="litIfYouHaveAlreadyAnAccount" runat="server">(!checkout1.aspx.88!)</asp:Literal>&nbsp;<a href="signin.aspx"><asp:Literal ID="litSignIn" runat="server">(!checkout1.aspx.89!)</asp:Literal></a></p>
         <div class="clear-both height-12"></div>
-        </asp:Panel>
-    </div>
-    </div>
+    </asp:Panel>   
     <!-- GIFT CARD / GIFT CERTIFICATE -->
-    <div class="row">
-    <div class="small-12 columns">
-        <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
-        <i class="icon-gift"></i>
+    <a href="javascript:void(0)" class="new-giftcode" style="display:none;">
+        <i class="fa fa-gift"></i>
         <asp:Label ID="lblNewGiftCode" runat="server"></asp:Label>
     </a>
-    </div>
-    </div>
-    
     <!-- OTHER PAYMENT CONTROL -->
-    <div class="row">
-    <div class="small-12 columns">
     <uc:OtherPaymentOptionControl ID="ctrlOtherPaymentOption" runat="server" />
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="small-12 columns">
     <%--one page checkout sections starts here --%>
     <div class="sections-place-holder no-padding">
         <div class="section-header section-header-top"><asp:Literal ID="litShippingDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal></div>
@@ -119,11 +101,54 @@
                 <div id="available-shipping-methods" class="width-full">
                     <%-- shipping method control starts here --%>
                     <asp:Panel ID="pnlShippingMethod" runat="server"><asp:Label ID="lblSelectShippingMethod" Text="" runat="server" Font-Bold="true" /><br /><uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" /></asp:Panel>
+                   
+                     <asp:Repeater ID="rptCartItems" runat="server">
+                         <HeaderTemplate>
+                            <table width="100%" cellpadding="0" cellspacing="0" >
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr style="background-color:#DDDDDD;">
+                                <td style="height:15px;">
+                                    <span>
+                                        <b>
+                                            <asp:Label runat="server" ID="lblOptionName"></asp:Label>
+                                        </b>
+                                    </span>
+                                </td>
+                                <td style="height:15px;">
+                                    <span>
+                                        <b>
+                                            <%=InterpriseSuiteEcommerceCommon.AppLogic.GetString("shoppingcart.cs.28", true)%>
+                                        </b>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="padding: 2px;">
+                                    <br />
+                                        <asp:Panel runat="server" ID="pnlItemContainer"></asp:Panel>
+                                    <br />
+                                </td>
+                                <td valign="top">
+                                    <asp:Panel runat="server" ID="divShippingInfo">
+                                        <span>
+                                            <b><%# InterpriseSuiteEcommerceCommon.AppLogic.GetString("shoppingcart.cs.10") %></b>
+                                        </span>
+                                        <uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" />
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                         <FooterTemplate>
+                            </table>
+                         </FooterTemplate>
+                     </asp:Repeater>
+
                      <%-- shipping method control ends here --%>
                     <div class="clear-both height-12"></div>
                     <%-- shipping method control continue button starts here --%>
                     <div id="shipping-method-button-place-holder">
-                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
+                       <div id="save-shipping-method-button"><a href="javascript:void(1);"  id="opc-submit-step-2"" class="site-button"><asp:Literal ID="litStep2" runat="server">(!checkout1.aspx.82!)</asp:Literal></a></div>
                        <div id="save-shipping-method-loader"></div>
                     </div>
                     <%-- shipping method control continue button ends here --%>
@@ -313,9 +338,6 @@
 
     </div>
 
-</div>
-</div>
-
     <%--cart items and order summary details ends here --%>
 
     <%-- do not touch--%>
@@ -405,6 +427,5 @@
     });
   </script>
 </form>
-
 </body>
 </html>

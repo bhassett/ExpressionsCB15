@@ -1,0 +1,10 @@
+﻿@font-face {
+	font-family: LatoLight;
+	src: url('Lato-Light.eot?') format('eot'), url('Lato-Light.woff') format('woff'), url('Lato-Light.woff2') format('woff2'), url('Lato-Light.ttf') format('truetype'), url('Lato-Light.otf') format('opentype');
+}
+@font-face {
+	font-family: LatoBold;
+	src: url('Lato-Bold.eot?') format('eot'), url('Lato-Bold.woff') format('woff'), url('Lato-Bold.woff2') format('woff2'), url('Lato-Bold.ttf') format('truetype'), url('Lato-Bold.otf') format('opentype');
+}
+body {font-family:'LatoLight', sans-serif;}
+h1, h2, h3, h4, h5, h6, strong, b {font-family:'LatoBold', sans-serif;}

@@ -75,8 +75,9 @@ $.template(
 $.template(
         "cmsEditorToolbar",
         "<div id='cms-user-panel'>" +
-            "<div class='cms-user-panel-command'>" +
-                "<input type='button' class='site-button' id='cms-user-panel-command-button' data-active='true' value='Swich to Browse Mode'" +
+            "<div class='cms-user-panel-command btn-group'>" +
+                "<a href='javascript:void(0)' title='Exit Editor' class='btn btn-warning exit-cms'><span class='icon ion-close'></span></a> " +
+                "<input type='button' class='btn btn-warning' id='cms-user-panel-command-button' data-active='true' value='Switch to Browse Mode'" +
                 "onclick='ProcessCmsPanelButton(this);' />" +
             "</div>" +
         "</div>"

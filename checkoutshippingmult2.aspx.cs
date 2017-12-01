@@ -60,6 +60,7 @@ namespace InterpriseSuiteEcommerce
             PerformPageAccessLogic();
             InitializeCartRepeaterControl();
             DisplayCheckOutStepsImage();
+            DisplayOrderSummary();
         }
 
         private void InitializeDomainService()
@@ -152,9 +153,16 @@ namespace InterpriseSuiteEcommerce
 
         private void DisplayCheckOutStepsImage()
         {
-            checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_3.gif");
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[0]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.3");
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[1]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.4");
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(2, "shoppingcart.aspx", string.Empty, string.Empty);
+        }
+        private void DisplayOrderSummary()
+        {
+            DetailsLit.Text = _stringResourceService.GetString("itempopup.aspx.2");
+            EditCartLit.Text = _stringResourceService.GetString("checkout1.aspx.44");
+            var renderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.Shipping, "page.checkout.ordersummaryitems.xml.config", ThisCustomer.CouponCode);
+            CheckoutOrderSummaryItemsLiteral.Text = _cart.RenderHTMLLiteral(renderer);
+            OrderSummaryCardLiteral.Text = AppLogic.RenderOrderSummaryCard(renderer.OrderSummary);
+
         }
 
         private void InitializeCartRepeaterControl()
@@ -312,14 +320,14 @@ namespace InterpriseSuiteEcommerce
 
                     if (ctrlShippingMethod.FreightCalculation == "1" || ctrlShippingMethod.FreightCalculation == "2")
                     {
-                        cart.SetCartShippingMethod(shippingMethod, ctrlShippingMethod.ShippingAddressID, ctrlShippingMethod.RealTimeRateGUID);
+                        cart.SetCartShippingMethod(shippingMethod, ctrlShippingMethod.ShippingAddressID, ctrlShippingMethod.RealTimeRateGUID, cart.FirstItem().ItemSpecificType);
 
                         string freight = ctrlShippingMethod.Freight.Trim(new char[] { ' ', '$' });
                         cart.SetRealTimeRateRecord(ctrlShippingMethod.ShippingMethod, freight, ctrlShippingMethod.RealTimeRateGUID.ToString(), true);
                     }
                     else
                     {
-                        cart.SetCartShippingMethod(ctrlShippingMethod.ShippingMethod, ctrlShippingMethod.ShippingAddressID);
+                        cart.SetCartShippingMethod(ctrlShippingMethod.ShippingMethod, ctrlShippingMethod.ShippingAddressID, Guid.Empty, cart.FirstItem().ItemSpecificType);
                     }
 
                 }

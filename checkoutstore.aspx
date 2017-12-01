@@ -12,19 +12,41 @@
 <body>
 
     <uc:ScriptControl ID="thirdPartyScriptManager" runat="server" ShowGoogleMapApi="true" />
-    <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
+   
+ 
+         <!-- Modal -->
+     <div class="modal fade" id="order-summary-items-modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <i class="fa fa-times"></i>
+                     </button>
+                     <h4 class="modal-title">
+                         <asp:Literal ID="DetailsLit" runat="server">(!itempopup.aspx.2!)</asp:Literal>
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                     <asp:Literal ID="CheckoutOrderSummaryItemsLiteral" runat="server"></asp:Literal>
+                 </div>
+                 <div class="modal-footer">
+                     <a href="shoppingcart.aspx" class="btn btn-default">
+                         <asp:Literal ID="EditCartLit" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
 
-    <asp:Panel ID="pnlHeaderGraphic" runat="server" HorizontalAlign="center">
-        <asp:ImageMap ID="checkoutheadergraphic" HotSpotMode="PostBack" runat="server" BorderWidth="0">
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx" Top="0" Left="0" Bottom="54" Right="87" />
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/account.aspx?checkout=true" Top="0" Left="87" Bottom="54" Right="173" />
-            <asp:RectangleHotSpot AlternateText="" HotSpotMode="Inactive" NavigateUrl="~/checkoutshipping.aspx" Top="0" Left="173" Bottom="54" Right="259" />
-        </asp:ImageMap>
-    </asp:Panel>
+     <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
+     <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
 
     <div class="height-12"></div>
 
-    <form id="frmcheckoutstore" runat="server">
+     <div id="checkout-shipping-container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <form id="frmcheckoutstore" runat="server">
         <asp:Panel ID="panelCoupon" class="no-margin no-padding" runat="server">
             <div class="sections-place-holder no-padding">
                 <div class="section-header section-header-top">
@@ -40,66 +62,62 @@
         </asp:Panel>
         <div class="clear-both height-12"></div>
         <div class="float-right">
-            <asp:Button ID="btnContinueCheckOutTop" runat="server" Text="(!checkoutpayment.aspx.6!)" CausesValidation="true" CssClass="site-button content btn btn-info" />
+            <%--<asp:Button ID="btnContinueCheckOutTop" runat="server" Text="(!checkoutpayment.aspx.6!)" CausesValidation="true" CssClass="site-button content btn btn-info" />--%>
         </div>
         <div class="clear-both height-12"></div>
+        
+         <div class="panel panel-checkoutstore">
+             <div class="panel-heading">
+                <h3 class="panel-title">
+                      <asp:Literal ID="litPaymentDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                </h3>
+             </div>
+             <div class="panel-body">
+                 
+                 <div class="shipping-cart-item-container">
+                     <asp:Repeater runat="server" ID="rptCartItems">
+                         <ItemTemplate>
+                             <div class="panel panel-default">
+                                 <div class="panel-body">
+                                     <div class="row shipping-cart-item">
+                                 <div class="col-lg-6">
+                                     <asp:Label runat="server" ID="lblItemDescription"></asp:Label>
+                                     <div style="margin-top: 5px;">
+                                         <span><%# AppLogic.GetString("shoppingcart.cs.25")%> : </span>
+                                         <asp:Label runat="server" ID="lblQuantity"></asp:Label>
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-6">
+                                     <asp:Literal runat="server" ID="litNoShippingMethodText" Visible="false" Text='<%# AppLogic.GetString("checkoutshippingmult.aspx.7") %>'></asp:Literal>
+                                    <uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" />
+                                 </div>
+                             </div>
+                                 </div>
+                             </div>
+                             
+                         
+                        </ItemTemplate>
+                     </asp:Repeater>
+                 </div>
+                
+             </div>
+         </div>
 
-        <div class="sections-place-holder no-padding">
-
-            <div class="section-header section-header-top">
-                <asp:Literal ID="litPaymentDetails" runat="server">(!checkout1.aspx.30!)</asp:Literal>
-            </div>
-
-            <div id="order-summary-head-text" style="padding-left: 23px; padding-right: 12px">
-                <div class="clear-both height-12"></div>
-                <span class="strong-font custom-font-style">Order Summary </span>
-                <span class="one-page-link-right normal-font-style float-right">
-                    <a class="custom-font-style" href="shoppingcart.aspx">Edit Cart</a>
-                </span>
-            </div>
-
-            <div class="section-content-wrapper">
-
-                <div class="clear-both"></div>
-
-                <table style="width: 100%">
-                    <tbody>
-                        <asp:Repeater runat="server" ID="rptCartItems">
-                            <ItemTemplate>
-                                <tr>
-                                    <td class="section-grp-header"><%# AppLogic.GetString("checkoutstore.aspx.32")%> <%# Container.DataItemAs<CustomCartItem>().GroupID.ToString() %></td>
-                                    <td class="section-grp-header"><%# AppLogic.GetString("shoppingcart.cs.28")%></td>
-                                </tr>
-                                <tr>
-                                    <td class="section-grp-content">
-                                        <span><%# Container.DataItemAs<CustomCartItem>().ItemDescription.ToHtmlDecode() %></span>
-                                        <div style="margin-top: 5px;">
-                                            <span><%# AppLogic.GetString("shoppingcart.cs.25")%> : </span>
-                                            <span><%# (ServiceFactory.GetInstance<ILocalizationService>()
-                                                                     .FormatDecimal(Container.DataItemAs<CustomCartItem>().Quantity, 0)) %>
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td class="section-grp-content">
-                                        <asp:Literal runat="server" ID="litNoShippingMethodText" Visible="false" Text='<%# AppLogic.GetString("checkoutshippingmult.aspx.7") %>'></asp:Literal>
-                                        <uc:ShippingMethodControl ID="ctrlShippingMethod" runat="server" />
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </tbody>
-                </table>
-
-            </div>
-
+        <div class="checkout-button-container">
+            <asp:Button ID="btnContinueCheckOut" runat="server" Text="(!checkoutpayment.aspx.6!)" CausesValidation="true" CssClass="btn btn-primary btn-huge" />
         </div>
+   
 
-        <div class="clear-both height-12"></div>
-
-        <div class="float-right">
-            <asp:Button ID="btnContinueCheckOut" runat="server" Text="(!checkoutpayment.aspx.6!)" CausesValidation="true" CssClass="site-button content btn btn-info" />
-        </div>
+      
 
     </form>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                <asp:Literal ID="OrderSummaryCardLiteral" runat="server"></asp:Literal>
+            </div>
+        </div>
+     </div>
+
+    
 
 </body>

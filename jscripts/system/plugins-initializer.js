@@ -95,7 +95,7 @@
     }
 
     //Cms editor
-    str = ise.Configuration.getConfigValue("IsAdminCurrentlyLoggedIn");
+    str = ise.Configuration.getConfigValue("SiteEditor.Enabled");
 
     if (str == 'true') {
         //load the cms editor script

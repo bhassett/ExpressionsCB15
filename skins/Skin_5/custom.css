@@ -1,0 +1,318 @@
+﻿/*****************************************************************************************************/
+/******************************** USE THIS FILE FOR ANY CUSTOM STYLING *******************************/
+/*****************************************************************************************************/
+
+
+/*MINICART*/
+#mini-cart{
+	padding:0px !important;
+	z-index:9999 !important;
+}
+
+#mini-cart .miniCartClose{
+    border-radius: 0px !important;
+}
+
+#mini-cart .mini-cart-product-name{
+	color:#000 !important;
+}
+
+#mini-cart .minicart-row{
+	margin:0 !important;
+    padding:10px !important;
+}
+
+#mini-cart .minicartItemDetails{
+	width: auto !important;
+}
+
+#mini-cart .minicartItemDetails ul > li , #mini-cart .minicartItemDetails ul > li > *{
+	color:#000 !important;
+	text-align: left !important;
+}
+
+#mini-cart .qtyLineItem{
+	margin:10px 0px !important;
+}
+
+#mini-cart .qtyLineItem a{
+	color:#282828 !important;
+}
+
+#mini-cart .mini-cart-delete-container{
+        position: absolute;
+    right: 0;
+        z-index: -999;
+}
+
+#mini-cart .totalprice{
+        width: 100% !important;
+    margin:0px !important;
+    border-radius: 0 !important;
+}
+
+/*SHOPPING CART*/
+
+#shopbody input[name^='Quantity_']{
+
+	width: 57px !important;
+	margin: 0;
+    border-radius: 0;
+}
+
+#shopbody .cart-item-container{
+
+	border: 1px solid #E0E0E0;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
+#shopbody .cart-item-description,
+#shopbody .cart-item-unit-measure,
+#shopbody .cart-item-stock-hint,
+#shopbody .cart-item-sales-price{
+	text-align: left !important;
+	margin-bottom: 5px;
+}
+#shopbody .cart-item-quantity,
+#shopbody .cart-item-delete{
+	margin-bottom: 5px;
+}
+
+#shopbody .cart-item-image img{
+	margin: 0 auto;
+    display: block;
+}
+
+#shopbody .cart-item-specific{
+	text-align: center
+}
+
+#shopbody .cart-item-total-price{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#shopbody .addSpace {
+    margin-right: 5px;
+}
+
+.summary .summary-values{
+	margin-bottom:5px;
+}
+
+.summary .summary-captions-bold,
+.summary .summary-values-bold{
+margin-top: 5px;
+font-weight: bold;
+}
+
+
+/*SHIPPING*/
+form#frmCheckOutMultiShipping2 .shipping-option{
+
+	margin: 5px 0px;
+}
+
+form#frmCheckOutMultiShipping2 div[id$='divShippingInfo']{
+
+padding: 10px;
+}
+
+
+
+/*CHECKOUTANON*/
+#checkoutanon-container {
+    padding: 15px;
+    border: 1px solid #C1C1C1;
+}
+
+#checkoutanon-container .checkoutanon-container-header{
+    font-size: 1.3em;
+    margin: 15px 0px;
+ 
+}
+
+#checkoutanon-container .checkoutanon-container-registered,
+#checkoutanon-container .checkoutanon-container-nonregistered{
+    text-align:left;
+}
+
+#checkoutanon-container .checkoutanon-container-registered{
+    border-right: 1px solid #C1C1C1;
+    padding-right:30px;
+}
+
+#checkoutanon-container .checkoutanon-container-nonregistered-reg-checkout,
+#checkoutanon-container .checkoutanon-container-nonregistered-skip-checkout{
+    margin:25px 0px;
+    margin-top: 0px;
+}
+
+#checkoutanon-container #btnSignInAndCheckout{
+    margin: 0px 10px;
+}
+
+
+/*CHECKOUTSTEPS*/
+.checkout-steps-container {
+    text-align: left;
+}
+.checkout-steps-container ul {
+    padding: 0px;
+}
+.checkout-steps-container ul li {
+    display: inline-table;
+}
+.checkout-steps-container .checkout-steps-active {
+    background: #ffbb44 ;
+}
+.checkout-steps-container .checkout-steps-inactive {
+    background: #CACACA;
+}
+
+.checkout-steps-container .checkout-steps-number {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 34px;
+    color: #fff;
+}
+.checkout-steps-container .checkout-steps-text {
+    line-height: 36px;
+    font-weight: bold;
+    color: #888;
+}
+
+
+/*SHIPPING.ASPX*/
+.panel-shipping {
+    border-radius: 0px !important;
+    border: 1px solid #C1C1C1 !important;
+}
+
+.panel-shipping .panel-heading{
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #BFBFBF !important;
+}
+.panel-shipping .panel-heading .panel-title{
+  font-weight:bold;
+}
+
+/*CHECKOUTSHIPPING.ASPX*/
+.panel-checkoutshippping {
+    border-radius: 0px !important;
+    border: 1px solid #C1C1C1 !important;
+}
+
+.panel-checkoutshippping .panel-heading{
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #BFBFBF !important;
+}
+.panel-checkoutshippping .panel-heading .panel-title{
+  font-weight:bold;
+}
+.panel-checkoutshippping .panel-body {
+  padding:15px;
+}
+.panel-checkoutshippping .panel-body .shipping-option {
+  margin:10px 0px;
+}
+
+
+/*CHECKOUTSTORE.ASPX*/
+.panel-checkoutstore {
+    border-radius: 0px !important;
+    border: 1px solid #C1C1C1 !important;
+}
+
+.panel-checkoutstore .panel-heading{
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #BFBFBF !important;
+}
+.panel-checkoutstore .panel-heading .panel-title{
+  font-weight:bold;
+}
+.panel-checkoutstore .shipping-cart-item{
+    padding: 15px 0px;
+}
+
+/*CHECKOUTPAYMENT.ASPX*/
+.panel-checkoutpayment {
+    border-radius: 0px !important;
+    border: 1px solid #C1C1C1 !important;
+}
+
+.panel-checkoutpayment .panel-heading{
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #BFBFBF !important;
+}
+.panel-checkoutpayment .panel-heading .panel-title{
+  font-weight:bold;
+}
+.panel-checkoutpayment .panel-body {
+  padding:15px;
+}
+.panel-checkoutpayment .billing-address-options-row{
+    margin:10px 0px;
+}
+.panel-checkoutpayment .checkoutpayment-selected-billing-address-container{
+     margin:15px 0px;
+}
+.panel-checkoutpayment .payment-option{
+     margin:10px 0px;
+}
+.panel-checkoutpayment .credit-card-payment-method-panel{
+    margin: 15px 0px;
+}
+.panel-checkoutpayment .credit-card-payment-method-panel tr > td:first-child{
+    padding-right:15px;
+}
+
+
+
+/*HELPER*/
+
+.inline{
+	display:inline;
+}
+
+.vertical-space{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.to-box {
+    border-radius: 0px !important;
+    border: 1px solid #C1C1C1 !important;
+    padding:15px;
+    margin:15px 0px;
+}
+
+.to-upper{
+    text-transform:uppercase;
+}
+
+.no-padding{
+    padding:0;
+}
+
+.btn-yellow{
+color:#000 !important;
+	background: #ffbb44 !important;
+	border: 0 !important;
+    border-radius: 0 !important;
+     text-shadow: none !important;
+}
+
+.btn-yellow:hover{
+	color:#fff !important;
+	background:#696969 !important;
+}

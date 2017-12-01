@@ -7,6 +7,12 @@ using System.Xml.Linq;
 
 namespace InterpriseSuiteEcommerce
 {
+    public class Reason
+    {
+        public string Value { get; set; }
+        public string Text { get; set; }
+    }
+
     public partial class CustomerSupport : SkinBase
     {
         #region Variable Declaration
@@ -22,6 +28,7 @@ namespace InterpriseSuiteEcommerce
         {
             InitializeDomainServices();
             InitAddressControl();
+            BindDropReasonData();
             base.OnInit(e);
         }
 
@@ -84,6 +91,20 @@ namespace InterpriseSuiteEcommerce
             AddressControl.BindData();
         }
 
+        private void BindDropReasonData()
+        {
+            //List<KeyValuePair<string, string>> collection = new List<KeyValuePair<string, string>>();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //       collection.Add(new KeyValuePair<string, string>("Key-" + i.ToString(), "Value-" + i.ToString()));
+            //}
+            
+            //dropReason.DataTextField = "Key";
+            //dropReason.DataValueField = "Value";
+            //dropReason.DataSource = collection;
+            //dropReason.DataBind();
+        }
+
         protected void btnSendCaseForm_Click(object sender, EventArgs e)
         {
             try
@@ -118,8 +139,6 @@ namespace InterpriseSuiteEcommerce
 
         protected void SubmitCaseForm()
         {
-            List<string> list = new List<string>();
-
             string bCityStates = txtCityStates.Text;
             string city = string.Empty;
             string state = string.Empty;
@@ -138,7 +157,6 @@ namespace InterpriseSuiteEcommerce
                     city = _cityState[0].Trim();
                     state = string.Empty;
                 }
-
             }
             else
             {
@@ -146,21 +164,24 @@ namespace InterpriseSuiteEcommerce
                 city = AddressControl.City;
             }
 
-            list.Add(txtContactName.Text);
-            list.Add(txtEmail.Text);
-            list.Add(txtContactNumber.Text);
-            list.Add(AddressControl.Country);
-            list.Add(state);
-            list.Add(AddressControl.Postal);
-            list.Add(city);
-            list.Add(txtSubject.Text);
-            list.Add(AddressControl.Street);
-            list.Add(txtCaseDetails.Text);
-
-            if (AppLogic.AppConfigBool("Address.ShowCounty")) { list.Add(AddressControl.County); }
-            else { list.Add(string.Empty); }
-
-            string msg = InterpriseHelper.SaveCaseForm(list);
+            InterpriseSuiteEcommerceCommon.DTO.CustomerCase customerCase = new InterpriseSuiteEcommerceCommon.DTO.CustomerCase();
+            customerCase.ContactName = txtContactName.Text;
+            customerCase.EmailAddress = txtEmail.Text;
+            customerCase.ContactNo = txtContactNumber.Text;
+            customerCase.Country = AddressControl.Country;
+            customerCase.State = state;
+            customerCase.PostalCode = AddressControl.Postal;
+            customerCase.City = city;
+            customerCase.Subject = txtSubject.Text;
+            customerCase.Address = AddressControl.Street;
+            customerCase.Problem = txtCaseDetails.Text;
+            //customerCase.ItemName = txtItemName.Text;
+            //customerCase.Reason = dropReason.SelectedValue;
+            
+            if (AppLogic.AppConfigBool("Address.ShowCounty"))
+                customerCase.County =  AddressControl.County;
+            
+            string msg = InterpriseHelper.SaveCaseForm(customerCase);
 
             if (msg == "True")
             {

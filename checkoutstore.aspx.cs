@@ -58,6 +58,7 @@ namespace InterpriseSuiteEcommerce
         {
             DoPageAccessLogic();
             DisplayCheckOutStepsImage();
+            DisplayOrderSummary();
             RegisterPageScript();
         }
 
@@ -92,26 +93,26 @@ namespace InterpriseSuiteEcommerce
             }
             else
             {
-                shippingAddressID = ThisCustomer.PrimaryShippingAddress.AddressID;
+                shippingAddressID = ThisCustomer.PrimaryShippingAddress.AddressID; 
             }
 
-            var items = _cart.CartItems.Select((c, idx) => new CustomCartItem
-            {
-                ShippinAddressID = c.m_ShippingAddressID,
-                ItemDescription = c.ItemDescription,
-                Quantity = c.m_Quantity,
-                ItemCode = c.ItemCode,
-                UnitMeassureCode = c.UnitMeasureCode,
-                Counter = c.m_ShoppingCartRecordID,
-                IsService = c.IsService,
-                IsDownload = c.IsDownload,
-                InStoreWarehouseCode = c.InStoreWarehouseCode,
-                ShippingMethod = c.ShippingMethod,
-                KitComposition = c.GetKitComposition(),
-                GroupID = idx + 1
-            });
+            //var items = _cart.CartItems.Select((c, idx) => new CustomCartItem
+            //{
+            //    ShippinAddressID = c.m_ShippingAddressID,
+            //    ItemDescription = c.ItemDescription,
+            //    Quantity = c.m_Quantity,
+            //    ItemCode = c.ItemCode,
+            //    UnitMeassureCode = c.UnitMeasureCode,
+            //    Counter = c.m_ShoppingCartRecordID,
+            //    IsService = c.IsService,
+            //    IsDownload = c.IsDownload,
+            //    InStoreWarehouseCode = c.InStoreWarehouseCode,
+            //    ShippingMethod = c.ShippingMethod,
+            //    KitComposition = c.GetKitComposition(),
+            //    GroupID = idx + 1
+            //});
 
-            rptCartItems.DataSource = items;
+            rptCartItems.DataSource = _cart.SplitIntoMultipleOrdersByItem(false);
             rptCartItems.DataBind();
         }
 
@@ -119,11 +120,10 @@ namespace InterpriseSuiteEcommerce
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                var item = e.Item.DataItemAs<CustomCartItem>();
-
+                var item = e.Item.DataItem as InterpriseShoppingCart;
                 var ctrlShippingMethod = e.Item.FindControl("ctrlShippingMethod") as UserControls_ShippingMethodControl;
 
-                if ((item.IsDownload || item.IsService) && ctrlShippingMethod != null)
+                if ((item.HasDownloadComponents() || item.HasServiceComponents()) && ctrlShippingMethod != null)
                 {
                     ctrlShippingMethod.Visible = false;
                     var litControl = e.Item.FindControl("litNoShippingMethodText") as Literal;
@@ -132,12 +132,27 @@ namespace InterpriseSuiteEcommerce
 
                 var customer = _authenticationService.GetCurrentLoggedInCustomer();
                 ctrlShippingMethod.ThisCustomer = customer;
-                ctrlShippingMethod.ShippingAddressID = item.ShippinAddressID;
+                ctrlShippingMethod.ShippingAddressID = item.FirstItemShippingAddressID();
                 ctrlShippingMethod.ShippingMethodRequiredErrorMessage = _stringResourceService.GetString("checkout1.aspx.9", true);
-                ctrlShippingMethod.InStoreNoSelectedWarehouseErrorMessage = _stringResourceService.GetString("checkoutstore.aspx.29", true) + item.ItemDescription.ToHtmlEncode();
+                ctrlShippingMethod.InStoreNoSelectedWarehouseErrorMessage = _stringResourceService.GetString("checkoutstore.aspx.29", true) + item.CartItems[0].ItemDescription.ToHtmlEncode();
                 ctrlShippingMethod.ErrorSummaryControl = this.errorSummary;
-                ctrlShippingMethod.InstoreCartItem = item;
-                ctrlShippingMethod.InStoreSelectedWareHouseCode = item.InStoreWarehouseCode;
+                //ctrlShippingMethod.InstoreCartItem =  item;
+
+                var lblItemDescription = e.Item.FindByParse<Label>("lblItemDescription");
+                lblItemDescription.Text = item.CartItems[0].ItemDescription;
+                var lblQuantity = e.Item.FindByParse<Label>("lblQuantity");
+                lblQuantity.Text = item.CartItems[0].m_Quantity.ToNumberFormat();
+
+                CustomCartItem CustomItem = new CustomCartItem();
+                CustomItem.Counter = item.CartItems[0].m_ShoppingCartRecordID;
+                CustomItem.IsDownload = item.CartItems[0].IsDownload;
+                CustomItem.ItemCode = item.CartItems[0].ItemCode;
+                CustomItem.UnitMeassureCode = item.CartItems[0].UnitMeasureCode;
+                CustomItem.InStoreWarehouseCode = item.CartItems[0].InStoreWarehouseCode;
+                CustomItem.KitComposition = item.CartItems[0].GetKitComposition();
+                ctrlShippingMethod.InstoreCartItem = CustomItem;
+                ctrlShippingMethod.InStoreSelectedWareHouseCode = CustomItem.InStoreWarehouseCode;
+                ctrlShippingMethod.ItemSpecificType = item.CartItems[0].ItemSpecificType;
 
                 if (_cart != null && _cart.HasGiftItems())
                 {
@@ -335,9 +350,20 @@ namespace InterpriseSuiteEcommerce
 
         private void DisplayCheckOutStepsImage()
         {
-            checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_3.gif");
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[0]).AlternateText = _stringResourceService.GetString("checkoutshipping.aspx.3", true);
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[1]).AlternateText = _stringResourceService.GetString("checkoutshipping.aspx.4", true);
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(2, "shoppingcart.aspx", string.Empty, string.Empty);
+            //checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_3.gif");
+            //((RectangleHotSpot)checkoutheadergraphic.HotSpots[0]).AlternateText = _stringResourceService.GetString("checkoutshipping.aspx.3", true);
+            //((RectangleHotSpot)checkoutheadergraphic.HotSpots[1]).AlternateText = _stringResourceService.GetString("checkoutshipping.aspx.4", true);
+        }
+
+        private void DisplayOrderSummary()
+        {
+            DetailsLit.Text = _stringResourceService.GetString("itempopup.aspx.2");
+            EditCartLit.Text = _stringResourceService.GetString("checkout1.aspx.44");
+            var renderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.Shipping, "page.checkout.ordersummaryitems.xml.config", litCouponEntered.Text);
+            CheckoutOrderSummaryItemsLiteral.Text = _cart.RenderHTMLLiteral(renderer);
+            OrderSummaryCardLiteral.Text = AppLogic.RenderOrderSummaryCard(renderer.OrderSummary);
+             
         }
 
         protected override void RegisterScriptsAndServices(ScriptManager manager)
@@ -354,7 +380,7 @@ namespace InterpriseSuiteEcommerce
         {
             rptCartItems.ItemDataBound += rptCartItems_ItemDataBound;
             btnContinueCheckOut.Click += btnContinueCheckOut_Click;
-            btnContinueCheckOutTop.Click += btnContinueCheckOut_Click;
+            //btnContinueCheckOutTop.Click += btnContinueCheckOut_Click;
         }
 
         #endregion

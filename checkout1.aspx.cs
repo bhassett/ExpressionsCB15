@@ -29,6 +29,7 @@ namespace InterpriseSuiteEcommerce
         private bool _isRequirePayment = true;
         private bool _skipCreditCardValidation = false;
         private const string PAYMENT_METHOD_CREDITCARD = DomainConstants.PAYMENT_METHOD_CREDITCARD;
+        private int _shippingMethodCount = 0;
 
         private INavigationService _navigationService = null;
         private ICustomerService _customerService = null;
@@ -145,6 +146,7 @@ namespace InterpriseSuiteEcommerce
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/jquery-template/shipping-method-template.js"));
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/jquery-template/shipping-method-oversized-template.js"));
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/shippingmethod_ajax.js"));
+            manager.Scripts.Add(new ScriptReference("~/jscripts/checkoutshippingmulti2_ajax.js"));
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/tooltip.js"));
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/creditcard.js"));
             manager.CompositeScript.Scripts.Add(new ScriptReference("~/jscripts/paymentterm_ajax.js"));
@@ -241,17 +243,127 @@ namespace InterpriseSuiteEcommerce
             }
             else
             {
+
                 if (_cartHasCouponAndIncludesFreeShipping)
                 {
                     ctrlShippingMethod.Visible = false;
                 }
                 else
                 {
-                    InitializeShippingMethodControlValues();
-                    InitializeShippingMethodCaptions();
+                    if (AppLogic.EnableAdvancedFreightRateCalculation() && !(_cart.HasHazardousItem() && AppLogic.ApplyHazardousShipping()))
+                    {
+                        pnlShippingMethod.Visible = false;
+                        InitializeCartRepeaterControl();
+                    }
+                    else
+                    {
+                        InitializeShippingMethodControlValues();
+                        InitializeShippingMethodCaptions();
+                    }
                 }
+            }
+        }
 
-                InitializeShippingMethodCaptions();
+        private void InitializeCartRepeaterControl()
+        {
+            rptCartItems.ItemDataBound += rptCartItems_ItemDataBound;
+            InitializeDataSource();
+        }
+
+        private List<InterpriseShoppingCart> GetDataSource()
+        {
+            return _cart.SplitIntoMultipleOrdersBySpecificType();
+        }
+        private void InitializeDataSource()
+        {
+            rptCartItems.DataSource = GetDataSource();
+            rptCartItems.DataBind();
+        }
+
+
+        protected void rptCartItems_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                if (e.Item.DataItem is InterpriseShoppingCart)
+                {
+                    var cart = e.Item.DataItem as InterpriseShoppingCart;
+                    foreach (CartItem item in cart.CartItems)
+                    {
+                        cart = ServiceFactory.GetInstance<IShoppingCartService>()
+                                     .New(CartTypeEnum.ShoppingCart, string.Empty, false, true, string.Empty, string.Empty, item.ItemSpecificType, true);
+                    }
+                    cart.BuildSalesOrderDetails(true);
+                    foreach (CartItem item in cart.CartItems)
+                    {
+                        if (!item.Priority)
+                        {
+                            var itemContainer = e.Item.FindByParse<Panel>("pnlItemContainer");
+                            itemContainer.Controls.Add(new Label() { Text = item.ItemDescription });
+                            itemContainer.Controls.Add(new Literal() { Text = " " });
+                            itemContainer.Controls.Add(new Label() { Text = AppLogic.GetString("shoppingcart.cs.25") });
+                            itemContainer.Controls.Add(new Literal() { Text = " : " });
+                            itemContainer.Controls.Add(new Label() { Text = Localization.ParseLocaleDecimal(item.m_Quantity, ThisCustomer.LocaleSetting) });
+                            itemContainer.Controls.Add(new Literal() { Text = "<br />" });
+                            itemContainer.Controls.Add(new Literal() { Text = "<br />" });
+                        }
+                    }
+
+                    var lblOptionName = e.Item.FindByParse<Label>("lblOptionName");
+                    lblOptionName.Text = cart.OptionName;
+                    var mainShipMethodContainer = e.Item.FindByParse<Panel>("divShippingInfo");
+                    var lblShipmethodHeader = e.Item.FindByParse<Label>("lblShipmethodHeader");
+
+                    if (!cart.HasShippableComponents())
+                    {
+                        lblShipmethodHeader.Text = AppLogic.GetString("checkoutshippingmult.aspx.7");
+                        lblShipmethodHeader.CssClass = "notificationtext";
+                        mainShipMethodContainer.Visible = false;
+                    }
+                    else
+                    {
+                        var shippingAddress = Address.Get(ThisCustomer, AddressTypes.Shipping, cart.FirstItem().m_ShippingAddressID, cart.FirstItem().GiftRegistryID);
+                        var ctrlShippingMethod = e.Item.FindByParse<UserControls_ShippingMethodControl>("ctrlShippingMethod");
+
+                        ctrlShippingMethod.ShippingAddressID = shippingAddress.AddressID;
+                        //Set these properties to disable the instore pickup
+                        ctrlShippingMethod.HideInStorePickUpShippingOption = true;
+                        ctrlShippingMethod.HidePickupStoreLink = true;
+                        ctrlShippingMethod.ItemSpecificType = ((cart.CartItems[0].ItemSpecificType.IsNullOrEmpty()) ? "" : cart.CartItems[0].ItemSpecificType);
+                        ctrlShippingMethod.ErrorSummaryControl = this.errorSummary;
+                        ctrlShippingMethod.ShippingMethodRequiredErrorMessage = AppLogic.GetString("checkout1.aspx.9");
+
+                        CustomCartItem CustomItem = new CustomCartItem();
+                        CustomItem.Counter = cart.CartItems[0].m_ShoppingCartRecordID;
+                        CustomItem.IsDownload = cart.CartItems[0].IsDownload;
+                        CustomItem.ItemCode = cart.CartItems[0].ItemCode;
+                        CustomItem.UnitMeassureCode = cart.CartItems[0].UnitMeasureCode;
+                        CustomItem.InStoreWarehouseCode = cart.CartItems[0].InStoreWarehouseCode;
+                        CustomItem.KitComposition = cart.CartItems[0].GetKitComposition();
+                        ctrlShippingMethod.InstoreCartItem = CustomItem;
+                        ctrlShippingMethod.InStoreSelectedWareHouseCode = CustomItem.InStoreWarehouseCode;
+                        ctrlShippingMethod.ItemSpecificType = cart.CartItems[0].ItemSpecificType;
+
+                        if (_appConfigService.ShippingRatesOnDemand)
+                        {
+                            ctrlShippingMethod.ShowShowAllRatesButton = true;
+                            ctrlShippingMethod.ShowAllRatesButtonText = _stringResourceService.GetString("checkoutshipping.aspx.16", true);
+                        }
+                        ctrlShippingMethod.IsMultipleShipping = true;
+
+                        mainShipMethodContainer.Visible = true;
+
+                        var script = new StringBuilder();
+                        script.Append("<script type='text/javascript'>\n");
+                        script.Append("$(document).ready( function() { \n");
+                        script.AppendFormat("ise.Pages.CheckOutShippingMulti2.registerShippingMethodControlId('{0}');\n", ctrlShippingMethod.ClientID);
+                        script.Append("});\n");
+                        script.Append("</script>\n");
+
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script.ToString());
+                        _shippingMethodCount++;
+                    }
+                }
             }
         }
 
@@ -839,7 +951,7 @@ namespace InterpriseSuiteEcommerce
             var aBillingAddress = Address.New(ThisCustomer, AddressTypes.Billing);
             var aShippingAddress = ThisCustomer.PrimaryShippingAddress;
 
-            string email = ThisCustomer.EMail.IsNullOrEmptyTrimmed() ? aShippingAddress.EMail : ThisCustomer.EMail;
+            string email = ThisCustomer.IsRegistered ? ThisCustomer.EMail : aShippingAddress.EMail.IsNullOrEmptyTrimmed() ? ThisCustomer.EMail : aShippingAddress.EMail;
 
             ThisCustomer.EMail = email;
             aBillingAddress.EMail = email;
@@ -1484,11 +1596,12 @@ namespace InterpriseSuiteEcommerce
         private void DisplaySelectedShippingMethod()
         {
             string selectedShippingMethod = (_cart.IsSalesOrderDetailBuilt) ? _cart.SalesOrderDataset.CustomerSalesOrderView[0].ShippingMethod : _cart.GetCartShippingMethodSelected();
+            string freightRate = "";
+            decimal freight = Decimal.Zero;
 
             if (AppLogic.AppConfigBool("ShowTaxBreakDown") && !selectedShippingMethod.IsNullOrEmptyTrimmed())
             {
-
-                decimal freight = Decimal.Zero;
+                freight = Decimal.Zero;
                 decimal freightTax = Decimal.Zero;
 
                 if (!_cart.IsSalesOrderDetailBuilt)
@@ -1507,8 +1620,15 @@ namespace InterpriseSuiteEcommerce
                     freight += freightTax;
                 }
 
-                string freightRate = (freight == Decimal.Zero) ? AppLogic.GetString("shoppingcart.aspx.13") : freight.ToCustomerCurrency();
+                freightRate = (freight == Decimal.Zero) ? AppLogic.GetString("shoppingcart.aspx.13") : freight.ToCustomerCurrency();
                 litSelectedShippingMethod.Text = "{0} {1}".FormatWith(selectedShippingMethod, freightRate);
+            }
+            var splittedCart = _cart.SplitIntoMultipleOrdersByDifferentShipToAddresses();
+            foreach (InterpriseShoppingCart cartList in splittedCart)
+            {
+                selectedShippingMethod = (_cart.IsSalesOrderDetailBuilt) ? cartList.SalesOrderDataset.CustomerSalesOrderView[0].ShippingMethod : cartList.GetCartShippingMethodSelected();
+                freightRate = (freight == Decimal.Zero) ? AppLogic.GetString("shoppingcart.aspx.13") : cartList.GetCartFreightRate().ToCustomerCurrency();
+                litSelectedShippingMethod.Text += (litSelectedShippingMethod.Text.IsNullOrEmpty()) ? "" : "<br />" + "{0} {1}".FormatWith(selectedShippingMethod, freightRate);
             }
 
         }

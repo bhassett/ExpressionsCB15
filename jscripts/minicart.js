@@ -11,6 +11,10 @@ $('#shopping-cart').click(function () {
         success: function (result) {
 
             if (getCookie('cartisopen') == null || getCookie('cartisopen') == "") {
+                $("#mini-wishlist").slideUp("fast");
+                deleteCookie('wishlistisopen');
+
+
                 $("#mini-cart").html(result.d);
                 $("#mini-cart").slideDown("fast");
                 minicartScroller();
@@ -27,6 +31,7 @@ $('#shopping-cart').click(function () {
                 });
 
                 setCookie('cartisopen', 'open');
+                applyScroller();
             }
             else {
                 $("#mini-cart").slideUp("fast");
@@ -135,7 +140,41 @@ function reloadShoppingCartNumber() {
     });
 };
 
+function newScroller() {
+
+    var listLimit = Number($("#hdnMinicartItems").val());
+    var listCounts = $("ul#minicartItems > li").length;
+    if (listCounts < 1) {
+
+        return;
+    }
+
+    var parent = $("#miniCartLineItem");
+    var firstChild = $("#miniCartLineItem ul#minicartItems > li:first-child");
+    var firstChildHeight = $(firstChild).height();
+
+    if (listLimit > listCounts)
+        listLimit = listCounts;
+
+    var parentHeight = listLimit * firstChildHeight;
+
+    $(parent).css("height", parentHeight + "px");
+}
+
+function applyScroller() {
+    $("#miniCartLineItem").mCustomScrollbar(
+         {
+             theme: "dark-thick",
+             scrollInertia: 500,
+             mouseWheel: { enable: false },
+
+         });
+}
+
 function minicartScroller() {
+    newScroller();
+    return;
+
     var listLimit = $("#hdnMinicartItems").val();
     var listCounts = $("ul#minicartItems > li").length;
 
@@ -227,7 +266,7 @@ function deleteCookie(name) {
 $(document).on("click", "#btnCheckOutNow", function (event) {
 
     var cartItemsArray = [];
-    
+
     $('.qtyLineItem').each(function (index) {
         var qty = $('#Quantity_' + this.id).val();
         var minOrderQty = $('#MinOrderQuantity_' + this.id).val();
@@ -286,7 +325,7 @@ $(document).on("click", "#btnUpdate", function (event) {
     var cartItemsArray = [];
     var accessoryItemsArray = [];
     var isUpdateQuantity = true;
-    
+
     $('.qtyLineItem').each(function (index) {
         var qty = $('#Quantity_' + this.id).val();
         var minOrderQty = $('#MinOrderQuantity_' + this.id).val();

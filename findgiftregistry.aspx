@@ -1,76 +1,71 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="findgiftregistry.aspx.cs"
     Inherits="InterpriseSuiteEcommerce.findgiftregistry" %>
-
 <%@ OutputCache Location="None" %>
 <%@ Import Namespace="InterpriseSuiteEcommerceCommon" %>
 <%@ Import Namespace="InterpriseSuiteEcommerceCommon.Extensions" %>
 <%@ Import Namespace="InterpriseSuiteEcommerceCommon.DTO" %>
 <head>
-    <title></title>
+<title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
-    <DIV class=row>
-    <DIV class="small-12 columns">
-        
-        <!-- Find Gift Registry Form -->
-        <div class="sections-place-holder">
-            <div class="page-sections-head"><asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal></div>
-            <table cellpadding="5px">
-                <tr>
-                    <td class="custom-font-style"><%= AppLogic.GetString("findregistry.aspx.aspx.4")%></td>
-                    <td><input type="text" id="txtLastName" class="light-style-input" style="width:200px;" /></td>
-                    <td class="custom-font-style"><%= AppLogic.GetString("findregistry.aspx.aspx.3")%></td>
-                    <td><input type="text" id="txtFirstName" class="light-style-input" style="width:200px;" /></td>
-                </tr>
-                <tr>
-                    <td class="custom-font-style"><%= AppLogic.GetString("findregistry.aspx.aspx.5")%></td>
-                    <td colspan="3"><input type="text" id="txtEventTitle" class="light-style-input" style="width:200px;" /></td>
-                </tr>
-            </table>
-            <div class="button-place-holder">
-                 <input type="button" 
-                        class="site-button content" 
+<form id="form1" runat="server">
+  <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
+    
+    <!-- Find Gift Registry Form -->
+    <div class="sections-place-holder row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="entity-header">
+          <h1>
+            <asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal>
+          </h1>
+        </div>
+        <div class="form-group">
+          <label><%= AppLogic.GetString("findregistry.aspx.aspx.4")%></label>
+          <input type="text" id="txtLastName" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label><%= AppLogic.GetString("findregistry.aspx.aspx.3")%></label>
+          <input type="text" id="txtFirstName" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label><%= AppLogic.GetString("findregistry.aspx.aspx.5")%></label>
+          <input type="text" id="txtEventTitle" class="form-control" />
+        </div>
+        <div class="button-place-holder">
+          <input type="button" 
+                        class="btn btn-primary content" 
                         id="btnFind"
                         data-contentKey="findregistry.aspx.aspx.1"
                         data-contentValue="<%= AppLogic.GetString("findregistry.aspx.aspx.1", true) %>"
                         data-contentType="string resource"
-                        value="<%= AppLogic.GetString("findregistry.aspx.aspx.1", true) %>" />&nbsp;&nbsp;&nbsp;
-                <div class="clear-both height-17"></div>
-            </div>
+                        value="<%= AppLogic.GetString("findregistry.aspx.aspx.1", true) %>" />
+          &nbsp;&nbsp;&nbsp;
+          <div class="clear-both height-17"></div>
         </div>
-        <br />
-
-        <!-- Search Result-->
-        <div class="sections-place-holder" id="divSearchResult" style="display:none;">
-            <div class="page-sections-head"><%= AppLogic.GetString("findregistry.aspx.aspx.2") %>: <span id="recFound"></span></div>
-                <div id="detailLoader" style="width:100%; display:none; text-align:center; padding:20px; ">
-                    <img title="" alt="" src="images/ajax-loader2.gif" />
-                </div>
-
-            <div id="searchOutput" style="display:none;">
-               <%-- <div class="gridHeader">
+      </div>
+    </div>
+    
+    <!-- Search Result-->
+    <div class="sections-place-holder" id="divSearchResult" style="display:none;">
+      <div class="page-sections-head"><%= AppLogic.GetString("findregistry.aspx.aspx.2") %>: <span id="recFound"></span></div>
+      <div id="detailLoader" style="width:100%; display:none; text-align:center; padding:20px; "> <img title="" alt="" src="images/ajax-loader2.gif" /> </div>
+      <div id="searchOutput" style="display:none;">
+        <%-- <div class="gridHeader">
                 <div class="Paging">
                     <span class="pagingprevappender"></span>
                     <span class="numberappender"></span>
                     <span class="pagingnextappender"></span>
                 </div>
                 </div>--%>
-                <table class="gridBody" width="100%" style="border:none !important; font-size:9pt !important;"></table>
-                <br />
-                <div class="gridFooter" style="border:none !important; border-top:solid 1px #cebfbf !important; border-radius:0 !important;">
-                    <div class="Paging">
-                        <span class="pagingprevappender"></span>
-                        <span class="numberappender"></span>
-                        <span class="pagingnextappender"></span>
-                    </div>
-                </div>  
+        <table class="gridBody" width="100%" style="border:none !important; font-size:9pt !important;">
+        </table>
+        <br />
+        <div class="gridFooter" style="border:none !important; border-top:solid 1px #cebfbf !important; border-radius:0 !important;">
+          <div class="Paging"> <span class="pagingprevappender"></span> <span class="numberappender"></span> <span class="pagingnextappender"></span> </div>
         </div>
-
-        </div>
-
-        <script type="text/javascript">
+      </div>
+    </div>
+    <script type="text/javascript">
             
             var searchResults = null;
             var maxDisplayPages = 5;
@@ -340,7 +335,6 @@
             }
 
         </script>
-        </DIV></DIV>
-        </asp:Panel>
-    </form>
+    </asp:Panel>
+</form>
 </body>

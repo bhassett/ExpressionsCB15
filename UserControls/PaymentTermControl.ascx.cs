@@ -1208,6 +1208,10 @@ public partial class UserControls_PaymentTermControl : BaseUserControl, IPayment
                 var labelControl = e.Item.FindControl("litCreditCardImages") as Label;
                 labelControl.Controls.Add(new LiteralControl(LoadCardTypeImage(CardTypeViewDataSource)));
                 if (labelControl != null) { labelControl.Visible = true; }
+
+                  HtmlGenericControl collapseButton = e.Item.FindControl("collapseCreditCardImagesButton") as HtmlGenericControl;
+                collapseButton.Visible = true;
+               
             }
 
             if ((dtoPaymentTerm.PaymentTermCode == "Credit Card" && dtoPaymentTerm.PaymentMethod != PAYMENT_METHOD_SAGEPAY) && AppLogic.AppConfigBool("PayPalCheckout.ShowOnCartPage") && ShowPaypalPaymentOption)

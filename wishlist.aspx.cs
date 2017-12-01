@@ -79,7 +79,7 @@ namespace InterpriseSuiteEcommerce
             if (!string.IsNullOrEmpty(CommonLogic.QueryStringCanBeDangerousContent("MoveToCartID")))
             {
                 string moveToCartID = CommonLogic.QueryStringCanBeDangerousContent("MoveToCartID");
-                if (moveToCartID.Where(t => t == '_').Count() > 1)
+                if (moveToCartID.Contains("_"))
                 {
                     //This logic is for Bundle Only
                     string[] moveToCartIDArray = moveToCartID.Split('_');

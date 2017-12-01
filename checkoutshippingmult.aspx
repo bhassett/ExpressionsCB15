@@ -4,25 +4,51 @@
 
 <%@ Register Assembly="InterpriseSuiteEcommerceControls" Namespace="InterpriseSuiteEcommerceControls" TagPrefix="ise" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
- <body>
-        <asp:Panel ID="pnlHeaderGraphic" runat="server" HorizontalAlign="center">
-            <asp:ImageMap ID="checkoutheadergraphic" HotSpotMode="PostBack" runat="server">
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx" Top="0" Left="0" Bottom="54" Right="87" />
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/account.aspx?checkout=true" Top="0" Left="87" Bottom="54" Right="173" />
-                <asp:RectangleHotSpot AlternateText="" HotSpotMode="Inactive" NavigateUrl="~/checkoutshipping.aspx" Top="0" Left="173" Bottom="54" Right="259" />
-            </asp:ImageMap>
-        </asp:Panel>
-        
-        <p>
+<head id="Head1" runat="server">
+    <title></title>
+</head>
+ <body>--%>
+      
+      <!-- Modal -->
+     <div class="modal fade" id="order-summary-items-modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <i class="fa fa-times"></i>
+                     </button>
+                     <h4 class="modal-title">
+                         <asp:Literal ID="DetailsLit" runat="server">(!itempopup.aspx.2!)</asp:Literal>
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                     <asp:Literal ID="CheckoutOrderSummaryItemsLiteral" runat="server"></asp:Literal>
+                 </div>
+                 <div class="modal-footer">
+                     <a href="shoppingcart.aspx" class="btn btn-default">
+                         <asp:Literal ID="EditCartLit" runat="server">(!checkout1.aspx.30!)</asp:Literal>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+      <%--Steps--%>
+     <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
+     
+     <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
+
+
+       <div id="checkout-multi-shipping-container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                     <p>
             <asp:Label ID="lblHeader1" runat="server" Text="(!checkoutshippingmult.aspx.5!)" Font-Bold="true"></asp:Label>
         </p>
-        
-        <ise:InputValidatorSummary ID="errorSummary" runat="server" ForeColor="Red" Register="False" />
-        
-        <form id="frmCheckOutMultiShipping" runat="server">
+
+                    <form id="frmCheckOutMultiShipping" runat="server">
         <div class="clear-both heigh-5"></div>
             <p> 
                 <asp:Label ID="lblHeader2" runat="server" Text="To add or edit shipping address" ></asp:Label>
@@ -47,10 +73,26 @@
              
              <hr />
              
-            <asp:Panel ID="pnlCompletePurchase" runat="server" HorizontalAlign="Center">
-                <asp:Button ID="btnCompletePurchase" runat="server" OnClick="btnCompletePurchase_Click" CssClass="site-button content" />
+                        <div class="checkout-button-container">
+                              <asp:Panel ID="pnlCompletePurchase" runat="server" HorizontalAlign="Center">
+                <asp:Button ID="btnCompletePurchase" runat="server" OnClick="btnCompletePurchase_Click" CssClass="btn btn-primary btn-huge" />
             </asp:Panel>
+                        </div>
+          
         
         </form>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                     <asp:Literal ID="OrderSummaryCardLiteral" runat="server"></asp:Literal>
+                </div>
+        
+            </div>
+       </div>
+        
+       
+        
+     
+        
+<%--        
     </body>
-</html>
+</html>--%>

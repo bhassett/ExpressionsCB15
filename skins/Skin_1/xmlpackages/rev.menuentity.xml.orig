@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- ###################################################################################################### -->
+<!-- Licensed by Interprise Solutions.					                -->
+<!-- http://www.InterpriseSolutions.com														                -->
+<!-- For details on this license please visit  the product homepage at the URL above.		                -->
+<!-- THE ABOVE NOTICE MUST REMAIN INTACT.                                                                   -->
+<!-- ###################################################################################################### -->
+<package version="2.1" displayname="Main Menu" debug="false" includeentityhelper="false">
+  <PackageTransform debug="false" >
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ise="urn:ise"  xmlns:msxsl="urn:schemas-microsoft-com:xslt"  exclude-result-prefixes="ise msxsl">
+      <xsl:output method="html" indent="yes"/>
+      <xsl:template match="/" >
+        <div class="navbar-header"></div>
+        <div class="collapse navbar-collapse" id="menuMain">
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a href="default.aspx">Home</a>
+            </li>
+           <!--CATEGORIES-->
+		    <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Categories
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <xsl:value-of select="ise:XmlPackage('rev.categorymenu.xml.config')" disable-output-escaping="yes" />
+            </li>
+			<!--CATEGORIES-->
+			
+			<!--MANUFACTURERS-->
+		    <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Manufacturers
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <xsl:value-of select="ise:XmlPackage('rev.manufacturermenu.xml.config')" disable-output-escaping="yes" />
+            </li>
+			<!--MANUFACTURERS-->
+			
+			<!--DEPARTMENTS-->
+		    <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Departments
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <xsl:value-of select="ise:XmlPackage('rev.departmentmenu.xml.config')" disable-output-escaping="yes" />
+            </li>
+			<!--DEPARTMENTS-->
+			
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Customer Service
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul id="static-menu" class="dropdown-menu">
+                <li>
+                  <a href="account.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.YourAccount')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="t-faq.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.FAQs')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="t-returns.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.PolicyReturns')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="t-shipping.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.Shipping')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="contactus.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.Contact')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="t-privacy.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.PolicyPrivacy')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="t-security.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.PolicySecurity')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="leadform.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.LeadForm')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="casehistory.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.CustomerSupport')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="storelocator.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.StoreLocator')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="wishlist.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.WishList')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li id="gift-registry">
+                  <a href="giftregistry.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.GiftRegistry')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+                <li>
+                  <a href="rma.aspx">
+                    <xsl:value-of select="ise:StringResourceTextOnly('menu.RMA')" disable-output-escaping="yes" />
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+		(!XmlPackage Name="rev.search"!)
+        <script>$('.dropdown-submenu > a:not(a[href="#"])').on('click', function() {
+          self.location = $(this).attr('href');
+          });</script>
+      </xsl:template>
+    </xsl:stylesheet>
+  </PackageTransform>
+</package>

@@ -436,6 +436,7 @@ ise.Validators.InStorePickupShppingMethodValidator.prototype = {
         if (this.control.value.length == 0)
         {
             this.isValid = false;
+            this.errorMessage = this.inStoreErrorMessage;
             return;
         }
 

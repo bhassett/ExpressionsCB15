@@ -118,7 +118,7 @@
                                             />
                                         <br />
                                         <br /> 
-                                        <asp:Button ID="btnNewAddress" runat="server" CssClass="site-button"  OnClick="btnNewAddress_Click" />
+                                        <asp:Button ID="btnNewAddress" runat="server" CssClass="btn btn-default"  OnClick="btnNewAddress_Click" />
                                         <br />
                                         <br /> 
                                     </asp:Panel>
@@ -159,8 +159,8 @@
         </asp:Panel>
         <asp:Panel ID="pnlNoAddresses" runat="server" Visible="false"><asp:Literal ID="litNoAddresses" runat="server" Mode="PassThrough"></asp:Literal></asp:Panel>
         <p align="center">
-        <asp:Button ID="btnReturn" runat="server" CssClass="site-button" />
-        <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="site-button" /></p>
+        <asp:Button ID="btnReturn" runat="server" CssClass="btn btn-default" />
+        <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="btn btn-default" /></p>
         <input type="hidden" id="hidCheck" value="true" runat="server" />
         <input type="hidden" id="hidValid" value="true" runat="server" />
         

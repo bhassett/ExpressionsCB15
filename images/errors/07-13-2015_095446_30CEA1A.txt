@@ -1,0 +1,23 @@
+
+
+----------- General -----------
+Date:                         7/13/2015 9:54:46 AM
+
+----------- Exception -----------
+ErrorCode:                    30CEA1A
+Type:                         System.Reflection.TargetInvocationException
+Message:                      Exception has been thrown by the target of an invocation.
+Source:                       InterpriseSuiteEcommerceSecurity
+TargetSite:                   Void m_Application_Start(System.Object, System.EventArgs)
+StackTrace:                      at InterpriseSuiteEcommerceSecurity.Global.m_Application_Start(Object sender, EventArgs e)
+   at InterpriseSuiteEcommerceSecurity.Global.Application_Start(Object sender, EventArgs e)
+
+----------- Inner Exception -----------
+Type:                         System.Data.SqlClient.SqlException
+Message:                      A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Source:                       .Net SqlClient Data Provider
+TargetSite:                   Interprise.Connectivity.Database.Configuration.Design.AppConfig.InterpriseConfiguration get_ConfigInstance()
+StackTrace:                      at InterpriseSuiteEcommerceCommon.InterpriseHelper.get_ConfigInstance()
+   at InterpriseSuiteEcommerceCommon.CommonLogic.ApplicationIS(String paramName)
+   at InterpriseSuiteEcommerceCommon.Domain.Registries.DomainRegistry.RegisterDataManagerToBecachedPerRequest()
+   at InterpriseSuiteEcommerceCommon.Domain.Registries.DomainRegistry..ctor()

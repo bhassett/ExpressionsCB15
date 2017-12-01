@@ -223,8 +223,9 @@ namespace InterpriseSuiteEcommerce
                 _navigationService.NavigateToShoppingCartRestLinkBack();
             }
 
-            pnlCheckoutImage.Visible = true;
-            CheckoutImage.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_2.gif");
+            //pnlCheckoutImage.Visible = true;
+            //CheckoutImage.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_2.gif");
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(1, "shoppingcart.aspx?resetlinkback=1", string.Empty, string.Empty);
         }
 
         #endregion
@@ -447,6 +448,10 @@ namespace InterpriseSuiteEcommerce
                     _cart.BuildSalesOrderDetails(false, false);
                     Customer.Current.ThisCustomerSession["paypalfrom"] = "shoppingcart";
                    _navigationService.NavigateToUrl(PayPalExpress.CheckoutURL(_cart));
+                }
+                else if (AppLogic.EnableAdvancedFreightRateCalculation() && _cart.HasShippableComponents())
+                {
+                    Response.Redirect("shipping.aspx");
                 }
                 else if ((_cart.HasMultipleShippingAddresses() && _cart.NumItems() <= AppLogic.MultiShipMaxNumItemsAllowed() && _cart.CartAllowsShippingMethodSelection) || _cart.HasRegistryItems())
                 {

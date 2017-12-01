@@ -4,70 +4,64 @@
 <head>
 </head>
 <body>
-    <form runat="server" onsubmit="return FormValidator(this)">
-    <DIV class=row>
-    <DIV class="small-12 columns">
-        <b><asp:Literal ID="RedirectToSignInPageLiteral" runat="server"></asp:Literal></b>
-        <ise:Topic runat="server" ID="TopicWishListPageHeader" TopicName="WishListPageHeader" />
-        &nbsp;
-        <asp:Literal ID="XmlPackage_WishListPageHeader" runat="server" Mode="PassThrough"></asp:Literal>
-
-        <asp:Literal ID="XmlPackage_WishListPageTopControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
-        
-        <asp:Panel ID="pnlTopControlLines" runat="server" Visible="false">
-            <div class="row">
-            <div class="small-12 columns small-only-text-center text-right">
-                <ul class="button-group radius">
-                    <li><asp:Button ID="btnContinueShopping1" runat="server" CssClass="button small secondary" /></li>
-                    <li><asp:Button ID="btnUpateWishList1" runat="server" CssClass="button small" /></li>
-                </ul>
-            </div>
-            </div>
-        </asp:Panel>       
-
-        <div class="sections-place-holder no-padding">
-        <h2><asp:Literal ID="Literal2" runat="server">Wish List</asp:Literal></h2>
-      
-        <div class="section-content-wrapper">
-
-        <asp:Panel ID="Panel1" runat="server" DefaultButton="btnUpateWishList1" class="wishlist-wrapper">
-            <asp:Table ID="tblWishList" CellSpacing="0" CellPadding="2" Width="100%" runat="server">
-                <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="left" VerticalAlign="top">
-                        <asp:Table ID="tblWishListBox" CellSpacing="0" CellPadding="4" Width="100%" runat="server" CssClass="wishlist">
-                            <asp:TableRow>
-                                <asp:TableCell HorizontalAlign="left" VerticalAlign="top">
-                                    <asp:Literal ID="CartItems" runat="server" Mode="PassThrough"></asp:Literal>                                
-                                </asp:TableCell>
-                            </asp:TableRow>
-                        </asp:Table>
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-        </asp:Panel>
-        </div>
-        </div>
-
-        <asp:Literal ID="Xml_WishListPageBottomControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
-        
-        <asp:Panel ID="pnlBottomControlLines" runat="server">
-            <div class="row">
-            <div class="small-12 columns small-only-text-center text-right">
-                <ul class="button-group radius">
-                    <li><asp:Button ID="btnContinueShopping2" runat="server" CssClass="button small secondary" /></li>
-                    <li><asp:Button ID="btnUpateWishList2" runat="server" CssClass="button small" /></li>
-                </ul>
-            </div>
-            </div>
-        </asp:Panel>
-        <br />
-        
-        <ise:Topic runat="server" ID="TopicWishListPageFooter" TopicName="WishListPageFooter" />
-        <asp:Literal ID="Xml_WishListPageFooter" runat="server" Mode="PassThrough"></asp:Literal>
-
-         <script type="text/javascript">
+<form runat="server" onSubmit="return FormValidator(this)">
+  <b>
+  <asp:Literal ID="RedirectToSignInPageLiteral" runat="server"></asp:Literal>
+  </b>
+  <ise:Topic runat="server" ID="TopicWishListPageHeader" TopicName="WishListPageHeader" />
+  &nbsp;
+  <asp:Literal ID="XmlPackage_WishListPageHeader" runat="server" Mode="PassThrough"></asp:Literal>
+  <asp:Literal ID="XmlPackage_WishListPageTopControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
+  <div class="row">
+    <div class="entity-header col-md-6">
+      <h1>
+        <asp:Literal ID="Literal2" runat="server">Wish List</asp:Literal>
+      </h1>
+    </div>
+  <asp:Panel ID="pnlTopControlLines" runat="server" Visible="false" CssClass="col-md-6 text-right">
+      <div class="btn-sep">
+        <asp:Button ID="btnContinueShopping1" runat="server" CssClass="btn content btn btn-default" />
+      </div>
+      <div class="btn-sep">
+        <asp:Button ID="btnUpateWishList1" runat="server" CssClass="btn content btn btn-primary" />
+    </div>
+  </asp:Panel>
+  </div>
+  <div class="section-content-wrapper row" style="margin-top: 20px;">
+  <asp:Panel ID="Panel1" runat="server" DefaultButton="btnUpateWishList1" class="wishlist-wrapper">
+    <asp:Panel ID="tblWishList" CellSpacing="0" CellPadding="2" Width="100%" runat="server">
+      <asp:Panel ID="tblWishListBox" CellSpacing="0" CellPadding="4" Width="100%" runat="server" CssClass="wishlist">
+        <asp:Literal ID="CartItems" runat="server" Mode="PassThrough"></asp:Literal>
+      </asp:Panel>
+    </asp:Panel>
+  </asp:Panel>
+</div>
+  <asp:Literal ID="Xml_WishListPageBottomControlLines" runat="server" Mode="PassThrough" Visible="false"></asp:Literal>
+  <asp:Panel ID="pnlBottomControlLines" runat="server" CssClass="row">
+    <div class="col-sm-12 text-right">
+      <div class="btn-sep">
+        <asp:Button ID="btnContinueShopping2" runat="server" CssClass="btn btn-default content btn" />
+      </div>
+      <div class="btn-sep">
+        <asp:Button ID="btnUpateWishList2" runat="server" CssClass="btn btn-primary content btn" />
+      </div>
+    </div>
+  </asp:Panel>
+  <ise:Topic runat="server" ID="TopicWishListPageFooter" TopicName="WishListPageFooter" />
+  <asp:Literal ID="Xml_WishListPageFooter" runat="server" Mode="PassThrough"></asp:Literal>
+  <script type="text/javascript">
              $(document).ready(function () {
-                 $(".move-to-shopping-cart").unbind("click").click(function () {
+				 $(".wishlist table").addClass("table table-hover table-bordered");
+				 $(".wishlist table tr:first-child").css("display", "none");
+				 $(".wishlist table select").addClass("form-control");
+				 $(".wishlist table input[type='text']").addClass("form-control");
+				 $(".wishlist table tr td:first-child a").addClass("thumbnail");
+				 $(".wishlist table tr td:first-child a").css("margin-bottom", "0px");
+				 $(".wishlist table tr td input[type='button']").removeClass("move-to-shopping-cart site-button");
+				 $(".wishlist table tr td input[type='button']").addClass("btn btn-success btn-block move-to-cart");
+				 $(".wishlist table tr td input[name='bt_Delete']").removeClass("site-button");
+				 $(".wishlist table tr td input[name='bt_Delete']").addClass("btn btn-danger btn-block");
+                 $(".move-to-cart").unbind("click").click(function () {
 
                      $this = $(this);
 
@@ -95,8 +89,6 @@
                  });
              });
          </script>
-    </DIV>
-    </DIV>
-    </form>
+</form>
 </body>
 </html>

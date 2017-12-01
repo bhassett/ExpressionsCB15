@@ -4,7 +4,7 @@
             "<input id='${id}' type='radio' name='${name}' value='${description}' ${isDefault} ${disabled}>" +
             "<span>" +
                 "<span id='shipping-description$" + "${id}' class='shipping-description' style='cursor: pointer;'> ${description} </span>" +
-                "<span> ${freight} </span>" +
+                "<span id='${description}_price' class='shipping-price'> {{html freight}} </span>" +
                 "{{if InStoreCaption}}" +
                     "<a id='instore-map-link_${ItemCounter}' href='javascript:void(0)'><i class='icon-map-marker'></i>${InStoreCaption}</a>" +
                     "<div id='selectedInStoreInfoContainer_${ItemCounter}'>" +

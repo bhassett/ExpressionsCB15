@@ -92,16 +92,38 @@
                <div class="clear-both height-12"></div>
 
                 <div class="form-controls-place-holder">
-
-                    <span class="form-controls-span">
+                     <span class="form-controls-span">
                         <label id="lblSubject" class="form-field-label">
                             <asp:Literal ID="litSubject" runat="server">(!customersupport.aspx.10!)</asp:Literal>
                         </label>
                         <asp:TextBox runat="server" ID="txtSubject"  class="light-style-input" MaxLength="100" Columns="58" runat="server"></asp:TextBox>
                     </span>
-
                 </div>
                 <div class="clear-both height-5"></div>
+                
+                <%--Case Reason v16--%>
+               <%-- <div class="form-controls-place-holder">
+                    <span class="form-controls-span">
+                        <label id="lblItemName" class="form-field-label">
+                            <asp:Literal ID="litItemName" runat="server">Item Name</asp:Literal>
+                        </label>
+                        <asp:TextBox runat="server" ID="txtItemName"  class="light-style-input" MaxLength="100" Columns="58" required="required"></asp:TextBox>
+                    </span>
+                </div>
+                <div class="clear-both height-5"></div>
+
+                <div class="form-controls-place-holder">
+                    <span class="form-controls-span">
+                        <label id="lblReason" class="form-field-label">
+                            <asp:Literal ID="litReason" runat="server">Reason</asp:Literal>
+                        </label>
+                        <asp:DropDownList runat="server" ID="dropReason" class="light-style-input" required="required">
+                            
+                        </asp:DropDownList>
+                    </span>
+                </div>
+                <div class="clear-both height-5"></div>--%>
+
                <div class="form-controls-place-holder">
 
                     <span class="form-controls-span">
@@ -193,7 +215,7 @@
      <script type="text/javascript" src="jscripts/minified/address.control.js"></script>
      <script type="text/javascript" src="jscripts/minified/address.verification.js"></script>
      <script type="text/javascript" src="jscripts/minified/jquery.format.1.05.js"></script>
-     <script type="text/javascript" src="jscripts/minified/case.js"></script>
+     <script type="text/javascript" src="jscripts/jquery/case.js"></script>
     </form>
 </body>
 </html>

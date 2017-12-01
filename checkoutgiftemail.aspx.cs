@@ -48,9 +48,11 @@ public partial class checkoutgiftemail : SkinBase
         InitializeGiftItems();
         LoadGiftItems();
 
+        DisplayCheckoutSteps();
+        DisplayOrderSummary();
         InitializeStringResources();
 
-        this.btnCheckoutTop.Click += new EventHandler(btnCheckoutTop_Click);
+       // this.btnCheckoutTop.Click += new EventHandler(btnCheckoutTop_Click);
         this.btnCheckoutBottom.Click += new EventHandler(btnCheckoutBottom_Click);
     }
     
@@ -98,7 +100,7 @@ public partial class checkoutgiftemail : SkinBase
     {
         this.lblHeader.Text = _stringResourceService.GetString("checkoutgiftemail.aspx.1");
         this.SectionTitle = _stringResourceService.GetString("checkoutgiftemail.aspx.1");
-        this.btnCheckoutTop.Text = _stringResourceService.GetString("checkoutgiftemail.aspx.3");
+       // this.btnCheckoutTop.Text = _stringResourceService.GetString("checkoutgiftemail.aspx.3");
         this.btnCheckoutBottom.Text = _stringResourceService.GetString("checkoutgiftemail.aspx.3");
     }
 
@@ -114,6 +116,19 @@ public partial class checkoutgiftemail : SkinBase
         {
             _navigationService.NavigateToShoppingCart();
         }
+    }
+
+    private void DisplayCheckoutSteps()
+    {
+        CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(1, "shoppingcart.aspx", string.Empty, string.Empty);
+    }
+    private void DisplayOrderSummary()
+    {
+        DetailsLit.Text = _stringResourceService.GetString("itempopup.aspx.2");
+        EditCartLit.Text = _stringResourceService.GetString("checkout1.aspx.44");
+        var renderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.ShoppingCart, "page.checkout.ordersummaryitems.xml.config", ThisCustomer.CouponCode);
+        CheckoutOrderSummaryItemsLiteral.Text = _cart.RenderHTMLLiteral(renderer);
+        OrderSummaryCardLiteral.Text = AppLogic.RenderOrderSummaryCard(renderer.OrderSummary);
     }
 
     private IEnumerable<CartItem> GetCartGiftItems()
@@ -165,7 +180,7 @@ public partial class checkoutgiftemail : SkinBase
                 }
 
                 //bulk insert new gift emails
-                _shoppingCartService.CreateShoppingCartGiftEmail(giftItemEmailsToBeAdded);
+                _shoppingCartService.CreateShoppingCartGiftEmail(giftItemEmailsToBeAdded, customer.CustomerCode);
                 hasChanges = true;
             }
 
@@ -202,7 +217,7 @@ public partial class checkoutgiftemail : SkinBase
         //bulk update modified gift emails
         _shoppingCartService.UpdateShoppingCartGiftEmail(giftItemEmailsToBeUpdated);
 
-        if (AppLogic.AppConfigBool("SkipShippingOnCheckout") || !_cart.HasShippableComponents())
+        if (AppLogic.AppConfigBool("SkipShippingOnCheckout") || !_cart.HasShippableComponents() || AppLogic.EnableAdvancedFreightRateCalculation())
         {
             _cart.MakeShippingNotRequired();
             _navigationService.NavigateToCheckOutPayment();

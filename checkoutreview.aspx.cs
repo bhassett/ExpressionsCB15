@@ -28,7 +28,7 @@ namespace InterpriseSuiteEcommerce
     public partial class checkoutreview : SkinBase
     {
         #region Declaration
-            
+
         InterpriseShoppingCart cart = null;
         PayPalExpress pp;
 
@@ -116,7 +116,7 @@ namespace InterpriseSuiteEcommerce
                 panelCoupon.Visible = false;
                 if (!couponErrorMessage.IsNullOrEmptyTrimmed())
                 {
-                   _navigationService.NavigateToUrl("shoppingcart.aspx?resetlinkback=1&discountvalid=false");
+                    _navigationService.NavigateToUrl("shoppingcart.aspx?resetlinkback=1&discountvalid=false");
                 }
             }
 
@@ -152,10 +152,23 @@ namespace InterpriseSuiteEcommerce
             _shoppingCartService.DoHasAppliedInvalidLoyaltyPointsChecking(cart);
             _shoppingCartService.DoHasAppliedInvalidCreditMemosChecking(cart);
 
-            if (!IsPostBack)
+            //if (!IsPostBack)
+            //{
+            //    InitializePageContent();
+            //}
+
+
+            //Check if Auto Submit Order before Page Renders
+           
+        }
+
+        protected override void OnLoadComplete(EventArgs e)
+        {
+            if (CommonLogic.QueryStringBool("ao"))
             {
-                InitializePageContent();
+                btnContinueCheckout1_Click(btnContinueCheckout1, null);
             }
+            base.OnLoadComplete(e);
         }
 
         private void InitializeComponent()
@@ -199,38 +212,58 @@ namespace InterpriseSuiteEcommerce
 
         private void InitializePageContent()
         {
-            checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_5.gif");
-            for (int i = 0; i < checkoutheadergraphic.HotSpots.Count; i++)
-            {
-                RectangleHotSpot rhs = (RectangleHotSpot)checkoutheadergraphic.HotSpots[i];
-                if (rhs.NavigateUrl.IndexOf("shoppingcart") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.2");
-                if (rhs.NavigateUrl.IndexOf("account") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.3");
-                if (rhs.NavigateUrl.IndexOf("checkoutshipping") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.4");
-                if (rhs.NavigateUrl.IndexOf("checkoutpayment") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.5");
-            }
+            //checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_5.gif");
+            //for (int i = 0; i < checkoutheadergraphic.HotSpots.Count; i++)
+            //{
+            //    RectangleHotSpot rhs = (RectangleHotSpot)checkoutheadergraphic.HotSpots[i];
+            //    if (rhs.NavigateUrl.IndexOf("shoppingcart") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.2");
+            //    if (rhs.NavigateUrl.IndexOf("account") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.3");
+            //    if (rhs.NavigateUrl.IndexOf("checkoutshipping") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.4");
+            //    if (rhs.NavigateUrl.IndexOf("checkoutpayment") != -1) rhs.AlternateText = AppLogic.GetString("checkoutreview.aspx.5");
+            //}
+            //if (!AppLogic.AppConfigBool("SkipShippingOnCheckout"))
+            //{
+            //    checkoutheadergraphic.HotSpots[2].HotSpotMode = HotSpotMode.Navigate;
+            //    if (AppLogic.AppConfigBool("Checkout.UseOnePageCheckout"))
+            //    {
+            //        checkoutheadergraphic.HotSpots[2].NavigateUrl = "checkout1.aspx";
+            //    }
+            //    else
+            //    {
+            //        checkoutheadergraphic.HotSpots[2].NavigateUrl = CommonLogic.IIF(cart.HasMultipleShippingAddresses(), "checkoutshippingmult.aspx", "checkoutshipping.aspx");
+            //    }
+            //}
+            //if (_appConfigService.CheckoutUseOnePageCheckout)
+            //{
+            //    checkoutheadergraphic.HotSpots[3].NavigateUrl = "checkout1.aspx";
+            //}
+
+            //if (IsPayPalCheckout)
+            //{
+            //    checkoutheadergraphic.HotSpots[1].HotSpotMode = HotSpotMode.Inactive;
+            //    checkoutheadergraphic.HotSpots[2].NavigateUrl += string.Format("?PayPal={0}&token={1}", bool.TrueString, Request.QueryString["token"]);
+            //    checkoutheadergraphic.HotSpots[3].HotSpotMode = HotSpotMode.Inactive;
+            //}
+
+            string shippingUrl = "checkoutshipping.aspx";
             if (!AppLogic.AppConfigBool("SkipShippingOnCheckout"))
             {
-                checkoutheadergraphic.HotSpots[2].HotSpotMode = HotSpotMode.Navigate;
+              
                 if (AppLogic.AppConfigBool("Checkout.UseOnePageCheckout"))
                 {
-                    checkoutheadergraphic.HotSpots[2].NavigateUrl = "checkout1.aspx";
+                    shippingUrl = "checkout1.aspx";
                 }
                 else
                 {
-                    checkoutheadergraphic.HotSpots[2].NavigateUrl = CommonLogic.IIF(cart.HasMultipleShippingAddresses(), "checkoutshippingmult.aspx", "checkoutshipping.aspx");
+                    shippingUrl =  cart.HasMultipleShippingAddresses() ?  "checkoutshippingmult.aspx" : "checkoutshipping.aspx";
                 }
             }
             if (_appConfigService.CheckoutUseOnePageCheckout)
             {
-                checkoutheadergraphic.HotSpots[3].NavigateUrl = "checkout1.aspx";
+                shippingUrl = "checkout1.aspx";
             }
 
-            if (IsPayPalCheckout)
-            {
-                checkoutheadergraphic.HotSpots[1].HotSpotMode = HotSpotMode.Inactive;
-                checkoutheadergraphic.HotSpots[2].NavigateUrl += string.Format("?PayPal={0}&token={1}", bool.TrueString, Request.QueryString["token"]);
-                checkoutheadergraphic.HotSpots[3].HotSpotMode = HotSpotMode.Inactive;
-            }
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(3, "shoppingcart.aspx", shippingUrl, "checkoutpayment.aspx");
 
             string XmlPackageName = AppLogic.AppConfig("XmlPackage.CheckoutReviewPageHeader");
             if (XmlPackageName.Length != 0)
@@ -245,7 +278,7 @@ namespace InterpriseSuiteEcommerce
 
             if (cart.HasMultipleShippingAddresses() || cart.HasRegistryItems())
             {
-                
+
                 var splittedCarts = cart.SplitIntoMultipleOrdersByDifferentShipToAddresses();
                 foreach (var splitCart in splittedCarts)
                 {
@@ -257,19 +290,66 @@ namespace InterpriseSuiteEcommerce
                     creditMemosAllocate += splitCart.CreditMemosCreditAllocated;
                 }
             }
+            else if (cart.HasMultipleShippingMethod() && AppLogic.EnableAdvancedFreightRateCalculation())
+            {
+                var ordersWithDifferentShipping = _shoppingCartService.SplitShippingMethodsInMultipleOrders();
+
+                cart.CartFreightRate = 0;
+                foreach (var order in ordersWithDifferentShipping)
+                {
+                    if (order.IsNoShippingRequired())
+                    {
+                        order.BuildSalesOrderDetails(false, true, litCouponEntered.Text, true);
+                    }
+                    else
+                    {
+                        order.BuildSalesOrderDetails(true, litCouponEntered.Text);
+                      
+                    }
+                    if (order.GetCartShippingMethodSelected() == "Pickup")
+                    {
+                        foreach (CartItem cartitemtoberemoved in order)
+                        {
+                            cart.RemoveItem(cartitemtoberemoved.m_ShoppingCartRecordID, false);
+                        }
+                        OrderSummary.Text += order.RenderHTMLLiteral(new DefaultShoppingCartPageLiteralRenderer(RenderType.Review, String.Empty, gCardAllocate, gCertAllocate, loyaltyPointsAllocate, creditMemosAllocate, litCouponEntered.Text));
+                        gCardAllocate += order.GiftCardsTotalCreditAllocated;
+                        gCertAllocate += order.GiftCertsTotalCreditAllocated;
+                        loyaltyPointsAllocate += order.LoyaltyPointsCreditAllocated;
+                        creditMemosAllocate += order.CreditMemosCreditAllocated;
+                    }
+                    else
+                    {
+                        cart.CartFreightRate += order.CartFreightRate;
+                        gCardAllocate += order.GiftCardsTotalCreditAllocated;
+                        gCertAllocate += order.GiftCertsTotalCreditAllocated;
+                        loyaltyPointsAllocate += order.LoyaltyPointsCreditAllocated;
+                        creditMemosAllocate += order.CreditMemosCreditAllocated;
+                    }
+                }
+
+                OrderSummary.Text += cart.RenderHTMLLiteral(new DefaultShoppingCartPageLiteralRenderer(RenderType.Review, String.Empty, gCardAllocate, gCertAllocate, loyaltyPointsAllocate, creditMemosAllocate, litCouponEntered.Text));
+            }
             else if (cart.HasMultipleShippingMethod())
             {
                 var ordersWithDifferentShipping = _shoppingCartService.SplitShippingMethodsInMultipleOrders();
                 foreach (var order in ordersWithDifferentShipping)
                 {
-                    order.BuildSalesOrderDetails(true, litCouponEntered.Text);
+                    if (order.IsNoShippingRequired())
+                    {
+                        order.BuildSalesOrderDetails(false, true, litCouponEntered.Text, true);
+                    }
+                    else
+                    {
+                        order.BuildSalesOrderDetails(true, litCouponEntered.Text);
+                    }
                     OrderSummary.Text += order.RenderHTMLLiteral(new DefaultShoppingCartPageLiteralRenderer(RenderType.Review, String.Empty, gCardAllocate, gCertAllocate, loyaltyPointsAllocate, creditMemosAllocate, litCouponEntered.Text));
                     gCardAllocate += order.GiftCardsTotalCreditAllocated;
                     gCertAllocate += order.GiftCertsTotalCreditAllocated;
                     loyaltyPointsAllocate += order.LoyaltyPointsCreditAllocated;
                     creditMemosAllocate += order.CreditMemosCreditAllocated;
                 }
-            }   
+            }
             else
             {
                 //If the shopping cart contains only Electronic Downloads or Services then pass a "false" parameter for computeFreight.
@@ -495,7 +575,8 @@ namespace InterpriseSuiteEcommerce
                 var discontinuedItems = cart.CartItems.Where(c => c.Status.ToLowerInvariant() == "D".ToLowerInvariant())
                                             .Select(itm => itm.m_ShoppingCartRecordID)
                                             .AsParallel().ToList();
-                if (discontinuedItems.Count > 0){
+                if (discontinuedItems.Count > 0)
+                {
                     discontinuedItems.ForEach(recId => { cart.RemoveItem(recId); });
                     _navigationService.NavigateToShoppingCartWitErroMessage(AppLogic.GetString("checkoutpayment.aspx.cs.4").ToUrlEncode());
                 }
@@ -520,14 +601,14 @@ namespace InterpriseSuiteEcommerce
 
                 bool hasMultipleShippingMethod = cart.HasMultipleShippingMethod();
                 bool hasMultipleShippingAddress = cart.HasMultipleShippingAddresses();
-                if (hasMultipleShippingAddress || cart.HasRegistryItems() || hasMultipleShippingMethod)	// Paypal will never hit this
+                if (hasMultipleShippingAddress || cart.HasRegistryItems() || (hasMultipleShippingMethod && !AppLogic.EnableAdvancedFreightRateCalculation()))	// Paypal will never hit this
                 {
                     List<InterpriseShoppingCart> splittedCarts = null;
                     bool gatewayAuthFailed = false;
 
                     if (hasMultipleShippingAddress || cart.HasRegistryItems())
                     {
-                        splittedCarts = cart.SplitIntoMultipleOrdersByDifferentShipToAddresses();                        
+                        splittedCarts = cart.SplitIntoMultipleOrdersByDifferentShipToAddresses();
 
                     }
                     else if (hasMultipleShippingMethod)
@@ -539,7 +620,7 @@ namespace InterpriseSuiteEcommerce
                     {
                         var splitCart = splittedCarts[ctr];
                         try
-                        {   
+                        {
                             splitCart.BuildSalesOrderDetails(litCouponEntered.Text);
                         }
                         catch (InvalidOperationException ex)
@@ -554,8 +635,116 @@ namespace InterpriseSuiteEcommerce
 
                         var currentItem = splitCart.FirstItem();
 
-                        var shippingAddress = !currentItem.GiftRegistryID.HasValue? Address.Get(ThisCustomer, AddressTypes.Shipping, currentItem.m_ShippingAddressID) : ThisCustomer.PrimaryShippingAddress;
-                        
+                        var shippingAddress = !currentItem.GiftRegistryID.HasValue ? Address.Get(ThisCustomer, AddressTypes.Shipping, currentItem.m_ShippingAddressID) : ThisCustomer.PrimaryShippingAddress;
+
+                        splitCart.ClearAlreadyAppliedOtherPayment = (ctr == splittedCarts.Count - 1); // clear other payment if last cart to be placed order
+
+                        string processedSalesOrderCode = String.Empty;
+                        string processedReceiptCode = String.Empty;
+                        // NOTE:
+                        //  3DSecure using Sagepay Gateway is not supported on multiple shipping orders
+                        //  We will revert to the regular IS gateway defined on the WebStore
+                        status = splitCart.PlaceOrder(null,
+                                    ThisCustomer.PrimaryBillingAddress,
+                                    shippingAddress,
+                                    ref processedSalesOrderCode,
+                                    ref processedReceiptCode,
+                                    false,
+                                    true,
+                                    false);
+
+                        OrderNumber = processedSalesOrderCode;
+                        receiptCode = processedReceiptCode;
+
+                        if (status == AppLogic.ro_INTERPRISE_GATEWAY_AUTHORIZATION_FAILED)
+                        {
+                            gatewayAuthFailed = true;
+
+                            if (ctr == 0)
+                            {
+                                ThisCustomer.IncrementFailedTransactionCount();
+                                if (ThisCustomer.FailedTransactionCount >= AppLogic.AppConfigUSInt("MaxFailedTransactionCount"))
+                                {
+                                    cart.ClearTransaction();
+                                    ThisCustomer.ResetFailedTransactionCount();
+
+                                    _navigationService.NavigateToOrderFailed();
+                                }
+
+                                ThisCustomer.ClearTransactions(false);
+
+                                if (cart.HasRegistryItems())
+                                {
+                                    _navigationService.NavigateToCheckOutPayment();
+                                }
+
+                                if (cart.HasOverSizedItemWithPickupShippingMethod() || cart.HasPickupItem())
+                                {
+                                    _navigationService.NavigateToCheckOutPayment();
+                                }
+
+                                if (_appConfigService.CheckoutUseOnePageCheckout)
+                                {
+                                    Response.Redirect("checkout1.aspx?paymentterm=" + ThisCustomer.PaymentTermCode + "&errormsg=" + Server.UrlEncode(status));
+                                }
+                                else
+                                {
+                                    Response.Redirect("checkoutpayment.aspx?paymentterm=" + ThisCustomer.PaymentTermCode + "&errormsg=" + Server.UrlEncode(status));
+                                }
+                            }
+                        }
+
+                        // NOTE :
+                        //  Should handle cases when 1 or more orders failed the payment processor 
+                        //  if using a payment gateway on credit card
+                        multiorder = multiorder + "," + OrderNumber;
+
+                        if (!gatewayAuthFailed)
+                        {
+                            if (splitCart.HasRegistryItems())
+                            {
+                                DoRegistryQuantityDeduction(splitCart.CartItems);
+                            }
+                        }
+
+                    }
+
+                    if (multiorder != string.Empty) OrderNumber = multiorder.Remove(0, 1);
+
+                    if (!gatewayAuthFailed)
+                    {
+                        cart.ClearTransaction();
+                    }
+                }
+                else if (hasMultipleShippingMethod && cart.HasPickupItem() && AppLogic.EnableAdvancedFreightRateCalculation())
+                {
+                    List<InterpriseShoppingCart> splittedCarts = null;
+                    bool gatewayAuthFailed = false;
+
+                    //splittedCarts = _shoppingCartService.SplitShippingMethodsInMultipleOrders().ToList();
+                    splittedCarts = _shoppingCartService.SplitOtherShippingMethodsFromPickUp().ToList();
+
+                    for (int ctr = 0; ctr < splittedCarts.Count; ctr++)
+                    {
+                        var splitCart = splittedCarts[ctr];
+                        try
+                        {
+                            splitCart.BuildSalesOrderDetails(litCouponEntered.Text);
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            if (ex.Message == AppLogic.GetString("shoppingcart.cs.35"))
+                            {
+                                Response.Redirect("shoppingcart.aspx?resetlinkback=1&discountvalid=false");
+                            }
+                            else { throw ex; }
+                        }
+                        catch (Exception ex) { throw ex; }
+
+                        var currentItem = splitCart.FirstItem();
+
+                        var shippingAddress = !currentItem.GiftRegistryID.HasValue ? Address.Get(ThisCustomer, AddressTypes.Shipping, currentItem.m_ShippingAddressID) : ThisCustomer.PrimaryShippingAddress;
+
                         splitCart.ClearAlreadyAppliedOtherPayment = (ctr == splittedCarts.Count - 1); // clear other payment if last cart to be placed order
 
                         string processedSalesOrderCode = String.Empty;
@@ -645,7 +834,7 @@ namespace InterpriseSuiteEcommerce
                     {
                         if (!cart.HasShippableComponents())
                         {
-                            shippingAddress = ThisCustomer.PrimaryShippingAddress;
+                            shippingAddress = (string.IsNullOrWhiteSpace(ThisCustomer.SelectedShippingAddressID) ? ThisCustomer.PrimaryShippingAddress : ThisCustomer.ShippingAddresses.Find(sa => sa.AddressID == ThisCustomer.SelectedShippingAddressID));
                         }
                         else
                         {
@@ -675,7 +864,7 @@ namespace InterpriseSuiteEcommerce
                         }
                         else
                         {
-                            shippingAddress = ThisCustomer.PrimaryShippingAddress;
+                            shippingAddress = (string.IsNullOrWhiteSpace(ThisCustomer.SelectedShippingAddressID) ? ThisCustomer.PrimaryShippingAddress : ThisCustomer.ShippingAddresses.Find(sa => sa.AddressID == ThisCustomer.SelectedShippingAddressID));
                         }
                     }
 
@@ -748,7 +937,7 @@ namespace InterpriseSuiteEcommerce
                     }
 
                     if (status == AppLogic.ro_3DSecure)
-                    { 
+                    {
                         _navigationService.NavigateToSecureForm();
                     }
                     if (status != AppLogic.ro_OK)
@@ -789,7 +978,7 @@ namespace InterpriseSuiteEcommerce
 
             AppLogic.ClearCardNumberInSession(ThisCustomer);
             ThisCustomer.ClearTransactions(true);
-            
+
             string PM = AppLogic.CleanPaymentMethod(ThisCustomer.PaymentMethod);
             bool multipleAttachment = false;
             if (OrderNumber.IndexOf(',') != -1)
@@ -809,8 +998,11 @@ namespace InterpriseSuiteEcommerce
                 }
             }
 
+            if (ThisCustomer.IsRegistered) ThisCustomer.SelectedShippingAddressID = string.Empty;
+
             Response.Redirect("orderconfirmation.aspx?ordernumber={0}".FormatWith(OrderNumber.ToUrlEncode()));
-        }
+
+       }
 
         private void DoRegistryQuantityDeduction(CartItemCollection cartItems)
         {
@@ -848,7 +1040,7 @@ namespace InterpriseSuiteEcommerce
 
             bool hasInvalidGiftCode = giftCodes.Where(x => x.IsActivated && !x.BillToCode.IsNullOrEmptyTrimmed())
                                                .Any(x => x.BillToCode != customer.CustomerCode);
-            if(hasInvalidGiftCode)
+            if (hasInvalidGiftCode)
             {
                 _shoppingCartService.ClearAppliedGiftCodes();
                 string message = AppLogic.GetString("checkoutreview.aspx.17");

@@ -6,7 +6,7 @@
 <body>
     <form runat="Server" method="POST" id="SigninForm" name="SigninForm">
      <div>
-         <div align="center" style="text-align: center">
+         <div align="center">
             <asp:Panel ID="FormPanel" runat="server" Width="100%">
                 <asp:Panel ID="CheckoutPanel" runat="server">
                     <div id="CheckoutSequence" align="center">
@@ -20,86 +20,103 @@
                             <asp:Label CssClass="errorLg" ID="ErrorMsgLabel" runat="server"></asp:Label>
                             <asp:LinkButton ID="lnkContactUs" runat="server" PostBackUrl="contactus.aspx" Visible="false" />
                 </asp:Panel>
-                <ise:Topic runat="server" ID="HeaderMsg" TopicName="SigninPageHeader" />
-                <p align="left"><b><asp:Label ID="Label11" runat="server" Text="(!signin.aspx.5!)"></asp:Label>&nbsp;&nbsp;(<asp:HyperLink ID="SignUpLink" runat="server">(!signin.aspx.6!)</asp:HyperLink>)</b></p>
-          
-                <!--Log In Form Section Starts Here -->         
-                <div class="clr height-12"></div>
-                <div class="sections-place-holder no-padding">
-                <div class="section-header section-header-top"><asp:Literal ID="LtrPageWelcomeHeader_Caption" runat="server">(!signin.aspx.7!)</asp:Literal></div>
-                <div class="section-content-wrapper">
-                <table width="100%">
-                        <tbody>
-                            <tr  valign="top">
-                                <td  align="left" width="90%">
-                                    <table cellspacing="5" cellpadding="0" width="100%" border="0">
-                                        <tbody>
-                                            <tr valign="baseline">
-                                                <td colspan="2">
-                                                    <b><font class="LightCellText">
-                                                        <asp:Label ID="Label4" runat="server" Text="(!signin.aspx.8!)"></asp:Label>
-                                                    </font></b>
-                                                </td>
-                                            </tr>
-                                            <tr valign="baseline">
-                                                <td valign="middle" align="right">
-                                                    <font class="LightCellText"><asp:Label ID="Label3" runat="server" Text="(!signin.aspx.9!)"></asp:Label></font>
-                                                </td>
-                                                <td valign="middle" align="left">
-                                                    <asp:TextBox ID="EMail" runat="server" ValidationGroup="Group1" Columns="30" MaxLength="100" CausesValidation="True"
-                                                        AutoCompleteType="Email"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="Group1"
-                                                        ErrorMessage="(!signin.aspx.3!)" ControlToValidate="EMail"></asp:RequiredFieldValidator>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td valign="middle" align="right">
-                                                    <font class="LightCellText"><asp:Label ID="Label2" runat="server" Text="(!signin.aspx.10!)"></asp:Label></font>
-                                                </td>
-                                                <td valign="middle" align="left">
-                                                    <asp:TextBox ID="Password" runat="server" ValidationGroup="Group1" Columns="30" MaxLength="50"
-                                                        CausesValidation="True" TextMode="Password" AutoCompleteType="Disabled" autocomplete="off"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Group1"
-                                                        ErrorMessage="(!signin.aspx.4!)" ControlToValidate="Password"></asp:RequiredFieldValidator>
-                                                </td>
-                                            </tr>
-                                            <tr valign="baseline">
-                                                <td valign="middle" align="right">
-                                                    <font class="LightCellText">
-                                                        <asp:Label ID="Label1" runat="server" Text="(!signin.aspx.18!)" Visible="False"></asp:Label></font></td>
-                                                <td valign="middle" align="left">
-                                                    <asp:TextBox ID="SecurityCode" runat="server" Visible="False" ValidationGroup="Group1"
-                                                        CausesValidation="True" Width="73px" EnableViewState="False"></asp:TextBox><asp:RequiredFieldValidator
-                                                            ID="RequiredFieldValidator4" runat="server" ControlToValidate="SecurityCode"
-                                                            ErrorMessage="(!signin.aspx.17!)" ValidationGroup="Group1" Enabled="False"></asp:RequiredFieldValidator></td>
-                                            </tr>
-                                            <tr valign="baseline">
-                                                <td valign="middle" align="center" colspan="2">
-                                                    <asp:Image ID="SecurityImage" runat="server" Visible="False"></asp:Image>
-                                                </td>
-                                            </tr>
-                                            <tr valign="baseline">
-                                                <td valign="middle" align="right">
-                                                    <font class="LightCellText"><asp:Label ID="Label7" runat="server" Text="(!signin.aspx.11!)"></asp:Label></font>
-                                                </td>
-                                                <td valign="middle" align="left">
-                                                    <asp:CheckBox ID="PersistLogin" runat="server"></asp:CheckBox>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr valign="top">
-                                <td align="left" width="90%">
-                                    <p align="right">
-                                        <asp:Button ID="LoginButton" runat="server" CssClass="site-button content" ValidationGroup="Group1">
+                <ise:Topic runat="server" ID="HeaderMsg" TopicName="SigninPageHeader"  />
+                <p align="left"><b><asp:Label ID="Label11" runat="server" Text="(!signin.aspx.5!)" Visible ="false"></asp:Label>&nbsp;&nbsp;</b></p>
+                
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <asp:Literal ID="LtrPageWelcomeHeader_Caption" runat="server">(!signin.aspx.7!)</asp:Literal>
+                            </div>
+                            <div class="panel-body text-left">
+                                <b>
+                                    <asp:Label ID="Label3" runat="server" Text="(!signin.aspx.9!)" for="EMail"></asp:Label>
+                                </b>
+                                <asp:TextBox ID="EMail" runat="server" ValidationGroup="Group1" Columns="30" MaxLength="100" CausesValidation="True"
+                                    AutoCompleteType="Email" cssclass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="Group1"
+                                    ErrorMessage="(!signin.aspx.3!)" ControlToValidate="EMail"></asp:RequiredFieldValidator>
+                                <b><asp:Label ID="Label2" runat="server" Text="(!signin.aspx.10!)" for="Password"></asp:Label></b>
+                                <asp:TextBox ID="Password" runat="server" ValidationGroup="Group1" Columns="30" MaxLength="50"
+                                    CausesValidation="True" TextMode="Password" AutoCompleteType="Disabled" autocomplete="off" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Group1"
+                                    ErrorMessage="(!signin.aspx.4!)" ControlToValidate="Password"></asp:RequiredFieldValidator>
+                                    <div runat="server" style="display: inline-block;" visible="false">
+                                    <font class="LightCellText"><asp:Label ID="Label1" runat="server" Text="(!signin.aspx.18!)" Visible="False" for="SecurityCode"></asp:Label></font>
+                                    <asp:Image ID="SecurityImage" runat="server" Visible="False"></asp:Image>
+                                    <asp:TextBox ID="SecurityCode" runat="server" Visible="False" ValidationGroup="Group1"
+                                                                CausesValidation="True" Width="73px" EnableViewState="False"></asp:TextBox><asp:RequiredFieldValidator
+                                                                    ID="RequiredFieldValidator4" runat="server" ControlToValidate="SecurityCode"
+                                                                    ErrorMessage="(!signin.aspx.17!)" ValidationGroup="Group1" Enabled="False"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <asp:Label ID="Label7" runat="server" Text="(!signin.aspx.11!)" for="PersistLogin"></asp:Label>
+                                    <asp:CheckBox ID="PersistLogin" runat="server" CssClass="form-Control"></asp:CheckBox>
+                                <br />  
+                                <br />  
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <asp:Button ID="LoginButton" runat="server" CssClass="btn btn-success btn-block content form-control" ValidationGroup="Group1">
                                         </asp:Button>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <asp:HyperLink ID="SignUpLink" runat="server" CssClass="btn btn-default btn-block content form-control">(!signin.aspx.6!)</asp:HyperLink>
+                                    </div>
+                                </div>
+                                <br /> 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" data-toggle="modal" data-target="#forgotPassword">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                        <br />
+                      </div>
+                      <div class="modal-body">
+                         <!--Request Password Section Starts Here -->
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <div runat="server" style="display: inline-block;" visible="false">
+                                      <p align="left"><asp:Label ID="Label8" runat="server" Text="(!signin.aspx.13!)" Visible="false"></asp:Label></p>
+                                      <div class="clr height-12"></div>
+                                      <asp:Literal ID="Literal1" runat="server" Visible="false">(!signin.aspx.14!)</asp:Literal>
+                                  </div>
+                                  <asp:Label ID="Label6" runat="server" Text="(!signin.aspx.12!)"></asp:Label>
+                              </div>
+                              <div class="panel-body text-left">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <font class="LightCellText">&nbsp;<asp:Label ID="Label12" runat="server" Text="(!signin.aspx.9!)"></asp:Label></font>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <asp:TextBox ID="ForgotEMail" runat="server" ValidationGroup="Group2" CausesValidation="True"
+                                            AutoCompleteType="Email" Columns="30"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ForgotEMail" ErrorMessage="(!signin.aspx.3!)" ValidationGroup="Group2"></asp:RequiredFieldValidator>    
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <asp:Button ID="RequestPassword" runat="server" CssClass="btn btn-default content" ValidationGroup="Group2"></asp:Button>
+                                        </div>
+                                    </div>
+                              </div>
+                           </div>
+                           <!--Request Password Section Ends Here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
                     <div class="clr height-5"></div>
                   </div>
              </div>
@@ -107,46 +124,7 @@
 
              <div class="clr height-12"></div>
 
-              <!--Request Password Section Starts Here -->
-              <p align="left"><b><asp:Label ID="Label6" runat="server" Text="(!signin.aspx.12!)"></asp:Label></b>&nbsp;</p>
-              <p align="left"><asp:Label ID="Label8" runat="server" Text="(!signin.aspx.13!)"></asp:Label></p>
-
-              <div class="clr height-12"></div>
-              <div class="sections-place-holder no-padding">
-                    <div class="section-header section-header-top"><asp:Literal ID="Literal1" runat="server">(!signin.aspx.14!)</asp:Literal></div>
-                    <div class="section-content-wrapper">
-                        <table width="100%">
-                            <tbody>
-                                <tr valign="top">
-                                    <td  align="left" width="100%">
-                                        <table cellspacing="5" cellpadding="0" border="0" width="100%">
-                                            <tbody>
-                                                <tr valign="baseline">
-                                                    <td align="right" style="height: 24px">
-                                                        <font class="LightCellText">&nbsp;<asp:Label ID="Label12" runat="server" Text="(!signin.aspx.9!)"></asp:Label>
-                                                        </font>
-                                                    </td>
-                                                    <td style="height: 24px">
-                                                        <asp:TextBox ID="ForgotEMail" runat="server" ValidationGroup="Group2" CausesValidation="True"
-                                                            AutoCompleteType="Email" Columns="30"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ForgotEMail" ErrorMessage="(!signin.aspx.3!)" ValidationGroup="Group2"></asp:RequiredFieldValidator>                                                                                                    
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td align="left" width="100%">
-                                        <p align="right">
-                                            <asp:Button ID="RequestPassword" runat="server" CssClass="site-button content" ValidationGroup="Group2"></asp:Button></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-               <!--Request Password Section Ends Here -->
+             
 
 
             </asp:Panel>

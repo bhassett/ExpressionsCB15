@@ -81,12 +81,19 @@
                         <div style="padding-right: 12px;" class="button-place-holder">
                             <div id="return-address-button">
                                 <div id="return-address-button-place-holder">
-                                    <div class="float-right">
-                                        <asp:Panel ID="pnlUpdasteAddress" CssClass="float-left" Style="padding-right: 5px;" runat="server">
+                                    <div class="row">
+                                    <div class="col-sm-6">
+                                        <asp:Panel ID="Panel1" runat="server" CssClass="btn-sep btn-block">
+                                            <asp:Button ID="btnReturn" runat="server" CssClass="btn btn-default content btn-block" />
+                                            <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="btn btn-default btn-block" />
+                                        </asp:Panel>
+                                        </div>
+                                    <div class="col-sm-6">
+                                        <asp:Panel ID="pnlUpdasteAddress" CssClass="btn-sep btn-block" Style="padding-right: 5px;" runat="server">
                                             <div id="update-address-button">
                                                 <div id="update-address-loader"></div>
                                                 <div id="update-address-button-place-holder">
-                                                    <input type="button" id="save-address" class="site-button content btn btn-info"
+                                                    <input type="button" id="save-address" class="btn btn-primary content btn-block"
                                                         data-contentkey="editaddress.aspx.3"
                                                         data-contentvalue="<%=AppLogic.GetString("editaddress.aspx.3", true)%>"
                                                         data-contenttype="string resource"
@@ -94,10 +101,8 @@
                                                 </div>
                                             </div>
                                         </asp:Panel>
-                                        <asp:Panel ID="Panel1" runat="server" CssClass="float-left">
-                                            <asp:Button ID="btnReturn" runat="server" CssClass="site-button content  btn btn-info" />
-                                            <asp:Button ID="btnCheckOut" runat="server" Visible="false" CssClass="site-button  btn btn-info" />
-                                        </asp:Panel>
+                                        </div>
+                                        
                                     </div>
                                 </div>
 

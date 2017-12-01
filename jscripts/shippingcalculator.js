@@ -152,7 +152,7 @@ function FinalizeShippingAddressForm() {
      var $buttonCalculateShipping = $("#btnCalcShip");
      var isSpipping = $buttonCalculateShipping.attr("data-isSpinning") == 1;
      if (isSpipping == false) {
-         $buttonCalculateShipping.attr("data-buttonText", $buttonCalculateShipping.html()).prepend("<i class='icon icon-spinner icon-spin'></i>&nbsp;");
+         $buttonCalculateShipping.attr("data-buttonText", $buttonCalculateShipping.html()).prepend("<i class='fa fa-spinner fa-spin'></i>&nbsp;");
          $buttonCalculateShipping.attr("data-isSpinning", 1);
      }
 

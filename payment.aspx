@@ -77,10 +77,10 @@
                     </div>
                     <div class="float-left">
                         <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox> 
-                        <asp:Button ID="btnProcessPayment" runat="server" CssClass="site-button content" Text="(!payment.aspx.18!)" data-contentKey="payment.aspx.18" data-contentType="string resource" data-contentValue="(!payment.aspx.18!)"/>
+                        <asp:Button ID="btnProcessPayment" runat="server" CssClass="btn btn-default content" Text="(!payment.aspx.18!)" data-contentKey="payment.aspx.18" data-contentType="string resource" data-contentValue="(!payment.aspx.18!)"/>
                     </div>
                     <div id="progress" class="display-none">
-                        <div style='float:left;width:12px;'><i class="icon icon-spinner icon-spin"></i></div> 
+                        <div style='float:left;width:12px;'><i class="fa fa-spinner fa-spin"></i></div> 
                         <div id='loader-container'><asp:Literal ID="litProgessMessage" runat="server">(!payment.aspx.25!)</asp:Literal></div>
                     </div>
                  </div>

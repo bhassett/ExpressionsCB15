@@ -353,7 +353,7 @@ function ShowBillingAddress( selectedPayment) {
 }
 
 function CreditCardPanelStyles_Workaround() {
-
+    return;
     $(".RedirectPaymentMethodPanel > tbody > tr > td").css("border", "0");
     $(".RedirectPaymentMethodPanel > tbody > tr > td > span").addClass("strong-font");
 

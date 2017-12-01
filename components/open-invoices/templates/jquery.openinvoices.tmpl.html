@@ -52,7 +52,12 @@
             <td> ${$value.Payments} </td>
             <td> ${$value.Balance} </td>
             <td>
-                <a href="payment.aspx?invoicecode=${$value.InvoiceCode}" class="site-button content btn btn-info" style="color: #fff; height: 30px;  padding-top: 5px !important;">${stringResource.payOnlineButtonText}</a>
+                {{if $value.IsPaid === true}}
+                    <span class="label label-success">PAID</span>
+                {{else}}
+                    <a href="payment.aspx?invoicecode=${$value.InvoiceCode}" class="site-button content btn btn-info" style="color: #fff; height: 30px;  padding-top: 5px !important;">${stringResource.payOnlineButtonText}</a>
+                {{/if}}
+               
             </td>
         </tr>
     {{/each}}

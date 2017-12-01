@@ -11,8 +11,14 @@
 <body>
     <uc:ScriptControl ID="ctrlScript" runat="server"/>
     <asp:Panel runat="server">
+
+         <div class="text-center">
+                <asp:Literal ID="CheckoutStepLiteral" runat="server"></asp:Literal>
+            </div>
         <div style="text-align: center;">
-            <div style="text-align: center;">
+           
+               
+      <%--  <div style="text-align: center;">
                 <asp:ImageMap ID="checkoutheadergraphic" HotSpotMode="PostBack" runat="server" BorderWidth="0">
                     <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/shoppingcart.aspx"
                         Top="0" Left="0" Bottom="90" Right="111" />
@@ -23,7 +29,7 @@
                     <asp:RectangleHotSpot AlternateText="" HotSpotMode="Navigate" NavigateUrl="~/checkoutpayment.aspx"
                         Top="0" Left="342" Bottom="90" Right="445" />
                 </asp:ImageMap>
-            </div>
+            </div>--%>
             <ise:Topic runat="server" ID="CheckoutReviewPageHeader" TopicName="CheckoutReviewPageHeader" />
             <asp:Literal ID="XmlPackage_CheckoutReviewPageHeader" runat="server" Mode="PassThrough"></asp:Literal>
             <form runat="server">
@@ -35,7 +41,7 @@
             <div id='place-order-button-container'>
                 <div>
                     <div id="place-order-message">
-                        <i class="icon icon-spin icon-spinner progress-indicator"></i>
+                        <i class="fa fa-spin fa-spinner progress-indicator"></i>
                         <span>
                             <asp:Literal ID="checkoutreviewaspx14" Mode="PassThrough" runat="server" Text="(!checkoutreview.aspx.14!)"></asp:Literal>
                         </span>

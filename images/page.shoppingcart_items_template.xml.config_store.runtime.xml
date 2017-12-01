@@ -2,18 +2,16 @@
   <System>
     <IsAdminSite />
     <IsAdminSiteInt />
-    <CustomerID>11</CustomerID>
+    <CustomerID>CUST-000001</CustomerID>
     <DefaultVATSetting>2</DefaultVATSetting>
     <CustomerVATSetting>2</CustomerVATSetting>
     <UseVATSetting>2</UseVATSetting>
     <CustomerLevelID />
     <CustomerLevelName />
-    <CustomerFirstName>Default eCommerce Shopper</CustomerFirstName>
-    <CustomerLastName>
-    </CustomerLastName>
-    <CustomerFullName>Default eCommerce Shopper</CustomerFullName>
-    <SubscriptionExpiresOn>
-    </SubscriptionExpiresOn>
+    <CustomerFirstName>Brian</CustomerFirstName>
+    <CustomerLastName>Hassett</CustomerLastName>
+    <CustomerFullName>Brian Hassett</CustomerFullName>
+    <SubscriptionExpiresOn>5/30/2120</SubscriptionExpiresOn>
     <CustomerRoles>
     </CustomerRoles>
     <IsAdminUser />
@@ -29,45 +27,56 @@
     <PrimaryCurrency>USD</PrimaryCurrency>
     <PrimaryCurrencyDisplayLocaleFormat>
     </PrimaryCurrencyDisplayLocaleFormat>
-    <Date>2/16/2015</Date>
-    <Time>10:42 AM</Time>
-    <SkinID>99</SkinID>
+    <Date>6/19/2015</Date>
+    <Time>4:26 PM</Time>
+    <SkinID>100</SkinID>
     <AffiliateID>
     </AffiliateID>
     <IPAddress>199.21.196.164</IPAddress>
-    <QueryStringRAW>add=true&amp;amp;ReturnUrl=showproduct.aspx%3fProductID%3d4947</QueryStringRAW>
+    <QueryStringRAW>add=true&amp;amp;ReturnUrl=showproduct.aspx%3fProductID%3d27622</QueryStringRAW>
     <UseStaticLinks>
     </UseStaticLinks>
     <PageName>ShoppingCart.aspx</PageName>
     <FullPageName>/Staging/ShoppingCart.aspx</FullPageName>
     <XmlPackageName>page.shoppingcart_items_template.xml.config</XmlPackageName>
     <StoreUrl>http://206.125.47.72:81/staging/</StoreUrl>
-    <CurrentDateTime>Mon, 16 Feb 2015 15:42:16 GMT</CurrentDateTime>
-    <CustomerIsRegistered>false</CustomerIsRegistered>
+    <CurrentDateTime>Fri, 19 Jun 2015 20:26:13 GMT</CurrentDateTime>
+    <CustomerIsRegistered>true</CustomerIsRegistered>
     <RequestedPage>ShoppingCart.aspx</RequestedPage>
-    <RequestedQuerystring>?add=true&amp;ReturnUrl=showproduct.aspx%3fProductID%3d4947</RequestedQuerystring>
+    <RequestedQuerystring>?add=true&amp;ReturnUrl=showproduct.aspx%3fProductID%3d27622</RequestedQuerystring>
     <LanguageCode>en-US</LanguageCode>
     <WebSiteCode>WEB-000001</WebSiteCode>
-    <CustomerGuid>eb44ae1f-5885-433c-a150-5e3580b8c591</CustomerGuid>
+    <CustomerGuid>0849c220-b66e-4e34-800b-ba4b2fc18186</CustomerGuid>
     <ProductFilterID>
     </ProductFilterID>
-    <ContactGuid>eb44ae1f-5885-433c-a150-5e3580b8c591</ContactGuid>
-    <CustomerCode>11</CustomerCode>
+    <ContactGuid>0849c220-b66e-4e34-800b-ba4b2fc18186</ContactGuid>
+    <CustomerCode>CUST-000001</CustomerCode>
     <ItemCompareFilter>
     </ItemCompareFilter>
-    <ContactCode>11</ContactCode>
+    <ContactCode>CUST-000001</ContactCode>
     <CBNMode>False</CBNMode>
   </System>
   <QueryString>
     <add>true</add>
-    <returnurl>showproduct.aspx?ProductID=4947</returnurl>
+    <returnurl>showproduct.aspx?ProductID=27622</returnurl>
   </QueryString>
   <Form />
+  <Cookies>
+    <__atuvc>4|20,7|21,17|22,2|23,6|24</__atuvc>
+    <Referrer>http://206.125.47.72:81/Staging/</Referrer>
+    <ISEGUID>E126B42FD7231E6D23990D9FE8E23E38C38C7CA54FA021EFFED762D0E1A837C7DCD0A780A5BE18A0F58EF5C88B806FB0EB11DE108AAC6AADDFDC82D85756D071F22EF1F585A502716C43EBA06D48A407CD98E708D6992FE709FC8199CF4486871E25AD52EA9DF84B34D4F3A1AC7AB3C8534F81AF52A45D5CC61179E0F92250FBCF2B27AAF5A125A5A8328023ABA86A260E27DEE780DCEC9A60B55E3BF1AE092A4D481CEF</ISEGUID>
+    <__atuvs>558479c425207df9005</__atuvs>
+    <LastViewedEntityName>Category</LastViewedEntityName>
+    <LastViewedEntityInstanceID>32</LastViewedEntityInstanceID>
+    <LastViewedEntityInstanceName>Sculpture</LastViewedEntityInstanceName>
+    <SkinID_WEB-000001>100</SkinID_WEB-000001>
+    <SkinID_WEB-000001>100</SkinID_WEB-000001>
+  </Cookies>
   <ServerVariables>
     <HTTP_HOST>206.125.47.72:81</HTTP_HOST>
-    <HTTP_USER_AGENT>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36</HTTP_USER_AGENT>
+    <HTTP_USER_AGENT>Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/43.0.2357.56 Mobile/12F70 Safari/600.1.4</HTTP_USER_AGENT>
     <AUTH_TYPE>Forms</AUTH_TYPE>
-    <AUTH_USER>eb44ae1f-5885-433c-a150-5e3580b8c591</AUTH_USER>
+    <AUTH_USER>0849c220-b66e-4e34-800b-ba4b2fc18186</AUTH_USER>
     <AUTH_PASSWORD>
     </AUTH_PASSWORD>
     <HTTPS>off</HTTPS>
@@ -79,30 +88,29 @@
     <SERVER_PORT_SECURE>0</SERVER_PORT_SECURE>
   </ServerVariables>
   <Runtime>
-    <CustomerCode>11</CustomerCode>
-    <Date>2/16/2015</Date>
-    <Time>10:42 AM</Time>
+    <CustomerCode>CUST-000001</CustomerCode>
+    <Date>6/19/2015</Date>
+    <Time>4:26 PM</Time>
     <SqlServerLocaleSetting>en-US</SqlServerLocaleSetting>
     <CBNMode>False</CBNMode>
-    <SubscriptionExpiresOn>
-    </SubscriptionExpiresOn>
+    <SubscriptionExpiresOn>5/30/2120</SubscriptionExpiresOn>
     <UseVATSetting>2</UseVATSetting>
     <PageName>ShoppingCart.aspx</PageName>
-    <SkinID>99</SkinID>
+    <SkinID>100</SkinID>
     <ItemCompareFilter>
     </ItemCompareFilter>
-    <ContactCode>CCTC-000001</ContactCode>
+    <ContactCode>CCTC-000002</ContactCode>
     <ProductFilterID>
     </ProductFilterID>
     <WebSiteCode>WEB-000001</WebSiteCode>
-    <CustomerFullName>Default eCommerce Shopper</CustomerFullName>
+    <CustomerFullName>Brian Hassett</CustomerFullName>
     <IPAddress>199.21.196.164</IPAddress>
     <CurrencySetting>USD</CurrencySetting>
     <UseStaticLinks>False</UseStaticLinks>
-    <QueryStringRAW>add=true&amp;amp;ReturnUrl=showproduct.aspx%3fProductID%3d4947</QueryStringRAW>
-    <ContactGuid>eb44ae1f-5885-433c-a150-5e3580b8c591</ContactGuid>
-    <CustomerID>11</CustomerID>
-    <CustomerIsRegistered>false</CustomerIsRegistered>
+    <QueryStringRAW>add=true&amp;amp;ReturnUrl=showproduct.aspx%3fProductID%3d27622</QueryStringRAW>
+    <ContactGuid>0849c220-b66e-4e34-800b-ba4b2fc18186</ContactGuid>
+    <CustomerID>CUST-000001</CustomerID>
+    <CustomerIsRegistered>true</CustomerIsRegistered>
     <CustomerRoles>
     </CustomerRoles>
     <PrimaryCurrencyDisplayLocaleFormat>
@@ -110,19 +118,18 @@
     <AffiliateID>
     </AffiliateID>
     <DefaultVATSetting>2</DefaultVATSetting>
-    <CustomerFirstName>Default eCommerce Shopper</CustomerFirstName>
+    <CustomerFirstName>Brian</CustomerFirstName>
     <LanguageCode>English - United States</LanguageCode>
     <StoreUrl>http://206.125.47.72:81/staging/</StoreUrl>
     <CustomerVATSetting>2</CustomerVATSetting>
-    <CustomerGuid>eb44ae1f-5885-433c-a150-5e3580b8c591</CustomerGuid>
+    <CustomerGuid>0849c220-b66e-4e34-800b-ba4b2fc18186</CustomerGuid>
     <CurrencyDisplayLocaleFormat>
     </CurrencyDisplayLocaleFormat>
     <FullPageName>/Staging/ShoppingCart.aspx</FullPageName>
     <XmlPackageName>page.shoppingcart_items_template.xml.config</XmlPackageName>
-    <CustomerLastName>
-    </CustomerLastName>
+    <CustomerLastName>Hassett</CustomerLastName>
     <LocaleSetting>en-US</LocaleSetting>
-    <CurrentDateTime>Mon, 16 Feb 2015 15:42:16 GMT</CurrentDateTime>
+    <CurrentDateTime>Fri, 19 Jun 2015 20:26:13 GMT</CurrentDateTime>
     <PrimaryCurrency>USD</PrimaryCurrency>
   </Runtime>
 </root>

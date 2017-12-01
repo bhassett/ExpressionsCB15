@@ -22,8 +22,8 @@
     <ise:InputValidatorSummary ID="errorSummary" CssClass="error float-left normal-font-style" runat="server" Register="False" />
     <div class="clear-both" id="error-summary-clear"></div>
     <form id="frmLeadForm" runat="server">
-    <asp:Panel ID="pnlPageContentWrapper" runat="server">
-      <div class="sections-place-holder no-padding">
+    <asp:Panel ID="pnlPageContentWrapper" runat="server" CssClass="row">
+      <div class="col-md-6 col-md-offset-3">
         <div class="section-header section-header-top"><asp:Literal ID="Literal2" runat="server">(!leadform.aspx.22!)</asp:Literal></div>
       
         <div class="section-content-wrapper">
@@ -124,7 +124,7 @@
              <div id="save-lead-button">
                 <div id="save-lead-loader"></div>
                     <div id="save-lead-button-place-holder">
-                        <input type="button" id="btnSubmitLF" value="<%=AppLogic.GetString("leadform.aspx.15", true)%>" class="site-button content" data-contentKey="leadform.aspx.15" data-contentType="string resource" data-contentValue="<%=AppLogic.GetString("leadform.aspx.15", true)%>" />
+                        <input type="button" id="btnSubmitLF" value="<%=AppLogic.GetString("leadform.aspx.15", true)%>" class="btn btn-default btn-block content" data-contentKey="leadform.aspx.15" data-contentType="string resource" data-contentValue="<%=AppLogic.GetString("leadform.aspx.15", true)%>" />
                     </div>
                </div>
          </div>

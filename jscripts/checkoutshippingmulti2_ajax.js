@@ -5,6 +5,7 @@ ise.Pages._CheckOutShippingMulti2 = function() {
     this.form = null;
     this.expectedCount = 0;
     this.loadCount = 0;
+    this.isSkipValidation = false;
 }
 ise.Pages._CheckOutShippingMulti2.registerClass('ise.Pages._CheckOutShippingMulti2', ise.Pages.BasePage);
 ise.Pages._CheckOutShippingMulti2.prototype = {
@@ -128,7 +129,15 @@ ise.Pages._CheckOutShippingMulti2.prototype = {
         if(this.expectedCount == this.loadCount) { $enableSubmit(this.form); }
     },
     
-    validate : function() {
+    setSkipValidation: function () { this.isSkipValidation = true; },
+
+    validate: function () {
+
+        if (this.isSkipValidation) {
+            this.isSkipValidation = false;
+            return true;
+        }
+
         var anyNotValid = false;
         var clear = false;
         

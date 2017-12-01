@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Calendar</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <link href="css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <link href="css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+<div class="dropdown profile-element text-center"> <span>
+                    <img src="img/cb-logo2.png" width="30%">
+                     </span>
+            
+                  <span class="clear"> <span class="block m-t-xs"> <h1 class="font-bold" style="color:#FFFFFF; margin-top:0px"><span style="color:#8acffc;">e</span>CRM</h1>
+                   </span> </span> 
+            </div>
+                    <div class="logo-element">
+                        <img src="img/cb-logo2.png" width="50%">
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="Customers.html"><i class="fa fa-star"></i> <span class="nav-label">Customers</span> <span class="label label-info pull-right">3 NEW</span></a>
+                </li>
+                <li>
+                    <a href="Prospects.html"><i class="fa fa-star-half-o"></i> <span class="nav-label">Prospects</span> <span class="label label-info pull-right">0 NEW</span></a>
+                </li>
+                <li>
+                    <a href="Leads.html"><i class="fa fa-bullseye"></i> <span class="nav-label">Leads</span> <span class="label label-info pull-right">10 NEW</span></a>
+                </li>
+                <li>
+                    <a href="Contacts.html"><i class="fa fa-users"></i> <span class="nav-label">Contacts</span>  </a>
+                </li>
+                <li class="active">
+                    <a href="Calendar.html"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span> <span class="label label-warning pull-right">3</span></a>
+                </li>
+                <li>
+                    <a href="Activities.html"><i class="fa fa-list-ol"></i> <span class="nav-label">Activities</span> <span class="label label-warning pull-right">3</span></a>
+                </li>
+                <li>
+                    <a href="Opportunities.html"><i class="fa fa-sign-in"></i> <span class="nav-label">Opportunities</span> <span class="label label-danger pull-right">16</span></a>
+                </li>
+                <li>
+                    <a href="Email.html"><i class="fa fa-envelope"></i> <span class="nav-label">Email</span> <span class="label label-danger pull-right">3</span></a>
+                </li>
+                <li>
+                    <a href="Campaigns.html"><i class="fa fa-bullhorn"></i> <span class="nav-label">Campaigns</span></a>
+                </li>
+               
+            </ul>
+
+        </div>
+    </nav>
+
+<div id="page-wrapper" class="gray-bg">
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-user"></i> Hi, Sherwin Cunanan
+                    </a>
+                </li>
+                 <li>
+                    <a href="login.html">
+                        <i class="fa fa-power-off"></i> <span class="hidden-xs">Log out</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Settings.html">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+</div>
+<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-xs-8">
+                    <h2>Calendar</h2>
+                </div>
+                <div class="col-xs-4 text-right">
+  <a class="btn btn-success " href="#" style="margin-top: 20px;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<span class="bold">New <span class="hidden-xs">Event</span></span></a>
+</div>
+
+            </div>
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInDown">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Add Calendar Event</h5>
+                    <div class="ibox-tools">
+                    <a class="dropdown-toggle btn btn-success btn-sm" style="color:#FFF;" data-toggle="dropdown" href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-circle text-success"></i>&nbsp; Add Call</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-circle text-info"></i>&nbsp; Add Callback</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-circle text-primary"></i>&nbsp; Add Meeting</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-circle text-default"></i>&nbsp; Add Campaign</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-circle text-warning"></i>&nbsp; Add To-Do</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-circle text-danger"></i>&nbsp; Add Case</a>
+                            </li>
+                        </ul>
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id='external-events'>
+                        <p>Drag unscheduled below event and drop into callendar.</p>
+                        <div class='external-event btn-danger'>Follow-up on undelivered supplies.</div>
+                        <div class='external-event btn-default'>Go to shop and buy some products.</div>
+                        <div class='external-event btn-warning'>Check the new CI from Corporation.</div>
+                        <div class='external-event btn-info'>Send documents to John.</div>
+                        <div class='external-event btn-success'>Phone to Sandra.</div>
+                        <div class='external-event btn-primary'>Chat with Michael.</div>
+                        <p class="m-t">
+                            <input type='checkbox' id='drop-remove' class="i-checks" checked /> <label for='drop-remove'>remove after drop</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>
+                    LEGEND:&nbsp;
+<i class="fa fa-circle text-success"></i>&nbsp;Call&nbsp;&nbsp;
+<i class="fa fa-circle text-info"></i>&nbsp;Callback&nbsp;&nbsp;
+<i class="fa fa-circle text-primary"></i>&nbsp;Meeting&nbsp;&nbsp;
+<i class="fa fa-circle text-default"></i>&nbsp;Campaign&nbsp;&nbsp;
+<i class="fa fa-circle text-warning"></i>&nbsp;To-Do&nbsp;&nbsp;
+<i class="fa fa-circle text-danger"></i>&nbsp;Case&nbsp;&nbsp;
+                    </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Config option 1</a>
+                            </li>
+                            <li><a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="pull-right">
+        10GB of <strong>250GB</strong> Free.
+    </div>
+    <div>
+        <strong>Copyright</strong> Example Company &copy; 2014-2015
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/plugins/fullcalendar/moment.min.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- jQuery UI custom -->
+<script src="js/jquery-ui.custom.min.js"></script>
+
+<!-- iCheck -->
+<script src="js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- Full Calendar -->
+<script src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+
+        /* initialize the external events
+         -----------------------------------------------------------------*/
+
+
+        $('#external-events div.external-event').each(function() {
+
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 1111999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
+
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar
+            drop: function() {
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
+                    $(this).remove();
+                }
+            },
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+
+
+    });
+
+</script>
+</body>
+
+</html>

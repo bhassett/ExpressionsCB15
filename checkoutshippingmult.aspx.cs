@@ -39,6 +39,7 @@ namespace InterpriseSuiteEcommerce
         IAppConfigService _appConfigService = null;
         ICustomerService _customerService = null;
         IShoppingCartService _shoppingCartService = null;
+        IStringResourceService _stringResourceService = null;
 
         #endregion
 
@@ -54,6 +55,7 @@ namespace InterpriseSuiteEcommerce
             PerformPageAccessLogic();
             InitializeCartRepeaterControl();
             DisplayCheckOutStepsImage();
+            DisplayOrderSummary();
             InitControlText();
         }
 
@@ -63,6 +65,7 @@ namespace InterpriseSuiteEcommerce
             _appConfigService = ServiceFactory.GetInstance<IAppConfigService>();
             _customerService = ServiceFactory.GetInstance<ICustomerService>();
             _shoppingCartService = ServiceFactory.GetInstance<IShoppingCartService>();
+            _stringResourceService = ServiceFactory.GetInstance<IStringResourceService>();
         }
 
         private void SetCacheability()
@@ -163,9 +166,19 @@ namespace InterpriseSuiteEcommerce
 
         private void DisplayCheckOutStepsImage()
         {
-            checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_3.gif");
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[0]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.3");
-            ((RectangleHotSpot)checkoutheadergraphic.HotSpots[1]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.4");
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(2, "shoppingcart.aspx", string.Empty, string.Empty);
+            //checkoutheadergraphic.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_3.gif");
+            //((RectangleHotSpot)checkoutheadergraphic.HotSpots[0]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.3");
+            //((RectangleHotSpot)checkoutheadergraphic.HotSpots[1]).AlternateText = AppLogic.GetString("checkoutshipping.aspx.4");
+        }
+        private void DisplayOrderSummary()
+        {
+            DetailsLit.Text = _stringResourceService.GetString("itempopup.aspx.2");
+            EditCartLit.Text = _stringResourceService.GetString("checkout1.aspx.44");
+            var renderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.Shipping, "page.checkout.ordersummaryitems.xml.config", ThisCustomer.CouponCode);
+            CheckoutOrderSummaryItemsLiteral.Text = _cart.RenderHTMLLiteral(renderer);
+            OrderSummaryCardLiteral.Text = AppLogic.RenderOrderSummaryCard(renderer.OrderSummary);
+
         }
 
         private void InitializeCartRepeaterControl()

@@ -53,6 +53,22 @@
             });
          </script>
         
+        <!--  Google SD -->
+        <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "url": "https://www.expressionsdecor.com",
+          "logo": "https://www.expressionsdecor.com/skins/Skin_100/images/global/expressions-logo.png",
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+1-574-642-3577",
+            "contactType": "customer service",
+            "areaServed": "US"
+          }]
+        }
+        </script>
+        
         <!-- Facebook Conversion Code for Leads -->
         <script>(function() {
         var _fbq = window._fbq || (window._fbq = []);
@@ -424,7 +440,7 @@
                 <!-- AddThis Follow END -->
                 
               </div>
-              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small itemprop="brand" itemscope itemtype="http://schema.org/Brand">&#169; 2015 <span itemprop="name">Expressions by Decor &#38; More, Inc.</span> All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
+              <div class="small-12 medium-6 medium-pull-6 columns small-text-center medium-text-left copyright"><h6><small itemprop="brand" itemscope itemtype="http://schema.org/Brand">&#169; 2017 <span itemprop="name">Expressions by Decor &#38; More, Inc.</span> All rights reserved.<br><a href="t-termsandconditions.aspx">Terms of Use</a> <span>|</span> <a href="t-privacy.aspx">Privacy Policy</a></small></h6></div>
             </div>
               
             <div class="row show-for-large-up"><a href="#" class="back-to-top"><img src="/skins/Skin_(!SKINID!)/images/back-to-top.png" /></a></div>

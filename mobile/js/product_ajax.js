@@ -808,17 +808,17 @@ ise.Products.PriceControl.prototype = {
                 pnlPrice.id = 'pnlPrice_' + this.id;
                 this.ctrl.appendChild(pnlPrice);
 
-                var lblPriceCaption = document.createElement('SPAN');
-                lblPriceCaption.id = 'lblPriceCaption_' + this.id;
-                lblPriceCaption.className = 'showproduct_PriceCaption';
+                //var lblPriceCaption = document.createElement('SPAN');
+                //lblPriceCaption.id = 'lblPriceCaption_' + this.id;
+                //lblPriceCaption.className = 'showproduct_PriceCaption';
 
-                if (displayLabel == 'true') {
-                    lblPriceCaption.innerHTML = ise.StringResource.getString('showproduct.aspx.33');
-                }
+                //if (displayLabel == 'true') {
+                //    lblPriceCaption.innerHTML = ise.StringResource.getString('showproduct.aspx.33');
+                //}
 
-                lblPriceCaption.innerHTML = lblPriceCaption.innerHTML + '&nbsp;';
+                //lblPriceCaption.innerHTML = lblPriceCaption.innerHTML + '&nbsp;';
 
-                pnlPrice.appendChild(lblPriceCaption);
+                //pnlPrice.appendChild(lblPriceCaption);
 
                 var lblPrice = document.createElement('SPAN');
                 lblPrice.id = 'lblPrice_' + this.id;

@@ -81,7 +81,7 @@ public partial class UserControls_ShippingMethodControl : BaseUserControl
             script.AppendLine();
         }
 
-        script.AppendFormat("      reg.requestShippingMethod('{0}');\n", ShippingAddressID);
+        script.AppendFormat("      reg.requestShippingMethod('{0}', '{1}');\n", ShippingAddressID, ItemSpecificType);
 
         if (this.ShowShowAllRatesButton)
         {
@@ -265,6 +265,13 @@ public partial class UserControls_ShippingMethodControl : BaseUserControl
         {
             btnShowAllRates.Text = value;
         }
+    }
+
+    public string ItemSpecificType
+    {
+        get { return itemSpecificType.Value; }
+        set { itemSpecificType.Value = value; }
+        //get {return specificTypeCode.Value;} set; 
     }
 
     #endregion

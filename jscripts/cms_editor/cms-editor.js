@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     InitButtonValue();
+    ExitCms();
 });
 
 function ProcessCmsPanelButton(callerObject) {
@@ -39,6 +40,19 @@ function ProcessCmsPanelButton(callerObject) {
 
 }
 
+function ExitCms() {
+    $(".exit-cms").live("click", function (e) {
+        AjaxCallCommon("ActionService.asmx/TogglePageEditMode", { mode: false }, function () {
+            AjaxCallCommon("ActionService.asmx/ExitSiteEditor");
+            var arr = location.href.split("?");
+            if (arr.length > 1) { location.href = arr[0]; }
+            else {
+                location.reload();
+            }
+        });
+    });
+}
+
 //function InitCmsPanel() {
 
 //    var keys = new Array();
@@ -63,8 +77,8 @@ function InitButtonValue() {
 
             var isEditMode = data.d;
 
-            var browseModeText = 'Swich to Browse Mode' //ise.StringResource.getString('cms.browsemode');
-            var designModeText = 'Swich to Design Mode' //ise.StringResource.getString('cms.designmode');
+            var browseModeText = 'Switch to Browse Mode' //ise.StringResource.getString('cms.browsemode');
+            var designModeText = 'Switch to Design Mode' //ise.StringResource.getString('cms.designmode');
 
             $.getScript("jscripts/cms_editor/jquery.cmseditor-plugin-template.js").done(function (script, textStatus) {
 

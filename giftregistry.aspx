@@ -7,37 +7,29 @@
     <title></title>
 </head>
 <body>
-    
     <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
-    <DIV class=row>
-    <DIV class="small-12 columns">
 
-        <div class="sections-place-holder">
-            <div class="page-sections-head"><asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal></div>
+        <div class="sections-place-holder row">
+         <div class="col-xs-12">
+            <div class="entity-header"><h1><asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal></h1></div>
             <div>
                 <ctrl:GiftRegistryList ID="GiftRegistryList1" runat="server" />
             </div>
-            <br />
         </div>
-        <div style="text-align:right; margin-top:15px;">
+        </div>
+        <div class="row">
+        <div class="col-sm-6 col-sm-offset-6 text-right">
             <!-- Create Registry Button -->
-            <a href="editgiftregistry.aspx">
-                <span class="site-button content" style="padding:7px;">
+            <a href="editgiftregistry.aspx" class="btn btn-primary content" >
                     <asp:Literal runat="server" ID="litCreateRegistry"></asp:Literal>
-                </span>
             </a>
             &nbsp;
             <!-- Find Registry Button -->
-            <a href="findgiftregistry.aspx">
-                <span class="site-button content" style="padding:7px;">
+            <a href="findgiftregistry.aspx" class="btn btn-default content" >
                     <asp:Literal runat="server" ID="litFindRegistry"></asp:Literal>
-                </span>
             </a>
         </div>
         
-    </DIV>
-    </DIV>
     </asp:Panel>
-    
 </body>
 </html>

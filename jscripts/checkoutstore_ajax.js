@@ -51,16 +51,19 @@ ise.Pages.CheckouStore = {
             var checker = function () {
                 var shippingMethodControls = thisObject.shippingMethodControls;
                 if (shippingMethodControls != null) {
-                    if (shippingMethodControls[0].isShippingOnDemand == "true") {
-                        if (thisObject.isShippingMethodsDoneGettingRates()) {
-                            $("body").data("globalLoader").hide();
-                            clearInterval(checkerID);
+                    if (shippingMethodControls.length > 0)
+                    {
+                        if (shippingMethodControls[0].isShippingOnDemand == "true") {
+                            if (thisObject.isShippingMethodsDoneGettingRates()) {
+                                $("body").data("globalLoader").hide();
+                                clearInterval(checkerID);
+                            }
                         }
-                    }
-                    else {
-                        if (thisObject.isShippingMethodsAlreadyLoaded()) {
-                            $("body").data("globalLoader").hide();
-                            clearInterval(checkerID);
+                        else {
+                            if (thisObject.isShippingMethodsAlreadyLoaded()) {
+                                $("body").data("globalLoader").hide();
+                                clearInterval(checkerID);
+                            }
                         }
                     }
                 }

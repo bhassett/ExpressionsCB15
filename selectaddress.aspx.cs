@@ -17,6 +17,7 @@ using InterpriseSuiteEcommerceCommon.DTO;
 using InterpriseSuiteEcommerceCommon.Extensions;
 using InterpriseSuiteEcommerceCommon.DataAccess;
 using InterpriseSuiteEcommerceCommon.Domain.Infrastructure;
+using InterpriseSuiteEcommerceCommon.InterpriseIntegration;
 
 namespace InterpriseSuiteEcommerce
 {
@@ -30,6 +31,7 @@ namespace InterpriseSuiteEcommerce
 
         bool addMode = false;
         bool checkOutMode = false;
+        bool noBack = false;
         public AddressTypes AddressType = AddressTypes.Unknown;
         public Addresses custAddresses;
         public Boolean setPrimary = false;
@@ -44,6 +46,11 @@ namespace InterpriseSuiteEcommerce
         private IStringResourceService _stringResourceService = null;
 
         #endregion
+
+        public bool IsCheckoutMode
+        {
+            get { return checkOutMode; }
+        }
 
         #region OnInit
 
@@ -103,6 +110,7 @@ namespace InterpriseSuiteEcommerce
             addMode = CommonLogic.QueryStringBool("add");
             checkOutMode = CommonLogic.QueryStringBool("checkout");
             setPrimary = CommonLogic.QueryStringBool("SetPrimary");
+            noBack = CommonLogic.QueryStringBool("noBack");
         }
 
         #endregion
@@ -112,7 +120,21 @@ namespace InterpriseSuiteEcommerce
         private void PerformPageAccessLogic()
         {
 
-            ReturnURL = CommonLogic.QueryStringCanBeDangerousContent("ReturnURL");
+            string returnURL = CommonLogic.QueryStringCanBeDangerousContent("ReturnURL");
+            if (!string.IsNullOrWhiteSpace(returnURL))
+            {
+                try
+                {
+                    ReturnURL = Encoding.Unicode.GetString(Convert.FromBase64String(returnURL));
+                }
+                catch 
+                {
+                    //not base64 so set the raw value
+                    ReturnURL = returnURL;
+                }
+                
+            }
+                
             if (ReturnURL.IndexOf("<script>", StringComparison.InvariantCultureIgnoreCase) != -1)
             {
                 throw new ArgumentException("SECURITY EXCEPTION");
@@ -186,11 +208,29 @@ namespace InterpriseSuiteEcommerce
         }
 
         #region InitializePageContent
+        private void DisplayOrderSummary()
+        {
+            DetailsLit.Text = _stringResourceService.GetString("itempopup.aspx.2");
+            EditCartLit.Text = _stringResourceService.GetString("checkout1.aspx.44");
+            var renderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.Shipping, "page.checkout.ordersummaryitems.xml.config", ThisCustomer.CouponCode);
+            InterpriseShoppingCart _cart  = new InterpriseShoppingCart(base.EntityHelpers, ThisCustomer.SkinID, ThisCustomer, CartTypeEnum.ShoppingCart, String.Empty, false, true);
+            _cart.BuildSalesOrderDetails(true);
+            CheckoutOrderSummaryItemsLiteral.Text = _cart.RenderHTMLLiteral(renderer);
+            OrderSummaryCardLiteral.Text = AppLogic.RenderOrderSummaryCard(renderer.OrderSummary);
 
+        }
         private void InitializePageContent()
         {
-            pnlCheckoutImage.Visible = checkOutMode;
-            CheckoutImage.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_2.gif");
+            if (checkOutMode)
+            {
+                pnlCheckoutImage.Visible = checkOutMode;
+                pnlOrderSummary.Visible = true;
+                pnlModalOrderSummary.Visible = true;
+                DisplayOrderSummary();
+            }
+
+           
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(2, "shoppingcart.aspx", string.Empty, string.Empty);
 
             pnlAddressList.Visible = (custAddresses.Count > 0 || addMode);
             pnlAddressListMain.Visible = (!addMode);
@@ -218,7 +258,7 @@ namespace InterpriseSuiteEcommerce
         #endregion
 
         #region LoadAddresses
-
+        
         private void LoadAddresses()
         {
             using (var con = DB.NewSqlConnection())
@@ -229,8 +269,12 @@ namespace InterpriseSuiteEcommerce
                     AddressList.DataSource = reader;
                     AddressList.DataBind();
                     reader.Close();
-                    btnReturn.Text = AppLogic.GetString("account.aspx.25", true);
-                    btnReturn.OnClientClick = "self.location='account.aspx?checkout=" + checkOutMode.ToString() + "';return false";
+                    btnReturn.Visible = !noBack;
+                    if(!noBack)
+                    {
+                        btnReturn.Text = AppLogic.GetString("account.aspx.25", true);
+                        btnReturn.OnClientClick = "self.location='account.aspx?checkout=" + checkOutMode.ToString() + "';return false";
+                    }
                     if (ThisCustomer.IsInEditingMode())
                     {
                         AppLogic.EnableButtonCaptionEditing(btnReturn, "account.aspx.25");
@@ -248,13 +292,12 @@ namespace InterpriseSuiteEcommerce
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                var MakePrimaryBtn = (ImageButton)e.Item.FindControl("btnMakePrimary");
-                var EditBtn = (ImageButton)e.Item.FindControl("btnEdit");
+                var btnMakePrimary = (Button)e.Item.FindControl("btnMakePrimary");
+                btnMakePrimary.Visible = (((DbDataRecord)e.Item.DataItem)["PrimaryAddress"].ToString() == "0");
+                btnMakePrimary.Text = _stringResourceService.GetString("selectaddress.aspx.37");
 
-                MakePrimaryBtn.Visible = (((DbDataRecord)e.Item.DataItem)["PrimaryAddress"].ToString() == "0");
-
-                MakePrimaryBtn.ImageUrl = ButtonImage;
-                EditBtn.ImageUrl = AppLogic.LocateImageURL("skins/Skin_" + SkinID.ToString() + "/images/edit.gif");
+                var btnEdit = (Button)e.Item.FindControl("btnEdit");
+                btnEdit.Text = _stringResourceService.GetString("selectaddress.aspx.36");
             }
 
         }
@@ -377,7 +420,24 @@ namespace InterpriseSuiteEcommerce
                     }
 
                     InterpriseHelper.AddCustomerShipTo(thisAddress);
+                    if (!string.IsNullOrWhiteSpace(ReturnURL))
+                    {
+                        string returnURL = string.Empty;
+                        if (ReturnURL.StartsWith("checkoutShipping.aspx"))
+                            returnURL = "checkoutShipping.aspx";
+                        else if (ReturnURL.StartsWith("shipping.aspx"))
+                            returnURL = "shipping.aspx";
 
+                        if (!string.IsNullOrWhiteSpace(returnURL))
+                        {
+                            AppLogic.SavePostalCode(thisAddress);
+                            if ((ReturnURL.Length > returnURL.Length) && (ReturnURL.Substring(returnURL.Length, 1) == "?"))
+                                Response.Redirect(ReturnURL + "&newAddressId=" + thisAddress.AddressID, true);
+                            else
+                                Response.Redirect(ReturnURL + "?newAddressId=" + thisAddress.AddressID, true);
+                        }
+                    }
+                       
                     break;
             }
 

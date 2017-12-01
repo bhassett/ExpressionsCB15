@@ -374,9 +374,9 @@ ise.Products.PriceDeltaControl.prototype = {
                 display = ise.StringResource.getString('showproduct.aspx.11') + ' ' + this.product.currentUnitMeasure.priceFormatted;
             }
             
-            if(this.product.getHasVat()) {
-                display += ' <span class="VATLabel">' + ise.StringResource.getString('showproduct.aspx.37') + '</span>';
-            }
+            //if(this.product.getHasVat()) {
+            //    display += ' <span class="VATLabel">' + ise.StringResource.getString('showproduct.aspx.37') + '</span>';
+            //}
             this.ctrl.innerHTML = display;
         }
     },

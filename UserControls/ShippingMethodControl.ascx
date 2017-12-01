@@ -10,6 +10,7 @@
     <asp:HiddenField ID="realTimeRateGUID" runat="server" />
     <asp:HiddenField ID="hdenFreightChargeType" runat="server" />
     <asp:HiddenField ID="hdenInStoreSelectedWarehouseCode" runat="server" />
+    <asp:HiddenField ID="itemSpecificType" runat="server" />
 </div>
 
 <asp:Button id="btnShowAllRates" runat="server" CssClass="site-button content float-left" OnClientClick="return false;" Visible="false"/>

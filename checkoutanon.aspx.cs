@@ -40,7 +40,8 @@ namespace InterpriseSuiteEcommerce
 
         private void InitializePageContent()
         {
-            CheckoutMap.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_2.gif");
+            CheckoutStepLiteral.Text = new XSLTExtensionBase(ThisCustomer, ThisCustomer.SkinID).DisplayCheckoutSteps(1, "shoppingcart.aspx?resetlinkback=1&checkout=true", string.Empty, string.Empty);
+            //CheckoutMap.ImageUrl = AppLogic.LocateImageURL("skins/skin_" + SkinID.ToString() + "/images/step_2.gif");
 
             btnSignInAndCheckout.Text = _stringResourceService.GetString("checkoutanon.aspx.12", true);
             RegisterAndCheckoutButton.Text = _stringResourceService.GetString("checkoutanon.aspx.13", true);
@@ -67,6 +68,7 @@ namespace InterpriseSuiteEcommerce
 
         protected override void OnInit(EventArgs e)
         {
+            
             BindControls();
             RegisterDomainServices();
             base.OnInit(e);
@@ -107,7 +109,7 @@ namespace InterpriseSuiteEcommerce
                 _navigationService.NavigateToShoppingCartRestLinkBack();
             }
 
-            CheckoutMap.HotSpots[0].AlternateText = _stringResourceService.GetString("checkoutanon.aspx.2", true);
+            //CheckoutMap.HotSpots[0].AlternateText = _stringResourceService.GetString("checkoutanon.aspx.2", true);
 
             Teaser.SetContext = this;
 
@@ -128,14 +130,17 @@ namespace InterpriseSuiteEcommerce
                 SecurityImage.Visible = true;
                 SecurityCode.Visible = true;
 
-                trSecurityCodeText.Visible = true;
-                trSecurityCodeImage.Visible = true;
+                panelSecurityCode.Visible = true;
 
                 Label4.Visible = true;
                 if (!IsPostBack)
                     SecurityImage.ImageUrl = "Captcha.ashx?id=1";
                 else
                     SecurityImage.ImageUrl = "Captcha.ashx?id=2";
+            }
+            else
+            {
+                panelSecurityCode.Visible = false;
             }
         }
 
@@ -145,8 +150,8 @@ namespace InterpriseSuiteEcommerce
 
             if (!Page.IsValid) return;
 
-            string EMailField = EMail.Text.ToLower();
-            string PasswordField = Password.Text;
+            string EMailField = txtCheckoutAnonEmail.Text.ToLower();
+            string PasswordField = txtCheckoutAnonPassword.Text;
 
             if (AppLogic.AppConfigBool("SecurityCodeRequiredOnStoreLogin"))
             {
@@ -176,7 +181,7 @@ namespace InterpriseSuiteEcommerce
                 }
             }
 
-            var status = _authenticationService.Login(EMail.Text, PasswordField, true);
+            var status = _authenticationService.Login(txtCheckoutAnonEmail.Text, PasswordField, true);
             if (!status.IsValid)
             {
                 if (status.IsAccountExpired)
@@ -207,7 +212,7 @@ namespace InterpriseSuiteEcommerce
             else
             {
                 FormPanel.Visible = false;
-                HeaderPanel.Visible = false;
+                CheckoutStepLiteral.Visible = false; //HeaderPanel.Visible = false;
                 ExecutePanel.Visible = true;
                 SignInExecuteLabel.Text = _stringResourceService.GetString("signin.aspx.2", true);
                 _navigationService.NavigateToShoppingCart() ;

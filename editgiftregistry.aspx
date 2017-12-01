@@ -15,36 +15,33 @@
     <form id="form1" runat="server">
     <script type="text/javascript" src="jscripts/imagezoom.js"></script>
     <asp:Panel ID="pnlMain" runat="server" CssClass="pnlmain">
-    <DIV class=row>
-      <DIV class="small-12 columns">
 
         <!-- Registry Form -->
-        <div class="sections-place-holder">
-            <div class="page-sections-head">
-                <asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal>
+         <div class="sections-place-holder row">
+         <div class="col-md-6 col-md-offset-3">
+            <div class="entity-header"><h1>
+                <asp:Literal runat="server" ID="litRegistryHeader"></asp:Literal></h1></div>
                 <a href="javascript:void(0);" class="gift-registry-expander" style="text-align:right; float:right;">
                     <span style="font-size:9pt !important; margin-right:5px;"><%=AppLogic.GetString("editgiftregistry.aspx.51", true) %></span>
                 </a>
             </div>
-            
+            <div class="col-md-6 col-md-offset-3">
             <div class="formcollapse1">
                 <asp:Panel CssClass="error-message-wrapper" runat="server" ID="pnlErrorMessage" Visible="false"></asp:Panel>
                 <ctrl:GiftRegistryForm ID="ctrlGiftRegistryForm" runat="server" />
-                <div class="button-place-holder">
-                    <asp:Button runat="server" ID="btnShare" Text="Share" CssClass="site-button content" Visible="false" />
-                    <asp:Button runat="server" ID="btnSave" Text="Save" CssClass="site-button content" />&nbsp;&nbsp;&nbsp;
-                    <div class="clear-both height-17"></div>
+                <div class="btn-sep btn-block">
+                    <asp:Button runat="server" ID="btnShare" Text="Share" CssClass="btn btn-primary content" Visible="false" />
+                    </div>
+                    <div class="btn-sep btn-block">
+                    <asp:Button runat="server" ID="btnSave" Text="Save" CssClass="btn btn-success content" />
                 </div>
             </div>
         </div>
-    
-    </div>
-    </DIV>
+        </div>
+
     </asp:Panel>
 
     <asp:Panel ID="pnlSubMain" runat="server" CssClass="pnlmain">
-    <DIV class=row>
-    <DIV class="small-12 columns">
         
         <!-- Registry Items -->
         <div class="gift-registry-form" runat="server" id="pnlRegItems" visible="false">
@@ -79,8 +76,10 @@
         </div>
 
         <!-- Back to Registries Button -->
-        <div class="button-layout">
-            <asp:Button runat="server" ID="btnShowAllRegistry" Text="Back To Gift Registry" CssClass="site-button content" />    
+        <div class="col-md-6 col-md-offset-3">
+        <div class="btn-sep btn-block">
+            <asp:Button runat="server" ID="btnShowAllRegistry" Text="Back To Gift Registry" CssClass="btn btn-default content" />
+            </div>
         </div>
         <br />
         <br />
@@ -143,9 +142,7 @@
     
         </script>
 
-        </div>
-        </div>
-        </asp:Panel>
+    </asp:Panel>
     </form>
 </body>
 </html>

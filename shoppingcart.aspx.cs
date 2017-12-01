@@ -45,6 +45,7 @@ namespace InterpriseSuiteEcommerce
         IStringResourceService _stringResourceService = null;
         IAppConfigService _appConfigService = null;
         IShoppingCartService _shoppingCartService = null;
+        IShippingService _shippingService = null;
         INavigationService _navigationService = null;
         ILocalizationService _localizationService = null;
         IProductService _productService = null;
@@ -75,7 +76,10 @@ namespace InterpriseSuiteEcommerce
             ClearErrors();
 
             ProcessDelete();
+            ProcessMoveToWishList();
 
+            InitializePageContent();
+            _cart = _shoppingCartService.New(CartTypeEnum.ShoppingCart, true);
             InitializePageContent();
 
             SectionTitle = AppLogic.GetString("AppConfig.CartPrompt", true);
@@ -224,9 +228,9 @@ namespace InterpriseSuiteEcommerce
             OrderOptionsList.ItemDataBound += OrderOptionsList_ItemDataBound;
 
             btnContinueShoppingTop.Click += (ex, sender) => ContinueShopping();
-            btnContinueShoppingBottom.Click += (ex, sender) => ContinueShopping();
+            //btnContinueShoppingBottom.Click += (ex, sender) => ContinueShopping();
             btnCheckOutNowTop.Click += (ex, sender) => CheckoutNow();
-            btnCheckOutNowBottom.Click += (ex, sender) => CheckoutNow();
+            //btnCheckOutNowBottom.Click += (ex, sender) => CheckoutNow();
 
             btnUpdateCart1.Click += (ex, sender) => ProcessTheCart();
             btnUpdateCart2.Click += (ex, sender) => ProcessTheCart();
@@ -278,6 +282,7 @@ namespace InterpriseSuiteEcommerce
             _stringResourceService = ServiceFactory.GetInstance<IStringResourceService>();
             _appConfigService = ServiceFactory.GetInstance<IAppConfigService>();
             _shoppingCartService = ServiceFactory.GetInstance<IShoppingCartService>();
+            _shippingService = ServiceFactory.GetInstance<IShippingService>();
             _navigationService = ServiceFactory.GetInstance<INavigationService>();
             _localizationService = ServiceFactory.GetInstance<ILocalizationService>();
             _productService = ServiceFactory.GetInstance<IProductService>();
@@ -293,6 +298,17 @@ namespace InterpriseSuiteEcommerce
             }
         }
 
+        private void ProcessMoveToWishList()
+        {
+            string[] formkeys = Request.Form.AllKeys;
+            if (formkeys.Any(k => k.StartsWith("bt_wishlist_")))
+            {
+                ProcessWishlist();
+                RenderOrderOptions();
+            }
+        }
+
+        
         private void ProcessTheCart()
         {
             ProcessCart(false);
@@ -301,11 +317,11 @@ namespace InterpriseSuiteEcommerce
 
         private void RedirectToSignInPage()
         {
-            btnCheckOutNowBottom.Enabled = false;
+            //btnCheckOutNowBottom.Enabled = false;
             btnCheckOutNowTop.Enabled = false;
-            btnContinueShoppingBottom.Enabled = false;
+            //btnContinueShoppingBottom.Enabled = false;
             btnContinueShoppingTop.Enabled = false;
-            btnUpdateCart1.Enabled = false;
+            //btnUpdateCart1.Enabled = false;
             btnUpdateCart2.Enabled = false;
             btnUpdateCart3.Enabled = false;
             btnUpdateCart4.Enabled = false;
@@ -336,34 +352,34 @@ namespace InterpriseSuiteEcommerce
 
             string updateCartKey = "shoppingcart.cs.33";
             string updateCart = AppLogic.GetString(updateCartKey, true);
-            btnUpdateCart1.Text = updateCart;
+            //btnUpdateCart1.Text = updateCart;
             btnUpdateCart2.Text = updateCart;
             btnUpdateCart5.Text = updateCart;
 
             string continueShopping = AppLogic.GetString("shoppingcart.cs.12", true);
             btnContinueShoppingTop.Text = continueShopping;
-            btnContinueShoppingBottom.Text = continueShopping;
+            //btnContinueShoppingBottom.Text = continueShopping;
 
             string checkoutnow = AppLogic.GetString("shoppingcart.cs.34", true);
             btnCheckOutNowTop.Text = checkoutnow;
-            btnCheckOutNowBottom.Text = checkoutnow;
+            //btnCheckOutNowBottom.Text = checkoutnow;
 
             if (ThisCustomer.IsInEditingMode())
             {
-                AppLogic.EnableButtonCaptionEditing(btnUpdateCart1, updateCartKey);
+                //AppLogic.EnableButtonCaptionEditing(btnUpdateCart1, updateCartKey);
                 AppLogic.EnableButtonCaptionEditing(btnUpdateCart2, updateCartKey);
                 AppLogic.EnableButtonCaptionEditing(btnUpdateCart3, updateCartKey);
                 AppLogic.EnableButtonCaptionEditing(btnUpdateCart4, updateCartKey);
                 AppLogic.EnableButtonCaptionEditing(btnUpdateCart5, updateCartKey);
 
                 AppLogic.EnableButtonCaptionEditing(btnContinueShoppingTop, "shoppingcart.cs.12");
-                AppLogic.EnableButtonCaptionEditing(btnContinueShoppingBottom, "shoppingcart.cs.12");
+                //AppLogic.EnableButtonCaptionEditing(btnContinueShoppingBottom, "shoppingcart.cs.12");
                 AppLogic.EnableButtonCaptionEditing(btnCheckOutNowTop, "shoppingcart.cs.34");
-                AppLogic.EnableButtonCaptionEditing(btnCheckOutNowBottom, "shoppingcart.cs.34");
+                //AppLogic.EnableButtonCaptionEditing(btnCheckOutNowBottom, "shoppingcart.cs.34");
             }
             else
             {
-                btnContinueShoppingBottom.OnClientClick = "self.location='" + AppLogic.GetCartContinueShoppingURL(SkinID, ThisCustomer.LocaleSetting) + "'";
+                //btnContinueShoppingBottom.OnClientClick = "self.location='" + AppLogic.GetCartContinueShoppingURL(SkinID, ThisCustomer.LocaleSetting) + "'";
             }
 
             OrderNotes.Attributes.Add("onkeyup", "return imposeMaxLength(this, 255);");
@@ -380,14 +396,14 @@ namespace InterpriseSuiteEcommerce
                 }
                 else
                 {
-                    ErrorMsgLabel.Text = couponErrorMessage;
+                    WriteError(couponErrorMessage);
                     _cart.ClearCoupon();
                 }
 
                 //check customer IsCreditHold
                 if (ThisCustomer.IsCreditOnHold && _cart != null)
                 {
-                    ErrorMsgLabel.Text = AppLogic.GetString("shoppingcart.aspx.18", true);
+                    WriteError(AppLogic.GetString("shoppingcart.aspx.18", true));
                     _cart.ClearCoupon();
                 }
             }
@@ -409,9 +425,9 @@ namespace InterpriseSuiteEcommerce
 
             if (_cart.IsEmpty())
             {
-                btnUpdateCart1.Visible = false;
+                //btnUpdateCart1.Visible = false;
                 AlternativeCheckoutsTop.Visible = false;
-                AlternativeCheckoutsBottom.Visible = false;
+                //AlternativeCheckoutsBottom.Visible = false;
             }
 
             RenderValidationScript();
@@ -424,11 +440,7 @@ namespace InterpriseSuiteEcommerce
                 XmlPackage_ShoppingCartPageHeader.Text = AppLogic.RunXmlPackage(XmlPackageName, base.GetParser, ThisCustomer, SkinID, string.Empty, null, true, true);
             }
 
-            string XRI = AppLogic.LocateImageURL(SkinImagePath + "redarrow.gif");
-            redarrow1.ImageUrl = XRI;
-            redarrow2.ImageUrl = XRI;
-            redarrow3.ImageUrl = XRI;
-            redarrow4.ImageUrl = XRI;
+          
 
             ShippingInformation.Visible = (!AppLogic.AppConfigBool("SkipShippingOnCheckout"));
             AddresBookLlink.Visible = (ThisCustomer.IsRegistered);
@@ -438,11 +450,10 @@ namespace InterpriseSuiteEcommerce
 
             if (!IsPostBack)
             {
-                pnlErrorMsg.Visible = true;
                 string errorMsg = "ErrorMsg".ToQueryString().ToHtmlEncode();
                 if (ErrorMsgLabel.Text != errorMsg)
                 {
-                    ErrorMsgLabel.Text += errorMsg;
+                    WriteError(errorMsg);
                 }
             }
 
@@ -514,27 +525,27 @@ namespace InterpriseSuiteEcommerce
                 MeetsMinimumOrderQuantityError.Text = String.Format(AppLogic.GetString("shoppingcart.aspx.16", true), MinQuantity.ToString(), MinQuantity.ToString());
             }
 
-            CartItems.Text = _cart.RenderHTMLLiteral(new DefaultShoppingCartPageLiteralRenderer(RenderType.ShoppingCart, CouponCode.Text));
+            var shoppingCartRenderer = new DefaultShoppingCartPageLiteralRenderer(RenderType.ShoppingCart, CouponCode.Text);
+            CartItems.Text = _cart.RenderHTMLLiteral(shoppingCartRenderer);
+
+            InitializeOrderSummary(shoppingCartRenderer.OrderSummary);
 
             if (!_cart.IsEmpty())
             {
-
-                pnlErrorMsg.Visible = true;
-
                 if (AppLogic.AppConfigBool("RequireOver13Checked") && ThisCustomer.IsRegistered && !ThisCustomer.IsOver13)
                 {
                     btnCheckOutNowTop.Enabled = false;
-                    btnCheckOutNowBottom.Enabled = false;
-                    ErrorMsgLabel.Text = AppLogic.GetString("over13oncheckout", true);
+                    //btnCheckOutNowBottom.Enabled = false;
+                    WriteError(AppLogic.GetString("over13oncheckout", true));
                     return;
                 }
 
-                btnCheckOutNowBottom.Enabled = btnCheckOutNowTop.Enabled;
+                //btnCheckOutNowBottom.Enabled = btnCheckOutNowTop.Enabled;
 
                 DisplayUpSellSection(_cart);
                 DisplayCouponSection(_cart);
 
-                btnCheckOutNowBottom.Visible = true;
+                //btnCheckOutNowBottom.Visible = true;
 
                 if (!_cart.CartItems.All(item => item.IsOverSized))
                 {
@@ -552,11 +563,11 @@ namespace InterpriseSuiteEcommerce
 
                 //if no alternative methods are visible, hide the whole row
 
-                if (!AppLogic.IsSupportedAlternateCheckout && AlternativeCheckoutsTop.Visible && AlternativeCheckoutsBottom.Visible)
+                if (!AppLogic.IsSupportedAlternateCheckout && AlternativeCheckoutsTop.Visible)// && AlternativeCheckoutsBottom.Visible)
                 {
-                    ErrorMsgLabel.Text = PayPalExpress.ErrorMsg;
+                    WriteError(PayPalExpress.ErrorMsg);
                     AlternativeCheckoutsTop.Visible = false;
-                    AlternativeCheckoutsBottom.Visible = false;
+                    //AlternativeCheckoutsBottom.Visible = false;
                 }
 
             }
@@ -566,11 +577,11 @@ namespace InterpriseSuiteEcommerce
                 pnlUpsellProducts.Visible = false;
                 pnlCoupon.Visible = false;
                 pnlOrderNotes.Visible = false;
-                btnCheckOutNowBottom.Visible = false;
+                //btnCheckOutNowBottom.Visible = false;
                 pnlShippingCalculator.Visible = false;
             }
 
-            btnContinueShoppingBottom.OnClientClick = "self.location='" + AppLogic.GetCartContinueShoppingURL(SkinID, ThisCustomer.LocaleSetting) + "'";
+            //btnContinueShoppingBottom.OnClientClick = "self.location='" + AppLogic.GetCartContinueShoppingURL(SkinID, ThisCustomer.LocaleSetting) + "'";
             CartPageFooterTopic.SetContext = this;
 
             string XmlPackageName2 = AppLogic.AppConfig("XmlPackage.ShoppingCartPageFooter");
@@ -580,6 +591,10 @@ namespace InterpriseSuiteEcommerce
             }
         }
 
+        private void InitializeOrderSummary(InterpriseSuiteEcommerceCommon.Domain.Model.CustomModel.OrderSummaryModel orderSummary)
+        {
+            OrderSummaryCardLit.Text = AppLogic.RenderOrderSummaryCard(orderSummary);
+        }
         private void BuildSalesOrderCart()
         {
             if (_cart != null && !_cart.IsEmpty())
@@ -590,7 +605,7 @@ namespace InterpriseSuiteEcommerce
                 }
                 catch (InvalidOperationException ex)
                 {
-                    ErrorMsgLabel.Text = ex.Message;
+                    WriteError(ex.Message);
                     return;
                 }
                 catch (Exception ex) { throw ex; }
@@ -610,33 +625,33 @@ namespace InterpriseSuiteEcommerce
                     if (AppLogic.UseSSL() && AppLogic.OnLiveServer() && CommonLogic.ServerVariables("SERVER_PORT_SECURE") == "1")
                     {
                         btnPayPalExpressCheckoutTop.ImageUrl = "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
-                        btnPayPalExpressCheckoutBottom.ImageUrl = "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
+                        //btnPayPalExpressCheckoutBottom.ImageUrl = "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
                     }
                     else
                     {
                         btnPayPalExpressCheckoutTop.ImageUrl = "http://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
-                        btnPayPalExpressCheckoutBottom.ImageUrl = "http://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
+                        //btnPayPalExpressCheckoutBottom.ImageUrl = "http://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif";
                     }
                     AlternativeCheckoutsTop.Visible = true;
-                    AlternativeCheckoutsBottom.Visible = true;
+                    //AlternativeCheckoutsBottom.Visible = true;
                     PayPalExpressSpanTop.Visible = true;
-                    PayPalExpressSpanBottom.Visible = true;
+                    //PayPalExpressSpanBottom.Visible = true;
                 }
                 else
                 {
                     AlternativeCheckoutsTop.Visible = false;
-                    AlternativeCheckoutsBottom.Visible = false;
+                    //AlternativeCheckoutsBottom.Visible = false;
                     PayPalExpressSpanTop.Visible = false;
-                    PayPalExpressSpanBottom.Visible = false;
+                    //PayPalExpressSpanBottom.Visible = false;
                 }
             }
 
             if (_cart.HasMultipleShippingMethod())
             {
                 Label3.Text = AppLogic.GetString("shoppingcart.aspx.50");
-                Label1.Text = AppLogic.GetString("shoppingcart.aspx.50");
+                //Label1.Text = AppLogic.GetString("shoppingcart.aspx.50");
                 PayPalExpressSpanTop.Visible = false;
-                PayPalExpressSpanBottom.Visible = false;
+                //PayPalExpressSpanBottom.Visible = false;
             }
 
         }
@@ -820,6 +835,16 @@ namespace InterpriseSuiteEcommerce
                                                                                 .Select(item => item.Id.ToString()).ToArray());
         }
 
+        private void UpdateSelectedShippingMethod()
+        {
+            string selectedShippingMethod = CommonLogic.CookieCanBeDangerousContent("selectedSM", false);
+
+            if (!string.IsNullOrEmpty(selectedShippingMethod))
+            { 
+                _cart.SetCartShippingMethod(selectedShippingMethod);
+            }
+        }
+
         private void ProcessCart(bool DoingFullCheckout)
         {
             this.PageNoCache();
@@ -849,6 +874,8 @@ namespace InterpriseSuiteEcommerce
                     _cart.ClearCoupon();
                 }
             }
+
+            UpdateSelectedShippingMethod();
 
             // check if credit on hold
             if (ThisCustomer.IsCreditOnHold) { _navigationService.NavigateToShoppingCart(); }
@@ -915,11 +942,11 @@ namespace InterpriseSuiteEcommerce
                         decimal? regItemQty = GiftRegistryDA.GetGiftRegistryItemQuantityByCartRecID(recID);
                         if ((regItemQty.HasValue && regItemQty > 0) && iquan > regItemQty)
                         {
-                            ErrorMsgLabel.Text += AppLogic.GetString("editgiftregistry.error.14", true);
+                            WriteError(AppLogic.GetString("editgiftregistry.error.14", true));
                         }
                         else if (regItemQty.HasValue && regItemQty == 0) // blocks the user from
                         {
-                            ErrorMsgLabel.Text += AppLogic.GetString("editgiftregistry.error.15", true);
+                            WriteError(AppLogic.GetString("editgiftregistry.error.15", true));
                         }
                         else
                         {
@@ -941,7 +968,7 @@ namespace InterpriseSuiteEcommerce
                     }
                     else
                     {
-                        ErrorMsgLabel.Text += "The item quantity must have a valid input.";
+                        WriteError("The item quantity must have a valid input.");
                     }
                 }
 
@@ -985,7 +1012,8 @@ namespace InterpriseSuiteEcommerce
                         string customerCode = CommonLogic.IIF(ThisCustomer.IsRegistered, ThisCustomer.CustomerCode, ThisCustomer.CustomerID);
                         InterpriseHelper.ClearCustomerCoupon(customerCode, ThisCustomer.IsRegistered);
 
-                        ErrorMsgLabel.Text = errorMessage;
+                         
+                        WriteError(errorMessage);
                         CouponCode.Text = string.Empty;
 
                         //rebiuld the shopping for the renderer computation
@@ -1128,7 +1156,8 @@ namespace InterpriseSuiteEcommerce
             if (_cart.InventoryTrimmed)
             {
                 // inventory got adjusted, send them back to the cart page to confirm the new values!
-                ErrorMsgLabel.Text += AppLogic.GetString("shoppingcart.cs.43", true).ToUrlDecode();
+
+                WriteError(AppLogic.GetString("shoppingcart.cs.43", true).ToUrlDecode());
                 validated = false;
             }
 
@@ -1191,7 +1220,10 @@ namespace InterpriseSuiteEcommerce
                     {
                         Response.Redirect("selectaddress.aspx?add=true&setPrimary=true&checkout=False&addressType=Shipping");
                     }
-
+                    if (AppLogic.EnableAdvancedFreightRateCalculation() && _cart.HasShippableComponents() && !(_cart.HasHazardousItem() && AppLogic.ApplyHazardousShipping()))
+                    {
+                        Response.Redirect("shipping.aspx");
+                    }
                     if (ThisCustomer.IsNotRegistered || ThisCustomer.PrimaryBillingAddressID.IsNullOrEmptyTrimmed() || ThisCustomer.PrimaryShippingAddressID.IsNullOrEmptyTrimmed() || !ThisCustomer.HasAtLeastOneAddress())
                     {
                         Response.Redirect("checkoutanon.aspx?checkout=true");
@@ -1221,6 +1253,75 @@ namespace InterpriseSuiteEcommerce
                 InitializePageContent();
             }
         }
+        private void ProcessWishlist()
+        {
+            this.PageNoCache();
+
+            ThisCustomer.RequireCustomerRecord();
+            CartTypeEnum cte = CartTypeEnum.ShoppingCart;
+
+            if ("CartType".ToQueryString().Length != 0)
+            {
+                cte = (CartTypeEnum)CommonLogic.QueryStringUSInt("CartType");
+            }
+
+            _cart = _shoppingCartService.New(cte, true);
+
+            if (!Page.IsPostBack)
+            {
+                string couponCode = String.Empty;
+                if (_cart.HasCoupon(ref couponCode))
+                {
+                    CouponCode.Text = couponCode;
+                }
+            }
+            else
+            {
+                if (CouponCode.Text.IsNullOrEmptyTrimmed())
+                {
+                    _cart.ClearCoupon();
+                }
+            }
+
+            // check if credit on hold
+            if (ThisCustomer.IsCreditOnHold) { _navigationService.NavigateToShoppingCart(); }
+
+            if (_cart.IsEmpty())
+            {
+                // can't have this at this point:
+                switch (cte)
+                {
+                    case CartTypeEnum.ShoppingCart:
+                        _navigationService.NavigateToShoppingCart();
+                        break;
+                    case CartTypeEnum.WishCart:
+                        _navigationService.NavigateToWishList();
+                        break;
+                    case CartTypeEnum.GiftRegistryCart:
+                        _navigationService.NavigateToGiftRegistry();
+                        break;
+                    default:
+                        _navigationService.NavigateToShoppingCart();
+                        break;
+                }
+            }
+
+            // update cart quantities:
+            List<KeyValuePair<int, string>> cartIdsAndunitMeasureCodes = new List<KeyValuePair<int, string>>();
+            for (int i = 0; i <= Request.Form.Count - 1; i++)
+            {
+                string fld = Request.Form.Keys[i];
+                string fldval = Request.Form[Request.Form.Keys[i]];
+                int recID;
+                if (fld.StartsWith("bt_wishlist_"))
+                {
+                    recID = Localization.ParseUSInt(fld.Substring("bt_wishlist_".Length));
+                    _cart.SetItemCartType(recID, CartTypeEnum.WishCart);
+                }
+
+            }
+            
+        }
 
         private void CheckUpSell()
         {
@@ -1239,6 +1340,12 @@ namespace InterpriseSuiteEcommerce
                     _cart.AddItem(ThisCustomer, shippingAddressID, itemCode, ProductID, 1, umInfo.Code, CartTypeEnum.ShoppingCart);
                 }
             }
+        }
+
+        private void WriteError(string error)
+        {
+            ErrorMsgLabel.Text += error;
+            pnlErrorMsg.Visible = !string.IsNullOrEmpty(ErrorMsgLabel.Text.Trim());
         }
 
         private void ClearErrors()

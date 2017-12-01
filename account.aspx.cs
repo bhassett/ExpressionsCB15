@@ -300,7 +300,7 @@ namespace InterpriseSuiteEcommerce
             pnlShowWishButton.Visible = AppLogic.AppConfigBool("ShowWishListButton");
             btnContinueToCheckOut.Visible = Checkout;
 
-            lnkChangeBilling.ImageUrl = AppLogic.LocateImageURL(SkinImagePath + "change.gif");
+           // lnkChangeBilling.ImageUrl = AppLogic.LocateImageURL(SkinImagePath + "change.gif");
             lnkChangeBilling.NavigateUrl = "javascript:self.location='selectaddress.aspx?Checkout=" + Checkout.ToString() + "&AddressType=billing&returnURL=" + Server.UrlEncode("account.aspx?checkout=" + Checkout.ToString()) + "'";
 
             litBillingAddress.Text = BillingAddress.DisplayHTML(Checkout);
@@ -311,8 +311,10 @@ namespace InterpriseSuiteEcommerce
             }
             else
             {
-                lnkChangeShipping.ImageUrl = AppLogic.LocateImageURL(SkinImagePath + "change.gif");
+
+                lnkChangeShipping.Text = _stringResourceService.GetString("account.aspx.91");
                 lnkChangeShipping.NavigateUrl = "javascript:self.location='selectaddress.aspx?Checkout=" + Checkout.ToString() + "&AddressType=shipping&returnURL=" + Server.UrlEncode("account.aspx?checkout=" + Checkout.ToString()) + "'";
+
                 lnkAddShippingAddress.NavigateUrl = "selectaddress.aspx?add=true&addressType=Shipping&Checkout=" + Checkout.ToString() + "&returnURL=" + Server.UrlEncode("account.aspx?checkout=" + Checkout.ToString());
                 litShippingAddress.Text = ShippingAddress.DisplayHTML(Checkout);
             }

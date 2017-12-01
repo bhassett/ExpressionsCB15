@@ -87,7 +87,7 @@
                 messages.CustomerNotRegistered = ise.StringResource.getString("shoppingcart.cs.40");
 
                 captions.UnitMeasure = ise.StringResource.getString("showproduct.aspx.32");
-                captions.Price = ise.StringResource.getString("showproduct.aspx.33");
+                captions.Price = "";
                 captions.PromoPrice = ise.StringResource.getString("showproduct.aspx.34");
                 captions.Quantity = ise.StringResource.getString("showproduct.aspx.31");
                 captions.StockHint = ise.StringResource.getString("showproduct.aspx.47");
@@ -156,7 +156,6 @@
             keys.push("shoppingcart.cs.40"); //customer not registered
 
             keys.push("showproduct.aspx.32"); //unit measure
-            keys.push("showproduct.aspx.33"); //price
             keys.push("showproduct.aspx.34"); //promo price
             keys.push("showproduct.aspx.31"); //quantity
             keys.push("showproduct.aspx.47"); //stock hint
